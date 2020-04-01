@@ -41,7 +41,8 @@
     "sinon": "^7.3.2"
   },
   "dependencies": {
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "react-final-form": "^6.4.0"
   },
   "peerDependencies": {
     "@folio/stripes": "^3.0.0",

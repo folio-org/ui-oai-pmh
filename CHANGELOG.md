@@ -3,3 +3,4 @@
 ## 1.0.0 (IN PROGRESS)
 
 * Create new app with stripes-cli, create OAI-PMH blank UI module. Refs MODOAIPMH-94.
+* Implement UI for OAI-PMH settings. Refs MODOAIPMH-97.
