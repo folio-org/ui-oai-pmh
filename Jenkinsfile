@@ -1,5 +1,5 @@
 buildNPM {
-  publishModDescriptor = false
+  publishModDescriptor = true
   npmDeploy = true
   runLint = true
   runSonarqube = true
