@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Field } from 'react-final-form';
+import {
+  omit,
+  pick,
+} from 'lodash';
 
 import {
   Col,
@@ -10,18 +14,12 @@ import {
 } from '@folio/stripes/components';
 
 export default class RowComponent extends Component {
-  constructor(props) {
-    super(props);
-
-    this.rowComponent = React.createRef();
-  }
-
   static propTypes = {
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     tooltip: PropTypes.string,
     // Additional options for select box
-    dataOptions: PropTypes.array,
+    dataOptions: PropTypes.arrayOf(PropTypes.object),
     component: PropTypes.node.isRequired,
   };
 
@@ -29,13 +27,20 @@ export default class RowComponent extends Component {
     dataOptions: [],
   };
 
+  constructor(props) {
+    super(props);
+
+    this.rowComponent = React.createRef();
+  }
+
   render() {
     const {
       id,
       label,
       tooltip,
-      component,
     } = this.props;
+    const dataTest = omit(this.props, ['id', 'label', 'tooltip', 'type', 'component', 'dataOptions']);
+    const fieldProps = pick(this.props, ['id', 'type', 'component', 'dataOptions']);
 
     return (
       <Row>
@@ -45,13 +50,12 @@ export default class RowComponent extends Component {
             name={`${id}-tooltip-content`}
             aria-labelledby={`${id}-tooltip-text`}
             ref={this.rowComponent}
+            {...dataTest}
           >
             <Field
-              {...this.props}
-              id={id}
+              {...fieldProps}
               name={id}
               label={<FormattedMessage id={label} />}
-              component={component}
             />
           </div>
           {tooltip &&

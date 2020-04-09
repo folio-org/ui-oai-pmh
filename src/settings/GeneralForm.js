@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
-import {
-  Form,
-} from 'react-final-form';
 
 import {
   Pane,
@@ -12,10 +8,16 @@ import {
   Checkbox,
   Select,
   TextArea,
-  Button,
 } from '@folio/stripes/components';
+import stripesFinalForm from '@folio/stripes/final-form';
 
-import RowComponent from './RowComponent';
+import {
+  OaiNotification,
+  RowComponent,
+  SaveButton,
+} from './components';
+
+import css from './Form.css';
 
 const TIME_GRANULARITY_SHORT_FORMAT = 'YYYY-MM-DD';
 const TIME_GRANULARITY_FULL_FORMAT = 'YYYY-MM-DDThh:mm:ssZ';
@@ -33,89 +35,112 @@ const TIME_GRANULARITY_SELECT_VALUES = [
 class GeneralForm extends Component {
   static propTypes = {
     label: PropTypes.node.isRequired,
+    pristine: PropTypes.bool,
+    submitting: PropTypes.bool,
+    handleSubmit: PropTypes.func.isRequired,
+    form: PropTypes.shape({
+      getState: PropTypes.func.isRequired,
+    }),
+    stripes: PropTypes.shape({
+      hasPerm: PropTypes.func.isRequired,
+    }).isRequired,
   };
 
   renderFooter = () => {
+    const {
+      pristine,
+      submitting,
+      stripes,
+    } = this.props;
+    const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.edit');
+
     return (
       <PaneFooter
         renderEnd={(
-          <Button
+          <SaveButton
             data-test-general-form-button-save
-            type="submit"
-            buttonStyle="primary paneHeaderNewButton"
-            marginBottom0
-          >
-            <FormattedMessage id="stripes-core.button.save" />
-          </Button>
+            disabled={disabled}
+            showTooltip={!stripes.hasPerm('ui-oai-pmh.edit')}
+          />
         )}
       />
     );
   };
 
+  isOaiServiceEnabled = () => {
+    const {
+      values: {
+        enableOaiService,
+      },
+    } = this.props.form.getState();
+
+    return enableOaiService;
+  }
+
   render() {
     const {
       label,
+      handleSubmit,
     } = this.props;
 
     return (
-      <Pane
-        defaultWidth="50%"
-        fluidContentWidth
-        paneTitle={label}
-        footer={this.renderFooter()}
+      <form
+        id="generalForm"
+        className={css.form}
+        onSubmit={handleSubmit}
       >
-        <Form
-          onSubmit={() => {
-          }}
-          render={() => (
-            <form
-              id="generalForm"
-              onSubmit={() => {
-              }}
-            >
-              <RowComponent
-                data-test-enable-oai-service
-                id="enableOaiService"
-                label="ui-oai-pmh.settings.general.label.enableOaiService"
-                tooltip="ui-oai-pmh.settings.general.tooltip.enableOaiService"
-                type="checkbox"
-                component={Checkbox}
-              />
-              <RowComponent
-                data-test-repository-name
-                id="repositoryName"
-                label="ui-oai-pmh.settings.general.label.repositoryName"
-                tooltip="ui-oai-pmh.settings.general.tooltip.repositoryName"
-                component={TextField}
-              />
-              <RowComponent
-                data-test-base-url
-                id="baseUrl"
-                label="ui-oai-pmh.settings.general.label.baseUrl"
-                tooltip="ui-oai-pmh.settings.general.tooltip.baseUrl"
-                component={TextField}
-              />
-              <RowComponent
-                data-test-time-granularity
-                id="timeGranularity"
-                label="ui-oai-pmh.settings.general.label.timeGranularity"
-                tooltip="ui-oai-pmh.settings.general.tooltip.timeGranularity"
-                dataOptions={TIME_GRANULARITY_SELECT_VALUES}
-                component={Select}
-              />
-              <RowComponent
-                data-test-administrator-email
-                id="administratorEmail"
-                label="ui-oai-pmh.settings.general.label.administratorEmail"
-                tooltip="ui-oai-pmh.settings.general.tooltip.administratorEmail"
-                component={TextArea}
-              />
-            </form>
-          )}
-        />
-      </Pane>
+        <Pane
+          defaultWidth="50%"
+          fluidContentWidth
+          paneTitle={label}
+          footer={this.renderFooter()}
+        >
+          <OaiNotification
+            isOaiServiceEnabled={this.isOaiServiceEnabled()}
+          />
+          <RowComponent
+            data-test-enable-oai-service
+            id="enableOaiService"
+            label="ui-oai-pmh.settings.general.label.enableOaiService"
+            tooltip="ui-oai-pmh.settings.general.tooltip.enableOaiService"
+            type="checkbox"
+            component={Checkbox}
+          />
+          <RowComponent
+            data-test-repository-name
+            id="repositoryName"
+            label="ui-oai-pmh.settings.general.label.repositoryName"
+            tooltip="ui-oai-pmh.settings.general.tooltip.repositoryName"
+            component={TextField}
+          />
+          <RowComponent
+            data-test-base-url
+            id="baseUrl"
+            label="ui-oai-pmh.settings.general.label.baseUrl"
+            tooltip="ui-oai-pmh.settings.general.tooltip.baseUrl"
+            component={TextField}
+          />
+          <RowComponent
+            data-test-time-granularity
+            id="timeGranularity"
+            label="ui-oai-pmh.settings.general.label.timeGranularity"
+            tooltip="ui-oai-pmh.settings.general.tooltip.timeGranularity"
+            dataOptions={TIME_GRANULARITY_SELECT_VALUES}
+            component={Select}
+          />
+          <RowComponent
+            data-test-administrator-email
+            id="administratorEmail"
+            label="ui-oai-pmh.settings.general.label.administratorEmail"
+            tooltip="ui-oai-pmh.settings.general.tooltip.administratorEmail"
+            component={TextArea}
+          />
+        </Pane>
+      </form>
     );
   }
 }
 
-export default GeneralForm;
+export default stripesFinalForm({
+  navigationCheck: true,
+})(GeneralForm);
