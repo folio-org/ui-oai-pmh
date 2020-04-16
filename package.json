@@ -64,12 +64,19 @@
     "okapiInterfaces": {},
     "permissionSets": [
       {
+        "permissionName": "settings.oai-pmh.enabled",
+        "displayName": "Settings (oai-pmh): display list of settings pages",
+        "subPermissions": [
+          "settings.enabled"
+        ],
+        "visible": false
+      },
+      {
         "permissionName": "ui-oai-pmh.view",
         "displayName": "Display list of settings pages - user can view all oai-pmh settings, but \"Save\" button is disabled",
         "subPermissions": [
-          "settings.enabled",
-          "configuration.entries.collection.get",
-          "configuration.entries.item.put"
+          "settings.oai-pmh.enabled",
+          "configuration.entries.collection.get"
         ],
         "visible": true
       },
@@ -77,8 +84,7 @@
         "permissionName": "ui-oai-pmh.edit",
         "displayName": "Can view and edit settings - user can view all oai-pmh settings and \"Save\" button is enabled if field is modified",
         "subPermissions": [
-          "settings.enabled",
-          "configuration.entries.collection.get",
+          "ui-oai-pmh.view",
           "configuration.entries.item.put"
         ],
         "visible": true
