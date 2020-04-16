@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  FormattedMessage,
-} from 'react-intl';
-import {
-  Form,
-} from 'react-final-form';
 
 import {
   IntlConsumer,
@@ -14,10 +8,16 @@ import {
   Pane,
   PaneFooter,
   Select,
-  Button,
 } from '@folio/stripes/components';
+import stripesFinalForm from '@folio/stripes/final-form';
 
-import RowComponent from './RowComponent';
+import {
+  OaiNotificationWrapper,
+  RowComponent,
+  SaveButton,
+} from './components';
+
+import css from './Form.css';
 
 const deletedRecordsSupportSelectValues = ({ formatMessage }) => [
   {
@@ -36,11 +36,11 @@ const deletedRecordsSupportSelectValues = ({ formatMessage }) => [
 
 const suppressedRecordsProcessingSelectValues = ({ formatMessage }) => [
   {
-    value: true,
+    value: 'true',
     label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.suppressedRecordsProcessing.true' }),
   },
   {
-    value: false,
+    value: 'false',
     label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.suppressedRecordsProcessing.false' }),
   },
 ];
@@ -51,28 +51,38 @@ const errorsProcessingSelectValues = ({ formatMessage }) => [
     label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.errorsProcessing.200' }),
   },
   {
-    value: 'error',
-    label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.errorsProcessing.error' }),
+    value: '500',
+    label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.errorsProcessing.500' }),
   },
 ];
 
 class BehaviorForm extends Component {
   static propTypes = {
     label: PropTypes.node.isRequired,
+    pristine: PropTypes.bool,
+    submitting: PropTypes.bool,
+    handleSubmit: PropTypes.func.isRequired,
+    stripes: PropTypes.shape({
+      hasPerm: PropTypes.func.isRequired,
+    }).isRequired,
   };
 
   renderFooter = () => {
+    const {
+      pristine,
+      submitting,
+      stripes,
+    } = this.props;
+    const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.edit');
+
     return (
       <PaneFooter
         renderEnd={(
-          <Button
+          <SaveButton
             data-test-behavior-form-button-save
-            type="submit"
-            buttonStyle="primary paneHeaderNewButton"
-            marginBottom0
-          >
-            <FormattedMessage id="stripes-core.button.save" />
-          </Button>
+            disabled={disabled}
+            showTooltip={!stripes.hasPerm('ui-oai-pmh.edit')}
+          />
         )}
       />
     );
@@ -81,58 +91,56 @@ class BehaviorForm extends Component {
   render() {
     const {
       label,
+      handleSubmit,
     } = this.props;
 
     return (
       <IntlConsumer>
         {intl => (
-          <Pane
-            defaultWidth="50%"
-            fluidContentWidth
-            paneTitle={label}
-            footer={this.renderFooter()}
+          <form
+            id="behaviorForm"
+            className={css.form}
+            onSubmit={handleSubmit}
           >
-            <Form
-              onSubmit={() => {
-              }}
-              render={() => (
-                <form
-                  id="behaviorForm"
-                  onSubmit={() => {
-                  }}
-                >
-                  <RowComponent
-                    data-test-deleted-records-support
-                    id="deletedRecordsSupport"
-                    label="ui-oai-pmh.settings.behavior.label.deletedRecordsSupport"
-                    tooltip="ui-oai-pmh.settings.behavior.tooltip.deletedRecordsSupport"
-                    dataOptions={deletedRecordsSupportSelectValues(intl)}
-                    component={Select}
-                  />
-                  <RowComponent
-                    data-test-suppressed-records-processing
-                    id="suppressedRecordsProcessing"
-                    label="ui-oai-pmh.settings.behavior.label.suppressedRecordsProcessing"
-                    tooltip="ui-oai-pmh.settings.behavior.tooltip.suppressedRecordsProcessing"
-                    dataOptions={suppressedRecordsProcessingSelectValues(intl)}
-                    component={Select}
-                  />
-                  <RowComponent
-                    data-test-errors-processing
-                    id="errorsProcessing"
-                    label="ui-oai-pmh.settings.behavior.label.errorsProcessing"
-                    tooltip="ui-oai-pmh.settings.behavior.tooltip.errorsProcessing"
-                    dataOptions={errorsProcessingSelectValues(intl)}
-                    component={Select}
-                  />
-                </form>
-              )}
-            />
-          </Pane>
+            <Pane
+              defaultWidth="50%"
+              fluidContentWidth
+              paneTitle={label}
+              footer={this.renderFooter()}
+            >
+              <OaiNotificationWrapper />
+              <RowComponent
+                data-test-deleted-records-support
+                id="deletedRecordsSupport"
+                label="ui-oai-pmh.settings.behavior.label.deletedRecordsSupport"
+                tooltip="ui-oai-pmh.settings.behavior.tooltip.deletedRecordsSupport"
+                dataOptions={deletedRecordsSupportSelectValues(intl)}
+                component={Select}
+              />
+              <RowComponent
+                data-test-suppressed-records-processing
+                id="suppressedRecordsProcessing"
+                label="ui-oai-pmh.settings.behavior.label.suppressedRecordsProcessing"
+                tooltip="ui-oai-pmh.settings.behavior.tooltip.suppressedRecordsProcessing"
+                dataOptions={suppressedRecordsProcessingSelectValues(intl)}
+                component={Select}
+              />
+              <RowComponent
+                data-test-errors-processing
+                id="errorsProcessing"
+                label="ui-oai-pmh.settings.behavior.label.errorsProcessing"
+                tooltip="ui-oai-pmh.settings.behavior.tooltip.errorsProcessing"
+                dataOptions={errorsProcessingSelectValues(intl)}
+                component={Select}
+              />
+            </Pane>
+          </form>
         )}
       </IntlConsumer>
     );
   }
 }
 
-export default BehaviorForm;
+export default stripesFinalForm({
+  navigationCheck: true,
+})(BehaviorForm);

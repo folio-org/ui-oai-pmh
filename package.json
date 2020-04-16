@@ -25,6 +25,7 @@
     "@folio/eslint-config-stripes": "^5.2.0",
     "@folio/stripes": "^3.0.0",
     "@folio/stripes-cli": "^1.15.0 || ^1.14.0",
+    "@folio/stripes-components": "^6.2.0",
     "@folio/stripes-core": "^4.0.0",
     "babel-eslint": "^9.0.0",
     "chai": "^4.2.0",
@@ -41,8 +42,9 @@
     "sinon": "^7.3.2"
   },
   "dependencies": {
+    "lodash": "^4.17.15",
     "prop-types": "^15.6.0",
-    "react-final-form": "^6.4.0"
+    "react-final-form": "^6.3.0"
   },
   "peerDependencies": {
     "@folio/stripes": "^3.0.0",
@@ -62,10 +64,22 @@
     "okapiInterfaces": {},
     "permissionSets": [
       {
-        "permissionName": "settings.oai-pmh.enabled",
-        "displayName": "Settings (oai-pmh): display list of settings pages",
+        "permissionName": "ui-oai-pmh.view",
+        "displayName": "Display list of settings pages - user can view all oai-pmh settings, but \"Save\" button is disabled",
         "subPermissions": [
-          "settings.enabled"
+          "settings.enabled",
+          "configuration.entries.collection.get",
+          "configuration.entries.item.put"
+        ],
+        "visible": true
+      },
+      {
+        "permissionName": "ui-oai-pmh.edit",
+        "displayName": "Can view and edit settings - user can view all oai-pmh settings and \"Save\" button is enabled if field is modified",
+        "subPermissions": [
+          "settings.enabled",
+          "configuration.entries.collection.get",
+          "configuration.entries.item.put"
         ],
         "visible": true
       }
