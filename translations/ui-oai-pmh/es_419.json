@@ -1,5 +1,5 @@
 {
-    "meta.title": "OAI-PMH",
+    "meta.title": "Usuarios",
     "settings.title": "OAI-PMH",
     "settings.general": "General",
     "settings.behavior": "Behavior",
@@ -32,5 +32,9 @@
     "settings.behavior.suppressedRecordsProcessing.true": "Transfer suppressed records with discovery flag value",
     "settings.behavior.suppressedRecordsProcessing.false": "Skip suppressed from discovery records",
     "settings.behavior.errorsProcessing.200": "Associate with HTTP status 200",
-    "settings.behavior.errorsProcessing.error": "Associate with HTTP error statuses"
+    "permission.view": "Display list of settings pages - user can view all oai-pmh settings, but \"Save\" button is disabled",
+    "permission.edit": "Can view and edit settings - user can view all oai-pmh settings and \"Save\" button is enabled if field is modified",
+    "settings.behavior.errorsProcessing.500": "Associate with HTTP error statuses",
+    "settings.all.oaiServiceIsDisabled": "OAI service is disabled. To affect OAI-PMH features by settings please enable OAI service in the General section.",
+    "settings.all.saveButton.lackPermissions": "You lack necessary permissions to edit OAI-PMH settings. Please, contact the system administrator."
 }
