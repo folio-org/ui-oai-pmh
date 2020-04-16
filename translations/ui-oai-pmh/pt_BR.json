@@ -32,5 +32,9 @@
     "settings.behavior.suppressedRecordsProcessing.true": "Transferir registros suprimidos com o valor do sinalizador de descoberta",
     "settings.behavior.suppressedRecordsProcessing.false": "Ignorar os registros de descoberta suprimidos",
     "settings.behavior.errorsProcessing.200": "Associar ao status HTTP 200",
-    "settings.behavior.errorsProcessing.error": "Associar com status de erro HTTP"
+    "permission.view": "Display list of settings pages - user can view all oai-pmh settings, but \"Save\" button is disabled",
+    "permission.edit": "Can view and edit settings - user can view all oai-pmh settings and \"Save\" button is enabled if field is modified",
+    "settings.behavior.errorsProcessing.500": "Associate with HTTP error statuses",
+    "settings.all.oaiServiceIsDisabled": "OAI service is disabled. To affect OAI-PMH features by settings please enable OAI service in the General section.",
+    "settings.all.saveButton.lackPermissions": "You lack necessary permissions to edit OAI-PMH settings. Please, contact the system administrator."
 }
