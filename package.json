@@ -73,7 +73,7 @@
       },
       {
         "permissionName": "ui-oai-pmh.view",
-        "displayName": "Display list of settings pages - user can view all oai-pmh settings, but \"Save\" button is disabled",
+        "displayName": "Settings (OAI-PMH): Display list of settings pages",
         "subPermissions": [
           "settings.oai-pmh.enabled",
           "configuration.entries.collection.get"
@@ -82,7 +82,7 @@
       },
       {
         "permissionName": "ui-oai-pmh.edit",
-        "displayName": "Can view and edit settings - user can view all oai-pmh settings and \"Save\" button is enabled if field is modified",
+        "displayName": "Settings (OAI-PMH): Can view and edit settings",
         "subPermissions": [
           "ui-oai-pmh.view",
           "configuration.entries.item.put"
