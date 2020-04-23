@@ -35,6 +35,6 @@
     "permission.view": "Settings (OAI-PMH): Display list of settings pages",
     "permission.edit": "Settings (OAI-PMH): Can view and edit settings",
     "settings.behavior.errorsProcessing.500": "Associate with HTTP error statuses",
-    "settings.all.oaiServiceIsDisabled": "OAI service is disabled. To affect OAI-PMH features by settings please enable OAI service in the General section.",
-    "settings.all.saveButton.lackPermissions": "You lack necessary permissions to edit OAI-PMH settings. Please, contact the system administrator."
+    "settings.all.oaiServiceIsDisabled": "El servicio OAI está deshabilitado. Para activar las características de OAI-PMH, habilite el servicio OAI en la sección General.",
+    "settings.all.saveButton.lackPermissions": "No tienes suficientes permisos para editar las configuraciones de OAI-PMH. Póngase en contacto con el administrador del sistema"
 }
