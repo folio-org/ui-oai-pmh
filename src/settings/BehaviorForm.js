@@ -99,6 +99,7 @@ class BehaviorForm extends Component {
         {intl => (
           <form
             id="behaviorForm"
+            noValidate
             className={css.form}
             onSubmit={handleSubmit}
           >

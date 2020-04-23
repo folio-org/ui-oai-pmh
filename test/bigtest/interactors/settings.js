@@ -2,10 +2,13 @@ import {
   interactor,
   isPresent,
   property,
+  text,
 } from '@bigtest/interactor';
 
 import SelectInteractor from '@folio/stripes-components/lib/Select/tests/interactor';
 import CheckboxInteractor from '@folio/stripes-components/lib/Checkbox/tests/interactor';
+import TextArea from '@folio/stripes-components/lib/TextArea/tests/interactor';
+import TextField from '@folio/stripes-components/lib/TextField/tests/interactor';
 
 export default @interactor class SettingsInteractor {
   behaviorFormButtonSave = isPresent('[data-test-behavior-form-button-save]');
@@ -20,16 +23,20 @@ export default @interactor class SettingsInteractor {
   enableOaiService = isPresent('[data-test-enable-oai-service]');
   repositoryName = isPresent('[data-test-repository-name]');
   baseUrl = isPresent('[data-test-base-url]');
+  baseUrlChange = new TextField('[data-test-base-url]');
   timeGranularity = isPresent('[data-test-time-granularity]');
   timeGranularityChange = new SelectInteractor('[data-test-time-granularity]');
   administratorEmail = isPresent('[data-test-administrator-email]');
+  administratorEmailChange = new TextArea('[data-test-administrator-email]');
 
   technicalFormButtonSave = isPresent('[data-test-technical-form-button-save]');
   technicalFormButtonSaveDisabled = property('[data-test-technical-form-button-save]', 'disabled');
   maxRecordsPerResponse = isPresent('[data-test-max-records-per-response]');
+  maxRecordsPerResponseChange = new TextField('[data-test-max-records-per-response]');
   enableValidation = isPresent('[data-test-enable-validation]');
   formattedOutput = isPresent('[data-test-formatted-output]');
   formattedOutputChange = new CheckboxInteractor('[data-test-formatted-output]');
 
+  validationMessage = text('[role="alert"]');
   oaiNotification = isPresent('[data-test-oai-notification]');
 }
