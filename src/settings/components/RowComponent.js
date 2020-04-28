@@ -39,8 +39,9 @@ export default class RowComponent extends Component {
       label,
       tooltip,
     } = this.props;
-    const dataTest = omit(this.props, ['id', 'label', 'tooltip', 'type', 'component', 'dataOptions']);
-    const fieldProps = pick(this.props, ['id', 'type', 'component', 'dataOptions']);
+    const fieldPropsAttributeNames = ['id', 'required', 'type', 'component', 'dataOptions'];
+    const fieldProps = pick(this.props, fieldPropsAttributeNames);
+    const dataTest = omit(this.props, [...fieldPropsAttributeNames, 'label', 'tooltip']);
 
     return (
       <Row>

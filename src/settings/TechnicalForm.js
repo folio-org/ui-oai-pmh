@@ -13,6 +13,7 @@ import {
   OaiNotificationWrapper,
   RowComponent,
   SaveButton,
+  TechnicalFormValidator,
 } from './components';
 
 import css from './Form.css';
@@ -58,6 +59,7 @@ class TechnicalForm extends Component {
     return (
       <form
         id="technicalForm"
+        noValidate
         className={css.form}
         onSubmit={handleSubmit}
       >
@@ -70,6 +72,7 @@ class TechnicalForm extends Component {
           <OaiNotificationWrapper />
           <RowComponent
             data-test-max-records-per-response
+            required
             id="maxRecordsPerResponse"
             label="ui-oai-pmh.settings.technical.label.maxRecordsPerResponse"
             tooltip="ui-oai-pmh.settings.technical.tooltip.maxRecordsPerResponse"
@@ -99,4 +102,6 @@ class TechnicalForm extends Component {
 
 export default stripesFinalForm({
   navigationCheck: true,
+  validateOnBlur: true,
+  validate: TechnicalFormValidator,
 })(TechnicalForm);

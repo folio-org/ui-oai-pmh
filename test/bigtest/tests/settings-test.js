@@ -100,6 +100,17 @@ describe('Settings', () => {
           expect(settings.generalFormButtonSaveDisabled).to.be.false;
         });
       });
+
+      describe('Validate', () => {
+        beforeEach(async () => {
+          await settings.administratorEmailChange.fillAndBlur('test@test.com');
+          await settings.baseUrlChange.fillAndBlur('http://test.com');
+        });
+
+        it('should be enabled button save', () => {
+          expect(settings.validationMessage).to.equal('');
+        });
+      });
     });
 
     describe('Technical settings page', () => {
@@ -138,6 +149,16 @@ describe('Settings', () => {
 
         it('should be enabled button save', () => {
           expect(settings.technicalFormButtonSaveDisabled).to.be.false;
+        });
+      });
+
+      describe('Validate', () => {
+        beforeEach(async () => {
+          await settings.maxRecordsPerResponseChange.fillAndBlur('50');
+        });
+
+        it('should be enabled button save', () => {
+          expect(settings.validationMessage).to.equal('');
         });
       });
     });

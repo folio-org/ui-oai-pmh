@@ -15,6 +15,7 @@ import {
   OaiNotification,
   RowComponent,
   SaveButton,
+  GeneralFormValidator,
 } from './components';
 
 import css from './Form.css';
@@ -86,6 +87,7 @@ class GeneralForm extends Component {
     return (
       <form
         id="generalForm"
+        noValidate
         className={css.form}
         onSubmit={handleSubmit}
       >
@@ -108,6 +110,7 @@ class GeneralForm extends Component {
           />
           <RowComponent
             data-test-repository-name
+            required
             id="repositoryName"
             label="ui-oai-pmh.settings.general.label.repositoryName"
             tooltip="ui-oai-pmh.settings.general.tooltip.repositoryName"
@@ -115,6 +118,7 @@ class GeneralForm extends Component {
           />
           <RowComponent
             data-test-base-url
+            required
             id="baseUrl"
             label="ui-oai-pmh.settings.general.label.baseUrl"
             tooltip="ui-oai-pmh.settings.general.tooltip.baseUrl"
@@ -130,6 +134,7 @@ class GeneralForm extends Component {
           />
           <RowComponent
             data-test-administrator-email
+            required
             id="administratorEmail"
             label="ui-oai-pmh.settings.general.label.administratorEmail"
             tooltip="ui-oai-pmh.settings.general.tooltip.administratorEmail"
@@ -143,4 +148,6 @@ class GeneralForm extends Component {
 
 export default stripesFinalForm({
   navigationCheck: true,
+  validateOnBlur: true,
+  validate: GeneralFormValidator,
 })(GeneralForm);
