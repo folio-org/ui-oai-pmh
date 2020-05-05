@@ -36,5 +36,9 @@
     "permission.edit": "設定（OAI-PMH）：可以查看和編輯設定",
     "settings.behavior.errorsProcessing.500": "HTTP 500 - 內部伺服器錯誤",
     "settings.all.oaiServiceIsDisabled": "OAI 服務未啟用。如欲透過設定更改 OAI-PMH 參數，請在「一般」啟用 OAI 服務。",
-    "settings.all.saveButton.lackPermissions": "您沒有編輯 OAI-PMH 設定的權限，請聯繫系統管理員。"
+    "settings.all.saveButton.lackPermissions": "您沒有編輯 OAI-PMH 設定的權限，請聯繫系統管理員。",
+    "settings.all.validationMessage.isNotEmpty": "This field cannot be empty",
+    "settings.all.validationMessage.isIntegerGreaterThanZero": "Please enter a whole number greater than zero to continue",
+    "settings.all.validationMessage.isUrl": "Please enter valid URL address to continue",
+    "settings.all.validationMessage.isEmail": "Please enter valid comma-separated email address(es) to continue"
 }

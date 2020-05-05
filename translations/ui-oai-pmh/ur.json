@@ -36,5 +36,9 @@
     "permission.edit": "Settings (OAI-PMH): Can view and edit settings",
     "settings.behavior.errorsProcessing.500": "Associate with HTTP error statuses",
     "settings.all.oaiServiceIsDisabled": "OAI service is disabled. To affect OAI-PMH features by settings please enable OAI service in the General section.",
-    "settings.all.saveButton.lackPermissions": "You lack necessary permissions to edit OAI-PMH settings. Please, contact the system administrator."
+    "settings.all.saveButton.lackPermissions": "You lack necessary permissions to edit OAI-PMH settings. Please, contact the system administrator.",
+    "settings.all.validationMessage.isNotEmpty": "This field cannot be empty",
+    "settings.all.validationMessage.isIntegerGreaterThanZero": "Please enter a whole number greater than zero to continue",
+    "settings.all.validationMessage.isUrl": "Please enter valid URL address to continue",
+    "settings.all.validationMessage.isEmail": "Please enter valid comma-separated email address(es) to continue"
 }
