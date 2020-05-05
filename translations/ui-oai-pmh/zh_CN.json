@@ -32,9 +32,13 @@
     "settings.behavior.suppressedRecordsProcessing.true": "传送带有发现标志值的隐藏记录",
     "settings.behavior.suppressedRecordsProcessing.false": "从发现记录中跳过隐藏",
     "settings.behavior.errorsProcessing.200": "与HTTP状态200关联",
-    "permission.view": "Settings (OAI-PMH): Display list of settings pages",
-    "permission.edit": "Settings (OAI-PMH): Can view and edit settings",
+    "permission.view": "设置（OAI-PMH）：显示设置页面列表",
+    "permission.edit": "设置（OAI-PMH）：可以查看和编辑设置",
     "settings.behavior.errorsProcessing.500": "Associate with HTTP error statuses",
     "settings.all.oaiServiceIsDisabled": "OAI service is disabled. To affect OAI-PMH features by settings please enable OAI service in the General section.",
-    "settings.all.saveButton.lackPermissions": "You lack necessary permissions to edit OAI-PMH settings. Please, contact the system administrator."
+    "settings.all.saveButton.lackPermissions": "You lack necessary permissions to edit OAI-PMH settings. Please, contact the system administrator.",
+    "settings.all.validationMessage.isNotEmpty": "本字段不能为空",
+    "settings.all.validationMessage.isIntegerGreaterThanZero": "请输入大于零的整数以继续",
+    "settings.all.validationMessage.isUrl": "请输入有效的URL地址以继续",
+    "settings.all.validationMessage.isEmail": "请输入有效的逗号分隔电子邮件地址以继续"
 }
