@@ -38,7 +38,7 @@
     "settings.all.oaiServiceIsDisabled": "OAI service is disabled. To affect OAI-PMH features by settings please enable OAI service in the General section.",
     "settings.all.saveButton.lackPermissions": "You lack necessary permissions to edit OAI-PMH settings. Please, contact the system administrator.",
     "settings.all.validationMessage.isNotEmpty": "Ce champ ne peut pas être vide",
-    "settings.all.validationMessage.isIntegerGreaterThanZero": "Please enter a whole number greater than zero to continue",
+    "settings.all.validationMessage.isIntegerGreaterThanZero": "Veuillez saisir un nombre entier supérieur à zéro pour continuer",
     "settings.all.validationMessage.isUrl": "Veuillez entrer une adresse URL valide pour continuer",
     "settings.all.validationMessage.isEmail": "Veuillez saisir une ou plusieurs adresses électroniques séparées par des virgules pour continuer"
 }
