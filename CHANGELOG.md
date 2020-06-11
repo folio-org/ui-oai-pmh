@@ -1,8 +1,9 @@
 # Change history for ui-oai-pmh
 
-## [1.1.0] (IN PROGRESS)
+## [1.1.0](https://github.com/folio-org/ui-oai-pmh/tree/v1.1.0) (2020-06-11)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.0.0...v1.1.0)
 
-* Update to Stripes v4. Refs MODOAIPMH-132.
+* Update to stripes v4. Refs MODOAIPMH-132.
 
 ## [1.0.0](https://github.com/folio-org/ui-oai-pmh/tree/v1.0.0) (2020-04-29)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.0.0)
