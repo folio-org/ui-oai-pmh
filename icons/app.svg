@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>14 x 14 / dark outline</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="14" height="14" rx="3.5"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="97.0714415%" id="linearGradient-3">
+            <stop stop-color="#3F4549" offset="0%"></stop>
+            <stop stop-color="#0F1315" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-4" points="3.43313599 1.47954723 3.45819564 0.00298473487 4.84133911 1.47597431"></polygon>
+        <filter x="-887.7%" y="-440.2%" width="1875.3%" height="1860.8%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="7" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-6" x="0" y="0" width="14" height="14" rx="3.5"></rect>
+    </defs>
+    <g id="14-x-14-/-dark-outline" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-Artboard">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask"></g>
+            <g mask="url(#mask-2)">
+                <g id="BG-style-/-Dark-grey" fill="url(#linearGradient-3)">
+                    <rect id="BG" x="0" y="0" width="14" height="14"></rect>
+                </g>
+                <path d="M7.02050781,10.2797664 C8.81507369,10.2797664 10.4397482,9.24095117 11.8945312,7.1633207 C10.4397482,5.08569023 8.81507369,4.046875 7.02050781,4.046875 C5.22594194,4.046875 3.60126746,5.08569023 2.14648438,7.1633207 C3.60126746,9.24095117 5.22594194,10.2797664 7.02050781,10.2797664 Z" id="Oval" fill="#FFFFFF"></path>
+                <g id="Group" stroke-width="1" transform="translate(4.592255, 3.250922)">
+                    <polygon id="Dummy-artwork" fill="#999999" points="0.00149536133 7.53618786 0.0112258716 0.0751028141 3.56846005 0.0576722349 4.78665161 1.53879319 4.76257429 7.53618786"></polygon>
+                    <g id="Dummy-artwork">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                        <use fill="#B9B9B9" fill-rule="evenodd" xlink:href="#path-4"></use>
+                    </g>
+                </g>
+                <circle id="Oval" fill="#FFFFFF" cx="6.95898438" cy="7.1640625" r="1.02539062"></circle>
+            </g>
+            <mask id="mask-7" fill="white">
+                <use xlink:href="#path-6"></use>
+            </mask>
+            <rect stroke-opacity="0.2" stroke="#000000" x="0.5" y="0.5" width="13" height="13" rx="3.5"></rect>
+        </g>
+    </g>
+</svg>

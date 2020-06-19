@@ -61,6 +61,13 @@
     "displayName": "ui-oai-pmh.meta.title",
     "route": "/oaipmh",
     "hasSettings": true,
+    "icons": [
+      {
+        "name": "app",
+        "alt": "OAI-PMH manager",
+        "title": "OAI-PMH manager"
+      }
+    ],
     "okapiInterfaces": {},
     "permissionSets": [
       {
