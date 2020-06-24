@@ -11,7 +11,7 @@
     "settings.behavior.label.errorsProcessing": "OAI-PMH errors processing",
     "settings.behavior.tooltip.errorsProcessing": "Defines which HTTP statuses should OAI-level errors be associated with.",
     "settings.general.label.enableOaiService": "Enable OAI service",
-    "settings.general.tooltip.enableOaiService": "Defines whether OAI-PMH module is accessible for the FOLIO repository.",
+    "settings.general.tooltip.enableOaiService": "Определяет, доступен ли модуль OAI-PMH для репозитория FOLIO.",
     "settings.general.label.repositoryName": "Repository name",
     "settings.general.tooltip.repositoryName": "The name of the FOLIO repository for harvesters.",
     "settings.general.label.baseUrl": "Базовый единый указатель ресурса",
