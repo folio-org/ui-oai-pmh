@@ -30,7 +30,7 @@
     "settings.behavior.deletedRecordsSupport.transient": "Transient",
     "settings.behavior.deletedRecordsSupport.persistent": "Persistent",
     "settings.behavior.suppressedRecordsProcessing.true": "Transfer suppressed records with discovery flag value",
-    "settings.behavior.suppressedRecordsProcessing.false": "Skip suppressed from discovery records",
+    "settings.behavior.suppressedRecordsProcessing.false": "Пропустить записи, скрытые от дискавери-поиска",
     "settings.behavior.errorsProcessing.200": "Associate with HTTP status 200",
     "permission.view": "Settings (OAI-PMH): Display list of settings pages",
     "permission.edit": "Settings (OAI-PMH): Can view and edit settings",
