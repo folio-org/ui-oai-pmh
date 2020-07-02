@@ -3,6 +3,7 @@
 ## [1.2.0] (IN PROGRESS)
 
 * Add icon for OAI-PMH settings. Refs MODOAIPMH-171.
+* Add validation for Max records per response. Refs UIOAIPMH-14.
 
 ## [1.1.0](https://github.com/folio-org/ui-oai-pmh/tree/v1.1.0) (2020-06-11)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.0.0...v1.1.0)

@@ -3,7 +3,7 @@ import FormValidator from './FormValidator';
 export default (formData) => {
   const config = {
     'maxRecordsPerResponse': {
-      rules: ['isNotEmpty', 'isIntegerGreaterThanZero'],
+      rules: ['isNotEmpty', 'isIntegerGreaterThanZero', 'less500'],
     },
   };
 
