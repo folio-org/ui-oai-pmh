@@ -7,11 +7,15 @@ import {
 } from '@folio/stripes/core';
 import { ConfigManager } from '@folio/stripes/smart-components';
 
-import BehaviorForm from './BehaviorForm';
+import BehaviorForm from './components/BehaviorForm';
 import {
   getObjectFromResponseString,
   dataObjectToString,
-} from './util';
+} from '../../util';
+import {
+  MODULE_NAME,
+  BEHAVIOR_CONFIG_NAME,
+} from '../../constants';
 
 class Behavior extends React.Component {
   static propTypes = {
@@ -34,9 +38,9 @@ class Behavior extends React.Component {
   render() {
     return (
       <this.configManager
-        label={<FormattedMessage id="ui-oai-pmh.settings.behavior" />}
-        moduleName="OAIPMH"
-        configName="behavior"
+        label={<FormattedMessage id="ui-oai-pmh.settings.behavior.title" />}
+        moduleName={MODULE_NAME}
+        configName={BEHAVIOR_CONFIG_NAME}
         getInitialValues={this.getInitialValues}
         configFormComponent={BehaviorForm}
         stripes={this.props.stripes}

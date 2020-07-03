@@ -15,9 +15,13 @@ import {
   OaiNotificationWrapper,
   RowComponent,
   SaveButton,
-} from './components';
+} from '../../common';
+import {
+  DEFAULT_PANE_WIDTH,
+  BEHAVIOR_FORM_NAME,
+} from '../../../constants';
 
-import css from './Form.css';
+import css from '../../common/Form.css';
 
 const deletedRecordsSupportSelectValues = ({ formatMessage }) => [
   {
@@ -98,13 +102,13 @@ class BehaviorForm extends Component {
       <IntlConsumer>
         {intl => (
           <form
-            id="behaviorForm"
+            id={BEHAVIOR_FORM_NAME}
             noValidate
             className={css.form}
             onSubmit={handleSubmit}
           >
             <Pane
-              defaultWidth="50%"
+              defaultWidth={DEFAULT_PANE_WIDTH}
               fluidContentWidth
               paneTitle={label}
               footer={this.renderFooter()}
