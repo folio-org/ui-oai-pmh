@@ -20,6 +20,10 @@ export default {
     },
     message: <FormattedMessage id="ui-oai-pmh.settings.all.validationMessage.isIntegerGreaterThanZero" />,
   },
+  less500: {
+    validate: (value) => value <= 500,
+    message: <FormattedMessage id="ui-oai-pmh.settings.all.validationMessage.less500" />,
+  },
   isUrl: {
     validate: (value) => {
       // regexp taken from the module ui-organizations
