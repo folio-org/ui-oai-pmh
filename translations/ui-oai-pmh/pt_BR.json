@@ -40,5 +40,6 @@
     "settings.all.validationMessage.isNotEmpty": "Este campo não pode estar vazio",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Por favor, insira um número inteiro maior que zero para continuar",
     "settings.all.validationMessage.isUrl": "Digite uma URL válida para continuar",
-    "settings.all.validationMessage.isEmail": "Digite os endereços de e-mail válidos separados por vírgula para continuar"
+    "settings.all.validationMessage.isEmail": "Digite os endereços de e-mail válidos separados por vírgula para continuar",
+    "settings.all.validationMessage.less500": "O máximo de registros por resposta não pode ser superior a 500"
 }

@@ -40,5 +40,6 @@
     "settings.all.validationMessage.isNotEmpty": "本字段不能为空",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "请输入大于零的整数以继续",
     "settings.all.validationMessage.isUrl": "请输入有效的URL地址以继续",
-    "settings.all.validationMessage.isEmail": "请输入有效的逗号分隔电子邮件地址以继续"
+    "settings.all.validationMessage.isEmail": "请输入有效的逗号分隔电子邮件地址以继续",
+    "settings.all.validationMessage.less500": "Max records per response cannot be more than 500"
 }

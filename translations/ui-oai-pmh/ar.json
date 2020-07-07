@@ -40,5 +40,6 @@
     "settings.all.validationMessage.isNotEmpty": "لا يمكن أن يكون هذا الحقل فارغًا",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "يرجى إدخال رقمًا كاملًا أكبر من صفر للمتابعة",
     "settings.all.validationMessage.isUrl": "يرجى إدخال عنوان URL صالح للمتابعة",
-    "settings.all.validationMessage.isEmail": "يرجى إدخال عناوين البريد الإلكتروني مفصولة بفاصلة للمتابعة"
+    "settings.all.validationMessage.isEmail": "يرجى إدخال عناوين البريد الإلكتروني مفصولة بفاصلة للمتابعة",
+    "settings.all.validationMessage.less500": "الحد الأقصى للتسجيلات لكل استجابة لا يمكن أن يكون أكثر من 500"
 }

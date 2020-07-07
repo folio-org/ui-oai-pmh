@@ -40,5 +40,6 @@
     "settings.all.validationMessage.isNotEmpty": "This field cannot be empty",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Please enter a whole number greater than zero to continue",
     "settings.all.validationMessage.isUrl": "Please enter valid URL address to continue",
-    "settings.all.validationMessage.isEmail": "Please enter valid comma-separated email address(es) to continue"
+    "settings.all.validationMessage.isEmail": "Please enter valid comma-separated email address(es) to continue",
+    "settings.all.validationMessage.less500": "Max records per response cannot be more than 500"
 }
