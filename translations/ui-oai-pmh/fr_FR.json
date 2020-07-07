@@ -40,5 +40,6 @@
     "settings.all.validationMessage.isNotEmpty": "Ce champ ne peut pas être vide",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Veuillez saisir un nombre entier supérieur à zéro pour continuer",
     "settings.all.validationMessage.isUrl": "Veuillez entrer une adresse URL valide pour continuer",
-    "settings.all.validationMessage.isEmail": "Veuillez saisir une ou plusieurs adresses électroniques séparées par des virgules pour continuer"
+    "settings.all.validationMessage.isEmail": "Veuillez saisir une ou plusieurs adresses électroniques séparées par des virgules pour continuer",
+    "settings.all.validationMessage.less500": "Max records per response cannot be more than 500"
 }
