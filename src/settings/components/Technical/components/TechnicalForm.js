@@ -13,10 +13,16 @@ import {
   OaiNotificationWrapper,
   RowComponent,
   SaveButton,
-  TechnicalFormValidator,
-} from './components';
+} from '../../common';
 
-import css from './Form.css';
+import TechnicalFormValidator from './TechnicalFormValidator';
+
+import {
+  DEFAULT_PANE_WIDTH,
+  TECHNICAL_FORM_NAME,
+} from '../../../constants';
+
+import css from '../../common/Form.css';
 
 class TechnicalForm extends Component {
   static propTypes = {
@@ -58,13 +64,13 @@ class TechnicalForm extends Component {
 
     return (
       <form
-        id="technicalForm"
+        id={TECHNICAL_FORM_NAME}
         noValidate
         className={css.form}
         onSubmit={handleSubmit}
       >
         <Pane
-          defaultWidth="50%"
+          defaultWidth={DEFAULT_PANE_WIDTH}
           fluidContentWidth
           paneTitle={label}
           footer={this.renderFooter()}

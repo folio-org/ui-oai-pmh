@@ -1,4 +1,6 @@
-import FormValidator from './FormValidator';
+import {
+  FormValidator,
+} from '../../common';
 
 export default (formData) => {
   const config = {

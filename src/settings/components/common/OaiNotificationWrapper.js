@@ -6,9 +6,13 @@ import { stripesConnect } from '@folio/stripes/core';
 import {
   getObjectFromResponseString,
   convertFromStringToBoolean,
-} from '../util';
+} from '../../util';
+import {
+  MODULE_NAME,
+  GENERAL_CONFIG_NAME,
+} from '../../constants';
 
-import OaiNotification from './OaiNotification';
+import OaiNotification from './OaiNotification/OaiNotification';
 
 class OaiNotificationWrapper extends Component {
   static manifest = Object.freeze({
@@ -16,7 +20,7 @@ class OaiNotificationWrapper extends Component {
       type: 'okapi',
       records: 'configs',
       accumulate: 'true',
-      path: 'configurations/entries?query=(module=OAIPMH and configName=general)',
+      path: `configurations/entries?query=(module=${MODULE_NAME} and configName=${GENERAL_CONFIG_NAME})`,
     },
   });
 

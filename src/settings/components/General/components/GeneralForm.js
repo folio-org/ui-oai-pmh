@@ -15,13 +15,17 @@ import {
   OaiNotification,
   RowComponent,
   SaveButton,
-  GeneralFormValidator,
-} from './components';
+} from '../../common';
+import GeneralFormValidator from './GeneralFormValidator';
+import {
+  DEFAULT_PANE_WIDTH,
+  GENERAL_FORM_NAME,
+  TIME_GRANULARITY_SHORT_FORMAT,
+  TIME_GRANULARITY_FULL_FORMAT,
+} from '../../../constants';
 
-import css from './Form.css';
+import css from '../../common/Form.css';
 
-const TIME_GRANULARITY_SHORT_FORMAT = 'YYYY-MM-DD';
-const TIME_GRANULARITY_FULL_FORMAT = 'YYYY-MM-DDThh:mm:ssZ';
 const TIME_GRANULARITY_SELECT_VALUES = [
   {
     value: TIME_GRANULARITY_SHORT_FORMAT,
@@ -86,13 +90,13 @@ class GeneralForm extends Component {
 
     return (
       <form
-        id="generalForm"
+        id={GENERAL_FORM_NAME}
         noValidate
         className={css.form}
         onSubmit={handleSubmit}
       >
         <Pane
-          defaultWidth="50%"
+          defaultWidth={DEFAULT_PANE_WIDTH}
           fluidContentWidth
           paneTitle={label}
           footer={this.renderFooter()}

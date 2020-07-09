@@ -5,10 +5,7 @@
 
   "settings.title": "OAI-PMH",
 
-  "settings.behavior": "Behavior",
-  "settings.general": "General",
-  "settings.technical": "Technical",
-
+  "settings.behavior.title": "Behavior",
   "settings.behavior.label.deletedRecordsSupport": "Deleted records support",
   "settings.behavior.tooltip.deletedRecordsSupport": "The manner in which the repository supports the notion of deleted records.",
   "settings.behavior.label.suppressedRecordsProcessing": "Suppressed records processing",
@@ -16,6 +13,7 @@
   "settings.behavior.label.errorsProcessing": "OAI-PMH errors processing",
   "settings.behavior.tooltip.errorsProcessing": "Defines which HTTP statuses should OAI-level errors be associated with.",
 
+  "settings.general.title": "General",
   "settings.general.label.enableOaiService": "Enable OAI service",
   "settings.general.tooltip.enableOaiService": "Defines whether OAI-PMH module is accessible for the FOLIO repository.",
   "settings.general.label.repositoryName": "Repository name",
@@ -27,6 +25,16 @@
   "settings.general.label.timeGranularity": "Time granularity",
   "settings.general.tooltip.timeGranularity": "The finest harvesting granularity supported by the FOLIO repository.",
 
+  "settings.sets.title": "Sets",
+  "settings.sets.new.title": "New set",
+  "settings.sets.edit.title": "Edit {name}",
+  "settings.sets.list.title": "Sets list",
+  "settings.sets.view.title": "View {name}",
+  "settings.sets.accordion.generalInformation.title": "General information",
+  "settings.sets.accordion.filteringConditions.title": "Filtering conditions",
+  "settings.sets.form.button.cancel": "Cancel",
+
+  "settings.technical.title": "Technical",
   "settings.technical.label.maxRecordsPerResponse": "Max records per response",
   "settings.technical.tooltip.maxRecordsPerResponse": "The maximum number of records returned in the ListRecords response.",
   "settings.technical.label.enableValidation": "Enable validation",

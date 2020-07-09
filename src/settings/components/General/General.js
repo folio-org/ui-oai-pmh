@@ -7,15 +7,19 @@ import {
 } from '@folio/stripes/core';
 import { ConfigManager } from '@folio/stripes/smart-components';
 
-import TechnicalForm from './TechnicalForm';
+import GeneralForm from './components/GeneralForm';
 import {
   getObjectFromResponseString,
   dataObjectToString,
   convertFromStringToBoolean,
   convertFromBooleanToString,
-} from './util';
+} from '../../util';
+import {
+  MODULE_NAME,
+  GENERAL_CONFIG_NAME,
+} from '../../constants';
 
-class Technical extends React.Component {
+class General extends React.Component {
   static propTypes = {
     stripes: stripesShape.isRequired,
   };
@@ -30,16 +34,14 @@ class Technical extends React.Component {
 
     return {
       ...value,
-      enableValidation: convertFromStringToBoolean(value.enableValidation),
-      formattedOutput: convertFromStringToBoolean(value.formattedOutput),
+      enableOaiService: value.enableOaiService ? convertFromStringToBoolean(value.enableOaiService) : true,
     };
   }
 
   normalize = (data) => {
     const value = {
       ...data,
-      enableValidation: convertFromBooleanToString(data.enableValidation),
-      formattedOutput: convertFromBooleanToString(data.formattedOutput),
+      enableOaiService: convertFromBooleanToString(data.enableOaiService),
     };
 
     return dataObjectToString(value);
@@ -48,11 +50,11 @@ class Technical extends React.Component {
   render() {
     return (
       <this.configManager
-        label={<FormattedMessage id="ui-oai-pmh.settings.technical" />}
-        moduleName="OAIPMH"
-        configName="technical"
+        label={<FormattedMessage id="ui-oai-pmh.settings.general.title" />}
+        moduleName={MODULE_NAME}
+        configName={GENERAL_CONFIG_NAME}
         getInitialValues={this.getInitialValues}
-        configFormComponent={TechnicalForm}
+        configFormComponent={GeneralForm}
         stripes={this.props.stripes}
         onBeforeSave={this.normalize}
       />
@@ -60,4 +62,4 @@ class Technical extends React.Component {
   }
 }
 
-export default withStripes(Technical);
+export default withStripes(General);
