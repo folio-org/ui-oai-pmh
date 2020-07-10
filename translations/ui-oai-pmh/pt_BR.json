@@ -1,9 +1,6 @@
 {
     "meta.title": "OAI-PMH",
     "settings.title": "OAI-PMH",
-    "settings.general": "Geral",
-    "settings.behavior": "Comportamento",
-    "settings.technical": "Técnico",
     "settings.behavior.label.deletedRecordsSupport": "Suporte a registros excluídos",
     "settings.behavior.tooltip.deletedRecordsSupport": "A maneira pela qual o repositório suporta a noção de registros excluídos.",
     "settings.behavior.label.suppressedRecordsProcessing": "Processamento de registros suprimidos",
@@ -41,5 +38,16 @@
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Por favor, insira um número inteiro maior que zero para continuar",
     "settings.all.validationMessage.isUrl": "Digite uma URL válida para continuar",
     "settings.all.validationMessage.isEmail": "Digite os endereços de e-mail válidos separados por vírgula para continuar",
-    "settings.all.validationMessage.less500": "O máximo de registros por resposta não pode ser superior a 500"
+    "settings.all.validationMessage.less500": "O máximo de registros por resposta não pode ser superior a 500",
+    "settings.behavior.title": "Comportamento",
+    "settings.general.title": "Geral",
+    "settings.sets.title": "Conjuntos",
+    "settings.sets.new.title": "Novo conjunto",
+    "settings.sets.edit.title": "Editar {name}",
+    "settings.sets.list.title": "Lista de conjuntos",
+    "settings.sets.view.title": "Visualizar {name}",
+    "settings.sets.accordion.generalInformation.title": "Informações gerais",
+    "settings.sets.accordion.filteringConditions.title": "Condições de filtragem",
+    "settings.sets.form.button.cancel": "Cancelar",
+    "settings.technical.title": "Técnico"
 }

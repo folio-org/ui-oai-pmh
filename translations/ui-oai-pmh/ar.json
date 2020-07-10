@@ -1,9 +1,6 @@
 {
     "meta.title": "OAI-PMH",
     "settings.title": "OAI-PMH",
-    "settings.general": "عام",
-    "settings.behavior": "سلوك",
-    "settings.technical": "تقني",
     "settings.behavior.label.deletedRecordsSupport": "دعم التسجيلات المفتوحة",
     "settings.behavior.tooltip.deletedRecordsSupport": "الطريقة التي يدعم بها المستودع مفهوم التسجيلات المحذوفة.",
     "settings.behavior.label.suppressedRecordsProcessing": "معالجة التسجيلات المحجوبة",
@@ -41,5 +38,16 @@
     "settings.all.validationMessage.isIntegerGreaterThanZero": "يرجى إدخال رقمًا كاملًا أكبر من صفر للمتابعة",
     "settings.all.validationMessage.isUrl": "يرجى إدخال عنوان URL صالح للمتابعة",
     "settings.all.validationMessage.isEmail": "يرجى إدخال عناوين البريد الإلكتروني مفصولة بفاصلة للمتابعة",
-    "settings.all.validationMessage.less500": "الحد الأقصى للتسجيلات لكل استجابة لا يمكن أن يكون أكثر من 500"
+    "settings.all.validationMessage.less500": "الحد الأقصى للتسجيلات لكل استجابة لا يمكن أن يكون أكثر من 500",
+    "settings.behavior.title": "سلوك",
+    "settings.general.title": "عام",
+    "settings.sets.title": "مجموعات",
+    "settings.sets.new.title": "مجموعة جديدة",
+    "settings.sets.edit.title": "تحرير {name}",
+    "settings.sets.list.title": "قائمة المجموعات",
+    "settings.sets.view.title": "عرض {name}",
+    "settings.sets.accordion.generalInformation.title": "معلومات عامة",
+    "settings.sets.accordion.filteringConditions.title": "شروط التنقيح",
+    "settings.sets.form.button.cancel": "إلغاء",
+    "settings.technical.title": "تقني"
 }

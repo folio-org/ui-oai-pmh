@@ -1,9 +1,6 @@
 {
     "meta.title": "OAI-PMH",
     "settings.title": "OAI-PMH",
-    "settings.general": "通用",
-    "settings.behavior": "行为",
-    "settings.technical": "技术",
     "settings.behavior.label.deletedRecordsSupport": "支持已删除记录",
     "settings.behavior.tooltip.deletedRecordsSupport": "存储库支持已删除记录概念的方式。",
     "settings.behavior.label.suppressedRecordsProcessing": "禁止记录处理",
@@ -41,5 +38,16 @@
     "settings.all.validationMessage.isIntegerGreaterThanZero": "请输入大于零的整数以继续",
     "settings.all.validationMessage.isUrl": "请输入有效的URL地址以继续",
     "settings.all.validationMessage.isEmail": "请输入有效的逗号分隔电子邮件地址以继续",
-    "settings.all.validationMessage.less500": "Max records per response cannot be more than 500"
+    "settings.all.validationMessage.less500": "Max records per response cannot be more than 500",
+    "settings.behavior.title": "Behavior",
+    "settings.general.title": "General",
+    "settings.sets.title": "Sets",
+    "settings.sets.new.title": "New set",
+    "settings.sets.edit.title": "Edit {name}",
+    "settings.sets.list.title": "Sets list",
+    "settings.sets.view.title": "View {name}",
+    "settings.sets.accordion.generalInformation.title": "General information",
+    "settings.sets.accordion.filteringConditions.title": "Filtering conditions",
+    "settings.sets.form.button.cancel": "Cancel",
+    "settings.technical.title": "Technical"
 }
