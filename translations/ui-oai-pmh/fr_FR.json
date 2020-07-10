@@ -1,9 +1,6 @@
 {
     "meta.title": "OAI-PMH",
     "settings.title": "OAI-PMH",
-    "settings.general": "Général",
-    "settings.behavior": "Behavior",
-    "settings.technical": "Technical",
     "settings.behavior.label.deletedRecordsSupport": "Deleted records support",
     "settings.behavior.tooltip.deletedRecordsSupport": "The manner in which the repository supports the notion of deleted records.",
     "settings.behavior.label.suppressedRecordsProcessing": "Suppressed records processing",
@@ -41,5 +38,16 @@
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Veuillez saisir un nombre entier supérieur à zéro pour continuer",
     "settings.all.validationMessage.isUrl": "Veuillez entrer une adresse URL valide pour continuer",
     "settings.all.validationMessage.isEmail": "Veuillez saisir une ou plusieurs adresses électroniques séparées par des virgules pour continuer",
-    "settings.all.validationMessage.less500": "Max records per response cannot be more than 500"
+    "settings.all.validationMessage.less500": "Max records per response cannot be more than 500",
+    "settings.behavior.title": "Behavior",
+    "settings.general.title": "General",
+    "settings.sets.title": "Sets",
+    "settings.sets.new.title": "New set",
+    "settings.sets.edit.title": "Edit {name}",
+    "settings.sets.list.title": "Sets list",
+    "settings.sets.view.title": "View {name}",
+    "settings.sets.accordion.generalInformation.title": "General information",
+    "settings.sets.accordion.filteringConditions.title": "Filtering conditions",
+    "settings.sets.form.button.cancel": "Cancel",
+    "settings.technical.title": "Technical"
 }
