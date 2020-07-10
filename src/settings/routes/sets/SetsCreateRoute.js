@@ -13,20 +13,47 @@ import {
 
 import {
   SetsForm,
-} from '../../components/Sets';
-import {
-  SETS_INITIAL_VALUES,
-} from '../../constants';
+} from '../../components';
 import {
   getSetsListUrl,
+  getSetsViewUrl,
 } from '../../util';
+import useCallout from '../../hooks';
+import {
+  SET_FIELDS,
+  SET_FIELDS_INITIAL_VALUES,
+} from '../../constants';
 
 const SetsCreateRoute = ({
   history,
   location,
+  mutator,
+  stripes,
 }) => {
   const getTitle = () => <FormattedMessage id="ui-oai-pmh.settings.sets.new.title" />;
-  const onSubmit = () => {};
+  const showCallout = useCallout();
+  const onSubmit = useCallback((values) => {
+    mutator.createSets.POST(values)
+      .then((response) => {
+        showCallout({
+          message: <FormattedMessage
+            id="ui-oai-pmh.settings.sets.callout.created"
+            values={{ name: response[SET_FIELDS.NAME] }}
+          />,
+        });
+        history.push({
+          pathname: getSetsViewUrl(response[SET_FIELDS.ID]),
+          search: location.search,
+        });
+      })
+      .catch(() => {
+        showCallout({
+          type: 'error',
+          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem" />,
+        });
+      });
+  }, [showCallout, location.search, history, mutator.createSets]);
+
   const onBack = useCallback(() => {
     history.push({
       pathname: getSetsListUrl(),
@@ -36,8 +63,9 @@ const SetsCreateRoute = ({
 
   return (
     <SetsForm
-      initialValues={SETS_INITIAL_VALUES}
+      initialValues={SET_FIELDS_INITIAL_VALUES}
       formTitle={getTitle}
+      stripes={stripes}
       onSubmit={onSubmit}
       onBack={onBack}
     />
@@ -47,7 +75,7 @@ const SetsCreateRoute = ({
 SetsCreateRoute.manifest = Object.freeze({
   createSets: {
     type: 'okapi',
-    path: 'set',
+    path: 'oai-pmh/set',
     clientGeneratePk: false,
     throwErrors: false,
     fetch: false,
@@ -62,6 +90,9 @@ SetsCreateRoute.propTypes = {
       POST: PropTypes.func.isRequired
     }),
   }),
+  stripes: PropTypes.shape({
+    hasPerm: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default stripesConnect(SetsCreateRoute);

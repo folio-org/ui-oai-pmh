@@ -15,7 +15,7 @@ describe('Sets', () => {
 
   describe('List', () => {
     beforeEach(function () {
-      this.visit('/settings/oaipmh/sets');
+      this.visit('/settings/oai-pmh/sets');
     });
 
     it('should be correct pane header title', () => {
@@ -28,7 +28,7 @@ describe('Sets', () => {
       });
 
       it('should navigate to create set', function () {
-        expect(this.location.pathname).to.equal('/settings/oaipmh/sets/create');
+        expect(this.location.pathname).to.equal('/settings/oai-pmh/sets/create');
       });
     });
   });
