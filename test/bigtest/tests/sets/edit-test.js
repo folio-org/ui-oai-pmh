@@ -15,7 +15,7 @@ describe('Sets', () => {
 
   describe('Edit', () => {
     beforeEach(function () {
-      setsTest = this.server.create('sets');
+      setsTest = this.server.create('set');
 
       this.visit(`/settings/oaipmh/sets/${setsTest.id}/edit`);
     });
