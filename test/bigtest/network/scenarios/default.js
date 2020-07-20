@@ -1,2 +1,3 @@
-export default function defaultScenario() {
+export default function defaultScenario(server) {
+  server.createList('sets', 10);
 }

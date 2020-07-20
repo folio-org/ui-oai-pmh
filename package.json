@@ -62,7 +62,7 @@
     ],
     "type": "settings",
     "displayName": "ui-oai-pmh.meta.title",
-    "route": "/oaipmh",
+    "route": "/oai-pmh",
     "hasSettings": true,
     "icons": [
       {

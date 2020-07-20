@@ -4,28 +4,37 @@ import React, {
 import PropTypes from 'prop-types';
 
 import {
-  AccordionSet,
-  AccordionStatus,
-  Col,
-  Layer,
   Pane,
   Paneset,
-  Row,
+  AccordionSet,
+  AccordionStatus,
   ExpandAllButton,
+  Row,
+  Col,
 } from '@folio/stripes/components';
 import stripesFinalForm from '@folio/stripes/final-form';
 
 import {
-  GeneralInformation,
   FilteringConditions,
   FirstMenu,
+  GeneralInformation,
+  SetsFormPaneFooter,
 } from './components';
+import {
+  SetsWrapper,
+} from '../common';
 import {
   FILL_PANE_WIDTH,
   INITIAL_ACCORDION_STATE,
 } from '../../../constants';
 
+import css from '../../common/Form.css';
+
 const SetsForm = ({
+  pristine,
+  submitting,
+  handleSubmit,
+  stripes,
   form,
   formTitle,
   metadata,
@@ -39,12 +48,22 @@ const SetsForm = ({
     <FirstMenu onClickHandler={onBack} />
   ), [onBack]);
 
+  const getFooter = () => (
+    <SetsFormPaneFooter
+      pristine={pristine}
+      submitting={submitting}
+      stripes={stripes}
+      onBack={onBack}
+    />
+  );
+
   return (
-    <Layer
-      contentLabel="sets-form"
-      isOpen
-    >
-      <form>
+    <SetsWrapper>
+      <form
+        id="setsForm"
+        className={css.form}
+        onSubmit={handleSubmit}
+      >
         <Paneset isRoot>
           <Pane
             data-sets-form
@@ -52,10 +71,14 @@ const SetsForm = ({
             paneTitle={formTitle()}
             firstMenu={getFirstMenu()}
             onClose={reset}
+            footer={getFooter()}
           >
             <AccordionStatus>
               <Row end="xs">
-                <Col xs>
+                <Col
+                  data-test-expand-all-button
+                  xs
+                >
                   <ExpandAllButton />
                 </Col>
               </Row>
@@ -67,11 +90,17 @@ const SetsForm = ({
           </Pane>
         </Paneset>
       </form>
-    </Layer>
+    </SetsWrapper>
   );
 };
 
 SetsForm.propTypes = {
+  pristine: PropTypes.bool.isRequired,
+  submitting: PropTypes.bool.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  stripes: PropTypes.shape({
+    hasPerm: PropTypes.func.isRequired,
+  }).isRequired,
   form: PropTypes.shape({
     change: PropTypes.func.isRequired,
     reset: PropTypes.func.isRequired,

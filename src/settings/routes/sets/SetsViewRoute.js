@@ -18,13 +18,13 @@ const SetsViewRoute = () => {
 SetsViewRoute.manifest = Object.freeze({
   viewSets: {
     type: 'okapi',
-    path: 'set/:{id}',
+    path: 'oai-pmh/set/:{id}',
     clientGeneratePk: false,
     throwErrors: false,
     accumulate: 'true',
     fetch: false,
     DELETE: {
-      path: 'set/:{id}'
+      path: 'oai-pmh/set/:{id}'
     }
   }
 });

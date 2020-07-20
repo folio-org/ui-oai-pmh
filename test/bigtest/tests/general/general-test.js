@@ -15,7 +15,7 @@ describe('General settings page', () => {
   setupApplication();
 
   beforeEach(function () {
-    this.visit('/settings/oaipmh/general');
+    this.visit('/settings/oai-pmh/general');
   });
 
   it('should be correct general title', () => {
