@@ -1,8 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  withRouter,
-} from 'react-router-dom';
 
 import {
   stripesConnect,
@@ -21,7 +18,7 @@ const SetsListRoute = () => {
 SetsListRoute.manifest = Object.freeze({
   setsRecords: {
     type: 'okapi',
-    path: 'sets',
+    path: 'oai-pmh/sets',
     fetch: false,
     accumulate: true,
   },
@@ -35,4 +32,4 @@ SetsListRoute.propTypes = {
   }),
 };
 
-export default withRouter(stripesConnect(SetsListRoute));
+export default stripesConnect(SetsListRoute);

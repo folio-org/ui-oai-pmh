@@ -1,3 +1,4 @@
+export const GENERAL_ROUTE = 'general';
 export const GENERAL_CONFIG_NAME = 'general';
 export const GENERAL_FORM_NAME = `${GENERAL_CONFIG_NAME}Form`;
 

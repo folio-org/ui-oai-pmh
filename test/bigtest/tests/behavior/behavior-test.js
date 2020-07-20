@@ -16,7 +16,7 @@ describe('Behavior settings page', () => {
   setupApplication();
 
   beforeEach(function () {
-    this.visit('/settings/oaipmh/behavior');
+    this.visit('/settings/oai-pmh/behavior');
   });
 
   it('should be correct behavior title', () => {

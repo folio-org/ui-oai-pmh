@@ -15,7 +15,7 @@ describe('Technical settings page', () => {
   setupApplication();
 
   beforeEach(function () {
-    this.visit('/settings/oaipmh/technical');
+    this.visit('/settings/oai-pmh/technical');
   });
 
   it('should be correct technical title', () => {

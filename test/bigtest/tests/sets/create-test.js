@@ -7,7 +7,6 @@ import { expect } from 'chai';
 
 import setupApplication from '../../helpers/setup-application';
 import SetsFormInteractor from '../../interactors/sets-form';
-
 import translation from '../../../../translations/ui-oai-pmh/en';
 
 describe('Sets', () => {
@@ -15,22 +14,12 @@ describe('Sets', () => {
 
   describe('Create', () => {
     beforeEach(function () {
-      this.visit('/settings/oaipmh/sets/create');
+      this.visit('/settings/oai-pmh/sets/create');
     });
 
     describe('Pane header', () => {
-      it('should be correct pane header title', () => {
+      it('should be correct title', () => {
         expect(SetsFormInteractor.paneHeader.title).to.equal(translation['settings.sets.new.title']);
-      });
-
-      describe('navigate back without changes', () => {
-        beforeEach(async () => {
-          await SetsFormInteractor.paneHeader.dismissButton.click();
-        });
-
-        it('should navigate back to sets list page', function () {
-          expect(this.location.pathname).to.equal('/settings/oaipmh/sets');
-        });
       });
     });
   });

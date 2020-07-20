@@ -5,7 +5,11 @@ import {
   omit,
 } from 'lodash';
 
-import { Button, Tooltip } from '@folio/stripes/components';
+import {
+  Button,
+} from '@folio/stripes/components';
+
+import SaveButtonTooltipWrapper from './SaveButtonTooltipWrapper';
 
 class SaveButton extends React.Component {
   static propTypes = {
@@ -27,32 +31,19 @@ class SaveButton extends React.Component {
     const dataTest = omit(this.props, ['disabled', 'showTooltip']);
 
     return (
-      <div>
-        <div
-          id="save-button-tooltip-content"
-          name="save-button-tooltip-content"
-          aria-labelledby="save-button-tooltip-text"
-          ref={this.saveButton}
+      <SaveButtonTooltipWrapper
+        showTooltip={showTooltip}
+      >
+        <Button
+          {...dataTest}
+          type="submit"
+          buttonStyle="primary paneHeaderNewButton"
+          marginBottom0
+          disabled={disabled}
         >
-          <Button
-            {...dataTest}
-            type="submit"
-            buttonStyle="primary paneHeaderNewButton"
-            marginBottom0
-            disabled={disabled}
-          >
-            <FormattedMessage id="stripes-core.button.save" />
-          </Button>
-        </div>
-        {showTooltip &&
-          <Tooltip
-            id="save-button-tooltip"
-            name="save-button-tooltip"
-            text={<FormattedMessage id="ui-oai-pmh.settings.all.saveButton.lackPermissions" />}
-            triggerRef={this.saveButton}
-          />
-        }
-      </div>
+          <FormattedMessage id="stripes-core.button.save" />
+        </Button>
+      </SaveButtonTooltipWrapper>
     );
   }
 }
