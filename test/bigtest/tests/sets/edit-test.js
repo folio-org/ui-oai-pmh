@@ -15,10 +15,10 @@ describe('Sets', () => {
       setupApplication();
       let setsTest;
 
-      beforeEach(function () {
-        setsTest = this.server.create('set');
+      beforeEach(async function () {
+        setsTest = await this.server.create('set');
 
-        this.visit(`/settings/oai-pmh/sets/${setsTest.id}/edit`);
+        return this.visit(`/settings/oai-pmh/sets/${setsTest.id}/edit`);
       });
 
       describe('Pane header', () => {
@@ -36,7 +36,7 @@ describe('Sets', () => {
       const currentPath = '/settings/oai-pmh/sets/id_not_found/edit';
 
       beforeEach(function () {
-        this.visit(currentPath);
+        return this.visit(currentPath);
       });
 
       it('should render correct title', () => {

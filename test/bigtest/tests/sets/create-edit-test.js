@@ -154,7 +154,7 @@ describe('Sets', () => {
     const redirectBackPath = '/settings/oai-pmh/sets';
 
     beforeEach(function () {
-      this.visit(currentPath);
+      return this.visit(currentPath);
     });
 
     reusedCreateEditTests(currentPath, redirectBackPath, initialValues);
@@ -170,9 +170,9 @@ describe('Sets', () => {
     const redirectBackPath = `/settings/oai-pmh/sets/${initialValues.id}/view`;
 
     beforeEach(async function () {
-      await this.server.create('sets', initialValues);
+      await this.server.create('set', initialValues);
 
-      this.visit(currentPath);
+      return this.visit(currentPath);
     });
 
     reusedCreateEditTests(currentPath, redirectBackPath, initialValues);

@@ -17,7 +17,7 @@ describe('Sets', () => {
     beforeEach(function () {
       setsTest = this.server.create('set');
 
-      this.visit(`/settings/oai-pmh/sets/${setsTest.id}/view`);
+      return this.visit(`/settings/oai-pmh/sets/${setsTest.id}/view`);
     });
 
     it('should be correct pane header title', () => {
