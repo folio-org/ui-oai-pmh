@@ -16,7 +16,7 @@ describe('Sets', () => {
       let setsTest;
 
       beforeEach(async function () {
-        setsTest = await this.server.create('set');
+        setsTest = this.server.create('set');
 
         return this.visit(`/settings/oai-pmh/sets/${setsTest.id}/edit`);
       });
