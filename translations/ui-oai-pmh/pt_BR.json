@@ -49,5 +49,12 @@
     "settings.sets.accordion.generalInformation.title": "Informações gerais",
     "settings.sets.accordion.filteringConditions.title": "Condições de filtragem",
     "settings.sets.form.button.cancel": "Cancelar",
-    "settings.technical.title": "Técnico"
+    "settings.technical.title": "Técnico",
+    "settings.sets.field.name": "Nome do conjunto",
+    "settings.sets.field.description": "Descrição do conjunto",
+    "settings.sets.callout.created": "O conjunto {name} foi criado com sucesso",
+    "settings.sets.callout.updated": "O conjunto {name} foi atualizado com sucesso",
+    "settings.sets.callout.connectionProblem": "Não foi possível salvar devido a um erro do módulo. Por favor, tente novamente. Se um problema persistir, entre em contato com o administrador do sistema.",
+    "settings.sets.edit.notFound.title": "Editar",
+    "settings.sets.edit.notFound.text": "Você tem um endereço de URL inválido. Por favor, revise a sintaxe ou os parâmetros do caminho da URL e tente outro."
 }
