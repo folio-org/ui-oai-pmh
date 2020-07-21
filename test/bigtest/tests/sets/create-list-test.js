@@ -15,7 +15,7 @@ describe('Sets', () => {
 
   describe('List', () => {
     beforeEach(function () {
-      return this.visit('/settings/oai-pmh/sets');
+      this.visit('/settings/oai-pmh/sets');
     });
 
     it('should be correct pane header title', () => {

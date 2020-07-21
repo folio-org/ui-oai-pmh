@@ -14,7 +14,7 @@ describe('Sets', () => {
 
   describe('Create', () => {
     beforeEach(function () {
-      return this.visit('/settings/oai-pmh/sets/create');
+      this.visit('/settings/oai-pmh/sets/create');
     });
 
     describe('Pane header', () => {
