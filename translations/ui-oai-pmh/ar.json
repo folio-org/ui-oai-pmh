@@ -49,5 +49,12 @@
     "settings.sets.accordion.generalInformation.title": "معلومات عامة",
     "settings.sets.accordion.filteringConditions.title": "شروط التنقيح",
     "settings.sets.form.button.cancel": "إلغاء",
-    "settings.technical.title": "تقني"
+    "settings.technical.title": "تقني",
+    "settings.sets.field.name": "ضبط الاسم",
+    "settings.sets.field.description": "ضبط الوصف",
+    "settings.sets.callout.created": "تم إنشاء ضبط {name} بنجاح",
+    "settings.sets.callout.updated": "تم تحديث ضبط {name} بنجاح",
+    "settings.sets.callout.connectionProblem": "تعذر الحفظ بسبب خطأ في الوحدة. يرجى إعادة المحاولة مرة أخرى. إذا استمرت المشكلة يرجى الاتصال بمدير النظام.",
+    "settings.sets.edit.notFound.title": "تحرير",
+    "settings.sets.edit.notFound.text": "لديك عنوان URL غير صالح. يرجى مراجعة بناء الجملة أو معلمات مسار عنوان ال URL وإعادة المحاولة."
 }
