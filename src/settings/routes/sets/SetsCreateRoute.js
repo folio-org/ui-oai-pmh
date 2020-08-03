@@ -36,10 +36,7 @@ const SetsCreateRoute = ({
     mutator.createSets.POST(values)
       .then((response) => {
         showCallout({
-          message: <FormattedMessage
-            id="ui-oai-pmh.settings.sets.callout.created"
-            values={{ name: response[SET_FIELDS.NAME] }}
-          />,
+          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
         });
         history.push({
           pathname: getSetsViewUrl(response[SET_FIELDS.ID]),
