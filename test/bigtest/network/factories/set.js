@@ -1,6 +1,5 @@
+import { Factory } from 'miragejs';
 import faker from 'faker';
-
-import { Factory } from '@bigtest/mirage';
 
 export default Factory.extend({
   id: () => faker.random.uuid(),

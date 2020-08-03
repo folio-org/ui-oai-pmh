@@ -3,6 +3,7 @@
 ## [1.3.0] (IN PROGRESS)
 
 * Add route for sets, refactoring directory structure, increase code coverage for FE. Refs UIOAIPMH-7.
+* Refactor to `miragejs` from `bigtest/mirage`.
 
 ## [1.2.0](https://github.com/folio-org/ui-oai-pmh/tree/v1.2.0) (2020-07-03)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.1.0...v1.2.0)

@@ -170,7 +170,7 @@ describe('Sets', () => {
     const redirectBackPath = `/settings/oai-pmh/sets/${initialValues.id}/view`;
 
     beforeEach(async function () {
-      await this.server.create('sets', initialValues);
+      this.server.create('set', initialValues);
 
       this.visit(currentPath);
     });
