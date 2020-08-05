@@ -72,7 +72,8 @@
       }
     ],
     "okapiInterfaces": {
-      "configuration": "2.0"
+      "configuration": "2.0",
+      "oai-pmh": "3.0"
     },
     "permissionSets": [
       {

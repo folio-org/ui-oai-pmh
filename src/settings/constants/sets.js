@@ -32,4 +32,5 @@ export const SET_FIELDS = {
 export const SET_FIELDS_INITIAL_VALUES = {
   [SET_FIELDS.NAME]: '',
   [SET_FIELDS.DESCRIPTION]: '',
+  [SET_FIELDS.SET_SPEC]: 'DEFAULT_SET_SPEC', // TODO:: Temporary solution for integration with BE. Change from 'DEFAULT_SET_SPEC' to '' after SET_SPEC implantation.
 };
