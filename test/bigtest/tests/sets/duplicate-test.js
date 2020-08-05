@@ -10,20 +10,18 @@ import SetsFormInteractor from '../../interactors/sets-form';
 import translation from '../../../../translations/ui-oai-pmh/en';
 
 describe('Sets', () => {
-  describe('Edit', () => {
+  describe('Duplicate', () => {
     setupApplication();
     let setsTest;
 
     beforeEach(function () {
       setsTest = this.server.create('set');
 
-      this.visit(`/settings/oai-pmh/sets/${setsTest.id}/edit`);
+      this.visit(`/settings/oai-pmh/sets/${setsTest.id}/duplicate`);
     });
 
-    describe('Pane header', () => {
-      it('should render correct title', () => {
-        expect(SetsFormInteractor.paneHeader.title).to.equal(`Edit ${setsTest.name}`);
-      });
+    it('should render correct title', () => {
+      expect(SetsFormInteractor.paneHeader.title).to.equal(translation['settings.sets.new.title']);
     });
 
     describe('Entity not found', () => {
@@ -31,18 +29,18 @@ describe('Sets', () => {
         scenarios: 'sets-not-found',
       });
 
-      const currentPath = '/settings/oai-pmh/sets/id_not_found/edit';
+      const currentPath = '/settings/oai-pmh/sets/id_not_found/duplicate';
 
       beforeEach(function () {
         this.visit(currentPath);
       });
 
       it('should render correct title', () => {
-        expect(SetsFormInteractor.paneHeaderSetNotFound.title).to.equal(translation['settings.sets.edit.notFound.title']);
+        expect(SetsFormInteractor.paneHeaderSetNotFound.title).to.equal(translation['settings.sets.duplicate.notFound.title']);
       });
 
       it('should render correct text', () => {
-        expect(SetsFormInteractor.setNotFoundMessageBanner.text).to.equal(translation['settings.sets.edit.notFound.text']);
+        expect(SetsFormInteractor.setNotFoundMessageBanner.text).to.equal(translation['settings.sets.duplicate.notFound.text']);
       });
 
       describe('navigate back', () => {

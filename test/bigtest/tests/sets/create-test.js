@@ -18,7 +18,7 @@ describe('Sets', () => {
     });
 
     describe('Pane header', () => {
-      it('should be correct title', () => {
+      it('should render correct title', () => {
         expect(SetsFormInteractor.paneHeader.title).to.equal(translation['settings.sets.new.title']);
       });
     });

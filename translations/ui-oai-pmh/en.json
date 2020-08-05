@@ -49,10 +49,13 @@
 
   "settings.sets.view.notFound.title": "View",
   "settings.sets.view.notFound.text": "You have an invalid URL address. Please, review the syntax or parameters of the URL path and try another one.",
+  "settings.sets.duplicate.notFound.title": "New set",
   "settings.sets.edit.notFound.title": "Edit",
+  "settings.sets.duplicate.notFound.text": "You have an invalid URL address. Please, review the syntax or parameters of the URL path and try another one.",
   "settings.sets.edit.notFound.text": "You have an invalid URL address. Please, review the syntax or parameters of the URL path and try another one.",
 
   "settings.sets.action.edit": "Edit",
+  "settings.sets.action.duplicate": "Duplicate",
   "settings.sets.action.delete": "Delete",
   "settings.sets.form.button.cancel": "Cancel",
 

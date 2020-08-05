@@ -9,6 +9,7 @@ export const FILL_PANE_WIDTH = 'fill';
 export const ICONS = {
   EDIT: 'edit',
   DELETE: 'trash',
+  DUPLICATE : 'duplicate',
 };
 
 export const ENTITY_NOT_FOUND_STATUS_CODE = 404;

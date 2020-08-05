@@ -18,9 +18,11 @@ import {
 } from '../../../constants';
 
 const SetsView = ({
+  showActionMenu,
   paneTitle,
   onBack,
   onDelete,
+  onDuplicate,
   onEdit,
 }) => {
   const getFirstMenu = useCallback(() => (
@@ -28,24 +30,33 @@ const SetsView = ({
   ), [onBack]);
 
   // eslint-disable-next-line react/prop-types
-  const getActionMenu = ({ onToggle }) => (
-    <>
-      <ActionItem
-        id="editSetAction"
-        icon={ICONS.EDIT}
-        buttonTextTranslationKey="ui-oai-pmh.settings.sets.action.edit"
-        onClickHandler={onEdit}
-        onToggle={onToggle}
-      />
-      <ActionItem
-        id="deleteSetAction"
-        icon={ICONS.DELETE}
-        buttonTextTranslationKey="ui-oai-pmh.settings.sets.action.delete"
-        onClickHandler={onDelete}
-        onToggle={onToggle}
-      />
-    </>
-  );
+  const getActionMenu = ({ onToggle }) => {
+    return showActionMenu ? (
+      <>
+        <ActionItem
+          id="editSetAction"
+          icon={ICONS.EDIT}
+          buttonTextTranslationKey="ui-oai-pmh.settings.sets.action.edit"
+          onClickHandler={onEdit}
+          onToggle={onToggle}
+        />
+        <ActionItem
+          id="duplicateSetAction"
+          icon={ICONS.DUPLICATE}
+          buttonTextTranslationKey="ui-oai-pmh.settings.sets.action.duplicate"
+          onClickHandler={onDuplicate}
+          onToggle={onToggle}
+        />
+        <ActionItem
+          id="deleteSetAction"
+          icon={ICONS.DELETE}
+          buttonTextTranslationKey="ui-oai-pmh.settings.sets.action.delete"
+          onClickHandler={onDelete}
+          onToggle={onToggle}
+        />
+      </>
+    ) : null;
+  };
 
   return (
     <Pane
@@ -59,9 +70,11 @@ const SetsView = ({
 };
 
 SetsView.propTypes = {
+  showActionMenu: PropTypes.bool.isRequired,
   paneTitle: PropTypes.func.isRequired,
   onBack: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
+  onDuplicate: PropTypes.func.isRequired,
   onEdit: PropTypes.func.isRequired,
 };
 

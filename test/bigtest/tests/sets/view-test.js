@@ -52,12 +52,36 @@ describe('Sets', () => {
           expect(SetsViewInteractor.paneHeader.actionsDropdown.isPresent).to.be.true;
         });
 
-        it('should has edit action button', () => {
+        it('should have edit action button', () => {
           expect(SetsViewInteractor.editButton.isPresent).to.be.true;
         });
 
-        it('should has delete action button', () => {
+        it('should have duplicate action button', () => {
+          expect(SetsViewInteractor.duplicateButton.isPresent).to.be.true;
+        });
+
+        it('should have delete action button', () => {
           expect(SetsViewInteractor.deleteButton.isPresent).to.be.true;
+        });
+
+        describe('Edit action', () => {
+          beforeEach(async () => {
+            await SetsViewInteractor.editButton.click();
+          });
+
+          it('should navigate to edit page', function () {
+            expect(this.location.pathname).to.equal(`/settings/oai-pmh/sets/${initialValues.id}/edit`);
+          });
+        });
+
+        describe('Duplicate action', () => {
+          beforeEach(async () => {
+            await SetsViewInteractor.duplicateButton.click();
+          });
+
+          it('should navigate to duplicate page', function () {
+            expect(this.location.pathname).to.equal(`/settings/oai-pmh/sets/${initialValues.id}/duplicate`);
+          });
         });
 
         describe('Delete action', () => {
