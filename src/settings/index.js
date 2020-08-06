@@ -39,7 +39,7 @@ export default class OaiPmhSettings extends React.Component {
       <Settings
         {...this.props}
         pages={this.pages}
-        paneTitle={<FormattedMessage id="ui-oai-pmh.settings.title" />}
+        paneTitle="OAI-PMH + (UIOAIPMH-8)"
       />
     );
   }
