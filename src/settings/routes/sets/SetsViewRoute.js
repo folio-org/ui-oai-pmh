@@ -25,6 +25,7 @@ import {
 import {
   getSetsListUrl,
   getSetsEditUrl,
+  getSetsDuplicateUrl,
 } from '../../util';
 import useCallout from '../../hooks';
 import {
@@ -43,11 +44,14 @@ const SetsViewRoute = ({
       id,
     },
   },
+  stripes,
 }) => {
   const [sets, setSets] = useState({});
   const [isLoaded, setIsLoaded] = useState(true);
   const [isFailed, setIsFailed] = useState(true);
   const [isConfirmDeleteSetsModalOpen, setConfirmDeleteSetsModalOpen] = useState(false);
+
+  const showActionMenu = stripes.hasPerm('ui-oai-pmh.edit');
 
   const showCallout = useCallout();
 
@@ -77,6 +81,10 @@ const SetsViewRoute = ({
 
   const onEdit = useCallback(() => {
     history.push(getSetsEditUrl(id, location.search));
+  }, [location.search, history, id]);
+
+  const onDuplicate = useCallback(() => {
+    history.push(getSetsDuplicateUrl(id, location.search));
   }, [location.search, history, id]);
 
   const onDelete = () => {
@@ -133,9 +141,11 @@ const SetsViewRoute = ({
   return (
     <>
       <SetsView
+        showActionMenu={showActionMenu}
         paneTitle={getTitle}
         onBack={onBackToList}
         onDelete={confirmationModal}
+        onDuplicate={onDuplicate}
         onEdit={onEdit}
       />
       <ConfirmationModal
@@ -173,6 +183,9 @@ SetsViewRoute.propTypes = {
   history: ReactRouterPropTypes.history.isRequired,
   location: ReactRouterPropTypes.location.isRequired,
   match: ReactRouterPropTypes.match.isRequired,
+  stripes: PropTypes.shape({
+    hasPerm: PropTypes.func.isRequired,
+  }).isRequired,
   mutator: PropTypes.shape({
     viewSets: PropTypes.shape({
       DELETE: PropTypes.func.isRequired,

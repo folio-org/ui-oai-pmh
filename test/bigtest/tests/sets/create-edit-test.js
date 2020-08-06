@@ -177,4 +177,22 @@ describe('Sets', () => {
 
     reusedCreateEditTests(currentPath, redirectBackPath, initialValues);
   });
+
+  describe('Duplicate', () => {
+    const initialValues = {
+      id: 'id',
+      name: 'initial values name',
+      description: 'initial values description',
+    };
+    const currentPath = `/settings/oai-pmh/sets/${initialValues.id}/duplicate`;
+    const redirectBackPath = `/settings/oai-pmh/sets/${initialValues.id}/view`;
+
+    beforeEach(function () {
+      this.server.create('set', initialValues);
+
+      this.visit(currentPath);
+    });
+
+    reusedCreateEditTests(currentPath, redirectBackPath, initialValues);
+  });
 });

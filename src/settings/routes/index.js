@@ -8,6 +8,7 @@ import ReactRouterPropTypes from 'react-router-prop-types';
 
 import {
   SetsCreateRoute,
+  SetsDuplicateRoute,
   SetsListRoute,
   SetsEditRoute,
   SetsViewRoute,
@@ -24,6 +25,11 @@ const SetsRoute = ({ match }) => {
       <Route
         path={`${match.path}/:id/edit`}
         component={SetsEditRoute}
+        exact
+      />
+      <Route
+        path={`${match.path}/:id/duplicate`}
+        component={SetsDuplicateRoute}
         exact
       />
       <Route

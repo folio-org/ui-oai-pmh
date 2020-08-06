@@ -24,10 +24,10 @@ import {
   SetsWrapper,
 } from '../../components/Sets/common';
 import {
-  getSetsViewUrl,
   getSetsListUrl,
-  formatEditDateToViewData,
-  formatViewDataToEditDate,
+  getSetsViewUrl,
+  formatDuplicateDateToViewData,
+  formatViewDataToDuplicateDate,
 } from '../../util';
 import useCallout from '../../hooks';
 import {
@@ -35,11 +35,16 @@ import {
   SET_FIELDS,
 } from '../../constants';
 
-const SetsEditRoute = ({
+const SetsDuplicateRoute = ({
   history,
   location,
   mutator,
   stripes,
+  match: {
+    params: {
+      id,
+    },
+  },
 }) => {
   const [sets, setSets] = useState({});
   const [isLoaded, setIsLoaded] = useState(true);
@@ -49,8 +54,8 @@ const SetsEditRoute = ({
     () => {
       setIsLoaded(false);
       setIsFailed(false);
-      mutator.editSets.GET()
-        .then(setResponse => setSets(formatEditDateToViewData(setResponse)))
+      mutator.duplicateSets.GET()
+        .then(setResponse => setSets(formatDuplicateDateToViewData(setResponse)))
         .then(() => setIsLoaded(true))
         .catch(() => {
           setIsLoaded(true);
@@ -60,20 +65,15 @@ const SetsEditRoute = ({
     [],
   );
 
-  const getTitle = () => (
-    <FormattedMessage
-      id="ui-oai-pmh.settings.sets.edit.title"
-      values={{ name: sets[SET_FIELDS.NAME] }}
-    />
-  );
+  const getTitle = () => <FormattedMessage id="ui-oai-pmh.settings.sets.new.title" />;
 
   const showCallout = useCallout();
 
   const onSubmit = useCallback((values) => {
-    mutator.editSets.PUT(formatViewDataToEditDate(values))
+    mutator.duplicateSets.POST(formatViewDataToDuplicateDate(values))
       .then((response) => {
         showCallout({
-          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.updated" />,
+          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
         });
         history.push({
           pathname: getSetsViewUrl(response[SET_FIELDS.ID]),
@@ -86,16 +86,16 @@ const SetsEditRoute = ({
           message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem" />,
         });
       });
-  }, [showCallout, location.search, history, mutator.editSets, sets[SET_FIELDS.ID]]);
+  }, [showCallout, location.search, history, mutator.duplicateSets, sets[SET_FIELDS.ID]]);
 
   const onBack = useCallback(() => {
     history.push({
-      pathname:  getSetsViewUrl(sets[SET_FIELDS.ID]),
+      pathname:  getSetsViewUrl(id),
       search: location.search,
     });
-  }, [history, location.search, sets[SET_FIELDS.ID]]);
+  }, [history, location.search, id]);
 
-  const onBackEntityNotFoundForEdit = useCallback(() => {
+  const onBackEntityNotFoundForDuplicate = useCallback(() => {
     history.push({
       pathname:  getSetsListUrl(),
       search: location.search,
@@ -114,10 +114,10 @@ const SetsEditRoute = ({
     return (
       <SetsWrapper>
         <EntityNotFound
-          pageTitleTranslationKey="ui-oai-pmh.settings.sets.edit.notFound.title"
-          errorTextTranslationKey="ui-oai-pmh.settings.sets.edit.notFound.text"
+          pageTitleTranslationKey="ui-oai-pmh.settings.sets.duplicate.notFound.title"
+          errorTextTranslationKey="ui-oai-pmh.settings.sets.duplicate.notFound.text"
           paneWidth={FILL_PANE_WIDTH}
-          onBack={onBackEntityNotFoundForEdit}
+          onBack={onBackEntityNotFoundForDuplicate}
         />
       </SetsWrapper>
     );
@@ -126,7 +126,6 @@ const SetsEditRoute = ({
   return (
     <SetsForm
       initialValues={sets}
-      metadata={sets.metadata}
       formTitle={getTitle}
       stripes={stripes}
       onSubmit={onSubmit}
@@ -135,27 +134,28 @@ const SetsEditRoute = ({
   );
 };
 
-SetsEditRoute.manifest = Object.freeze({
-  editSets: {
+SetsDuplicateRoute.manifest = Object.freeze({
+  duplicateSets: {
     type: 'okapi',
     path: 'oai-pmh/set/:{id}',
     clientGeneratePk: false,
     throwErrors: false,
-    PUT: {
-      path: 'oai-pmh/set/:{id}',
+    POST: {
+      path: 'oai-pmh/set',
     },
     accumulate: 'true',
     fetch: false,
   },
 });
 
-SetsEditRoute.propTypes = {
+SetsDuplicateRoute.propTypes = {
   history: ReactRouterPropTypes.history.isRequired,
   location: ReactRouterPropTypes.location.isRequired,
+  match: ReactRouterPropTypes.match.isRequired,
   mutator: PropTypes.shape({
-    editSets: PropTypes.shape({
+    duplicateSets: PropTypes.shape({
       GET: PropTypes.func.isRequired,
-      PUT: PropTypes.func.isRequired,
+      POST: PropTypes.func.isRequired,
     }),
   }),
   stripes: PropTypes.shape({
@@ -163,4 +163,4 @@ SetsEditRoute.propTypes = {
   }).isRequired,
 };
 
-export default stripesConnect(SetsEditRoute);
+export default stripesConnect(SetsDuplicateRoute);

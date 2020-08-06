@@ -84,7 +84,7 @@ SetsCreateRoute.propTypes = {
   location: ReactRouterPropTypes.location.isRequired,
   mutator: PropTypes.shape({
     createSets: PropTypes.shape({
-      POST: PropTypes.func.isRequired
+      POST: PropTypes.func.isRequired,
     }),
   }),
   stripes: PropTypes.shape({

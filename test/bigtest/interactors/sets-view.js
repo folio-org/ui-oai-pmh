@@ -11,6 +11,7 @@ import CalloutInteractor from '@folio/stripes-components/lib/Callout/tests/inter
   paneHeader = new PaneHeader('[data-sets-view] [data-test-pane-header]');
 
   editButton = new ButtonInteractor('#editSetAction');
+  duplicateButton = new ButtonInteractor('#duplicateSetAction');
   deleteButton = new ButtonInteractor('#deleteSetAction');
 
   confirmDeleteSetsModal = new ConfirmationModalInteractor('#confirm-delete-sets-modal');
