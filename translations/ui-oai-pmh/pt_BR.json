@@ -52,9 +52,20 @@
     "settings.technical.title": "Técnico",
     "settings.sets.field.name": "Nome do conjunto",
     "settings.sets.field.description": "Descrição do conjunto",
-    "settings.sets.callout.created": "O conjunto {name} foi criado com sucesso",
-    "settings.sets.callout.updated": "O conjunto {name} foi atualizado com sucesso",
+    "settings.sets.callout.created": "O conjunto foi criado com sucesso",
+    "settings.sets.callout.updated": "Conjunto foi atualizado com sucesso",
     "settings.sets.callout.connectionProblem": "Não foi possível salvar devido a um erro do módulo. Por favor, tente novamente. Se um problema persistir, entre em contato com o administrador do sistema.",
     "settings.sets.edit.notFound.title": "Editar",
-    "settings.sets.edit.notFound.text": "Você tem um endereço de URL inválido. Por favor, revise a sintaxe ou os parâmetros do caminho da URL e tente outro."
+    "settings.sets.edit.notFound.text": "Você tem um endereço de URL inválido. Por favor, revise a sintaxe ou os parâmetros do caminho da URL e tente outro.",
+    "settings.confirmDeleteSetsModal.heading": "Confirme a exclusão do conjunto",
+    "settings.confirmDeleteSetsModal.message": "O conjunto {name} será removido.",
+    "settings.confirmDeleteSetsModal.confirm": "Excluir",
+    "settings.confirmDeleteSetsModal.cancel": "Cancelar",
+    "settings.sets.callout.deleted": "Conjunto foi excluído com sucesso",
+    "settings.sets.callout.failedToDelete.delete": "Falha ao excluir um conjunto",
+    "settings.sets.callout.connectionProblem.delete": "Não foi possível excluir devido a um erro do módulo. Por favor, tente novamente. Se o problema persistir, entre em contato com o administrador do sistema",
+    "settings.sets.view.notFound.title": "Visualizar",
+    "settings.sets.view.notFound.text": "Você tem um endereço de URL inválido. Por favor, revise a sintaxe ou os parâmetros do caminho da URL e tente outro.",
+    "settings.sets.action.edit": "Editar",
+    "settings.sets.action.delete": "Excluir"
 }

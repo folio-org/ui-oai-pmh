@@ -56,5 +56,16 @@
     "settings.sets.callout.updated": "تم تحديث ضبط {name} بنجاح",
     "settings.sets.callout.connectionProblem": "تعذر الحفظ بسبب خطأ في الوحدة. يرجى إعادة المحاولة مرة أخرى. إذا استمرت المشكلة يرجى الاتصال بمدير النظام.",
     "settings.sets.edit.notFound.title": "تحرير",
-    "settings.sets.edit.notFound.text": "لديك عنوان URL غير صالح. يرجى مراجعة بناء الجملة أو معلمات مسار عنوان ال URL وإعادة المحاولة."
+    "settings.sets.edit.notFound.text": "لديك عنوان URL غير صالح. يرجى مراجعة بناء الجملة أو معلمات مسار عنوان ال URL وإعادة المحاولة.",
+    "settings.confirmDeleteSetsModal.heading": "تأكيد حذف المجموعة",
+    "settings.confirmDeleteSetsModal.message": "ستتم إزالة مجموعة {name} .",
+    "settings.confirmDeleteSetsModal.confirm": "حذف",
+    "settings.confirmDeleteSetsModal.cancel": "إلغاء",
+    "settings.sets.callout.deleted": "تم حذف المجموعة بنجاح",
+    "settings.sets.callout.failedToDelete.delete": "فشل حذف المجموعة",
+    "settings.sets.callout.connectionProblem.delete": "تعذر الحذف بسبب خطأ في الوحدة. يرجى إعادة المحاولة مرة أخرى. إذا استمرت المشكلة، يرجى الاتصال بمدير النظام",
+    "settings.sets.view.notFound.title": "عرض",
+    "settings.sets.view.notFound.text": "لديك عنوان URL غير صالح. يرجى مراجعة بناء الجملة أو معلمات مسار عنوان ال URL وإعادة المحاولة.",
+    "settings.sets.action.edit": "تحرير",
+    "settings.sets.action.delete": "حذف"
 }
