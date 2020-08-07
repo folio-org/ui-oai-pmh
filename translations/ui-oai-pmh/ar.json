@@ -67,5 +67,8 @@
     "settings.sets.view.notFound.title": "عرض",
     "settings.sets.view.notFound.text": "لديك عنوان URL غير صالح. يرجى مراجعة بناء الجملة أو معلمات مسار عنوان ال URL وإعادة المحاولة.",
     "settings.sets.action.edit": "تحرير",
-    "settings.sets.action.delete": "حذف"
+    "settings.sets.action.delete": "حذف",
+    "settings.sets.duplicate.notFound.title": "مجموعة جديدة",
+    "settings.sets.duplicate.notFound.text": "لديك عنوان URL غير صالح. يرجى مراجعة بناء الجملة أو معلمات مسار عنوان ال URL وإعادة المحاولة.",
+    "settings.sets.action.duplicate": "تكرار"
 }

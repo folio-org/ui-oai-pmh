@@ -67,5 +67,8 @@
     "settings.sets.view.notFound.title": "Afficher",
     "settings.sets.view.notFound.text": "You have an invalid URL address. Please, review the syntax or parameters of the URL path and try another one.",
     "settings.sets.action.edit": "Modifier",
-    "settings.sets.action.delete": "Supprimer"
+    "settings.sets.action.delete": "Supprimer",
+    "settings.sets.duplicate.notFound.title": "New set",
+    "settings.sets.duplicate.notFound.text": "You have an invalid URL address. Please, review the syntax or parameters of the URL path and try another one.",
+    "settings.sets.action.duplicate": "Dupliquer"
 }
