@@ -67,5 +67,8 @@
     "settings.sets.view.notFound.title": "Visualizar",
     "settings.sets.view.notFound.text": "Você tem um endereço de URL inválido. Por favor, revise a sintaxe ou os parâmetros do caminho da URL e tente outro.",
     "settings.sets.action.edit": "Editar",
-    "settings.sets.action.delete": "Excluir"
+    "settings.sets.action.delete": "Excluir",
+    "settings.sets.duplicate.notFound.title": "Novo conjunto",
+    "settings.sets.duplicate.notFound.text": "Você tem um endereço de URL inválido. Por favor, revise a sintaxe ou os parâmetros do caminho da URL e tente outro.",
+    "settings.sets.action.duplicate": "Duplicar"
 }
