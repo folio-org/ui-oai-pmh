@@ -7,14 +7,25 @@ import { expect } from 'chai';
 
 import setupApplication from '../../helpers/setup-application';
 import SetsViewInteractor from '../../interactors/sets-view';
+import translation from '../../../../translations/ui-oai-pmh/en';
 
 describe('Sets', () => {
   setupApplication({
-    scenarios: 'success-delete',
+    scenarios: ['success-delete', 'location-for-filtering-conditions'],
   });
   let setsTest;
   const initialValues = {
     id: 'id',
+    name: 'name',
+    description: 'description',
+    setSpec: 'setSpec',
+    filteringConditions: [
+      {
+        name : 'location',
+        value : 'location 1',
+        setSpec : 'loc',
+      },
+    ],
   };
   const listPath = '/settings/oai-pmh/sets';
   const viewPath = `/settings/oai-pmh/sets/${initialValues.id}/view`;
@@ -70,7 +81,7 @@ describe('Sets', () => {
           });
 
           it('should navigate to edit page', function () {
-            expect(this.location.pathname).to.equal(`/settings/oai-pmh/sets/${initialValues.id}/edit`);
+            expect(this.location.pathname).to.equal(`/settings/oai-pmh/sets/${setsTest.id}/edit`);
           });
         });
 
@@ -80,7 +91,7 @@ describe('Sets', () => {
           });
 
           it('should navigate to duplicate page', function () {
-            expect(this.location.pathname).to.equal(`/settings/oai-pmh/sets/${initialValues.id}/duplicate`);
+            expect(this.location.pathname).to.equal(`/settings/oai-pmh/sets/${setsTest.id}/duplicate`);
           });
         });
 
@@ -104,10 +115,6 @@ describe('Sets', () => {
           describe('Confirm button', () => {
             beforeEach(async () => {
               await SetsViewInteractor.confirmDeleteSetsModal.confirmButton.click();
-            });
-
-            it('should close confirmation modal', () => {
-              expect(SetsViewInteractor.confirmDeleteSetsModal.isPresent).to.be.false;
             });
 
             it('should show success callout', () => {
@@ -134,13 +141,94 @@ describe('Sets', () => {
           });
         });
 
-        describe('clicking close pane button', () => {
+        describe('Close pane button', () => {
           beforeEach(async () => {
             await SetsViewInteractor.paneHeader.dismissButton.click();
           });
 
           it('should navigate to list page', function () {
             expect(this.location.pathname).to.equal(listPath);
+          });
+        });
+      });
+    });
+
+    describe('View', () => {
+      describe('Expand/collapse all button', () => {
+        it('should be correct headline', () => {
+          expect(SetsViewInteractor.headline).to.equal(setsTest.name);
+        });
+        it('should has expand/collapse all button', () => {
+          expect(SetsViewInteractor.expandAllButton.isPresent).to.be.true;
+        });
+
+        it('should be correct button label (Collapse all)', () => {
+          expect(SetsViewInteractor.expandAllButton.label).to.equal('Collapse all');
+        });
+
+        describe('Click on expand/collapse all button', () => {
+          beforeEach(async () => {
+            await SetsViewInteractor.expandAllButton.clickExpandAllButton();
+          });
+
+          it('should be correct button label (Expand all)', () => {
+            expect(SetsViewInteractor.expandAllButton.label).to.equal('Expand all');
+          });
+        });
+      });
+
+      describe('General information', () => {
+        it('should be correct name', () => {
+          expect(SetsViewInteractor.name.value.text).to.equal(setsTest.name);
+        });
+
+        it('should be correct description', () => {
+          expect(SetsViewInteractor.description.value.text).to.equal(setsTest.description);
+        });
+
+        it('should be correct set specification', () => {
+          expect(SetsViewInteractor.setSpec.value.text).to.equal(setsTest.setSpec);
+        });
+      });
+
+      describe('Filtering conditions', () => {
+        it('should display filtering conditions list', () => {
+          expect(SetsViewInteractor.filteringConditionsList.isPresent).to.be.true;
+        });
+
+        it('should display correct header labels for name', () => {
+          expect(SetsViewInteractor.filteringConditionsList.headers(0).text)
+            .to.equal(translation['settings.sets.view.filteringConditions.field.name']);
+        });
+
+        it('should display correct header labels for value', () => {
+          expect(SetsViewInteractor.filteringConditionsList.headers(1).text)
+            .to.equal(translation['settings.sets.view.filteringConditions.field.value']);
+        });
+
+        it('should display correct header labels for set specification', () => {
+          expect(SetsViewInteractor.filteringConditionsList.headers(2).text)
+            .to.equal(translation['settings.sets.view.filteringConditions.field.setSpec']);
+        });
+
+        it('should display correct row(s) count', () => {
+          expect(SetsViewInteractor.filteringConditionsList.rowCount).to.equal(1);
+        });
+
+        describe('Filtering conditions row', () => {
+          it('should display correct name', () => {
+            expect(SetsViewInteractor.filteringConditionsList.rows(0).cells(0).text)
+              .to.equal(translation[`settings.sets.filteringCondition.${setsTest.filteringConditions[0].name}`]);
+          });
+
+          it('should display correct value', () => {
+            expect(SetsViewInteractor.filteringConditionsList.rows(0).cells(1).content)
+              .to.equal(setsTest.filteringConditions[0].value);
+          });
+
+          it('should display correct setSpec', () => {
+            expect(SetsViewInteractor.filteringConditionsList.rows(0).cells(2).text)
+              .to.equal(setsTest.filteringConditions[0].setSpec);
           });
         });
       });

@@ -32,6 +32,7 @@ import {
 import useCallout from '../../hooks';
 import {
   FILL_PANE_WIDTH,
+  CALLOUT_ERROR_TYPE,
   SET_FIELDS,
 } from '../../constants';
 
@@ -82,7 +83,7 @@ const SetsDuplicateRoute = ({
       })
       .catch(() => {
         showCallout({
-          type: 'error',
+          type: CALLOUT_ERROR_TYPE,
           message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem" />,
         });
       });

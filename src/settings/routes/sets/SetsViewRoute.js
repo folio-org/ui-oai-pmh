@@ -1,5 +1,6 @@
 import React, {
   useCallback,
+  useContext,
   useState,
   useEffect,
 } from 'react';
@@ -15,6 +16,7 @@ import {
   ConfirmationModal,
 } from '@folio/stripes/components';
 
+import SetsContext from './SetsContext';
 import {
   SetsView,
 } from '../../components/Sets';
@@ -26,10 +28,12 @@ import {
   getSetsListUrl,
   getSetsEditUrl,
   getSetsDuplicateUrl,
+  formatEditDateToViewData,
 } from '../../util';
 import useCallout from '../../hooks';
 import {
   DEFAULT_PANE_WIDTH,
+  CALLOUT_ERROR_TYPE,
   ENTITY_NOT_FOUND_STATUS_CODE,
   FILL_PANE_WIDTH,
   SET_FIELDS,
@@ -46,6 +50,10 @@ const SetsViewRoute = ({
   },
   stripes,
 }) => {
+  const {
+    setsFilteringConditions,
+  } = useContext(SetsContext);
+
   const [sets, setSets] = useState({});
   const [isLoaded, setIsLoaded] = useState(true);
   const [isFailed, setIsFailed] = useState(true);
@@ -60,7 +68,7 @@ const SetsViewRoute = ({
       setIsLoaded(false);
       setIsFailed(false);
       mutator.viewSets.GET()
-        .then(setResponse => setSets(setResponse))
+        .then(setResponse => setSets(formatEditDateToViewData(setResponse)))
         .then(() => setIsLoaded(true))
         .catch(() => {
           setIsLoaded(true);
@@ -102,12 +110,12 @@ const SetsViewRoute = ({
       .catch(({ status }) => {
         if (status === ENTITY_NOT_FOUND_STATUS_CODE) {
           showCallout({
-            type: 'error',
+            type: CALLOUT_ERROR_TYPE,
             message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.failedToDelete.delete" />,
           });
         } else {
           showCallout({
-            type: 'error',
+            type: CALLOUT_ERROR_TYPE,
             message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem.delete" />,
           });
         }
@@ -147,6 +155,8 @@ const SetsViewRoute = ({
         onDelete={confirmationModal}
         onDuplicate={onDuplicate}
         onEdit={onEdit}
+        sets={sets}
+        setsFilteringConditions={setsFilteringConditions}
       />
       <ConfirmationModal
         id="confirm-delete-sets-modal"
@@ -174,9 +184,9 @@ SetsViewRoute.manifest = Object.freeze({
     accumulate: 'true',
     fetch: false,
     DELETE: {
-      path: 'oai-pmh/sets/:{id}'
-    }
-  }
+      path: 'oai-pmh/sets/:{id}',
+    },
+  },
 });
 
 SetsViewRoute.propTypes = {
@@ -191,7 +201,7 @@ SetsViewRoute.propTypes = {
       DELETE: PropTypes.func.isRequired,
       GET: PropTypes.func.isRequired,
     })
-  })
+  }),
 };
 
 export default stripesConnect(SetsViewRoute);

@@ -24,7 +24,7 @@ const GeneralInformation = ({
   return (
     <Accordion
       id={GENERAL_ACCORDION_NAME}
-      label={<FormattedMessage id="ui-oai-pmh.settings.sets.accordion.generalInformation.title" />}
+      label={<FormattedMessage id="ui-oai-pmh.settings.sets.edit.accordion.generalInformation.title" />}
     >
       {metadata && (
         <Row>
@@ -46,7 +46,7 @@ const GeneralInformation = ({
             id={SET_FIELDS.NAME}
             name={SET_FIELDS.NAME}
             type="text"
-            label={<FormattedMessage id="ui-oai-pmh.settings.sets.field.name" />}
+            label={<FormattedMessage id="ui-oai-pmh.settings.sets.edit.field.name" />}
             component={TextField}
           />
         </Col>
@@ -60,7 +60,7 @@ const GeneralInformation = ({
             id={SET_FIELDS.DESCRIPTION}
             name={SET_FIELDS.DESCRIPTION}
             type="text"
-            label={<FormattedMessage id="ui-oai-pmh.settings.sets.field.description" />}
+            label={<FormattedMessage id="ui-oai-pmh.settings.sets.edit.field.description" />}
             component={TextArea}
           />
         </Col>

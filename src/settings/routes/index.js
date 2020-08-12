@@ -12,36 +12,39 @@ import {
   SetsListRoute,
   SetsEditRoute,
   SetsViewRoute,
+  SetsRootLayer,
 } from './sets';
 
 const SetsRoute = ({ match }) => {
   return (
-    <Switch>
-      <Route
-        path={`${match.path}/create`}
-        component={SetsCreateRoute}
-        exact
-      />
-      <Route
-        path={`${match.path}/:id/edit`}
-        component={SetsEditRoute}
-        exact
-      />
-      <Route
-        path={`${match.path}/:id/duplicate`}
-        component={SetsDuplicateRoute}
-        exact
-      />
-      <Route
-        path={`${match.path}/:id/view`}
-        component={SetsViewRoute}
-        exact
-      />
-      <Route
-        path={`${match.path}`}
-        component={SetsListRoute}
-      />
-    </Switch>
+    <SetsRootLayer>
+      <Switch>
+        <Route
+          path={`${match.path}/create`}
+          component={SetsCreateRoute}
+          exact
+        />
+        <Route
+          path={`${match.path}/:id/edit`}
+          component={SetsEditRoute}
+          exact
+        />
+        <Route
+          path={`${match.path}/:id/duplicate`}
+          component={SetsDuplicateRoute}
+          exact
+        />
+        <Route
+          path={`${match.path}/:id/view`}
+          component={SetsViewRoute}
+          exact
+        />
+        <Route
+          path={`${match.path}`}
+          component={SetsListRoute}
+        />
+      </Switch>
+    </SetsRootLayer>
   );
 };
 
