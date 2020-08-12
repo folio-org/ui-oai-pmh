@@ -1,3 +1,3 @@
 export default server => {
-  server.get('set/:id', {}, 404);
+  server.get('sets/:id', {}, 404);
 };
