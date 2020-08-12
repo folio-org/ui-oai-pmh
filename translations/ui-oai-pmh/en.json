@@ -3,7 +3,7 @@
   "permission.view": "Settings (OAI-PMH): Display list of settings pages",
   "permission.edit": "Settings (OAI-PMH): Can view and edit settings",
 
-  "settings.title": "OAI-PMH",
+  "settings.title": "OAI-PMH + UIOAIPMH-8 for test",
 
   "settings.behavior.title": "Behavior",
   "settings.behavior.label.deletedRecordsSupport": "Deleted records support",
