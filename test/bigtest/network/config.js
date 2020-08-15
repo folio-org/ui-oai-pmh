@@ -3,7 +3,7 @@
 export default function config() {
   this.namespace = 'oai-pmh/';
 
-  this.get('set/:id', ({ sets }, { params }) => {
+  this.get('sets/:id', ({ sets }, { params }) => {
     const set = sets.find(params.id).attrs;
 
     if (!set) {
@@ -13,7 +13,7 @@ export default function config() {
     return set;
   });
 
-  this.post('set', () => {});
+  this.post('sets', () => {});
 
-  this.put('set/:id', () => {});
+  this.put('sets/:id', () => {});
 }

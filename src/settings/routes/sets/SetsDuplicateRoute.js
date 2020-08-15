@@ -137,11 +137,11 @@ const SetsDuplicateRoute = ({
 SetsDuplicateRoute.manifest = Object.freeze({
   duplicateSets: {
     type: 'okapi',
-    path: 'oai-pmh/set/:{id}',
+    path: 'oai-pmh/sets/:{id}',
     clientGeneratePk: false,
     throwErrors: false,
     POST: {
-      path: 'oai-pmh/set',
+      path: 'oai-pmh/sets',
     },
     accumulate: 'true',
     fetch: false,

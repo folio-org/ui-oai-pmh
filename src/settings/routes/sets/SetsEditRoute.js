@@ -138,11 +138,11 @@ const SetsEditRoute = ({
 SetsEditRoute.manifest = Object.freeze({
   editSets: {
     type: 'okapi',
-    path: 'oai-pmh/set/:{id}',
+    path: 'oai-pmh/sets/:{id}',
     clientGeneratePk: false,
     throwErrors: false,
     PUT: {
-      path: 'oai-pmh/set/:{id}',
+      path: 'oai-pmh/sets/:{id}',
     },
     accumulate: 'true',
     fetch: false,

@@ -72,7 +72,7 @@ const SetsCreateRoute = ({
 SetsCreateRoute.manifest = Object.freeze({
   createSets: {
     type: 'okapi',
-    path: 'oai-pmh/set',
+    path: 'oai-pmh/sets',
     clientGeneratePk: false,
     throwErrors: false,
     fetch: false,
