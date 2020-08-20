@@ -10,6 +10,7 @@ import {
 } from './components';
 import SetsRoute from './routes';
 import {
+  SETTINGS_PANE_WIDTH,
   BEHAVIOR_ROUTE,
   GENERAL_ROUTE,
   TECHNICAL_ROUTE,
@@ -38,6 +39,7 @@ export default class OaiPmhSettings extends React.Component {
     return (
       <Settings
         {...this.props}
+        navPaneWidth={SETTINGS_PANE_WIDTH}
         pages={this.pages}
         paneTitle={<FormattedMessage id="ui-oai-pmh.settings.title" />}
       />

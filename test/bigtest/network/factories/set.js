@@ -9,4 +9,31 @@ export default Factory.extend({
   createdByUserId: faker.random.uuid(),
   updatedDate: faker.date.past(0.1).toString(),
   updatedByUserId: faker.random.uuid(),
+  filteringConditions: [
+    {
+      name : 'location',
+      value : faker.lorem.word,
+      setSpec : faker.lorem.word,
+    },
+    {
+      name : 'resourceType',
+      value : faker.lorem.word,
+      setSpec : faker.lorem.word,
+    },
+    {
+      name : 'format',
+      value : faker.lorem.word,
+      setSpec : faker.lorem.word,
+    },
+    {
+      name : 'illPolicy',
+      value : faker.lorem.word,
+      setSpec : faker.lorem.word,
+    },
+    {
+      name : 'materialType',
+      value : faker.lorem.word,
+      setSpec : faker.lorem.word,
+    },
+  ],
 });

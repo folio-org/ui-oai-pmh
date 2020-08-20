@@ -34,11 +34,7 @@ describe('Sets', () => {
 
       describe('click cancel (close without saving)', () => {
         beforeEach(async () => {
-          await SetsFormInteractor.clickCancelNavigationButton();
-        });
-
-        it('should close confirmation modal', () => {
-          expect(SetsFormInteractor.navigateBackConfirmationModal.isPresent).to.be.false;
+          await SetsFormInteractor.clickCancelNavigationButton.click();
         });
 
         it('should navigate back after click on dismiss button in confirmation modal', function () {
@@ -48,7 +44,7 @@ describe('Sets', () => {
 
       describe('click continue (keep editing)', () => {
         beforeEach(async () => {
-          await SetsFormInteractor.clickContinueNavigationButton();
+          await SetsFormInteractor.clickContinueNavigationButton.click();
         });
 
         it('should close confirmation modal', () => {

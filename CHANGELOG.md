@@ -2,10 +2,13 @@
 
 ## [1.3.0] (IN PROGRESS)
 
-* Add route for sets, refactoring directory structure, increase code coverage for FE. Refs UIOAIPMH-7.
+* Add route for sets, refactoring directory structure, increase code coverage. Refs UIOAIPMH-7.
+* Add create/edit set with general information. Refs UIOAIPMH-5.
 * Refactor to `miragejs` from `bigtest/mirage`.
 * Add ability for delete existing set. Refs UIOAIPMH-11.
+* Add ability for duplicate set. Refs UIOAIPMH-8.
 * Rename sets endpoints. Refs UIOAIPMH-16.
+* Add details view for set. Refs UIOAIPMH-10.
 
 ## [1.2.0](https://github.com/folio-org/ui-oai-pmh/tree/v1.2.0) (2020-07-03)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.1.0...v1.2.0)

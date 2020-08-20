@@ -1,5 +1,6 @@
 // typical mirage config export
 // http://www.ember-cli-mirage.com/docs/v0.4.x/configuration/
+
 export default function config() {
   this.namespace = 'oai-pmh/';
 
@@ -16,4 +17,8 @@ export default function config() {
   this.post('sets', () => {});
 
   this.put('sets/:id', () => {});
+
+  this.get('filtering-conditions', () => ({
+    setsFilteringConditions: [],
+  }));
 }

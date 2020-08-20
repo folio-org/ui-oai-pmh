@@ -1,0 +1,6 @@
+@import "@folio/stripes-components/lib/variables";
+
+.missingValue {
+  width: 100%;
+  color: var(--error);
+}

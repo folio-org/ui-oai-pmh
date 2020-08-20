@@ -1,6 +1,6 @@
 {
   "name": "@folio/oai-pmh",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "OAI-PMH manager",
   "main": "src/index.js",
   "repository": "folio-org/ui-oai-pmh",
@@ -89,7 +89,9 @@
         "displayName": "Settings (OAI-PMH): Display list of settings pages",
         "subPermissions": [
           "settings.oai-pmh.enabled",
-          "configuration.entries.collection.get"
+          "configuration.entries.collection.get",
+          "oai-pmh.sets.item.get",
+          "oai-pmh.filtering-conditions.get"
         ],
         "visible": true
       },
@@ -98,7 +100,10 @@
         "displayName": "Settings (OAI-PMH): Can view and edit settings",
         "subPermissions": [
           "ui-oai-pmh.view",
-          "configuration.entries.item.put"
+          "configuration.entries.item.put",
+          "oai-pmh.sets.item.put",
+          "oai-pmh.sets.item.post",
+          "oai-pmh.sets.item.delete"
         ],
         "visible": true
       }

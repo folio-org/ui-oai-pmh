@@ -13,11 +13,9 @@ const FilteringConditions = () => {
   return (
     <Accordion
       id={FILTERING_CONDITIONS_ACCORDION_NAME}
-      label={<FormattedMessage id="ui-oai-pmh.settings.sets.accordion.filteringConditions.title" />}
+      label={<FormattedMessage id="ui-oai-pmh.settings.sets.edit.accordion.filteringConditions.title" />}
     >
-      <div>
-        <FormattedMessage id="ui-oai-pmh.settings.sets.accordion.filteringConditions.title" />
-      </div>
+      <FormattedMessage id="ui-oai-pmh.settings.sets.edit.accordion.filteringConditions.title" />
     </Accordion>
   );
 };

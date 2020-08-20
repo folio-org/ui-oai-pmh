@@ -20,6 +20,7 @@ import {
 } from '../../util';
 import useCallout from '../../hooks';
 import {
+  CALLOUT_ERROR_TYPE,
   SET_FIELDS,
   SET_FIELDS_INITIAL_VALUES,
 } from '../../constants';
@@ -45,7 +46,7 @@ const SetsCreateRoute = ({
       })
       .catch(() => {
         showCallout({
-          type: 'error',
+          type: CALLOUT_ERROR_TYPE,
           message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem" />,
         });
       });

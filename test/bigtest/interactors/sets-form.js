@@ -1,5 +1,4 @@
 import {
-  clickable,
   interactor,
   Interactor,
 } from '@bigtest/interactor';
@@ -15,8 +14,8 @@ import CalloutInteractor from '@folio/stripes-components/lib/Callout/tests/inter
 @interactor class SetsForm {
   paneHeader = new PaneHeader('[data-sets-form] [data-test-pane-header]');
   navigateBackConfirmationModal = new Interactor('#cancel-editing-confirmation');
-  clickCancelNavigationButton = clickable('#clickable-cancel-editing-confirmation-cancel');
-  clickContinueNavigationButton = clickable('#clickable-cancel-editing-confirmation-confirm');
+  clickCancelNavigationButton = new ButtonInteractor('#clickable-cancel-editing-confirmation-cancel');
+  clickContinueNavigationButton = new ButtonInteractor('#clickable-cancel-editing-confirmation-confirm');
 
   expandAllButton = new ExpandAllButtonInteractor('[data-sets-form] [data-test-expand-all-button]');
 
