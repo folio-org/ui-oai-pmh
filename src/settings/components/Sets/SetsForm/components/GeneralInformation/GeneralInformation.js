@@ -39,7 +39,7 @@ const GeneralInformation = ({
       <Row>
         <Col
           data-test-set-fields-name
-          sm={8}
+          sm={6}
         >
           <Field
             required
@@ -54,7 +54,7 @@ const GeneralInformation = ({
       <Row>
         <Col
           data-test-set-fields-description
-          sm={8}
+          sm={6}
         >
           <Field
             id={SET_FIELDS.DESCRIPTION}

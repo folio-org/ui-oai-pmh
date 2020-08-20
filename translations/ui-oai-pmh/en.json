@@ -36,6 +36,17 @@
   "settings.sets.edit.accordion.generalInformation.title": "General information",
   "settings.sets.edit.accordion.filteringConditions.title": "Filtering conditions",
 
+  "settings.sets.edit.filteringConditions.field.name": "Field",
+  "settings.sets.edit.filteringConditions.field.active": "Active",
+  "settings.sets.edit.filteringConditions.field.value": "Value",
+  "settings.sets.edit.filteringConditions.field.setSpec": "Specification",
+
+  "settings.sets.edit.filteringConditions.field.value.select.location": "Select location",
+  "settings.sets.edit.filteringConditions.field.value.select.resourceType": "Select resource type",
+  "settings.sets.edit.filteringConditions.field.value.select.format": "Select format",
+  "settings.sets.edit.filteringConditions.field.value.select.illPolicy": "Select ILL policy",
+  "settings.sets.edit.filteringConditions.field.value.select.materialType": "Select material type",
+
   "settings.sets.view.accordion.generalInformation.title": "Summary",
   "settings.sets.view.accordion.filteringConditions.title": "Set filtering conditions",
   "settings.sets.view.field.name": "Set name",

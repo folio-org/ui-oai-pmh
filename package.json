@@ -47,6 +47,7 @@
     "lodash": "^4.17.15",
     "prop-types": "^15.6.0",
     "react-final-form": "^6.3.0",
+    "react-final-form-arrays": "^3.1.2",
     "react-router-prop-types": "^1.0.4"
   },
   "peerDependencies": {

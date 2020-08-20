@@ -16,6 +16,24 @@ export const INITIAL_ACCORDION_STATE = {
   [FILTERING_CONDITIONS_ACCORDION_NAME]: true,
 };
 
+export const SET_FIELDS_SET_SPEC_SEPARATOR = ':';
+
+export const FILTERING_CONDITIONS_NAME = {
+  LOCATION: 'location',
+  RESOURCE_TYPE: 'resourceType',
+  FORMAT: 'format',
+  ILL_POLICY: 'illPolicy',
+  MATERIAL_TYPE: 'materialType',
+};
+
+export const FILTERING_CONDITIONS_SET_SPEC_INITIAL_VALUES = {
+  [FILTERING_CONDITIONS_NAME.LOCATION]: 'Loc',
+  [FILTERING_CONDITIONS_NAME.RESOURCE_TYPE]: 'RT',
+  [FILTERING_CONDITIONS_NAME.FORMAT]: 'Ft',
+  [FILTERING_CONDITIONS_NAME.ILL_POLICY]: 'ILL',
+  [FILTERING_CONDITIONS_NAME.MATERIAL_TYPE]: 'MT',
+};
+
 export const SET_FIELDS = {
   ID: 'id',
   NAME: 'name',
@@ -32,13 +50,20 @@ export const SET_FIELDS = {
 export const SET_FIELDS_INITIAL_VALUES = {
   [SET_FIELDS.NAME]: '',
   [SET_FIELDS.DESCRIPTION]: '',
-  [SET_FIELDS.SET_SPEC]: 'DEFAULT_SET_SPEC', // TODO:: Temporary solution for integration with BE. Change from 'DEFAULT_SET_SPEC' to '' after SET_SPEC implantation.
+  [SET_FIELDS.SET_SPEC]: '',
+  [SET_FIELDS.FILTERING_CONDITIONS]: [],
 };
 
 export const FILTERING_CONDITIONS_FIELDS = {
-  ID: 'id',
   NAME: 'name',
   ACTIVE: 'active',
   VALUE: 'value',
   SET_SPEC: 'setSpec',
+};
+
+export const FILTERING_CONDITIONS_FIELDS_INITIAL_VALUES = {
+  [SET_FIELDS.NAME]: '',
+  [SET_FIELDS.ACTIVE]: false,
+  [SET_FIELDS.VALUE]: '',
+  [SET_FIELDS.SET_SPEC]: '',
 };

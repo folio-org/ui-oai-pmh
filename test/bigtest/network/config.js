@@ -19,6 +19,15 @@ export default function config() {
   this.put('sets/:id', () => {});
 
   this.get('filtering-conditions', () => ({
-    setsFilteringConditions: [],
+    setsFilteringConditions: [
+      {
+        name : 'location',
+        values : [
+          'location 1',
+          'location 2',
+          'location 3',
+        ],
+      },
+    ],
   }));
 }

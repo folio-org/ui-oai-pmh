@@ -6,7 +6,10 @@ import {
 import { expect } from 'chai';
 
 import setupApplication from '../../helpers/setup-application';
+import wait from '../../helpers/wait';
 import SetsFormInteractor from '../../interactors/sets-form';
+
+import translation from '../../../../translations/ui-oai-pmh/en';
 
 describe('Sets', () => {
   setupApplication();
@@ -86,27 +89,126 @@ describe('Sets', () => {
     });
 
     describe('Form values', () => {
-      describe('Initial load', () => {
-        it('should render initial values', () => {
-          expect(SetsFormInteractor.name.val).to.equal(initialValues.name);
-          expect(SetsFormInteractor.description.val).to.equal(initialValues.description);
+      describe('General information', () => {
+        describe('initial load', () => {
+          it('should render name', () => {
+            expect(SetsFormInteractor.name.val).to.equal(initialValues.name);
+          });
+
+          it('should render description', () => {
+            expect(SetsFormInteractor.description.val).to.equal(initialValues.description);
+          });
+        });
+
+        describe('change values', () => {
+          const newValues = {
+            name: 'new name',
+            description: 'new description',
+          };
+
+          beforeEach(async () => {
+            await SetsFormInteractor.name.fillAndBlur(newValues.name);
+            await SetsFormInteractor.description.fillAndBlur(newValues.description);
+          });
+
+          it('should change name', () => {
+            expect(SetsFormInteractor.name.val).to.equal(newValues.name);
+          });
+
+          it('should change description', () => {
+            expect(SetsFormInteractor.description.val).to.equal(newValues.description);
+          });
         });
       });
 
-      describe('Change form values', () => {
-        const newValues = {
-          name: 'new name',
-          description: 'new description',
-        };
+      describe('Filtering conditions', () => {
+        describe('Title', () => {
+          it('should be correct label text for name', () => {
+            expect(SetsFormInteractor.filteringConditionsTitleName)
+              .to.equal(translation['settings.sets.edit.filteringConditions.field.name']);
+          });
 
-        beforeEach(async () => {
-          await SetsFormInteractor.name.fillAndBlur(newValues.name);
-          await SetsFormInteractor.description.fillAndBlur(newValues.description);
+          it('should be correct label text for active', () => {
+            expect(SetsFormInteractor.filteringConditionsTitleActive)
+              .to.equal(translation['settings.sets.edit.filteringConditions.field.active']);
+          });
+
+          it('should be correct label text for value', () => {
+            expect(SetsFormInteractor.filteringConditionsTitleValue)
+              .to.equal(translation['settings.sets.edit.filteringConditions.field.value']);
+          });
+
+          it('should be correct label text for set spec', () => {
+            expect(SetsFormInteractor.filteringConditionsTitleSetSpec)
+              .to.equal(translation['settings.sets.edit.filteringConditions.field.setSpec']);
+          });
         });
 
-        it('should change form values', () => {
-          expect(SetsFormInteractor.name.val).to.equal(newValues.name);
-          expect(SetsFormInteractor.description.val).to.equal(newValues.description);
+        describe('initial load', () => {
+          it('should render location', () => {
+            expect(SetsFormInteractor.filteringConditionsRow(0).name)
+              .to.equal(translation['settings.sets.filteringCondition.location']);
+          });
+
+          it('should render active', () => {
+            expect(SetsFormInteractor.filteringConditionsRow(0).active.isChecked)
+              .to.equal(initialValues.filteringConditions[0].active);
+          });
+
+          it('should render value', () => {
+            expect(SetsFormInteractor.filteringConditionsRow(0).value.val)
+              .to.equal(initialValues.filteringConditions[0].value);
+          });
+
+          it('should render set spec', () => {
+            expect(SetsFormInteractor.filteringConditionsRow(0).setSpec.val)
+              .to.equal(initialValues.filteringConditions[0].setSpec);
+          });
+        });
+
+        describe('change values', () => {
+          const newValues = {
+            value : 'location 2',
+            setSpec : 'Loc_L2',
+          };
+
+          beforeEach(async () => {
+            if (!SetsFormInteractor.filteringConditionsRow(0).active.isChecked) {
+              await SetsFormInteractor.filteringConditionsRow(0).active.clickAndBlur();
+            }
+
+            await SetsFormInteractor.filteringConditionsRow(0).value.selectAndBlur(newValues.value);
+          });
+
+          it('should change value', () => {
+            expect(SetsFormInteractor.filteringConditionsRow(0).value.val)
+              .to.equal(newValues.value);
+          });
+
+          it('should change set spec', () => {
+            expect(SetsFormInteractor.filteringConditionsRow(0).setSpec.val)
+              .to.equal(newValues.setSpec);
+          });
+        });
+      });
+
+      describe('Filtering conditions', () => {
+        beforeEach(async () => {
+          if (!SetsFormInteractor.filteringConditionsRow(0).active.isChecked) {
+            await SetsFormInteractor.filteringConditionsRow(0).active.clickAndBlur();
+          }
+
+          await SetsFormInteractor.filteringConditionsRow(0).active.clickAndBlur();
+        });
+
+        it('should change value', () => {
+          expect(SetsFormInteractor.filteringConditionsRow(0).value.val)
+            .to.equal('');
+        });
+
+        it('should change set spec', () => {
+          expect(SetsFormInteractor.filteringConditionsRow(0).setSpec.val)
+            .to.equal('');
         });
       });
     });
@@ -145,12 +247,20 @@ describe('Sets', () => {
     const initialValues = {
       name: '',
       description: '',
+      filteringConditions: [{
+        name : '',
+        active: false,
+        value : '',
+        setSpec : '',
+      }],
     };
     const currentPath = '/settings/oai-pmh/sets/create';
     const redirectBackPath = '/settings/oai-pmh/sets';
 
-    beforeEach(function () {
+    beforeEach(async function () {
       this.visit(currentPath);
+
+      await SetsFormInteractor.whenLoaded();
     });
 
     reusedCreateEditTests(currentPath, redirectBackPath, initialValues);
@@ -161,14 +271,22 @@ describe('Sets', () => {
       id: 'id',
       name: 'initial values name',
       description: 'initial values description',
+      filteringConditions: [{
+        name : 'location',
+        active: true,
+        value : 'location 1',
+        setSpec : 'Loc_L1',
+      }],
     };
     const currentPath = `/settings/oai-pmh/sets/${initialValues.id}/edit`;
     const redirectBackPath = `/settings/oai-pmh/sets/${initialValues.id}/view`;
 
-    beforeEach(function () {
+    beforeEach(async function () {
       this.server.create('set', initialValues);
 
       this.visit(currentPath);
+
+      await SetsFormInteractor.whenLoaded();
     });
 
     reusedCreateEditTests(currentPath, redirectBackPath, initialValues);
@@ -179,14 +297,22 @@ describe('Sets', () => {
       id: 'id',
       name: 'initial values name',
       description: 'initial values description',
+      filteringConditions: [{
+        name : 'location',
+        active: true,
+        value : 'location 1',
+        setSpec : 'Loc_L1',
+      }],
     };
     const currentPath = `/settings/oai-pmh/sets/${initialValues.id}/duplicate`;
     const redirectBackPath = `/settings/oai-pmh/sets/${initialValues.id}/view`;
 
-    beforeEach(function () {
+    beforeEach(async function () {
       this.server.create('set', initialValues);
 
       this.visit(currentPath);
+
+      await SetsFormInteractor.whenLoaded();
     });
 
     reusedCreateEditTests(currentPath, redirectBackPath, initialValues);

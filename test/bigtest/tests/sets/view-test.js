@@ -11,7 +11,7 @@ import translation from '../../../../translations/ui-oai-pmh/en';
 
 describe('Sets', () => {
   setupApplication({
-    scenarios: ['success-delete', 'location-for-filtering-conditions'],
+    scenarios: ['success-delete'],
   });
   let setsTest;
   const initialValues = {
@@ -23,7 +23,7 @@ describe('Sets', () => {
       {
         name : 'location',
         value : 'location 1',
-        setSpec : 'loc',
+        setSpec : 'Loc_L1',
       },
     ],
   };
@@ -196,22 +196,22 @@ describe('Sets', () => {
           expect(SetsViewInteractor.filteringConditionsList.isPresent).to.be.true;
         });
 
-        it('should display correct header labels for name', () => {
+        it('should be correct header labels for name', () => {
           expect(SetsViewInteractor.filteringConditionsList.headers(0).text)
             .to.equal(translation['settings.sets.view.filteringConditions.field.name']);
         });
 
-        it('should display correct header labels for value', () => {
+        it('should be correct header labels for value', () => {
           expect(SetsViewInteractor.filteringConditionsList.headers(1).text)
             .to.equal(translation['settings.sets.view.filteringConditions.field.value']);
         });
 
-        it('should display correct header labels for set specification', () => {
+        it('should be correct header labels for set specification', () => {
           expect(SetsViewInteractor.filteringConditionsList.headers(2).text)
             .to.equal(translation['settings.sets.view.filteringConditions.field.setSpec']);
         });
 
-        it('should display correct row(s) count', () => {
+        it('should be correct row(s) count', () => {
           expect(SetsViewInteractor.filteringConditionsList.rowCount).to.equal(1);
         });
 

@@ -28,7 +28,8 @@ import {
   getSetsListUrl,
   getSetsEditUrl,
   getSetsDuplicateUrl,
-  formatEditDateToViewData,
+  generalInformationToViewData,
+  metaDataToViewData,
 } from '../../util';
 import useCallout from '../../hooks';
 import {
@@ -68,14 +69,18 @@ const SetsViewRoute = ({
       setIsLoaded(false);
       setIsFailed(false);
       mutator.viewSets.GET()
-        .then(setResponse => setSets(formatEditDateToViewData(setResponse)))
+        .then(setResponse => setSets({
+          ...generalInformationToViewData(setResponse),
+          ...metaDataToViewData(setResponse),
+          [SET_FIELDS.FILTERING_CONDITIONS]: setResponse[SET_FIELDS.FILTERING_CONDITIONS],
+        }))
         .then(() => setIsLoaded(true))
         .catch(() => {
           setIsLoaded(true);
           setIsFailed(true);
         });
     },
-    [id],
+    [setsFilteringConditions, id],
   );
 
   const getTitle = () => (
