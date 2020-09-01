@@ -85,5 +85,14 @@
     "settings.sets.filteringCondition.format": "تنسيق",
     "settings.sets.filteringCondition.illPolicy": "سياسة الإعارة بين المكتبات",
     "settings.sets.filteringCondition.materialType": "نوع المادة",
-    "settings.sets.callout.connectionProblem.get": "تعذر الحصول على البيانات بسبب خطأ في الوحدة. يرجى إعادة المحاولة مرة أخرى. إذا استمرت المشكلة، يرجى الاتصال بمدير النظام"
+    "settings.sets.callout.connectionProblem.get": "تعذر الحصول على البيانات بسبب خطأ في الوحدة. يرجى إعادة المحاولة مرة أخرى. إذا استمرت المشكلة، يرجى الاتصال بمدير النظام",
+    "settings.sets.edit.filteringConditions.field.name": "Field",
+    "settings.sets.edit.filteringConditions.field.active": "Active",
+    "settings.sets.edit.filteringConditions.field.value": "Value",
+    "settings.sets.edit.filteringConditions.field.setSpec": "Specification",
+    "settings.sets.edit.filteringConditions.field.value.select.location": "Select location",
+    "settings.sets.edit.filteringConditions.field.value.select.resourceType": "Select resource type",
+    "settings.sets.edit.filteringConditions.field.value.select.format": "Select format",
+    "settings.sets.edit.filteringConditions.field.value.select.illPolicy": "Select ILL policy",
+    "settings.sets.edit.filteringConditions.field.value.select.materialType": "Select material type"
 }

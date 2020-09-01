@@ -85,5 +85,14 @@
     "settings.sets.filteringCondition.format": "格式",
     "settings.sets.filteringCondition.illPolicy": "馆际互借政策",
     "settings.sets.filteringCondition.materialType": "资料类型",
-    "settings.sets.callout.connectionProblem.get": "由于模块错误而无法获取数据。请再试一遍。如果问题仍然存在，请联系系统管理员"
+    "settings.sets.callout.connectionProblem.get": "由于模块错误而无法获取数据。请再试一遍。如果问题仍然存在，请联系系统管理员",
+    "settings.sets.edit.filteringConditions.field.name": "Field",
+    "settings.sets.edit.filteringConditions.field.active": "Active",
+    "settings.sets.edit.filteringConditions.field.value": "Value",
+    "settings.sets.edit.filteringConditions.field.setSpec": "Specification",
+    "settings.sets.edit.filteringConditions.field.value.select.location": "Select location",
+    "settings.sets.edit.filteringConditions.field.value.select.resourceType": "Select resource type",
+    "settings.sets.edit.filteringConditions.field.value.select.format": "Select format",
+    "settings.sets.edit.filteringConditions.field.value.select.illPolicy": "Select ILL policy",
+    "settings.sets.edit.filteringConditions.field.value.select.materialType": "Select material type"
 }
