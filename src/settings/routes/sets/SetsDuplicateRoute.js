@@ -1,12 +1,15 @@
 import React, {
   useCallback,
+  useContext,
   useEffect,
+  useMemo,
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import {
   FormattedMessage,
+  useIntl,
 } from 'react-intl';
 
 import {
@@ -26,8 +29,11 @@ import {
 import {
   getSetsListUrl,
   getSetsViewUrl,
-  formatDuplicateDateToViewData,
-  formatViewDataToDuplicateDate,
+  generalInformationToViewData,
+  filteringConditionsToFormData,
+  filteringConditionsToDtoFormat,
+  filteringConditionsDataOptions,
+  setSpecFromFilteringConditions,
 } from '../../util';
 import useCallout from '../../hooks';
 import {
@@ -35,6 +41,7 @@ import {
   CALLOUT_ERROR_TYPE,
   SET_FIELDS,
 } from '../../constants';
+import SetsContext from './SetsContext';
 
 const SetsDuplicateRoute = ({
   history,
@@ -47,23 +54,35 @@ const SetsDuplicateRoute = ({
     },
   },
 }) => {
+  const intl = useIntl();
+  const {
+    setsFilteringConditions,
+  } = useContext(SetsContext);
+
   const [sets, setSets] = useState({});
   const [isLoaded, setIsLoaded] = useState(true);
   const [isFailed, setIsFailed] = useState(true);
+
+  const getFilteringConditionsDataOptions = useMemo(() => (
+    filteringConditionsDataOptions(setsFilteringConditions, intl)
+  ), [setsFilteringConditions]);
 
   useEffect(
     () => {
       setIsLoaded(false);
       setIsFailed(false);
       mutator.duplicateSets.GET()
-        .then(setResponse => setSets(formatDuplicateDateToViewData(setResponse)))
+        .then(setResponse => setSets({
+          ...generalInformationToViewData(setResponse),
+          ...filteringConditionsToFormData(setResponse[SET_FIELDS.FILTERING_CONDITIONS], setsFilteringConditions),
+        }))
         .then(() => setIsLoaded(true))
         .catch(() => {
           setIsLoaded(true);
           setIsFailed(true);
         });
     },
-    [],
+    [setsFilteringConditions],
   );
 
   const getTitle = () => <FormattedMessage id="ui-oai-pmh.settings.sets.new.title" />;
@@ -71,7 +90,11 @@ const SetsDuplicateRoute = ({
   const showCallout = useCallout();
 
   const onSubmit = useCallback((values) => {
-    mutator.duplicateSets.POST(formatViewDataToDuplicateDate(values))
+    mutator.duplicateSets.POST({
+      ...generalInformationToViewData(values),
+      ...filteringConditionsToDtoFormat(values[SET_FIELDS.FILTERING_CONDITIONS]),
+      ...setSpecFromFilteringConditions(filteringConditionsToDtoFormat(values[SET_FIELDS.FILTERING_CONDITIONS])),
+    })
       .then((response) => {
         showCallout({
           message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
@@ -131,6 +154,7 @@ const SetsDuplicateRoute = ({
       stripes={stripes}
       onSubmit={onSubmit}
       onBack={onBack}
+      filteringConditionsDataOptions={getFilteringConditionsDataOptions}
     />
   );
 };

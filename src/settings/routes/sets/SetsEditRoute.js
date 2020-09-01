@@ -1,12 +1,15 @@
 import React, {
   useCallback,
+  useContext,
   useEffect,
   useState,
+  useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import {
   FormattedMessage,
+  useIntl,
 } from 'react-intl';
 
 import {
@@ -26,8 +29,12 @@ import {
 import {
   getSetsViewUrl,
   getSetsListUrl,
-  formatEditDateToViewData,
-  formatViewDataToEditDate,
+  generalInformationToViewData,
+  metaDataToViewData,
+  filteringConditionsToFormData,
+  filteringConditionsToDtoFormat,
+  filteringConditionsDataOptions,
+  setSpecFromFilteringConditions,
 } from '../../util';
 import useCallout from '../../hooks';
 import {
@@ -35,6 +42,7 @@ import {
   CALLOUT_ERROR_TYPE,
   SET_FIELDS,
 } from '../../constants';
+import SetsContext from './SetsContext';
 
 const SetsEditRoute = ({
   history,
@@ -42,23 +50,37 @@ const SetsEditRoute = ({
   mutator,
   stripes,
 }) => {
+  const intl = useIntl();
+  const {
+    setsFilteringConditions,
+  } = useContext(SetsContext);
+
   const [sets, setSets] = useState({});
   const [isLoaded, setIsLoaded] = useState(true);
   const [isFailed, setIsFailed] = useState(true);
+
+  const getFilteringConditionsDataOptions = useMemo(() => (
+    filteringConditionsDataOptions(setsFilteringConditions, intl)
+  ), [setsFilteringConditions]);
 
   useEffect(
     () => {
       setIsLoaded(false);
       setIsFailed(false);
       mutator.editSets.GET()
-        .then(setResponse => setSets(formatEditDateToViewData(setResponse)))
+        .then(setResponse => setSets({
+          [SET_FIELDS.ID]: setResponse[SET_FIELDS.ID],
+          ...generalInformationToViewData(setResponse),
+          ...metaDataToViewData(setResponse),
+          ...filteringConditionsToFormData(setResponse[SET_FIELDS.FILTERING_CONDITIONS], setsFilteringConditions),
+        }))
         .then(() => setIsLoaded(true))
         .catch(() => {
           setIsLoaded(true);
           setIsFailed(true);
         });
     },
-    [],
+    [setsFilteringConditions],
   );
 
   const getTitle = () => (
@@ -71,7 +93,12 @@ const SetsEditRoute = ({
   const showCallout = useCallout();
 
   const onSubmit = useCallback((values) => {
-    mutator.editSets.PUT(formatViewDataToEditDate(values))
+    mutator.editSets.PUT({
+      [SET_FIELDS.ID]: values[SET_FIELDS.ID],
+      ...generalInformationToViewData(values),
+      ...filteringConditionsToDtoFormat(values[SET_FIELDS.FILTERING_CONDITIONS]),
+      ...setSpecFromFilteringConditions(filteringConditionsToDtoFormat(values[SET_FIELDS.FILTERING_CONDITIONS])),
+    })
       .then((response) => {
         showCallout({
           message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.updated" />,
@@ -132,6 +159,7 @@ const SetsEditRoute = ({
       stripes={stripes}
       onSubmit={onSubmit}
       onBack={onBack}
+      filteringConditionsDataOptions={getFilteringConditionsDataOptions}
     />
   );
 };

@@ -1,10 +1,13 @@
 import React, {
   useCallback,
+  useContext,
+  useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import {
   FormattedMessage,
+  useIntl,
 } from 'react-intl';
 
 import {
@@ -15,8 +18,13 @@ import {
   SetsForm,
 } from '../../components';
 import {
+  generalInformationToViewData,
+  filteringConditionsToFormData,
   getSetsListUrl,
   getSetsViewUrl,
+  filteringConditionsToDtoFormat,
+  filteringConditionsDataOptions,
+  setSpecFromFilteringConditions,
 } from '../../util';
 import useCallout from '../../hooks';
 import {
@@ -24,6 +32,7 @@ import {
   SET_FIELDS,
   SET_FIELDS_INITIAL_VALUES,
 } from '../../constants';
+import SetsContext from './SetsContext';
 
 const SetsCreateRoute = ({
   history,
@@ -31,10 +40,23 @@ const SetsCreateRoute = ({
   mutator,
   stripes,
 }) => {
+  const intl = useIntl();
+  const {
+    setsFilteringConditions,
+  } = useContext(SetsContext);
+
+  const getFilteringConditionsDataOptions = useMemo(() => (
+    filteringConditionsDataOptions(setsFilteringConditions, intl)
+  ), [setsFilteringConditions]);
+
   const getTitle = () => <FormattedMessage id="ui-oai-pmh.settings.sets.new.title" />;
   const showCallout = useCallout();
   const onSubmit = useCallback((values) => {
-    mutator.createSets.POST(values)
+    mutator.createSets.POST({
+      ...generalInformationToViewData(values),
+      ...filteringConditionsToDtoFormat(values[SET_FIELDS.FILTERING_CONDITIONS]),
+      ...setSpecFromFilteringConditions(filteringConditionsToDtoFormat(values[SET_FIELDS.FILTERING_CONDITIONS])),
+    })
       .then((response) => {
         showCallout({
           message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
@@ -61,11 +83,15 @@ const SetsCreateRoute = ({
 
   return (
     <SetsForm
-      initialValues={SET_FIELDS_INITIAL_VALUES}
+      initialValues={{
+        ...generalInformationToViewData(SET_FIELDS_INITIAL_VALUES),
+        ...filteringConditionsToFormData(SET_FIELDS_INITIAL_VALUES[SET_FIELDS.FILTERING_CONDITIONS], setsFilteringConditions),
+      }}
       formTitle={getTitle}
       stripes={stripes}
       onSubmit={onSubmit}
       onBack={onBack}
+      filteringConditionsDataOptions={getFilteringConditionsDataOptions}
     />
   );
 };

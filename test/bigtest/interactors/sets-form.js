@@ -1,10 +1,15 @@
 import {
+  collection,
+  text,
+  isPresent,
   interactor,
   Interactor,
 } from '@bigtest/interactor';
 
 import PaneHeader from '@folio/stripes-components/lib/PaneHeader/tests/interactor';
+import CheckboxInteractor from '@folio/stripes-components/lib/Checkbox/tests/interactor';
 import ExpandAllButtonInteractor from '@folio/stripes-components/lib/Accordion/tests/expand-all-button-interactor';
+import SelectInteractor from '@folio/stripes-components/lib/Select/tests/interactor';
 import TextFieldInteractor from '@folio/stripes-components/lib/TextField/tests/interactor';
 import TextAreaInteractor from '@folio/stripes-components/lib/TextArea/tests/interactor';
 import ButtonInteractor from '@folio/stripes-components/lib/Button/tests/interactor';
@@ -12,6 +17,8 @@ import MessageBanner from '@folio/stripes-components/lib/MessageBanner/tests/int
 import CalloutInteractor from '@folio/stripes-components/lib/Callout/tests/interactor';
 
 @interactor class SetsForm {
+  isLoaded = isPresent('[data-test-set-filtering-conditions-row-active]');
+
   paneHeader = new PaneHeader('[data-sets-form] [data-test-pane-header]');
   navigateBackConfirmationModal = new Interactor('#cancel-editing-confirmation');
   clickCancelNavigationButton = new ButtonInteractor('#clickable-cancel-editing-confirmation-cancel');
@@ -22,6 +29,18 @@ import CalloutInteractor from '@folio/stripes-components/lib/Callout/tests/inter
   name = new TextFieldInteractor('[data-test-set-fields-name]');
   description = new TextAreaInteractor('[data-test-set-fields-description]');
 
+  filteringConditionsTitleName = text('[data-test-filtering-conditions-title-name]');
+  filteringConditionsTitleActive = text('[data-test-filtering-conditions-title-active]');
+  filteringConditionsTitleValue = text('[data-test-filtering-conditions-title-value]');
+  filteringConditionsTitleSetSpec = text('[data-test-filtering-conditions-title-set-spec]');
+
+  filteringConditionsRow = collection('[data-test-set-filtering-conditions-row]', {
+    name: text('[data-test-set-filtering-conditions-row-name]'),
+    active: new CheckboxInteractor('[data-test-set-filtering-conditions-row-active]'),
+    value: new SelectInteractor('[data-test-set-filtering-conditions-row-value]'),
+    setSpec: new TextFieldInteractor('[data-test-set-filtering-conditions-row-set-spec]'),
+  });
+
   paneHeaderCancelButton = new ButtonInteractor('[data-test-cancel-button]');
   paneHeaderSaveButton = new ButtonInteractor('[data-test-save-button]');
 
@@ -29,6 +48,10 @@ import CalloutInteractor from '@folio/stripes-components/lib/Callout/tests/inter
   setNotFoundMessageBanner = new MessageBanner();
 
   callout = new CalloutInteractor();
+
+  whenLoaded() {
+    return this.when(() => this.isLoaded);
+  }
 }
 
 export default new SetsForm();

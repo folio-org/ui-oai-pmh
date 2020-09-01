@@ -1,0 +1,19 @@
+@import "@folio/stripes-components/lib/variables";
+
+.SetRow:nth-child(2n +1) {
+  background: var(--color-fill-table-row-odd);
+}
+
+.SetRow:nth-child(2n) {
+  background: var(--color-fill-table-row-even);
+}
+
+.SetCell {
+  height: 65px;
+  padding: 15px 15px 20px;
+  border-left: 1px solid var(--color-border-p2);
+}
+
+.SetCell:first-child {
+  border-left: none;
+}

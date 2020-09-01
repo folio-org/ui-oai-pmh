@@ -28,7 +28,7 @@ import {
   INITIAL_ACCORDION_STATE,
 } from '../../../constants';
 
-import css from '../../common/Form.css';
+import css from './SetsForm.css';
 
 const SetsForm = ({
   pristine,
@@ -39,6 +39,7 @@ const SetsForm = ({
   formTitle,
   metadata,
   onBack,
+  filteringConditionsDataOptions,
 }) => {
   const {
     reset,
@@ -53,6 +54,7 @@ const SetsForm = ({
       pristine={pristine}
       submitting={submitting}
       stripes={stripes}
+      onSubmit={handleSubmit}
       onBack={onBack}
     />
   );
@@ -61,8 +63,7 @@ const SetsForm = ({
     <SetsWrapper>
       <form
         id="setsForm"
-        className={css.form}
-        onSubmit={handleSubmit}
+        className={css.SetsForm}
       >
         <Paneset isRoot>
           <Pane
@@ -73,20 +74,22 @@ const SetsForm = ({
             onClose={reset}
             footer={getFooter()}
           >
-            <AccordionStatus>
-              <Row end="xs">
-                <Col
-                  data-test-expand-all-button
-                  xs
-                >
-                  <ExpandAllButton />
-                </Col>
-              </Row>
-              <AccordionSet initialStatus={INITIAL_ACCORDION_STATE}>
-                <GeneralInformation metadata={metadata} />
-                <FilteringConditions />
-              </AccordionSet>
-            </AccordionStatus>
+            <div className={css.SetsFormContent}>
+              <AccordionStatus>
+                <Row end="xs">
+                  <Col
+                    data-test-expand-all-button
+                    xs
+                  >
+                    <ExpandAllButton />
+                  </Col>
+                </Row>
+                <AccordionSet initialStatus={INITIAL_ACCORDION_STATE}>
+                  <GeneralInformation metadata={metadata} />
+                  <FilteringConditions filteringConditionsDataOptions={filteringConditionsDataOptions} />
+                </AccordionSet>
+              </AccordionStatus>
+            </div>
           </Pane>
         </Paneset>
       </form>
@@ -107,6 +110,7 @@ SetsForm.propTypes = {
   }),
   formTitle: PropTypes.func.isRequired,
   metadata: PropTypes.object,
+  filteringConditionsDataOptions: PropTypes.object.isRequired,
   onBack: PropTypes.func.isRequired,
 };
 

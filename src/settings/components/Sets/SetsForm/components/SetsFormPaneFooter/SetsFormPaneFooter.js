@@ -14,6 +14,7 @@ import { SaveButtonTooltipWrapper } from '../../../../common';
 const SetsFormPaneFooter = ({
   pristine,
   submitting,
+  onSubmit,
   onBack,
   stripes,
 }) => {
@@ -43,6 +44,7 @@ const SetsFormPaneFooter = ({
             type="submit"
             buttonStyle="primary mega"
             disabled={disabled}
+            onClick={onSubmit}
           >
             <FormattedMessage id="stripes-components.saveAndClose" />
           </Button>
@@ -58,6 +60,7 @@ SetsFormPaneFooter.propTypes = {
   stripes: PropTypes.shape({
     hasPerm: PropTypes.func.isRequired,
   }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
   onBack: PropTypes.func.isRequired,
 };
 
