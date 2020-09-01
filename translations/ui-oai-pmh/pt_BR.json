@@ -85,5 +85,14 @@
     "settings.sets.filteringCondition.format": "Formato",
     "settings.sets.filteringCondition.illPolicy": "Política de EEB",
     "settings.sets.filteringCondition.materialType": "Tipo de material",
-    "settings.sets.callout.connectionProblem.get": "Incapaz de obter dados devido a um erro do módulo. Por favor, tente novamente. Se o problema persistir, entre em contato com o administrador do sistema"
+    "settings.sets.callout.connectionProblem.get": "Incapaz de obter dados devido a um erro do módulo. Por favor, tente novamente. Se o problema persistir, entre em contato com o administrador do sistema",
+    "settings.sets.edit.filteringConditions.field.name": "Field",
+    "settings.sets.edit.filteringConditions.field.active": "Active",
+    "settings.sets.edit.filteringConditions.field.value": "Value",
+    "settings.sets.edit.filteringConditions.field.setSpec": "Specification",
+    "settings.sets.edit.filteringConditions.field.value.select.location": "Select location",
+    "settings.sets.edit.filteringConditions.field.value.select.resourceType": "Select resource type",
+    "settings.sets.edit.filteringConditions.field.value.select.format": "Select format",
+    "settings.sets.edit.filteringConditions.field.value.select.illPolicy": "Select ILL policy",
+    "settings.sets.edit.filteringConditions.field.value.select.materialType": "Select material type"
 }

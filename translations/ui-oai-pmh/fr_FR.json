@@ -85,5 +85,14 @@
     "settings.sets.filteringCondition.format": "Format",
     "settings.sets.filteringCondition.illPolicy": "Politique de PEB",
     "settings.sets.filteringCondition.materialType": "Type de matériel",
-    "settings.sets.callout.connectionProblem.get": "Impossible d'obtenir des données en raison d'une erreur de module. Veuillez réessayer. Si un problème persiste, veuillez contacter votre administrateur système"
+    "settings.sets.callout.connectionProblem.get": "Impossible d'obtenir des données en raison d'une erreur de module. Veuillez réessayer. Si un problème persiste, veuillez contacter votre administrateur système",
+    "settings.sets.edit.filteringConditions.field.name": "Field",
+    "settings.sets.edit.filteringConditions.field.active": "Active",
+    "settings.sets.edit.filteringConditions.field.value": "Value",
+    "settings.sets.edit.filteringConditions.field.setSpec": "Specification",
+    "settings.sets.edit.filteringConditions.field.value.select.location": "Select location",
+    "settings.sets.edit.filteringConditions.field.value.select.resourceType": "Select resource type",
+    "settings.sets.edit.filteringConditions.field.value.select.format": "Select format",
+    "settings.sets.edit.filteringConditions.field.value.select.illPolicy": "Select ILL policy",
+    "settings.sets.edit.filteringConditions.field.value.select.materialType": "Select material type"
 }
