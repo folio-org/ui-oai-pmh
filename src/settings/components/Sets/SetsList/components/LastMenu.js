@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import { FormattedMessage } from 'react-intl';
 
+import { stripesConnect } from '@folio/stripes-core';
 import {
   PaneMenu,
   Button,
@@ -15,13 +17,15 @@ import {
 const LastMenu = ({
   history,
   location,
+  stripes,
 }) => {
   const navigateToCreate = () => history.push({
     pathname: getSetsCreateUrl(),
     search: location.search
   });
+  const showActionMenu = stripes.hasPerm('ui-oai-pmh.edit');
 
-  return (
+  return showActionMenu ? (
     <PaneMenu>
       <FormattedMessage id="stripes-smart-components.addNew">
         {ariaLabel => (
@@ -37,12 +41,15 @@ const LastMenu = ({
         )}
       </FormattedMessage>
     </PaneMenu>
-  );
+  ) : null;
 };
 
 LastMenu.propTypes = {
   history: ReactRouterPropTypes.history.isRequired,
   location: ReactRouterPropTypes.location.isRequired,
+  stripes: PropTypes.shape({
+    hasPerm: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
-export default withRouter(LastMenu);
+export default withRouter(stripesConnect(LastMenu));

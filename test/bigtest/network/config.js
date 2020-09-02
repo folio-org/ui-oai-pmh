@@ -18,6 +18,8 @@ export default function config() {
 
   this.put('sets/:id', () => {});
 
+  this.get('sets');
+
   this.get('filtering-conditions', () => ({
     setsFilteringConditions: [
       {

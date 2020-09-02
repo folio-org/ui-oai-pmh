@@ -25,8 +25,8 @@ const getContentData = (filteringConditions = [], setsFilteringConditions = []) 
 
 const columnMapping = {
   [FILTERING_CONDITIONS_FIELDS.NAME]: <FormattedMessage id={`ui-oai-pmh.settings.sets.view.filteringConditions.field.${FILTERING_CONDITIONS_FIELDS.NAME}`} />,
-  [FILTERING_CONDITIONS_FIELDS.VALUE]:  <FormattedMessage id={`ui-oai-pmh.settings.sets.view.filteringConditions.field.${FILTERING_CONDITIONS_FIELDS.VALUE}`} />,
-  [FILTERING_CONDITIONS_FIELDS.SET_SPEC]:  <FormattedMessage id={`ui-oai-pmh.settings.sets.view.filteringConditions.field.${FILTERING_CONDITIONS_FIELDS.SET_SPEC}`} />,
+  [FILTERING_CONDITIONS_FIELDS.VALUE]: <FormattedMessage id={`ui-oai-pmh.settings.sets.view.filteringConditions.field.${FILTERING_CONDITIONS_FIELDS.VALUE}`} />,
+  [FILTERING_CONDITIONS_FIELDS.SET_SPEC]: <FormattedMessage id={`ui-oai-pmh.settings.sets.view.filteringConditions.field.${FILTERING_CONDITIONS_FIELDS.SET_SPEC}`} />,
 };
 
 const visibleColumns = [
@@ -57,6 +57,12 @@ const resultsFormatter = (setsFilteringConditions) => ({
   ),
 });
 
+const columnWidths = {
+  [FILTERING_CONDITIONS_FIELDS.NAME]: '20%',
+  [FILTERING_CONDITIONS_FIELDS.VALUE]: '40%',
+  [FILTERING_CONDITIONS_FIELDS.SET_SPEC]: '40%',
+};
+
 const FilteringConditions = ({
   filteringConditions,
   setsFilteringConditions,
@@ -73,6 +79,7 @@ const FilteringConditions = ({
         columnMapping={columnMapping}
         visibleColumns={visibleColumns}
         formatter={resultsFormatter(setsFilteringConditions)}
+        columnWidths={columnWidths}
       />
     </Accordion>
   );
