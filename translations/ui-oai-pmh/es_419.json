@@ -94,5 +94,11 @@
     "settings.sets.edit.filteringConditions.field.value.select.resourceType": "Select resource type",
     "settings.sets.edit.filteringConditions.field.value.select.format": "Select format",
     "settings.sets.edit.filteringConditions.field.value.select.illPolicy": "Select ILL policy",
-    "settings.sets.edit.filteringConditions.field.value.select.materialType": "Select material type"
+    "settings.sets.edit.filteringConditions.field.value.select.materialType": "Select material type",
+    "settings.sets.list.field.name": "Name",
+    "settings.sets.list.field.setSpec": "Specification",
+    "settings.sets.list.field.description": "Description",
+    "settings.sets.list.field.updatedDate": "Last updated",
+    "settings.sets.list.field.updatedDatePattern": "{date} {time}",
+    "settings.sets.list.no.sets": "There are no OAI-PMH Sets exist at the moment."
 }
