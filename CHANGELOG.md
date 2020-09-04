@@ -10,6 +10,7 @@
 * Rename sets endpoints. Refs UIOAIPMH-16.
 * Add details view for set. Refs UIOAIPMH-10.
 * Add filtering conditions for create/edit set. Refs UIOAIPMH-6.
+* Update react-intl to ^5.7.0. Refs UIOAIPMH-20.
 
 ## [1.2.0](https://github.com/folio-org/ui-oai-pmh/tree/v1.2.0) (2020-07-03)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.1.0...v1.2.0)
