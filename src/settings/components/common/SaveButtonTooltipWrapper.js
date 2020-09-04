@@ -23,13 +23,14 @@ class SaveButton extends React.Component {
       showTooltip,
       children,
     } = this.props;
+    const ariaLabelledby = showTooltip ? { 'aria-labelledby': 'save-button-tooltip-tex' } : {};
 
     return (
       <>
         <div
           id="save-button-tooltip-content"
           name="save-button-tooltip-content"
-          aria-labelledby="save-button-tooltip-text"
+          {...ariaLabelledby}
           ref={this.saveButton}
         >
           {children}

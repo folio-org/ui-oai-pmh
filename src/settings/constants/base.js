@@ -7,6 +7,8 @@ export const SETTINGS_PANE_WIDTH = '20%';
 export const DEFAULT_PANE_WIDTH = '60%';
 export const FILL_PANE_WIDTH = 'fill';
 
+export const PAGE_AMOUNT = 100;
+
 export const ICONS = {
   EDIT: 'edit',
   DELETE: 'trash',

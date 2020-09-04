@@ -31,6 +31,13 @@
   "settings.sets.list.title": "Sets list",
   "settings.sets.view.title": "View {name}",
 
+  "settings.sets.list.field.name": "Name",
+  "settings.sets.list.field.setSpec": "Specification",
+  "settings.sets.list.field.description": "Description",
+  "settings.sets.list.field.updatedDate": "Last updated",
+  "settings.sets.list.field.updatedDatePattern": "{date} {time}",
+  "settings.sets.list.no.sets": "There are no OAI-PMH Sets exist at the moment.",
+
   "settings.sets.edit.field.name": "Set name",
   "settings.sets.edit.field.description": "Set description",
   "settings.sets.edit.accordion.generalInformation.title": "General information",

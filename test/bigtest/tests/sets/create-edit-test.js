@@ -6,7 +6,6 @@ import {
 import { expect } from 'chai';
 
 import setupApplication from '../../helpers/setup-application';
-import wait from '../../helpers/wait';
 import SetsFormInteractor from '../../interactors/sets-form';
 
 import translation from '../../../../translations/ui-oai-pmh/en';
