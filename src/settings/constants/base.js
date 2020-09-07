@@ -17,3 +17,4 @@ export const ICONS = {
 export const CALLOUT_ERROR_TYPE = 'error';
 
 export const ENTITY_NOT_FOUND_STATUS_CODE = 404;
+export const ERROR_TYPE_NOT_UNIQUE = 'notUnique';

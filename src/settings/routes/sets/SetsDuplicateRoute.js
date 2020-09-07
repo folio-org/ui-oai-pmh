@@ -31,14 +31,13 @@ import {
   getSetsViewUrl,
   generalInformationToViewData,
   filteringConditionsToFormData,
-  filteringConditionsToDtoFormat,
   filteringConditionsDataOptions,
-  setSpecFromFilteringConditions,
+  setInformationToViewData,
+  connectionProblem,
 } from '../../util';
 import useCallout from '../../hooks';
 import {
   FILL_PANE_WIDTH,
-  CALLOUT_ERROR_TYPE,
   SET_FIELDS,
 } from '../../constants';
 import SetsContext from './SetsContext';
@@ -91,9 +90,7 @@ const SetsDuplicateRoute = ({
 
   const onSubmit = useCallback((values) => {
     mutator.duplicateSets.POST({
-      ...generalInformationToViewData(values),
-      ...filteringConditionsToDtoFormat(values[SET_FIELDS.FILTERING_CONDITIONS]),
-      ...setSpecFromFilteringConditions(filteringConditionsToDtoFormat(values[SET_FIELDS.FILTERING_CONDITIONS])),
+      ...setInformationToViewData(values),
     })
       .then((response) => {
         showCallout({
@@ -104,12 +101,7 @@ const SetsDuplicateRoute = ({
           search: location.search,
         });
       })
-      .catch(() => {
-        showCallout({
-          type: CALLOUT_ERROR_TYPE,
-          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem" />,
-        });
-      });
+      .catch((errors) => connectionProblem(errors, showCallout));
   }, [showCallout, location.search, history, mutator.duplicateSets, sets[SET_FIELDS.ID]]);
 
   const onBack = useCallback(() => {
