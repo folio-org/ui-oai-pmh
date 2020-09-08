@@ -92,7 +92,8 @@
           "settings.oai-pmh.enabled",
           "configuration.entries.collection.get",
           "oai-pmh.sets.item.get",
-          "oai-pmh.filtering-conditions.get"
+          "oai-pmh.filtering-conditions.get",
+          "oai-pmh.sets.item.collection.get"
         ],
         "visible": true
       },
