@@ -23,7 +23,7 @@ class SaveButton extends React.Component {
       showTooltip,
       children,
     } = this.props;
-    const ariaLabelledby = showTooltip ? { 'aria-labelledby': 'save-button-tooltip-tex' } : {};
+    const ariaLabelledby = showTooltip ? { 'aria-labelledby': 'save-button-tooltip-text' } : {};
 
     return (
       <>
