@@ -3,6 +3,10 @@ import {
 } from 'lodash';
 
 import {
+  setSpecFromFilteringConditions,
+} from './filteringConditionsDataOptions';
+
+import {
   SET_FIELDS,
   SET_FIELDS_INITIAL_VALUES,
   FILTERING_CONDITIONS_FIELDS,
@@ -54,4 +58,10 @@ export const filteringConditionsToDtoFormat = (filteringConditions = []) => ({
       [FILTERING_CONDITIONS_FIELDS.VALUE]: filteringCondition[FILTERING_CONDITIONS_FIELDS.VALUE],
       [FILTERING_CONDITIONS_FIELDS.SET_SPEC]: filteringCondition[FILTERING_CONDITIONS_FIELDS.SET_SPEC],
     }))
+});
+
+export const setInformationToViewData = (set) => ({
+  ...generalInformationToViewData(set),
+  ...filteringConditionsToDtoFormat(set[SET_FIELDS.FILTERING_CONDITIONS]),
+  ...setSpecFromFilteringConditions(filteringConditionsToDtoFormat(set[SET_FIELDS.FILTERING_CONDITIONS])),
 });

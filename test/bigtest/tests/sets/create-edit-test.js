@@ -240,6 +240,26 @@ describe('Sets', () => {
         });
       });
     });
+
+    describe('handle be errors', () => {
+      setupApplication({
+        scenarios: 'save-error',
+      });
+
+      beforeEach(async function () {
+        this.server.create('set', initialValues);
+
+        this.visit(currentPath);
+
+        await SetsFormInteractor.whenLoaded();
+        await SetsFormInteractor.name.fillAndBlur('with changes');
+        await SetsFormInteractor.paneHeaderSaveButton.click();
+      });
+
+      it('should show error callout', () => {
+        expect(SetsFormInteractor.callout.errorCalloutIsPresent).to.be.true;
+      });
+    });
   };
 
   describe('Create', () => {

@@ -32,14 +32,13 @@ import {
   generalInformationToViewData,
   metaDataToViewData,
   filteringConditionsToFormData,
-  filteringConditionsToDtoFormat,
   filteringConditionsDataOptions,
-  setSpecFromFilteringConditions,
+  setInformationToViewData,
+  connectionProblem,
 } from '../../util';
 import useCallout from '../../hooks';
 import {
   FILL_PANE_WIDTH,
-  CALLOUT_ERROR_TYPE,
   SET_FIELDS,
 } from '../../constants';
 import SetsContext from './SetsContext';
@@ -95,9 +94,7 @@ const SetsEditRoute = ({
   const onSubmit = useCallback((values) => {
     mutator.editSets.PUT({
       [SET_FIELDS.ID]: values[SET_FIELDS.ID],
-      ...generalInformationToViewData(values),
-      ...filteringConditionsToDtoFormat(values[SET_FIELDS.FILTERING_CONDITIONS]),
-      ...setSpecFromFilteringConditions(filteringConditionsToDtoFormat(values[SET_FIELDS.FILTERING_CONDITIONS])),
+      ...setInformationToViewData(values),
     })
       .then((response) => {
         showCallout({
@@ -108,12 +105,7 @@ const SetsEditRoute = ({
           search: location.search,
         });
       })
-      .catch(() => {
-        showCallout({
-          type: CALLOUT_ERROR_TYPE,
-          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem" />,
-        });
-      });
+      .catch((errors) => connectionProblem(errors, showCallout));
   }, [showCallout, location.search, history, mutator.editSets, sets[SET_FIELDS.ID]]);
 
   const onBack = useCallback(() => {

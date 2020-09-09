@@ -13,6 +13,7 @@
 * Update react-intl to ^5.7.0. Refs UIOAIPMH-20.
 * Add set list. Refs UIOAIPMH-9.
 * Fix aria-labelledby on create/edit page. Refs UIOAIPMH-27.
+* Add validation for uniqueness. Refs UIOAIPMH-18.
 
 ## [1.2.0](https://github.com/folio-org/ui-oai-pmh/tree/v1.2.0) (2020-07-03)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.1.0...v1.2.0)
