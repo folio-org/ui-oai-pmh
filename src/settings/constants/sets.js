@@ -67,3 +67,6 @@ export const FILTERING_CONDITIONS_FIELDS_INITIAL_VALUES = {
   [SET_FIELDS.VALUE]: '',
   [SET_FIELDS.SET_SPEC]: '',
 };
+
+export const ERROR_TYPE_NOT_UNIQUE = 'notUnique';
+export const ERROR_TYPE_EMPTY = 'empty';

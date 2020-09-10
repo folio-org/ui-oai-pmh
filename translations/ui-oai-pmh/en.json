@@ -54,6 +54,10 @@
   "settings.sets.edit.filteringConditions.field.value.select.illPolicy": "Select ILL policy",
   "settings.sets.edit.filteringConditions.field.value.select.materialType": "Select material type",
 
+  "settings.sets.edit.validationMessage.required": "This field cannot be empty",
+  "settings.sets.edit.validationMessage.maxLength": "Field cannot be more than {maxLength} characters long",
+  "settings.sets.edit.validationMessage.allowedSymbols": "Specification can only use A-Z a-z 0-9 - _ . ! ~ * ' ( )",
+
   "settings.sets.view.accordion.generalInformation.title": "Summary",
   "settings.sets.view.accordion.filteringConditions.title": "Set filtering conditions",
   "settings.sets.view.field.name": "Set name",
@@ -63,6 +67,11 @@
   "settings.sets.view.filteringConditions.field.value": "Value",
   "settings.sets.view.filteringConditions.field.setSpec": "Specification",
   "settings.sets.view.filteringConditions.field.value.isMissing": "This value is no longer available for the field",
+
+  "settings.sets.view.filteringConditions.field.name.ariaLabel": "Name field",
+  "settings.sets.view.filteringConditions.field.value.ariaLabel": "Value field",
+  "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Specification field",
+
 
   "settings.sets.filteringCondition.location": "Location",
   "settings.sets.filteringCondition.resourceType": "Resource type",
@@ -84,6 +93,8 @@
   "settings.sets.callout.connectionProblem": "Unable to save due to a module error. Please try again. If a problem persists please contact your system administrator",
 
   "settings.sets.callout.validationError.notUnique": "Set name or set specification isn't unique. Please, fill in unique set name or set specification to save set.",
+  "settings.sets.callout.validationError.empty.name": "Set name cannot be empty. Please, fill in set name.",
+  "settings.sets.callout.validationError.empty.setSpec": "Set filtering conditions list cannot be empty. Please, add at least one filtering condition to save set.",
 
   "settings.sets.view.notFound.title": "View",
   "settings.sets.view.notFound.text": "You have an invalid URL address. Please, review the syntax or parameters of the URL path and try another one.",

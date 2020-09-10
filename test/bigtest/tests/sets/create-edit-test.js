@@ -227,37 +227,6 @@ describe('Sets', () => {
         it('should be present save button', () => {
           expect(SetsFormInteractor.paneHeaderSaveButton.isPresent).to.be.true;
         });
-
-        describe('With changes', () => {
-          beforeEach(async () => {
-            await SetsFormInteractor.name.fillAndBlur('with changes');
-            await SetsFormInteractor.paneHeaderSaveButton.click();
-          });
-
-          it('should show success callout', () => {
-            expect(SetsFormInteractor.callout.successCalloutIsPresent).to.be.true;
-          });
-        });
-      });
-    });
-
-    describe('handle be errors', () => {
-      setupApplication({
-        scenarios: 'save-error',
-      });
-
-      beforeEach(async function () {
-        this.server.create('set', initialValues);
-
-        this.visit(currentPath);
-
-        await SetsFormInteractor.whenLoaded();
-        await SetsFormInteractor.name.fillAndBlur('with changes');
-        await SetsFormInteractor.paneHeaderSaveButton.click();
-      });
-
-      it('should show error callout', () => {
-        expect(SetsFormInteractor.callout.errorCalloutIsPresent).to.be.true;
       });
     });
   };

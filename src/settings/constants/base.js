@@ -7,6 +7,10 @@ export const SETTINGS_PANE_WIDTH = '20%';
 export const DEFAULT_PANE_WIDTH = '60%';
 export const FILL_PANE_WIDTH = 'fill';
 
+export const SHORT_TEXT_FIELD_MAX_FIELD_LENGTH = 50;
+export const TEXT_FIELD_MAX_FIELD_LENGTH = 255;
+export const TEXT_AREA_FIELD_MAX_FIELD_LENGTH = 1499;
+
 export const PAGE_AMOUNT = 100;
 
 export const ICONS = {
@@ -17,4 +21,6 @@ export const ICONS = {
 export const CALLOUT_ERROR_TYPE = 'error';
 
 export const ENTITY_NOT_FOUND_STATUS_CODE = 404;
-export const ERROR_TYPE_NOT_UNIQUE = 'notUnique';
+export const UNPROCESSABLE_ENTITY_STATUS_CODE = 422;
+
+export const EMPTY_VALIDATION_STATE_FOR_FIELD = undefined;
