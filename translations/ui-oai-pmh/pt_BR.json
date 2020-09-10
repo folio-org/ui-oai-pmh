@@ -95,10 +95,11 @@
     "settings.sets.edit.filteringConditions.field.value.select.format": "Selecione o formato",
     "settings.sets.edit.filteringConditions.field.value.select.illPolicy": "Selecione a política de EEB",
     "settings.sets.edit.filteringConditions.field.value.select.materialType": "Selecione o tipo de material",
-    "settings.sets.list.field.name": "Name",
-    "settings.sets.list.field.setSpec": "Specification",
-    "settings.sets.list.field.description": "Description",
-    "settings.sets.list.field.updatedDate": "Last updated",
+    "settings.sets.list.field.name": "Nome",
+    "settings.sets.list.field.setSpec": "Especificação",
+    "settings.sets.list.field.description": "Descrição",
+    "settings.sets.list.field.updatedDate": "Última atualização",
     "settings.sets.list.field.updatedDatePattern": "{date} {time}",
-    "settings.sets.list.no.sets": "There are no OAI-PMH Sets exist at the moment."
+    "settings.sets.list.no.sets": "Não existem conjuntos OAI-PMH no momento.",
+    "settings.sets.callout.validationError.notUnique": "O nome ou a especificação do conjunto não são exclusivos. Por favor, preencha um nome de conjunto exclusivo ou especificação de conjunto para salvar o conjunto."
 }

@@ -100,5 +100,6 @@
     "settings.sets.list.field.description": "الوصف",
     "settings.sets.list.field.updatedDate": "آخر تحديث",
     "settings.sets.list.field.updatedDatePattern": "{date} {time}",
-    "settings.sets.list.no.sets": "لا توجد مجموعات بروتوكول مبادرة الأرشيفات المفتوحة لحصاد الميتاداتا في الوقت الحالي."
+    "settings.sets.list.no.sets": "لا توجد مجموعات بروتوكول مبادرة الأرشيفات المفتوحة لحصاد الميتاداتا في الوقت الحالي.",
+    "settings.sets.callout.validationError.notUnique": "اسم المجموعة أو مواصفات المجموعة ليست فريدة. يرجى ملء اسم المجموعة الفريد أو مواصفات المجموعة لحفظها."
 }
