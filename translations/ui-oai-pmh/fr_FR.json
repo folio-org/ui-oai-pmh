@@ -95,10 +95,11 @@
     "settings.sets.edit.filteringConditions.field.value.select.format": "Sélectionner le format",
     "settings.sets.edit.filteringConditions.field.value.select.illPolicy": "Sélectionner la politique de PEB",
     "settings.sets.edit.filteringConditions.field.value.select.materialType": "Sélectionnez le type de matériel",
-    "settings.sets.list.field.name": "Name",
-    "settings.sets.list.field.setSpec": "Specification",
+    "settings.sets.list.field.name": "Nom",
+    "settings.sets.list.field.setSpec": "Spécification",
     "settings.sets.list.field.description": "Description",
-    "settings.sets.list.field.updatedDate": "Last updated",
+    "settings.sets.list.field.updatedDate": "Dernière mise à jour",
     "settings.sets.list.field.updatedDatePattern": "{date} {time}",
-    "settings.sets.list.no.sets": "There are no OAI-PMH Sets exist at the moment."
+    "settings.sets.list.no.sets": "There are no OAI-PMH Sets exist at the moment.",
+    "settings.sets.callout.validationError.notUnique": "Set name or set specification isn't unique. Please, fill in unique set name or set specification to save set."
 }
