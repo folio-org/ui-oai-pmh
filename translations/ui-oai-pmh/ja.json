@@ -87,7 +87,7 @@
     "settings.sets.filteringCondition.materialType": "Material type",
     "settings.sets.callout.connectionProblem.get": "Unable to get data due to a module error. Please try again. If a problem persists please contact your system administrator",
     "settings.sets.edit.filteringConditions.field.name": "Field",
-    "settings.sets.edit.filteringConditions.field.active": "Active",
+    "settings.sets.edit.filteringConditions.field.active": "有効",
     "settings.sets.edit.filteringConditions.field.value": "Value",
     "settings.sets.edit.filteringConditions.field.setSpec": "Specification",
     "settings.sets.edit.filteringConditions.field.value.select.location": "Select location",
