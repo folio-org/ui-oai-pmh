@@ -23,7 +23,7 @@ import {
 } from '../SetsForm/components';
 
 import {
-  FILL_PANE_WIDTH,
+  DEFAULT_PANE_WIDTH,
   ICONS,
   SET_FIELDS,
   INITIAL_ACCORDION_STATE,
@@ -77,7 +77,7 @@ const SetsView = ({
   return (
     <Pane
       data-sets-view
-      defaultWidth={FILL_PANE_WIDTH}
+      defaultWidth={DEFAULT_PANE_WIDTH}
       paneTitle={paneTitle()}
       firstMenu={getFirstMenu()}
       actionMenu={getActionMenu}

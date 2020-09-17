@@ -31,7 +31,9 @@ import {
   generalInformationToViewData,
   metaDataToViewData,
 } from '../../util';
-import useCallout from '../../hooks';
+import {
+  useCallout,
+} from '../../hooks';
 import {
   DEFAULT_PANE_WIDTH,
   CALLOUT_ERROR_TYPE,

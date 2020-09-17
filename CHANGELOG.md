@@ -15,6 +15,7 @@
 * Fix aria-labelledby on create/edit page. Refs UIOAIPMH-27.
 * Add validation for uniqueness. Refs UIOAIPMH-18.
 * Add form field validation. Refs UIOAIPMH-12.
+* Show set details next to the list of sets. Refs UIOAIPMH-25.
 
 ## [1.2.0](https://github.com/folio-org/ui-oai-pmh/tree/v1.2.0) (2020-07-03)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.1.0...v1.2.0)

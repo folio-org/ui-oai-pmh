@@ -27,7 +27,9 @@ import {
   handleErrorResponse,
   isFilteringConditionsFilled,
 } from '../../util';
-import useCallout from '../../hooks';
+import {
+  useCallout,
+} from '../../hooks';
 import {
   CALLOUT_ERROR_TYPE,
   SET_FIELDS,

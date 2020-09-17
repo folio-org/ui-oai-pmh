@@ -10,7 +10,9 @@ import {
 } from '@folio/stripes-core';
 
 import SetsContext from './SetsContext';
-import useCallout from '../../hooks';
+import {
+  useCallout,
+} from '../../hooks';
 import {
   CALLOUT_ERROR_TYPE,
 } from '../../constants';
