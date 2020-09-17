@@ -24,10 +24,12 @@ import {
   getSetsViewUrl,
   filteringConditionsDataOptions,
   setInformationToViewData,
-  connectionProblem,
+  handleErrorResponse,
+  isFilteringConditionsFilled,
 } from '../../util';
 import useCallout from '../../hooks';
 import {
+  CALLOUT_ERROR_TYPE,
   SET_FIELDS,
   SET_FIELDS_INITIAL_VALUES,
 } from '../../constants';
@@ -53,19 +55,26 @@ const SetsCreateRoute = ({
   const showCallout = useCallout();
 
   const onSubmit = useCallback((values) => {
-    mutator.createSets.POST({
-      ...setInformationToViewData(values),
-    })
-      .then((response) => {
-        showCallout({
-          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
-        });
-        history.push({
-          pathname: getSetsViewUrl(response[SET_FIELDS.ID]),
-          search: location.search,
-        });
+    if (!isFilteringConditionsFilled(values.filteringConditions)) {
+      showCallout({
+        type: CALLOUT_ERROR_TYPE,
+        message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.validationError.empty.setSpec" />,
+      });
+    } else {
+      mutator.createSets.POST({
+        ...setInformationToViewData(values),
       })
-      .catch((errors) => connectionProblem(errors, showCallout));
+        .then((response) => {
+          showCallout({
+            message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
+          });
+          history.push({
+            pathname: getSetsViewUrl(response[SET_FIELDS.ID]),
+            search: location.search,
+          });
+        })
+        .catch((errors) => handleErrorResponse(errors, showCallout));
+    }
   }, [showCallout, location.search, history, mutator.createSets]);
 
   const onBack = useCallback(() => {

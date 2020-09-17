@@ -29,6 +29,8 @@ import {
   INITIAL_ACCORDION_STATE,
 } from '../../../constants';
 
+import css from './SetsView.css';
+
 const SetsView = ({
   sets,
   showActionMenu,
@@ -88,6 +90,7 @@ const SetsView = ({
               size="x-large"
               tag="h2"
               margin="small"
+              className={css.HeadLine}
             >
               {sets[SET_FIELDS.NAME]}
             </Headline>

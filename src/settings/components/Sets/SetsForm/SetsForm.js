@@ -120,5 +120,6 @@ SetsForm.defaultProps = {
 
 export default stripesFinalForm({
   keepDirtyOnReinitialize: true,
+  validateOnBlur: true,
   navigationCheck: true,
 })(SetsForm);

@@ -33,10 +33,12 @@ import {
   filteringConditionsToFormData,
   filteringConditionsDataOptions,
   setInformationToViewData,
-  connectionProblem,
+  handleErrorResponse,
+  isFilteringConditionsFilled,
 } from '../../util';
 import useCallout from '../../hooks';
 import {
+  CALLOUT_ERROR_TYPE,
   FILL_PANE_WIDTH,
   SET_FIELDS,
 } from '../../constants';
@@ -89,19 +91,26 @@ const SetsDuplicateRoute = ({
   const showCallout = useCallout();
 
   const onSubmit = useCallback((values) => {
-    mutator.duplicateSets.POST({
-      ...setInformationToViewData(values),
-    })
-      .then((response) => {
-        showCallout({
-          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
-        });
-        history.push({
-          pathname: getSetsViewUrl(response[SET_FIELDS.ID]),
-          search: location.search,
-        });
+    if (!isFilteringConditionsFilled(values.filteringConditions)) {
+      showCallout({
+        type: CALLOUT_ERROR_TYPE,
+        message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.validationError.empty.setSpec" />,
+      });
+    } else {
+      mutator.duplicateSets.POST({
+        ...setInformationToViewData(values),
       })
-      .catch((errors) => connectionProblem(errors, showCallout));
+        .then((response) => {
+          showCallout({
+            message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
+          });
+          history.push({
+            pathname: getSetsViewUrl(response[SET_FIELDS.ID]),
+            search: location.search,
+          });
+        })
+        .catch((errors) => handleErrorResponse(errors, showCallout));
+    }
   }, [showCallout, location.search, history, mutator.duplicateSets, sets[SET_FIELDS.ID]]);
 
   const onBack = useCallback(() => {

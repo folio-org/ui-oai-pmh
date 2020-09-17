@@ -17,3 +17,7 @@
 .SetCell:first-child {
   border-left: none;
 }
+
+.Checkbox {
+  align-items: center;
+}

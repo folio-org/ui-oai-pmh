@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+  useMemo,
+} from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Field } from 'react-final-form';
@@ -13,14 +15,27 @@ import {
 import { ViewMetaData } from '@folio/stripes/smart-components';
 
 import {
+  TEXT_FIELD_MAX_FIELD_LENGTH,
+  TEXT_AREA_FIELD_MAX_FIELD_LENGTH,
   GENERAL_ACCORDION_NAME,
   METADATA_ACCORDION_NAME,
   SET_FIELDS,
 } from '../../../../../constants';
 
+import {
+  validateRequiredField,
+  validateFieldLength,
+  composeValidators,
+} from '../../../../../util';
+
+const validateNameLength = (value) => validateFieldLength(value, TEXT_FIELD_MAX_FIELD_LENGTH);
+const validateDescriptionLength = (value) => validateFieldLength(value, TEXT_AREA_FIELD_MAX_FIELD_LENGTH);
+
 const GeneralInformation = ({
   metadata,
 }) => {
+  const validateName = useMemo(() => composeValidators(validateRequiredField, validateNameLength), []);
+
   return (
     <Accordion
       id={GENERAL_ACCORDION_NAME}
@@ -47,6 +62,7 @@ const GeneralInformation = ({
             name={SET_FIELDS.NAME}
             type="text"
             label={<FormattedMessage id="ui-oai-pmh.settings.sets.edit.field.name" />}
+            validate={validateName}
             component={TextField}
           />
         </Col>
@@ -61,6 +77,7 @@ const GeneralInformation = ({
             name={SET_FIELDS.DESCRIPTION}
             type="text"
             label={<FormattedMessage id="ui-oai-pmh.settings.sets.edit.field.description" />}
+            validate={validateDescriptionLength}
             component={TextArea}
           />
         </Col>
