@@ -3,8 +3,8 @@ export const MODULE_TYPE = 'settings';
 export const MODULE_ROUTE = 'oai-pmh';
 export const MODULE_PATH = `${MODULE_TYPE}/${MODULE_ROUTE}`;
 
-export const SETTINGS_PANE_WIDTH = '20%';
-export const DEFAULT_PANE_WIDTH = '60%';
+export const SETTINGS_PANE_WIDTH = '15%';
+export const DEFAULT_PANE_WIDTH = '65%';
 export const FILL_PANE_WIDTH = 'fill';
 
 export const SHORT_TEXT_FIELD_MAX_FIELD_LENGTH = 50;

@@ -9,6 +9,7 @@ import {
 import {
   MultiColumnList,
   Pane,
+  Paneset,
 } from '@folio/stripes/components';
 
 import LastMenu from './components';
@@ -44,54 +45,57 @@ const resultsFormatter = () => ({
   ),
 });
 
-const columnWidths = {
-  [SET_FIELDS.NAME]: '25%',
-  [SET_FIELDS.SET_SPEC]: '25%',
-  [SET_FIELDS.DESCRIPTION]: '25%',
-  [SET_FIELDS.UPDATED_DATE]: '25%',
-};
-
 const SetsList = ({
   isLoading,
   totalCount,
   sets,
   onRowClick,
   onNeedMoreData,
+  children,
 }) => {
   return (
-    <Pane
-      data-sets-list
-      defaultWidth={FILL_PANE_WIDTH}
-      paneTitle={<FormattedMessage id="ui-oai-pmh.settings.sets.list.title" />}
-      lastMenu={<LastMenu />}
-    >
-      <MultiColumnList
-        id="setList"
-        autosize
-        virtualize
-        loading={isLoading}
-        pageAmount={PAGE_AMOUNT}
-        pagingType="click"
-        totalCount={totalCount}
-        isEmptyMessage={<FormattedMessage id="ui-oai-pmh.settings.sets.list.no.sets" />}
-        contentData={sets}
-        columnMapping={columnMapping}
-        visibleColumns={visibleColumns}
-        columnWidths={columnWidths}
-        formatter={resultsFormatter()}
-        onRowClick={onRowClick}
-        onNeedMoreData={onNeedMoreData}
-      />
-    </Pane>
+    <Paneset>
+      <Pane
+        data-test-sets-list
+        defaultWidth={FILL_PANE_WIDTH}
+        paneTitle={<FormattedMessage id="ui-oai-pmh.settings.sets.list.title" />}
+        lastMenu={<LastMenu />}
+      >
+        <MultiColumnList
+          id="setList"
+          autosize
+          virtualize
+          loading={isLoading}
+          pageAmount={PAGE_AMOUNT}
+          pagingType="click"
+          totalCount={totalCount}
+          isEmptyMessage={<FormattedMessage id="ui-oai-pmh.settings.sets.list.no.sets" />}
+          contentData={sets}
+          columnMapping={columnMapping}
+          visibleColumns={visibleColumns}
+          formatter={resultsFormatter()}
+          onRowClick={onRowClick}
+          onNeedMoreData={onNeedMoreData}
+        />
+      </Pane>
+      { children }
+    </Paneset>
   );
 };
 
 SetsList.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  totalCount: PropTypes.number.isRequired,
-  sets: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isLoading: PropTypes.bool,
+  totalCount: PropTypes.number,
+  sets: PropTypes.arrayOf(PropTypes.object),
   onRowClick: PropTypes.func.isRequired,
   onNeedMoreData: PropTypes.func.isRequired,
+  children: PropTypes.node,
+};
+
+SetsList.defaultProps = {
+  isLoading: false,
+  totalCount: 0,
+  sets: [],
 };
 
 export default SetsList;

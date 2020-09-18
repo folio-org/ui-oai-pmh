@@ -10,7 +10,7 @@ import MultiColumnListInteractor from '@folio/stripes-components/lib/MultiColumn
 @interactor class SetsList {
   isLoaded = isPresent('#setList');
 
-  paneHeader = new PaneHeader('[data-sets-list] [data-test-pane-header]');
+  paneHeader = new PaneHeader('[data-test-sets-list] [data-test-pane-header]');
 
   newSetButton = new ButtonInteractor('[data-test-add-new-set-button]');
 

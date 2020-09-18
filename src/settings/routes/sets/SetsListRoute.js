@@ -25,13 +25,18 @@ import {
 } from '../../constants';
 import {
   getSetsViewUrl,
+  getSetsListUrl,
 } from '../../util';
-import useCallout from '../../hooks';
+import {
+  useCallout,
+  useLocationReset,
+} from '../../hooks';
 
 const SetsListRoute = ({
   history,
   location,
   mutator,
+  children,
 }) => {
   const [sets, setSets] = useState([]);
   const [setsCount, setSetsCount] = useState(0);
@@ -91,6 +96,8 @@ const SetsListRoute = ({
     [],
   );
 
+  useLocationReset(history, location, getSetsListUrl(), refreshList);
+
   const onRowClick = useCallback((e, meta) => {
     history.push({
       pathname:  getSetsViewUrl(meta[SET_FIELDS.ID]),
@@ -113,7 +120,9 @@ const SetsListRoute = ({
       totalCount={setsCount}
       onNeedMoreData={onNeedMoreData}
       loading={isLoading}
-    />
+    >
+      { children }
+    </SetsList>
   );
 };
 
@@ -134,6 +143,7 @@ SetsListRoute.propTypes = {
       GET: PropTypes.func.isRequired,
     }),
   }),
+  children: PropTypes.node,
 };
 
 export default stripesConnect(SetsListRoute);
