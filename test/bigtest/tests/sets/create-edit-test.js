@@ -89,13 +89,31 @@ describe('Sets', () => {
 
     describe('Form values', () => {
       describe('General information', () => {
+        describe('field labels', () => {
+          it('should render set name label', () => {
+            expect(SetsFormInteractor.name.label).to.contain(translation['settings.sets.edit.field.name']);
+          });
+
+          it('should render set description label', () => {
+            expect(SetsFormInteractor.description.label).to.equal(translation['settings.sets.edit.field.description']);
+          });
+
+          it('should render set specification label', () => {
+            expect(SetsFormInteractor.setSpecLabel).to.equal(translation['settings.sets.edit.field.setSpecification']);
+          });
+        });
+
         describe('initial load', () => {
-          it('should render name', () => {
+          it('should render set name', () => {
             expect(SetsFormInteractor.name.val).to.equal(initialValues.name);
           });
 
-          it('should render description', () => {
+          it('should render set description', () => {
             expect(SetsFormInteractor.description.val).to.equal(initialValues.description);
+          });
+
+          it('should render set specification', () => {
+            expect(SetsFormInteractor.setSpecText).to.equal(initialValues.setSpec);
           });
         });
 
@@ -110,12 +128,16 @@ describe('Sets', () => {
             await SetsFormInteractor.description.fillAndBlur(newValues.description);
           });
 
-          it('should change name', () => {
+          it('should change set name', () => {
             expect(SetsFormInteractor.name.val).to.equal(newValues.name);
           });
 
-          it('should change description', () => {
+          it('should change set description', () => {
             expect(SetsFormInteractor.description.val).to.equal(newValues.description);
+          });
+
+          it('should change set specification', () => {
+            expect(SetsFormInteractor.setSpecText).to.equal(initialValues.setSpec);
           });
         });
       });
@@ -137,7 +159,7 @@ describe('Sets', () => {
               .to.equal(translation['settings.sets.edit.filteringConditions.field.value']);
           });
 
-          it('should be correct label text for set spec', () => {
+          it('should be correct label text for set specification', () => {
             expect(SetsFormInteractor.filteringConditionsTitleSetSpec)
               .to.equal(translation['settings.sets.edit.filteringConditions.field.setSpec']);
           });
@@ -159,7 +181,7 @@ describe('Sets', () => {
               .to.equal(initialValues.filteringConditions[0].value);
           });
 
-          it('should render set spec', () => {
+          it('should render set specification', () => {
             expect(SetsFormInteractor.filteringConditionsRow(0).setSpec.val)
               .to.equal(initialValues.filteringConditions[0].setSpec);
           });
@@ -184,7 +206,7 @@ describe('Sets', () => {
               .to.equal(newValues.value);
           });
 
-          it('should change set spec', () => {
+          it('should change set specification', () => {
             expect(SetsFormInteractor.filteringConditionsRow(0).setSpec.val)
               .to.equal(newValues.setSpec);
           });
@@ -205,7 +227,7 @@ describe('Sets', () => {
             .to.equal('');
         });
 
-        it('should change set spec', () => {
+        it('should change set specification', () => {
           expect(SetsFormInteractor.filteringConditionsRow(0).setSpec.val)
             .to.equal('');
         });
@@ -235,6 +257,7 @@ describe('Sets', () => {
     const initialValues = {
       name: '',
       description: '',
+      setSpec: '',
       filteringConditions: [{
         name : '',
         active: false,
@@ -259,6 +282,7 @@ describe('Sets', () => {
       id: 'id',
       name: 'initial values name',
       description: 'initial values description',
+      setSpec: 'Loc_L1',
       filteringConditions: [{
         name : 'location',
         active: true,
@@ -285,6 +309,7 @@ describe('Sets', () => {
       id: 'id',
       name: 'initial values name',
       description: 'initial values description',
+      setSpec: 'Loc_L1',
       filteringConditions: [{
         name : 'location',
         active: true,

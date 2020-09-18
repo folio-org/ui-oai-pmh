@@ -18,7 +18,7 @@ describe('Sets', () => {
     id: 'id',
     name: 'name',
     description: 'description',
-    setSpec: 'setSpec',
+    setSpec: 'specification',
     filteringConditions: [
       {
         name : 'location',
@@ -186,7 +186,7 @@ describe('Sets', () => {
           expect(SetsViewInteractor.description.value.text).to.equal(setsTest.description);
         });
 
-        it('should be correct set specification', () => {
+        it('should be correct specification', () => {
           expect(SetsViewInteractor.setSpec.value.text).to.equal(setsTest.setSpec);
         });
       });
@@ -206,7 +206,7 @@ describe('Sets', () => {
             .to.equal(translation['settings.sets.view.filteringConditions.field.value']);
         });
 
-        it('should be correct header labels for set specification', () => {
+        it('should be correct header labels for specification', () => {
           expect(SetsViewInteractor.filteringConditionsList.headers(2).text)
             .to.equal(translation['settings.sets.view.filteringConditions.field.setSpec']);
         });
@@ -226,7 +226,7 @@ describe('Sets', () => {
               .to.equal(setsTest.filteringConditions[0].value);
           });
 
-          it('should display correct setSpec', () => {
+          it('should display correct specification', () => {
             expect(SetsViewInteractor.filteringConditionsList.rows(0).cells(2).text)
               .to.equal(setsTest.filteringConditions[0].setSpec);
           });

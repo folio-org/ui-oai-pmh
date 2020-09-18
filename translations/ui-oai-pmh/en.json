@@ -40,6 +40,7 @@
 
   "settings.sets.edit.field.name": "Set name",
   "settings.sets.edit.field.description": "Set description",
+  "settings.sets.edit.field.setSpecification": "Set specification",
   "settings.sets.edit.accordion.generalInformation.title": "General information",
   "settings.sets.edit.accordion.filteringConditions.title": "Filtering conditions",
 

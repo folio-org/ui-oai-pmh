@@ -14,7 +14,7 @@ const EntityNotFound = ({
   onBack,
 }) => (
   <Pane
-    data-sets-not-found
+    data-test-sets-not-found
     defaultWidth={paneWidth}
     paneTitle={<FormattedMessage id={pageTitleTranslationKey} />}
     dismissible
