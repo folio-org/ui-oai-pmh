@@ -48,8 +48,8 @@
     "settings.sets.view.title": "عرض {name}",
     "settings.sets.form.button.cancel": "إلغاء",
     "settings.technical.title": "تقني",
-    "settings.sets.callout.created": "تم إنشاء ضبط {name} بنجاح",
-    "settings.sets.callout.updated": "تم تحديث ضبط {name} بنجاح",
+    "settings.sets.callout.created": "تم إنشاء المجموعة بنجاح",
+    "settings.sets.callout.updated": "تم تحديث المجموعة بنجاح.",
     "settings.sets.callout.connectionProblem": "تعذر الحفظ بسبب خطأ في الوحدة. يرجى إعادة المحاولة مرة أخرى. إذا استمرت المشكلة يرجى الاتصال بمدير النظام.",
     "settings.sets.edit.notFound.title": "تحرير",
     "settings.sets.edit.notFound.text": "لديك عنوان URL غير صالح. يرجى مراجعة بناء الجملة أو معلمات مسار عنوان ال URL وإعادة المحاولة.",
@@ -101,5 +101,13 @@
     "settings.sets.list.field.updatedDate": "آخر تحديث",
     "settings.sets.list.field.updatedDatePattern": "{date} {time}",
     "settings.sets.list.no.sets": "لا توجد مجموعات بروتوكول مبادرة الأرشيفات المفتوحة لحصاد الميتاداتا في الوقت الحالي.",
-    "settings.sets.callout.validationError.notUnique": "اسم المجموعة أو مواصفات المجموعة ليست فريدة. يرجى ملء اسم المجموعة الفريد أو مواصفات المجموعة لحفظها."
+    "settings.sets.callout.validationError.notUnique": "اسم المجموعة أو مواصفات المجموعة ليست فريدة. يرجى ملء اسم المجموعة الفريد أو مواصفات المجموعة لحفظها.",
+    "settings.sets.edit.validationMessage.required": "لا يمكن أن يكون هذا الحقل فارغًا",
+    "settings.sets.edit.validationMessage.maxLength": "لا يمكن أن يكون الحقل أكثر من {maxLength} حرفاً",
+    "settings.sets.edit.validationMessage.allowedSymbols": "يمكن للمواصفات استخدام A-Z a-z 0-9 - _ . ! ~ * ' ( ) فقط",
+    "settings.sets.view.filteringConditions.field.name.ariaLabel": "حقل الاسم",
+    "settings.sets.view.filteringConditions.field.value.ariaLabel": "حقل القيمة",
+    "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "حقل المواصفات",
+    "settings.sets.callout.validationError.empty.name": "لا يمكن أن يكون اسم المجموعة فارغًا. برجى ملء اسم المجموعة.",
+    "settings.sets.callout.validationError.empty.setSpec": "لا يمكن أن تكون قائمة شروط التنقيح المحددة فارغة. يرجى إضافة شرط تنقيح واحد على الأقل لحفظ المجموعة."
 }
