@@ -101,5 +101,13 @@
     "settings.sets.list.field.updatedDate": "Last updated",
     "settings.sets.list.field.updatedDatePattern": "{date} {time}",
     "settings.sets.list.no.sets": "There are no OAI-PMH Sets exist at the moment.",
-    "settings.sets.callout.validationError.notUnique": "Set name or set specification isn't unique. Please, fill in unique set name or set specification to save set."
+    "settings.sets.callout.validationError.notUnique": "Set name or set specification isn't unique. Please, fill in unique set name or set specification to save set.",
+    "settings.sets.edit.validationMessage.required": "This field cannot be empty",
+    "settings.sets.edit.validationMessage.maxLength": "Field cannot be more than {maxLength} characters long",
+    "settings.sets.edit.validationMessage.allowedSymbols": "Specification can only use A-Z a-z 0-9 - _ . ! ~ * ' ( )",
+    "settings.sets.view.filteringConditions.field.name.ariaLabel": "Name field",
+    "settings.sets.view.filteringConditions.field.value.ariaLabel": "Value field",
+    "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Specification field",
+    "settings.sets.callout.validationError.empty.name": "Set name cannot be empty. Please, fill in set name.",
+    "settings.sets.callout.validationError.empty.setSpec": "Set filtering conditions list cannot be empty. Please, add at least one filtering condition to save set."
 }
