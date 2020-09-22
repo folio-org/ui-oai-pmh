@@ -103,11 +103,11 @@
     "settings.sets.list.no.sets": "Não existem conjuntos OAI-PMH no momento.",
     "settings.sets.callout.validationError.notUnique": "O nome ou a especificação do conjunto não são exclusivos. Por favor, preencha um nome de conjunto exclusivo ou especificação de conjunto para salvar o conjunto.",
     "settings.sets.edit.validationMessage.required": "Este campo não pode estar vazio",
-    "settings.sets.edit.validationMessage.maxLength": "Field cannot be more than {maxLength} characters long",
-    "settings.sets.edit.validationMessage.allowedSymbols": "Specification can only use A-Z a-z 0-9 - _ . ! ~ * ' ( )",
+    "settings.sets.edit.validationMessage.maxLength": "O campo não pode ter mais de {maxLength} caracteres",
+    "settings.sets.edit.validationMessage.allowedSymbols": "A especificação só pode usar A-Z a-z 0-9 - _ . ! ~ * ' ( )",
     "settings.sets.view.filteringConditions.field.name.ariaLabel": "Campo de nome",
     "settings.sets.view.filteringConditions.field.value.ariaLabel": "Campo de valor",
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Campo de especificação",
-    "settings.sets.callout.validationError.empty.name": "Set name cannot be empty. Please, fill in set name.",
-    "settings.sets.callout.validationError.empty.setSpec": "Set filtering conditions list cannot be empty. Please, add at least one filtering condition to save set."
+    "settings.sets.callout.validationError.empty.name": "O nome do conjunto não pode estar vazio. Por favor, preencha o nome do conjunto.",
+    "settings.sets.callout.validationError.empty.setSpec": "A lista de condições de filtragem definidas não pode estar vazia. Por favor, adicione pelo menos uma condição de filtragem para salvar o conjunto."
 }
