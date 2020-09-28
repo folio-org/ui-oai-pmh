@@ -52,7 +52,11 @@ export const filteringConditionsToFormData = (filteringConditions = [], setsFilt
 
 export const filteringConditionsToDtoFormat = (filteringConditions = []) => ({
   [SET_FIELDS.FILTERING_CONDITIONS]: filteringConditions
-    .filter(filteringCondition => filteringCondition[FILTERING_CONDITIONS_FIELDS.ACTIVE])
+    .filter(
+      (filteringCondition) => filteringCondition[FILTERING_CONDITIONS_FIELDS.ACTIVE]
+        && filteringCondition[FILTERING_CONDITIONS_FIELDS.VALUE]
+        && filteringCondition[FILTERING_CONDITIONS_FIELDS.SET_SPEC]
+    )
     .map(filteringCondition => ({
       [FILTERING_CONDITIONS_FIELDS.NAME]: filteringCondition[FILTERING_CONDITIONS_FIELDS.NAME],
       [FILTERING_CONDITIONS_FIELDS.VALUE]: filteringCondition[FILTERING_CONDITIONS_FIELDS.VALUE],

@@ -12,26 +12,31 @@ export default Factory.extend({
   filteringConditions: [
     {
       name : 'location',
+      active: true,
       value : faker.lorem.word,
       setSpec : faker.lorem.word,
     },
     {
       name : 'resourceType',
+      active: true,
       value : faker.lorem.word,
       setSpec : faker.lorem.word,
     },
     {
       name : 'format',
+      active: true,
       value : faker.lorem.word,
       setSpec : faker.lorem.word,
     },
     {
       name : 'illPolicy',
+      active: true,
       value : faker.lorem.word,
       setSpec : faker.lorem.word,
     },
     {
       name : 'materialType',
+      active: true,
       value : faker.lorem.word,
       setSpec : faker.lorem.word,
     },

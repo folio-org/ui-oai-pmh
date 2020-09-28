@@ -67,7 +67,7 @@ const SetsForm = ({
       >
         <Paneset isRoot>
           <Pane
-            data-sets-form
+            data-test-sets-form
             defaultWidth={FILL_PANE_WIDTH}
             paneTitle={formTitle()}
             firstMenu={getFirstMenu()}

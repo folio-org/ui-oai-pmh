@@ -14,7 +14,7 @@ describe('Sets', () => {
   setupApplication();
   const set = {
     name: 'name',
-    setSpec: 'setSpec',
+    setSpec: 'specification',
     description: 'description',
     updatedDate: '2020-01-01T08:00:00.441+0000',
   };
@@ -49,7 +49,7 @@ describe('Sets', () => {
             .to.be.equal(translation['settings.sets.list.field.name']);
         });
 
-        it('should be correct label text for setSpec', () => {
+        it('should be correct label text for specification', () => {
           expect(SetsListInteractor.setsList.headers(1).text)
             .to.be.equal(translation['settings.sets.list.field.setSpec']);
         });
@@ -71,7 +71,7 @@ describe('Sets', () => {
             .to.be.equal(set.name);
         });
 
-        it('should be correct text for setSpec', () => {
+        it('should be correct text for specification', () => {
           expect(SetsListInteractor.setsList.rows(0).cells(1).text)
             .to.be.equal(set.setSpec);
         });

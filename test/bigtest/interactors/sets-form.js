@@ -19,15 +19,17 @@ import CalloutInteractor from '@folio/stripes-components/lib/Callout/tests/inter
 @interactor class SetsForm {
   isLoaded = isPresent('[data-test-set-filtering-conditions-row-active]');
 
-  paneHeader = new PaneHeader('[data-sets-form] [data-test-pane-header]');
+  paneHeader = new PaneHeader('[data-test-sets-form] [data-test-pane-header]');
   navigateBackConfirmationModal = new Interactor('#cancel-editing-confirmation');
   clickCancelNavigationButton = new ButtonInteractor('#clickable-cancel-editing-confirmation-cancel');
   clickContinueNavigationButton = new ButtonInteractor('#clickable-cancel-editing-confirmation-confirm');
 
-  expandAllButton = new ExpandAllButtonInteractor('[data-sets-form] [data-test-expand-all-button]');
+  expandAllButton = new ExpandAllButtonInteractor('[data-test-sets-form] [data-test-expand-all-button]');
 
   name = new TextFieldInteractor('[data-test-set-fields-name]');
   description = new TextAreaInteractor('[data-test-set-fields-description]');
+  setSpecLabel = text('[data-test-set-fields-set-specification] [data-test-set-fields-set-specification-label]');
+  setSpecText = text('[data-test-set-fields-set-specification] [data-test-set-fields-set-specification-text]');
 
   filteringConditionsTitleName = text('[data-test-filtering-conditions-title-name]');
   filteringConditionsTitleActive = text('[data-test-filtering-conditions-title-active]');
@@ -44,7 +46,7 @@ import CalloutInteractor from '@folio/stripes-components/lib/Callout/tests/inter
   paneHeaderCancelButton = new ButtonInteractor('[data-test-cancel-button]');
   paneHeaderSaveButton = new ButtonInteractor('[data-test-save-button]');
 
-  paneHeaderSetNotFound = new PaneHeader('[data-sets-not-found] [data-test-pane-header]');
+  paneHeaderSetNotFound = new PaneHeader('[data-test-sets-not-found] [data-test-pane-header]');
   setNotFoundMessageBanner = new MessageBanner();
 
   callout = new CalloutInteractor();

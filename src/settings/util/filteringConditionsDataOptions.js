@@ -27,8 +27,12 @@ export const filteringConditionsDataOptions = (filteringConditions, intl) => {
   return dataOptions;
 };
 
-export const setSpecFromFilteringConditions = (filteringConditions) => ({
-  [SET_FIELDS.SET_SPEC]: filteringConditions[SET_FIELDS.FILTERING_CONDITIONS]
+export const setSpecValueFromFilteringConditions = (filteringConditions) => (
+  filteringConditions
+    .filter(({ setSpec }) => setSpec)
     .map(({ setSpec }) => setSpec)
-    .join(SET_FIELDS_SET_SPEC_SEPARATOR),
+    .join(SET_FIELDS_SET_SPEC_SEPARATOR));
+
+export const setSpecFromFilteringConditions = (filteringConditions) => ({
+  [SET_FIELDS.SET_SPEC]: setSpecValueFromFilteringConditions(filteringConditions[SET_FIELDS.FILTERING_CONDITIONS]),
 });

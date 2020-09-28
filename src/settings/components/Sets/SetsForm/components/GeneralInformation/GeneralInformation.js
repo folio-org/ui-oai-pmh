@@ -14,6 +14,8 @@ import {
 } from '@folio/stripes/components';
 import { ViewMetaData } from '@folio/stripes/smart-components';
 
+import SetSpecification from './components/SetSpecification';
+
 import {
   TEXT_FIELD_MAX_FIELD_LENGTH,
   TEXT_AREA_FIELD_MAX_FIELD_LENGTH,
@@ -79,6 +81,20 @@ const GeneralInformation = ({
             label={<FormattedMessage id="ui-oai-pmh.settings.sets.edit.field.description" />}
             validate={validateDescriptionLength}
             component={TextArea}
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col
+          data-test-set-fields-set-specification
+          sm={6}
+        >
+          <Field
+            id={SET_FIELDS.SET_SPEC}
+            name={SET_FIELDS.FILTERING_CONDITIONS}
+            type="text"
+            label={<FormattedMessage id="ui-oai-pmh.settings.sets.edit.field.setSpecification" />}
+            component={SetSpecification}
           />
         </Col>
       </Row>
