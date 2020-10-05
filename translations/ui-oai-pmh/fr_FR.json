@@ -106,8 +106,8 @@
     "settings.sets.edit.validationMessage.maxLength": "Field cannot be more than {maxLength} characters long",
     "settings.sets.edit.validationMessage.allowedSymbols": "Specification can only use A-Z a-z 0-9 - _ . ! ~ * ' ( )",
     "settings.sets.view.filteringConditions.field.name.ariaLabel": "Name field",
-    "settings.sets.view.filteringConditions.field.value.ariaLabel": "Value field",
-    "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Specification field",
+    "settings.sets.view.filteringConditions.field.value.ariaLabel": "Champ de valeur",
+    "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Champ de spécification",
     "settings.sets.callout.validationError.empty.name": "Set name cannot be empty. Please, fill in set name.",
     "settings.sets.callout.validationError.empty.setSpec": "Set filtering conditions list cannot be empty. Please, add at least one filtering condition to save set.",
     "settings.sets.edit.field.setSpecification": "Set specification"
