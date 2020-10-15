@@ -1,5 +1,9 @@
 # Change history for ui-oai-pmh
 
+## [1.3.1] (IN PROGRESS)
+
+* Fix Interfaces dependents for oai-pmh. Refs UIOAIPMH-32.
+
 ## [1.3.0](https://github.com/folio-org/ui-oai-pmh/tree/v1.3.0) (2020-10-15)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.2.0...v1.3.0)
 
