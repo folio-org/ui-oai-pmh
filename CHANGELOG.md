@@ -1,6 +1,7 @@
 # Change history for ui-oai-pmh
 
-## [1.3.0] (IN PROGRESS)
+## [1.3.0](https://github.com/folio-org/ui-oai-pmh/tree/v1.3.0) (2020-10-15)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.2.0...v1.3.0)
 
 * Add route for sets, refactoring directory structure, increase code coverage. Refs UIOAIPMH-7.
 * Add create/edit set with general information. Refs UIOAIPMH-5.
