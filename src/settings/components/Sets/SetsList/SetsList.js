@@ -10,7 +10,6 @@ import {
   FormattedDate,
 } from '@folio/stripes/components';
 
-
 import LastMenu from './components';
 import {
   FILL_PANE_WIDTH,
