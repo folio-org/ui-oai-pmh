@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  FormattedDate,
-  FormattedMessage,
-  FormattedTime,
-} from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import {
   MultiColumnList,
   Pane,
   Paneset,
+  FormattedTime,
+  FormattedDate,
 } from '@folio/stripes/components';
 
 import LastMenu from './components';
