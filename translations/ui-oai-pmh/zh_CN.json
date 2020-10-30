@@ -110,5 +110,5 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "规格字段",
     "settings.sets.callout.validationError.empty.name": "设置名称不能为空。请填写名称。",
     "settings.sets.callout.validationError.empty.setSpec": "设置筛选条件清单不能为空。请添加至少一个筛选条件以保存设置。",
-    "settings.sets.edit.field.setSpecification": "Set specification"
+    "settings.sets.edit.field.setSpecification": "设置规格"
 }
