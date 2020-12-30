@@ -110,5 +110,8 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Campo de especificação",
     "settings.sets.callout.validationError.empty.name": "O nome do conjunto não pode estar vazio. Por favor, preencha o nome do conjunto.",
     "settings.sets.callout.validationError.empty.setSpec": "A lista de condições de filtragem definidas não pode estar vazia. Por favor, adicione pelo menos uma condição de filtragem para salvar o conjunto.",
-    "settings.sets.edit.field.setSpecification": "Especificação do conjunto"
+    "settings.sets.edit.field.setSpecification": "Especificação do conjunto",
+    "settings.general": "",
+    "settings.behavior": "",
+    "settings.technical": ""
 }
