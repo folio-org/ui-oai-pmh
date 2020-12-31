@@ -110,8 +110,5 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Champ de spécification",
     "settings.sets.callout.validationError.empty.name": "Set name cannot be empty. Please, fill in set name.",
     "settings.sets.callout.validationError.empty.setSpec": "Set filtering conditions list cannot be empty. Please, add at least one filtering condition to save set.",
-    "settings.sets.edit.field.setSpecification": "Set specification",
-    "settings.general": "",
-    "settings.behavior": "",
-    "settings.technical": ""
+    "settings.sets.edit.field.setSpecification": "Set specification"
 }
