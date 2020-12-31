@@ -110,5 +110,8 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "حقل المواصفات",
     "settings.sets.callout.validationError.empty.name": "لا يمكن أن يكون اسم المجموعة فارغًا. برجى ملء اسم المجموعة.",
     "settings.sets.callout.validationError.empty.setSpec": "لا يمكن أن تكون قائمة شروط التنقيح المحددة فارغة. يرجى إضافة شرط تنقيح واحد على الأقل لحفظ المجموعة.",
-    "settings.sets.edit.field.setSpecification": "ضبط المواصفات"
+    "settings.sets.edit.field.setSpecification": "ضبط المواصفات",
+    "settings.general": "",
+    "settings.behavior": "",
+    "settings.technical": ""
 }

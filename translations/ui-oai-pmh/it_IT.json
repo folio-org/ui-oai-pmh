@@ -110,5 +110,8 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Specification field",
     "settings.sets.callout.validationError.empty.name": "Il nome del set non può essere vuoto. Si prega di compilare il nome del set.",
     "settings.sets.callout.validationError.empty.setSpec": "Set filtering conditions list cannot be empty. Please, add at least one filtering condition to save set.",
-    "settings.sets.edit.field.setSpecification": "Specifiche del set"
+    "settings.sets.edit.field.setSpecification": "Specifiche del set",
+    "settings.general": "",
+    "settings.behavior": "",
+    "settings.technical": ""
 }
