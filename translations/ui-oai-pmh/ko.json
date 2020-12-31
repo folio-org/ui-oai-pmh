@@ -110,8 +110,5 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "사양 필드",
     "settings.sets.callout.validationError.empty.name": "설정 이름은 비어 있을 수 없습니다. 세트 이름을 입력하십시오.",
     "settings.sets.callout.validationError.empty.setSpec": "필터링 조건 설정 목록은 비워 둘 수 없습니다. 세트를 저장하려면 필터링 조건을 하나 이상 추가하십시오.",
-    "settings.sets.edit.field.setSpecification": "Set specification",
-    "settings.general": "",
-    "settings.behavior": "",
-    "settings.technical": ""
+    "settings.sets.edit.field.setSpecification": "Set specification"
 }
