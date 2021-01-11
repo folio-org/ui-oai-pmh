@@ -15,7 +15,7 @@
     "settings.general.tooltip.baseUrl": "The URL of the FOLIO repository (of the edge-oai-pmh).",
     "settings.general.label.administratorEmail": "Adresse(s) email(s) de l'administrateur",
     "settings.general.tooltip.administratorEmail": "The e-mail address(es) of the FOLIO repository administrator. Several e-mails should be separated by comma.",
-    "settings.general.label.timeGranularity": "Time granularity",
+    "settings.general.label.timeGranularity": "Granularité temporelle",
     "settings.general.tooltip.timeGranularity": "The finest harvesting granularity supported by the FOLIO repository.",
     "settings.technical.label.maxRecordsPerResponse": "Max records per response",
     "settings.technical.tooltip.maxRecordsPerResponse": "The maximum number of records returned in the ListRecords response.",
