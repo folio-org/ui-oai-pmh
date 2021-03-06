@@ -88,7 +88,7 @@
       },
       {
         "permissionName": "ui-oai-pmh.view",
-        "displayName": "Settings (OAI-PMH): Display list of settings pages",
+        "displayName": "Settings (OAI-PMH): Can view",
         "subPermissions": [
           "settings.oai-pmh.enabled",
           "configuration.entries.collection.get",

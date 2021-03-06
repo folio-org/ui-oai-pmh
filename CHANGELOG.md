@@ -4,6 +4,7 @@
 * Consume `FormattedDate` and `FormattedTime` via `stripes-components`. Refs UIOAIPMH-29.
 * Update `stripes` to `v6.0.0`. Refs UIOAIPMH-35.
 * Update `stripes-cli` to `v2.0.0`. UIOAIPMH-38.
+* Update the UI permission names for current OAI-PMH permissions. UIOAIPMH-39.
 
 ## [1.3.1](https://github.com/folio-org/ui-oai-pmh/tree/v1.3.1) (2020-10-15)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.3.0...v1.3.1)
