@@ -1,9 +1,14 @@
 # Change history for ui-oai-pmh
 
-## 1.4.0 (IN PROGRESS)
+## 2.1.0 (IN PROGRESS)
+
+## [2.0.0](https://github.com/folio-org/ui-oai-pmh/tree/v2.0.0) (2020-03-06)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.3.1...v2.0.0)
+
 * Consume `FormattedDate` and `FormattedTime` via `stripes-components`. Refs UIOAIPMH-29.
 * Update `stripes` to `v6.0.0`. Refs UIOAIPMH-35.
 * Update `stripes-cli` to `v2.0.0`. UIOAIPMH-38.
+* Update translations
 
 ## [1.3.1](https://github.com/folio-org/ui-oai-pmh/tree/v1.3.1) (2020-10-15)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.3.0...v1.3.1)
