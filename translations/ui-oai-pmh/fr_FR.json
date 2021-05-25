@@ -6,7 +6,7 @@
     "settings.behavior.label.suppressedRecordsProcessing": "Traitement des enregistrements supprimés",
     "settings.behavior.tooltip.suppressedRecordsProcessing": "Définit si les enregistrements supprimés doivent être ignorés ou ajoutés dans la réponse OAI avec une valeur d'indicateur de découverte.",
     "settings.behavior.label.errorsProcessing": "Traitement des erreurs OAI-PMH",
-    "settings.behavior.tooltip.errorsProcessing": "Defines which HTTP statuses should OAI-level errors be associated with.",
+    "settings.behavior.tooltip.errorsProcessing": "Définit les statuts HTTP auxquels les erreurs au niveau OAI doivent être associées.",
     "settings.general.label.enableOaiService": "Activer le service OAI",
     "settings.general.tooltip.enableOaiService": "Defines whether OAI-PMH module is accessible for the FOLIO repository.",
     "settings.general.label.repositoryName": "Nom du dépôt",
@@ -16,7 +16,7 @@
     "settings.general.label.administratorEmail": "Adresse(s) email(s) de l'administrateur",
     "settings.general.tooltip.administratorEmail": "The e-mail address(es) of the FOLIO repository administrator. Several e-mails should be separated by comma.",
     "settings.general.label.timeGranularity": "Granularité temporelle",
-    "settings.general.tooltip.timeGranularity": "The finest harvesting granularity supported by the FOLIO repository.",
+    "settings.general.tooltip.timeGranularity": "La granularité de récolte la plus fine supportée par le référentiel FOLIO.",
     "settings.technical.label.maxRecordsPerResponse": "Nombre maximum d'enregistrements par réponse",
     "settings.technical.tooltip.maxRecordsPerResponse": "The maximum number of records returned in the ListRecords response.",
     "settings.technical.label.enableValidation": "Activer la validation",
@@ -103,12 +103,12 @@
     "settings.sets.list.no.sets": "Il n'existe pas de sets OAI-PMH pour le moment.",
     "settings.sets.callout.validationError.notUnique": "Set name or set specification isn't unique. Please, fill in unique set name or set specification to save set.",
     "settings.sets.edit.validationMessage.required": "Ce champ ne peut pas être vide",
-    "settings.sets.edit.validationMessage.maxLength": "Field cannot be more than {maxLength} characters long",
+    "settings.sets.edit.validationMessage.maxLength": "Le champ ne doit pas contenir plus de {maxLength} caractères",
     "settings.sets.edit.validationMessage.allowedSymbols": "Specification can only use A-Z a-z 0-9 - _ . ! ~ * ' ( )",
     "settings.sets.view.filteringConditions.field.name.ariaLabel": "Champ du nom",
     "settings.sets.view.filteringConditions.field.value.ariaLabel": "Champ de valeur",
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Champ de spécification",
     "settings.sets.callout.validationError.empty.name": "Set name cannot be empty. Please, fill in set name.",
     "settings.sets.callout.validationError.empty.setSpec": "Set filtering conditions list cannot be empty. Please, add at least one filtering condition to save set.",
-    "settings.sets.edit.field.setSpecification": "Set specification"
+    "settings.sets.edit.field.setSpecification": "Définir les spécifications"
 }
