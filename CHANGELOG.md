@@ -1,6 +1,11 @@
 # Change history for ui-oai-pmh
 
-## 2.1.0 (IN PROGRESS)
+## 2.2.0 (IN PROGRESS)
+
+## [2.1.0](https://github.com/folio-org/ui-oai-pmh/tree/v2.1.0) (2021-06-10)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v2.0.0...v2.1.0)
+
+* Update translations
 
 ## [2.0.0](https://github.com/folio-org/ui-oai-pmh/tree/v2.0.0) (2020-03-06)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v1.3.1...v2.0.0)
