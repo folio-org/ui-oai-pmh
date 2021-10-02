@@ -19,6 +19,7 @@ export default class OaiNotification extends Component {
         <div
           data-test-oai-notification
           className={css.oaiNotification}
+          data-testid="oai-notification"
         >
           <FormattedMessage id="ui-oai-pmh.settings.all.oaiServiceIsDisabled" />
         </div>
