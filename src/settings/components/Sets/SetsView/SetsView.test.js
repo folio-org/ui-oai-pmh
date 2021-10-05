@@ -4,12 +4,12 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import '../../../../../test/jest/__mock__';
+// import buildStripes from '../../../../../test/jest/__mock__/stripesCore.mock';
 
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import SetView from './SetsView';
 
-
-describe('Sets list', () => {
+describe('Sets view', () => {
   const sets = {
     metadata: {
       createdByUserId: 'f6155b79-03c5-5a3e-ab66-95e4ad417430',

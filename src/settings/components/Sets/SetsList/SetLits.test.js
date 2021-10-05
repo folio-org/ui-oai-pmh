@@ -3,12 +3,13 @@ import { screen } from '@testing-library/react';
 
 import '../../../../../test/jest/__mock__';
 
+import { StripesContext } from '@folio/stripes-core/src/StripesContext';
+import buildStripes from '../../../../../test/jest/__mock__/stripesCore.mock';
+
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import SetsList from './SetsList';
 
-jest.mock('./components', () => {
-  return () => <button type="button" data-testid="button-addNew">stripes-smart-components.addNew</button>;
-});
+const STRIPES = buildStripes();
 
 describe('Sets list', () => {
   const sets = [
@@ -32,15 +33,16 @@ describe('Sets list', () => {
 
   const renderSetList = (totalCount) => {
     renderWithRouter(
-      <SetsList
-        sets={sets}
-        onRowClick={onRowClickMock}
-        onNeedMoreData={onNeedMoreDataMock}
-        totalCount={totalCount}
-      >
-        <div data-testid="setList-child">Child component</div>
-      </SetsList>
-
+      <StripesContext.Provider value={STRIPES}>
+        <SetsList
+          sets={sets}
+          onRowClick={onRowClickMock}
+          onNeedMoreData={onNeedMoreDataMock}
+          totalCount={totalCount}
+        >
+          <div data-testid="setList-child">Child component</div>
+        </SetsList>
+      </StripesContext.Provider>
     );
   };
 

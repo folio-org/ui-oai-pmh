@@ -47,7 +47,7 @@ const SetsCreateRoute = ({
   const {
     setsFilteringConditions,
   } = useContext(SetsContext);
-
+  console.log(`setsFilteringConditions`, setsFilteringConditions)
   const getFilteringConditionsDataOptions = useMemo(() => (
     filteringConditionsDataOptions(setsFilteringConditions, intl)
   ), [setsFilteringConditions]);
