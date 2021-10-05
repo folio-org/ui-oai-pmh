@@ -31,10 +31,6 @@ describe('Behavior settings page', () => {
     expect(behavior.deletedRecordsSupport).to.be.true;
   });
 
-  it('should be presented suppressed records processing', () => {
-    expect(behavior.suppressedRecordsProcessing).to.be.true;
-  });
-
   it('should be presented errors processing', () => {
     expect(behavior.errorsProcessing).to.be.true;
   });
