@@ -14,11 +14,11 @@ describe('OaiPhmSettings', () => {
     renderOaiPhmSettings();
 
     const titles = [
-      'ui-oai-pmh.settings.title',
-      'ui-oai-pmh.settings.general.title',
-      'ui-oai-pmh.settings.technical.title',
-      'ui-oai-pmh.settings.behavior.title',
-      'ui-oai-pmh.settings.sets.title'
+      /settings.title/,
+      /settings.general.title/,
+      /settings.technical.title/,
+      /settings.behavior.title/,
+      /settings.sets.title/
     ];
 
     titles.forEach((el) => expect(screen.getByText(el)).toBeVisible());

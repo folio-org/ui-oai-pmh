@@ -23,7 +23,8 @@ const renderBehaviorForm = () => renderWithRouter(
     pristine={false}
   />
 );
-describe('Behavior settings page', () => {
+
+describe('Behavior form', () => {
   it('should be correct behavior title', () => {
     renderBehaviorForm();
 
@@ -33,19 +34,19 @@ describe('Behavior settings page', () => {
   it('should be presented deleted records support', () => {
     renderBehaviorForm();
 
-    expect(screen.getByText('ui-oai-pmh.settings.behavior.tooltip.deletedRecordsSupport')).toBeVisible();
+    expect(screen.getByText(/behavior.tooltip.deletedRecordsSupport/)).toBeVisible();
   });
 
   it('should be presented suppressed records processing', () => {
     renderBehaviorForm();
 
-    expect(screen.getByText('ui-oai-pmh.settings.behavior.tooltip.suppressedRecordsProcessing')).toBeVisible();
+    expect(screen.getByText(/behavior.tooltip.suppressedRecordsProcessing/)).toBeVisible();
   });
 
   it('should be presented errors processing', () => {
     renderBehaviorForm();
 
-    expect(screen.getByText('ui-oai-pmh.settings.behavior.tooltip.errorsProcessing')).toBeVisible();
+    expect(screen.getByText(/behavior.tooltip.errorsProcessing/)).toBeVisible();
   });
 
   it('should be absent oai notification', () => {

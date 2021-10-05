@@ -13,13 +13,17 @@ jest.mock('@folio/stripes/core', () => ({
 
 const getInitialValuesMock = () => jest.fn().mockReturnValue({});
 
+const renderGeneral = () => {
+  render(<General
+    stripes={{ connect: jest.fn().mockReturnValue(ConfigManager) }
+  }
+    getInitialValue={getInitialValuesMock}
+  />);
+};
+
 describe('General', () => {
   it('should render General', () => {
-    render(<General
-      stripes={{ connect: jest.fn().mockReturnValue(ConfigManager) }
-    }
-      getInitialValue={getInitialValuesMock}
-    />);
+    renderGeneral();
 
     expect(screen.getByText('ConfigManger')).toBeVisible();
   });

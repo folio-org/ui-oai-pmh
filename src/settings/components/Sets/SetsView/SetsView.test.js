@@ -9,74 +9,52 @@ import { renderWithRouter } from '../../../../../test/jest/helpers';
 import SetView from './SetsView';
 
 
-describe('Sets list', () => {
-  const sets = {
-    metadata: {
-      createdByUserId: 'f6155b79-03c5-5a3e-ab66-95e4ad417430',
-      createdDate: '2021-09-29T06:35:06.919+00:00',
-      updatedByUserId: 'f6155b79-03c5-5a3e-ab66-95e4ad417430',
-      updatedDate: '2021-09-29T06:35:06.919+00:00',
-    },
-    description: 'test description',
-    id: 'c9491f89-883c-48a7-a70f-1f15fe1073f9',
-    name: 'test name',
-    setSpec: 'Loc_Ann',
-  };
+const sets = {
+  metadata: {
+    createdByUserId: 'f6155b79-03c5-5a3e-ab66-95e4ad417430',
+    createdDate: '2021-09-29T06:35:06.919+00:00',
+    updatedByUserId: 'f6155b79-03c5-5a3e-ab66-95e4ad417430',
+    updatedDate: '2021-09-29T06:35:06.919+00:00',
+  },
+  description: 'test description',
+  id: 'c9491f89-883c-48a7-a70f-1f15fe1073f9',
+  name: 'test name',
+  setSpec: 'Loc_Ann',
+};
 
-  const filteringConditions = [
-    {
-      name : 'location',
-      values : ['Popular Reading Collection',
-        'ORWIG ETHNO CD',
-        'Main Library',
-        'Online',
-        'SECOND FLOOR',
-        'Annex'],
-    }
-  ];
+const filteringConditions = [
+  {
+    name : 'location',
+    values : ['Popular Reading Collection',
+      'ORWIG ETHNO CD',
+      'Main Library',
+      'Online',
+      'SECOND FLOOR',
+      'Annex'],
+  }
+];
 
-  const emptyfilteringConditions = [
-    {
-      name : 'location',
-      values : [],
-    }
-  ];
+const onBackMock = jest.fn();
+const onDeleteMock = jest.fn();
+const onDuplicateMock = jest.fn();
+const onEditMock = jest.fn();
 
-  const onBackMock = jest.fn();
-  const onDeleteMock = jest.fn();
-  const onDuplicateMock = jest.fn();
-  const onEditMock = jest.fn();
+const renderSetsView = (showActionMenu, set = sets) => {
+  renderWithRouter(
+    <SetView
+      showActionMenu={showActionMenu}
+      sets={set}
+      paneTitle={() => 'paneTitle-test'}
+      onBack={onBackMock}
+      onDelete={onDeleteMock}
+      onDuplicate={onDuplicateMock}
+      onEdit={onEditMock}
+      setsFilteringConditions={filteringConditions}
+    />
+  );
+};
 
-  const renderSetsView = (showActionMenu) => {
-    renderWithRouter(
-      <SetView
-        showActionMenu={showActionMenu}
-        sets={sets}
-        paneTitle={() => 'paneTitle-test'}
-        onBack={onBackMock}
-        onDelete={onDeleteMock}
-        onDuplicate={onDuplicateMock}
-        onEdit={onEditMock}
-        setsFilteringConditions={filteringConditions}
-      />
-    );
-  };
-
-  const renderEmptySetView = () => {
-    renderWithRouter(
-      <SetView
-        showActionMenu
-        sets={noop}
-        paneTitle={() => 'paneTitle-test'}
-        onBack={onBackMock}
-        onDelete={onDeleteMock}
-        onDuplicate={onDuplicateMock}
-        onEdit={onEditMock}
-        setsFilteringConditions={emptyfilteringConditions}
-      />
-    );
-  };
-
+describe('Sets view', () => {
   it('should be correct pane header title', () => {
     renderSetsView(false);
 
@@ -86,7 +64,7 @@ describe('Sets list', () => {
   it('should display close pane button', () => {
     renderSetsView(false);
 
-    expect(screen.getByRole('button', { name: 'ui-oai-pmh.settings.sets.form.button.cancel' })).toBeEnabled();
+    expect(screen.getByRole('button', { name: /sets.form.button.cancel/ })).toBeEnabled();
   });
 
   it('should display expend button', () => {
@@ -99,9 +77,9 @@ describe('Sets list', () => {
     renderSetsView(true);
 
     const actionButtons = [
-      'ui-oai-pmh.settings.sets.action.edit',
-      'ui-oai-pmh.settings.sets.action.duplicate',
-      'ui-oai-pmh.settings.sets.action.delete',
+      /sets.action.edit/,
+      /sets.action.duplicate/,
+      /sets.action.delete/,
     ];
 
     actionButtons.forEach((el) => expect(screen.getByText(el)).toBeEnabled());
@@ -110,7 +88,7 @@ describe('Sets list', () => {
   it('should be called onEdit on click edit button ', () => {
     renderSetsView(true);
 
-    const editButton = screen.getByText('ui-oai-pmh.settings.sets.action.edit');
+    const editButton = screen.getByText(/sets.action.edit/);
 
     userEvent.click(editButton);
 
@@ -120,7 +98,7 @@ describe('Sets list', () => {
   it('should be called onDelete on click delete button ', () => {
     renderSetsView(true);
 
-    const deleteButton = screen.getByText('ui-oai-pmh.settings.sets.action.delete');
+    const deleteButton = screen.getByText(/sets.action.delete/);
 
     userEvent.click(deleteButton);
 
@@ -130,7 +108,7 @@ describe('Sets list', () => {
   it('should be called onDuplicate on click duplicate button ', () => {
     renderSetsView(true);
 
-    const duplicateButton = screen.getByText('ui-oai-pmh.settings.sets.action.duplicate');
+    const duplicateButton = screen.getByText(/sets.action.duplicate/);
 
     userEvent.click(duplicateButton);
 
@@ -141,9 +119,9 @@ describe('Sets list', () => {
     renderSetsView(true);
 
     const labels = [
-      'ui-oai-pmh.settings.sets.view.filteringConditions.field.name',
-      'ui-oai-pmh.settings.sets.view.filteringConditions.field.value',
-      'ui-oai-pmh.settings.sets.view.filteringConditions.field.setSpec'
+      /sets.view.filteringConditions.field.name/,
+      /sets.view.filteringConditions.field.value/,
+      /sets.view.filteringConditions.field.setSpec/
     ];
 
     labels.forEach((el) => expect(screen.getByText(el)).toBeVisible());
@@ -172,7 +150,7 @@ describe('Sets list', () => {
   });
 
   it('should have empty fields', () => {
-    renderEmptySetView();
+    renderSetsView(true, noop);
 
     const emptyContenFields = screen.getAllByText('noop');
 

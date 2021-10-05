@@ -22,7 +22,7 @@ const renderTechincalForm = () => renderWithRouter(
   />
 );
 
-describe('Technical settings page', () => {
+describe('Technical form', () => {
   it('should be correct behavior title', () => {
     renderTechincalForm();
 
@@ -33,9 +33,9 @@ describe('Technical settings page', () => {
     renderTechincalForm();
 
     const labels = [
-      'ui-oai-pmh.settings.technical.label.maxRecordsPerResponse',
-      'ui-oai-pmh.settings.technical.label.enableValidation',
-      'ui-oai-pmh.settings.technical.label.formattedOutput',
+      /settings.technical.label.maxRecordsPerResponse/,
+      /settings.technical.label.enableValidation/,
+      /settings.technical.label.formattedOutput/,
     ];
 
     labels.forEach((el) => expect(screen.getByText(el)).toBeVisible());
@@ -45,9 +45,9 @@ describe('Technical settings page', () => {
     renderTechincalForm();
 
     const tooltips = [
-      'ui-oai-pmh.settings.technical.tooltip.maxRecordsPerResponse',
-      'ui-oai-pmh.settings.technical.tooltip.enableValidation',
-      'ui-oai-pmh.settings.technical.tooltip.formattedOutput',
+      /technical.tooltip.maxRecordsPerResponse/,
+      /technical.tooltip.enableValidation/,
+      /technical.tooltip.formattedOutput/,
     ];
 
     tooltips.forEach((el) => expect(screen.getByText(el)).toBeVisible());
@@ -56,8 +56,7 @@ describe('Technical settings page', () => {
   it('should be enabled button save after checking the formatted output', () => {
     renderTechincalForm();
 
-
-    userEvent.click(screen.getByRole('checkbox', { name:'ui-oai-pmh.settings.technical.label.formattedOutput' }));
+    userEvent.click(screen.getByRole('checkbox', { name: /technical.label.formattedOutput/ }));
 
     expect(screen.getByRole('button', { name: 'stripes-core.button.save' })).toBeEnabled();
   });
@@ -65,8 +64,7 @@ describe('Technical settings page', () => {
   it('should be enabled button save after setting max record', () => {
     renderTechincalForm();
 
-
-    userEvent.type(screen.getByRole('textbox', { name:'ui-oai-pmh.settings.technical.label.maxRecordsPerResponse' }), '50');
+    userEvent.type(screen.getByRole('textbox', { name:/technical.label.maxRecordsPerResponse/ }), '50');
 
     expect(screen.getByRole('button', { name: 'stripes-core.button.save' })).toBeEnabled();
   });

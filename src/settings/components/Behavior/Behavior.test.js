@@ -11,12 +11,16 @@ jest.mock('@folio/stripes/core', () => ({
   withStripes: jest.fn((chidren) => chidren),
 }));
 
+const renderBehavior = () => {
+  render(<Behavior stripes={{
+    connect: jest.fn().mockReturnValue(ConfigManager)
+  }}
+  />);
+};
+
 describe('Behavior', () => {
   it('should render Behavior', () => {
-    render(<Behavior stripes={{
-      connect: jest.fn().mockReturnValue(ConfigManager)
-    }}
-    />);
+    renderBehavior();
 
     expect(screen.getByText('ConfigManger')).toBeVisible();
   });

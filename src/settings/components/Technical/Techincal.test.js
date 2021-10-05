@@ -13,12 +13,16 @@ jest.mock('@folio/stripes/core', () => ({
   withStripes: jest.fn((chidren) => chidren),
 }));
 
+const renderTechnical = () => {
+  render(<Technical stripes={{
+    connect: jest.fn().mockReturnValue(ConfigManager)
+  }}
+  />);
+};
+
 describe('Technical', () => {
   it('should render Technical', () => {
-    render(<Technical stripes={{
-      connect: jest.fn().mockReturnValue(ConfigManager)
-    }}
-    />);
+    renderTechnical();
 
     expect(screen.getByText('ConfigManger')).toBeVisible();
   });
