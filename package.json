@@ -15,9 +15,8 @@
     "start": "stripes serve",
     "build": "stripes build --output ./output",
     "test:jest": "jest --ci --coverage",
-    "test:bigtest:coverage": "stripes test karma --coverage",
-    "test:bigtest:ci": "stripes test karma --karma.singleRun --karma.browsers ChromeDocker --karma.reporters mocha junit --coverage",
-    "test": "stripes test karma",
+    "test:bigtest": "stripes test karma",
+    "test": "yarn run test:jest && yarn run test:bigtest",
     "lint": "eslint ."
   },
   "devDependencies": {
