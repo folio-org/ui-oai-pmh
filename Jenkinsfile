@@ -4,4 +4,5 @@ buildNPM {
   runLint = true
   runSonarqube = true
   runTest = true
+  runTestOptions = ''
 }
