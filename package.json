@@ -15,15 +15,12 @@
     "start": "stripes serve",
     "build": "stripes build --output ./output",
     "test:jest": "jest --ci --coverage",
-    "test:bigtest": "stripes test karma",
-    "test": "yarn run test:jest && yarn run test:bigtest",
+    "test": "yarn run test:jest",
     "lint": "eslint ."
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@bigtest/interactor": "^0.8.1",
-    "@bigtest/mocha": "^0.5.1",
-    "@bigtest/react": "^0.1.2",
     "@folio/eslint-config-stripes": "^5.2.0",
     "@folio/stripes": "^7.0.0",
     "@folio/stripes-cli": "^2.0.0",
