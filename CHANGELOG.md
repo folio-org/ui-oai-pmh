@@ -1,6 +1,10 @@
 # Change history for ui-oai-pmh
 
-## 2.2.0 (IN PROGRESS)
+## IN PROGRESS
+
+## [3.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v3.0.0) (2021-10-07)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v2.1.0...v3.0.0)
+
 * Increment stripes to v7.  Refs UIOAIPMH-43.
 
 ## [2.1.0](https://github.com/folio-org/ui-oai-pmh/tree/v2.1.0) (2021-06-10)
