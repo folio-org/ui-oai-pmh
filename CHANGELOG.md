@@ -2,6 +2,8 @@
 
 ## IN PROGRESS
 
+* prefer @folio/stripes exports to private paths when importing components. Refs UIOAIPMH-41g
+
 ## [3.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v3.0.0) (2021-10-07)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v2.1.0...v3.0.0)
 
