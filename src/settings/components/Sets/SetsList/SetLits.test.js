@@ -8,7 +8,10 @@ import buildStripes from '../../../../../test/jest/__mock__/stripesCore.mock';
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import SetsList from './SetsList';
 
-const STRIPES = buildStripes();
+const STRIPES = {
+  connect: Component => Component,
+  hasPerm: jest.fn(() => true),
+};
 
 const sets = [
   { createdByUserId: 'f6155b79-03c5-5a3e-ab66-95e4ad417430',

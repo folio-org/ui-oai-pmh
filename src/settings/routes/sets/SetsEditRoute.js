@@ -14,7 +14,7 @@ import {
 
 import {
   stripesConnect,
-} from '@folio/stripes-core';
+} from '@folio/stripes/core';
 import {
   LoadingPane,
 } from '@folio/stripes/components';

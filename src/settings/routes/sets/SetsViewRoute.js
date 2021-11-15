@@ -10,7 +10,7 @@ import { FormattedMessage } from 'react-intl';
 
 import {
   stripesConnect,
-} from '@folio/stripes-core';
+} from '@folio/stripes/core';
 import {
   LoadingPane,
   ConfirmationModal,
