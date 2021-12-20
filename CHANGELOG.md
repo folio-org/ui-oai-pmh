@@ -3,6 +3,7 @@
 ## IN PROGRESS
 
 * prefer @folio/stripes exports to private paths when importing components. Refs UIOAIPMH-41
+* Update the UI permission names for current OAI-PMH permissions. Refs UIOAIPMH-39
 
 ## [3.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v3.0.0) (2021-10-07)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v2.1.0...v3.0.0)
