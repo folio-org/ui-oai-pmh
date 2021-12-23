@@ -29,7 +29,7 @@
     "settings.behavior.suppressedRecordsProcessing.true": "検出フラグ値を持つ抑制されたレコードを転送する",
     "settings.behavior.suppressedRecordsProcessing.false": "検出レコードから抑制されたレコードをスキップ",
     "settings.behavior.errorsProcessing.200": "HTTPステータス200に関連付ける",
-    "permission.view": "Settings (OAI-PMH): Display list of settings pages",
+    "permission.view": "Settings (OAI-PMH): Can view",
     "permission.edit": "Settings (OAI-PMH): Can view and edit settings",
     "settings.behavior.errorsProcessing.500": "HTTP エラーステータスとの関連付け",
     "settings.all.oaiServiceIsDisabled": "OAI service is disabled. To affect OAI-PMH features by settings please enable OAI service in the General section.",
