@@ -29,7 +29,7 @@
     "settings.behavior.suppressedRecordsProcessing.true": "نقل التسجيلات المحجوبة بقيمة إشارة الاكتشاف",
     "settings.behavior.suppressedRecordsProcessing.false": "تخطي المحجوب من تسجيلات الاكتشاف",
     "settings.behavior.errorsProcessing.200": "إقران بحالة HTTP 200",
-    "permission.view": "الإعدادات (OAI-PMH): اعرض قائمة بصفحات الإعدادات",
+    "permission.view": "الإعدادات (OAI-PMH): إمكانية عرض",
     "permission.edit": "الإعدادات (OAI-PMH): إمكانية عرض وتحرير الإعدادات",
     "settings.behavior.errorsProcessing.500": "إقران بحالات خطأ HTTP",
     "settings.all.oaiServiceIsDisabled": "تم تعطيل خدمة OAI. للتأثير على خصائص OAI-PMH بواسطة الإعدادات، يرجى تفعيل خدمة OAI في القسم العام.",

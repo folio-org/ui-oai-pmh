@@ -29,7 +29,7 @@
     "settings.behavior.suppressedRecordsProcessing.true": "Transfer suppressed records with discovery flag value",
     "settings.behavior.suppressedRecordsProcessing.false": "Пропустить записи, скрытые от дискавери-поиска",
     "settings.behavior.errorsProcessing.200": "Associate with HTTP status 200",
-    "permission.view": "Settings (OAI-PMH): Display list of settings pages",
+    "permission.view": "Settings (OAI-PMH): Can view",
     "permission.edit": "Settings (OAI-PMH): Can view and edit settings",
     "settings.behavior.errorsProcessing.500": "Associate with HTTP error statuses",
     "settings.all.oaiServiceIsDisabled": "OAI service is disabled. To affect OAI-PMH features by settings please enable OAI service in the General section.",
