@@ -29,7 +29,7 @@
     "settings.behavior.suppressedRecordsProcessing.true": "传送带有发现标志值的隐藏记录",
     "settings.behavior.suppressedRecordsProcessing.false": "从发现记录中跳过隐藏",
     "settings.behavior.errorsProcessing.200": "与HTTP状态200关联",
-    "permission.view": "设置（OAI-PMH）：设置页面显示清单",
+    "permission.view": "设置（OAI-PMH）：可以查看",
     "permission.edit": "设置（OAI-PMH）：可以查看和编辑设置",
     "settings.behavior.errorsProcessing.500": "与HTTP错误状态相关联",
     "settings.all.oaiServiceIsDisabled": "OAI服务被禁用。要通过设置影响OAI-PMH功能，请在“常规”部分中启用OAI服务。",
