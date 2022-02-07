@@ -14,6 +14,7 @@
   "scripts": {
     "start": "stripes serve",
     "build": "stripes build --output ./output",
+    "formatjs-compile": "formatjs compile-folder --ast --format simple ./translations/ui-oai-pmh ./translations/ui-oai-pmh/compiled",
     "test:jest": "jest --ci --coverage",
     "test": "yarn run test:jest",
     "lint": "eslint ."
@@ -26,6 +27,7 @@
     "@folio/stripes-cli": "^2.0.0",
     "@folio/stripes-components": "^10.0.0",
     "@folio/stripes-core": "^8.0.0",
+    "@formatjs/cli": "^4.8.2",
     "@testing-library/dom": "^7.26.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.0.0",
