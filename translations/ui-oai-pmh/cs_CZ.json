@@ -78,7 +78,7 @@
     "settings.sets.view.field.setSpec": "Set specification",
     "settings.sets.view.filteringConditions.field.name": "Field",
     "settings.sets.view.filteringConditions.field.value": "Value",
-    "settings.sets.view.filteringConditions.field.setSpec": "Specification",
+    "settings.sets.view.filteringConditions.field.setSpec": "Specifikace",
     "settings.sets.view.filteringConditions.field.value.isMissing": "This value is no longer available for the field",
     "settings.sets.filteringCondition.location": "Location",
     "settings.sets.filteringCondition.resourceType": "Resource type",
