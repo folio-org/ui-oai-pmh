@@ -5,6 +5,7 @@
   },
   "parser": "babel-eslint",
   "rules": {
-    "import/no-named-as-default": 0
+    "import/no-named-as-default": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }
