@@ -3,15 +3,5 @@
   "env": {
     "jest": true
   },
-  "parser": "babel-eslint",
-  "rules": {
-    "import/prefer-default-export": "off",
-    "import/no-cycle": "off",
-    "react/prop-types": [
-      "error",
-      {
-        "skipUndeclared": true
-      }
-    ]
-  }
+  "parser": "babel-eslint"
 }
