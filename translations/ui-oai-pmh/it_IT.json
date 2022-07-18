@@ -14,7 +14,7 @@
     "settings.general.label.baseUrl": "Base URL",
     "settings.general.tooltip.baseUrl": "L'URL del repository FOLIO (dell'edge-oai-pmh).",
     "settings.general.label.administratorEmail": "Email dell'amministratore",
-    "settings.general.tooltip.administratorEmail": "Gli indirizzi e-mail dell'amministratore del repository FOLIO. Diverse e-mail devono essere separate da virgola.",
+    "settings.general.tooltip.administratorEmail": "Gli indirizzi email dell'amministratore del repository FOLIO. Diverse email devono essere separate da virgola.",
     "settings.general.label.timeGranularity": "Granularità della data",
     "settings.general.tooltip.timeGranularity": "La più fine granularità di harvesting supportata dal repository FOLIO.",
     "settings.technical.label.maxRecordsPerResponse": "Numero massimo di record per risposta",

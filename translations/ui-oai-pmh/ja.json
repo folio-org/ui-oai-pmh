@@ -60,7 +60,7 @@
     "settings.sets.callout.deleted": "Set was successfully deleted",
     "settings.sets.callout.failedToDelete.delete": "Failed to delete a set",
     "settings.sets.callout.connectionProblem.delete": "Unable to delete due to a module error. Please try again. If a problem persists please contact your system administrator",
-    "settings.sets.view.notFound.title": "View",
+    "settings.sets.view.notFound.title": "表示",
     "settings.sets.view.notFound.text": "You have an invalid URL address. Please, review the syntax or parameters of the URL path and try another one.",
     "settings.sets.action.edit": "編集",
     "settings.sets.action.delete": "Delete",

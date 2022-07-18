@@ -29,7 +29,7 @@
     "settings.behavior.suppressedRecordsProcessing.true": "Transferir registros suprimidos com o valor do sinalizador de descoberta",
     "settings.behavior.suppressedRecordsProcessing.false": "Ignorar os registros de descoberta suprimidos",
     "settings.behavior.errorsProcessing.200": "Associar ao status HTTP 200",
-    "permission.view": "Configurações (OAI-PMH): Exibe a lista de páginas de configurações",
+    "permission.view": "Configurações (OAI-PMH): Pode visualizar",
     "permission.edit": "Configurações (OAI-PMH): Pode visualizar e editar configurações",
     "settings.behavior.errorsProcessing.500": "Associar com status de erro HTTP",
     "settings.all.oaiServiceIsDisabled": "O serviço OAI está desativado. Para terem efeito as alterações nas configurações do OAI-PMH, ative o serviço OAI na seção Geral.",
