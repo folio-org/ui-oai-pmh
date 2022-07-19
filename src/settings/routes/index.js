@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactRouterPropTypes from 'react-router-prop-types';
-import { hot } from 'react-hot-loader';
 
 import {
   Route,
@@ -54,4 +53,4 @@ SetsRoute.propTypes = {
   match: ReactRouterPropTypes.match.isRequired,
 };
 
-export default hot(module)(SetsRoute);
+export default SetsRoute;
