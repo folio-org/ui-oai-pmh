@@ -4,15 +4,10 @@
 
 ## [3.2.1] (https://github.com/folio-org/ui-oai-pmh/tree/v3.2.0) (2022-07-22)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.2.0...v3.2.1)
+
 [UIOAIPMH-53](https://issues.folio.org/browse/UIOAIPMH-53) Set default settings for OAI-PMH in FOLIO.
-
-## [3.2.0] (https://github.com/folio-org/ui-oai-pmh/tree/v3.2.0) (2022-07-07)
-[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.1.0...v3.2.0)
-
-* Update translations
-
-* replace babel-eslint with @babel/eslint-parser. Refs UIOAIPMH-52.
-* Remove react-hot-loader from package.json. Refs UIOAIPMH-51.
+[UIOAIPMH-52](https://issues.folio.org/browse/UIOAIPMH-52) replace babel-eslint with @babel/eslint-parser
+[UIOAIPMH-51](https://issues.folio.org/browse/UIOAIPMH-51) Remove react-hot-loader from package.json
 
 ## [3.2.0] (https://github.com/folio-org/ui-oai-pmh/tree/v3.2.0) (2022-07-07)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.1.0...v3.2.0)
