@@ -11,6 +11,11 @@
 * replace babel-eslint with @babel/eslint-parser. Refs UIOAIPMH-52.
 * Remove react-hot-loader from package.json. Refs UIOAIPMH-51.
 
+## [3.2.0] (https://github.com/folio-org/ui-oai-pmh/tree/v3.2.0) (2022-07-07)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.1.0...v3.2.0)
+
+* Update translations
+
 ## [3.1.0] (https://github.com/folio-org/ui-oai-pmh/tree/v3.1.0) (2022-03-03)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.0.0...v3.1.0)
 
