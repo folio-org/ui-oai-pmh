@@ -1,6 +1,9 @@
 # Change history for ui-oai-pmh
 
 ## IN PROGRESS
+
+## [3.2.1] (https://github.com/folio-org/ui-oai-pmh/tree/v3.2.0) (2022-07-22)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.2.0...v3.2.1)
 [UIOAIPMH-53](https://issues.folio.org/browse/UIOAIPMH-53) Set default settings for OAI-PMH in FOLIO.
 
 ## [3.2.0] (https://github.com/folio-org/ui-oai-pmh/tree/v3.2.0) (2022-07-07)
