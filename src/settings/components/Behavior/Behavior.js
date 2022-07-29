@@ -28,13 +28,7 @@ class Behavior extends React.Component {
   }
 
   getInitialValues(data) {
-    // eslint-disable-next-line no-useless-escape
-    const parsedData = data[0].value === '{\"suppressedRecordsProcessing\":\"false\",\"deletedRecordsSupport\":\"persistent\",\"errorsProcessing\":\"200\"}'
-      // eslint-disable-next-line no-useless-escape
-      ? [{ ...data[0], value: '{\"suppressedRecordsProcessing\":\"true\",\"deletedRecordsSupport\":\"persistent\",\"errorsProcessing\":\"200\"}' }]
-      : data;
-
-    return getObjectFromResponseString(parsedData);
+    return getObjectFromResponseString(data);
   }
 
   normalize = (data) => {
