@@ -10,7 +10,7 @@
     "settings.general.label.enableOaiService": "تفعيل خدمة OAI ",
     "settings.general.tooltip.enableOaiService": "يحدد ما إذا كان يمكن الوصول إلى وحدة OAI-PMH لمستودع فوليو.",
     "settings.general.label.repositoryName": "اسم المستودع",
-    "settings.general.tooltip.repositoryName": "اسم مستودع فوليو للحاصدات",
+    "settings.general.tooltip.repositoryName": "اسم مستودع فوليو لأدوات الحصاد",
     "settings.general.label.baseUrl": "عنوان URL الأساسي",
     "settings.general.tooltip.baseUrl": "عنوان URL لمستودع فوليو (الخاص بـ edge-oai-pmh).",
     "settings.general.label.administratorEmail": "البريد الإلكتروني للإدارة",
