@@ -4,7 +4,6 @@ import { screen } from '@testing-library/react';
 import '../../../../../test/jest/__mock__';
 
 import { StripesContext } from '@folio/stripes-core/src/StripesContext';
-import buildStripes from '../../../../../test/jest/__mock__/stripesCore.mock';
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import SetsList from './SetsList';
 
@@ -31,6 +30,10 @@ const sets = [
 
 const onRowClickMock = jest.fn();
 const onNeedMoreDataMock = jest.fn();
+
+jest.mock('./components', () => jest.fn(
+    ()=><div>LastMenu</div>
+));
 
 const renderSetList = (totalCount) => {
   renderWithRouter(
