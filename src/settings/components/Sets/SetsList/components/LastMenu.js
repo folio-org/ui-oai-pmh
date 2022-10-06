@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import { stripesConnect } from '@folio/stripes-core';
+import { stripesConnect } from '@folio/stripes/core';
 import {
   PaneMenu,
   Button,
