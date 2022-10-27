@@ -2,7 +2,7 @@
 
 ## IN PROGRESS
 
-## [3.2.2] (https://github.com/folio-org/ui-oai-pmh/tree/v3.3.0) (2022-10-26)
+## [3.2.2] (https://github.com/folio-org/ui-oai-pmh/tree/v3.3.0) (2022-10-27)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.2.2...v3.3.0)
 
 [UIOAIPMH-56](https://issues.folio.org/browse/UIOAIPMH-56) components are incorrectly imported directly from stripes-*packages
