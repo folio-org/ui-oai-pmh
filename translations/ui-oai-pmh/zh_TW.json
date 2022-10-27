@@ -87,7 +87,7 @@
     "settings.sets.filteringCondition.materialType": "資料類型",
     "settings.sets.callout.connectionProblem.get": "由于模块错误而无法获取数据。请再试一遍。如果问题仍然存在，请联系系统管理员",
     "settings.sets.edit.filteringConditions.field.name": "字段",
-    "settings.sets.edit.filteringConditions.field.active": "激活",
+    "settings.sets.edit.filteringConditions.field.active": "啟用",
     "settings.sets.edit.filteringConditions.field.value": "值",
     "settings.sets.edit.filteringConditions.field.setSpec": "规格",
     "settings.sets.edit.filteringConditions.field.value.select.location": "選擇館藏地",
