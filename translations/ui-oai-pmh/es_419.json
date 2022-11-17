@@ -1,5 +1,5 @@
 {
-    "meta.title": "Usuarios",
+    "meta.title": "OAI-PMH",
     "settings.title": "OAI-PMH",
     "settings.behavior.label.deletedRecordsSupport": "Soporte de registros eliminados",
     "settings.behavior.tooltip.deletedRecordsSupport": "La forma en que el repositorio soporta la noción de registros eliminados.",
