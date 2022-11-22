@@ -60,4 +60,10 @@ describe('Behavior form', () => {
 
     expect(screen.getByRole('button')).toBeEnabled();
   });
+
+  it('should be presented records source', () => {
+    renderBehaviorForm();
+
+    expect(screen.getByText(/behavior.tooltip.recordSource/)).toBeVisible();
+  });
 });

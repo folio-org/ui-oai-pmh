@@ -28,6 +28,7 @@ class Behavior extends React.Component {
   }
 
   getInitialValues(data) {
+    console.log(getObjectFromResponseString(data))
     return getObjectFromResponseString(data);
   }
 
