@@ -110,5 +110,10 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Pole specyfikacji",
     "settings.sets.callout.validationError.empty.name": "Nazwa zestawu nie może być pusta. Proszę podać nazwę zestawu.",
     "settings.sets.callout.validationError.empty.setSpec": "Lista warunków filtrowania zestawu nie może być pusta. Dodaj co najmniej jeden warunek filtrowania, aby zapisać zestaw.",
-    "settings.sets.edit.field.setSpecification": "Specyfikacja zestawu"
+    "settings.sets.edit.field.setSpecification": "Specyfikacja zestawu",
+    "settings.behavior.record.storage": "Source records storage",
+    "settings.behavior.record.inventory": "Inventory",
+    "settings.behavior.record.inventory-storage": "Source records storage and Inventory",
+    "settings.behavior.label.recordSource": "Record source",
+    "settings.behavior.tooltip.recordSource": "Record source"
 }
