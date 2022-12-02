@@ -110,5 +110,10 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Campo de especificação",
     "settings.sets.callout.validationError.empty.name": "O nome do conjunto não pode estar vazio. Por favor, preencha o nome do conjunto.",
     "settings.sets.callout.validationError.empty.setSpec": "A lista de condições de filtragem definidas não pode estar vazia. Por favor, adicione pelo menos uma condição de filtragem para salvar o conjunto.",
-    "settings.sets.edit.field.setSpecification": "Especificação do conjunto"
+    "settings.sets.edit.field.setSpecification": "Especificação do conjunto",
+    "settings.behavior.record.storage": "Armazenamento de registros fonte",
+    "settings.behavior.record.inventory": "Inventário",
+    "settings.behavior.record.inventory-storage": "Armazenamento de registros fonte e Inventário",
+    "settings.behavior.label.recordSource": "Fonte do registro",
+    "settings.behavior.tooltip.recordSource": "Fonte do registro"
 }

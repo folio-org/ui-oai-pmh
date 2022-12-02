@@ -110,5 +110,10 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Champ de spécification",
     "settings.sets.callout.validationError.empty.name": "Set name cannot be empty. Please, fill in set name.",
     "settings.sets.callout.validationError.empty.setSpec": "Set filtering conditions list cannot be empty. Please, add at least one filtering condition to save set.",
-    "settings.sets.edit.field.setSpecification": "Définir les spécifications"
+    "settings.sets.edit.field.setSpecification": "Définir les spécifications",
+    "settings.behavior.record.storage": "Source records storage",
+    "settings.behavior.record.inventory": "Inventory",
+    "settings.behavior.record.inventory-storage": "Source records storage and Inventory",
+    "settings.behavior.label.recordSource": "Record source",
+    "settings.behavior.tooltip.recordSource": "Record source"
 }
