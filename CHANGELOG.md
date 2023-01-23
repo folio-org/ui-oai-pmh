@@ -2,26 +2,26 @@
 
 ## (4.0.0) IN PROGRESS
 
-* [UIOAIPMH-22](https://issues.folio.org/browse/UIOAIPMH-22) Expand OAI-PMH Behavior settings with Records Source parameter
-* Upgrade `react-redux` to `v8`. Upgrade `stripes` to `v8`. Refs UIOAIPMH-63.
+[UIOAIPMH-22](https://issues.folio.org/browse/UIOAIPMH-22) Expand OAI-PMH Behavior settings with Records Source parameter
+[UIOAIPMH-63](https://issues.folio.org/browse/UIOAIPMH-63) Upgrade `react-redux` to `v8`. Upgrade `stripes` to `v8`.
 
 ## [3.3.0] (https://github.com/folio-org/ui-oai-pmh/tree/v3.3.0) (2022-10-27)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.2.2...v3.3.0)
 
-* [UIOAIPMH-56](https://issues.folio.org/browse/UIOAIPMH-56) components are incorrectly imported directly from stripes-*packages
-* [UIOAIPMH-60](https://issues.folio.org/browse/UIOAIPMH-60) core-js is incorrectly listed as a peer-dependency
+[UIOAIPMH-56](https://issues.folio.org/browse/UIOAIPMH-56) components are incorrectly imported directly from stripes-*packages
+[UIOAIPMH-60](https://issues.folio.org/browse/UIOAIPMH-60) core-js is incorrectly listed as a peer-dependency
 
 ## [3.2.2] (https://github.com/folio-org/ui-oai-pmh/tree/v3.2.2) (2022-08-03)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.2.1...v3.2.2)
 
-* [UIOAIPMH-53](https://issues.folio.org/browse/UIOAIPMH-53) Revert Set default settings for OAI-PMH in FOLIO.
+[UIOAIPMH-53](https://issues.folio.org/browse/UIOAIPMH-53) Revert Set default settings for OAI-PMH in FOLIO.
 
 ## [3.2.1] (https://github.com/folio-org/ui-oai-pmh/tree/v3.2.1) (2022-07-22)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.2.0...v3.2.1)
 
-* [UIOAIPMH-53](https://issues.folio.org/browse/UIOAIPMH-53) Set default settings for OAI-PMH in FOLIO.
-* [UIOAIPMH-52](https://issues.folio.org/browse/UIOAIPMH-52) replace babel-eslint with @babel/eslint-parser
-* [UIOAIPMH-51](https://issues.folio.org/browse/UIOAIPMH-51) Remove react-hot-loader from package.json
+[UIOAIPMH-53](https://issues.folio.org/browse/UIOAIPMH-53) Set default settings for OAI-PMH in FOLIO.
+[UIOAIPMH-52](https://issues.folio.org/browse/UIOAIPMH-52) replace babel-eslint with @babel/eslint-parser
+[UIOAIPMH-51](https://issues.folio.org/browse/UIOAIPMH-51) Remove react-hot-loader from package.json
 
 ## [3.2.0] (https://github.com/folio-org/ui-oai-pmh/tree/v3.2.0) (2022-07-07)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.1.0...v3.2.0)
