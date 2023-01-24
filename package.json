@@ -1,6 +1,6 @@
 {
   "name": "@folio/oai-pmh",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "description": "OAI-PMH manager",
   "main": "src/index.js",
   "repository": "folio-org/ui-oai-pmh",
@@ -9,7 +9,7 @@
   },
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=8.9.0"
+    "node": ">=14.0.0"
   },
   "scripts": {
     "start": "stripes serve",
@@ -24,11 +24,11 @@
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@bigtest/interactor": "^0.8.1",
     "@babel/eslint-parser": "^7.18.2",
-    "@folio/eslint-config-stripes": "^5.2.0",
-    "@folio/stripes": "^7.0.0",
+    "@folio/eslint-config-stripes": "^6.1.0",
+    "@folio/stripes": "^8.0.0",
     "@folio/stripes-cli": "^2.0.0",
-    "@folio/stripes-components": "^10.0.0",
-    "@folio/stripes-core": "^8.0.0",
+    "@folio/stripes-components": "^11.0.0",
+    "@folio/stripes-core": "^9.0.0",
     "@formatjs/cli": "^4.8.2",
     "@testing-library/dom": "^7.26.3",
     "@testing-library/jest-dom": "^5.11.4",
@@ -50,7 +50,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-intl": "5.7.0",
-    "react-redux": "^7.2.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.0",
     "regenerator-runtime": "^0.13.3",
@@ -64,10 +64,11 @@
     "react-router-prop-types": "^1.0.4"
   },
   "peerDependencies": {
-    "@folio/stripes": "^7.0.0",
+    "@folio/stripes": "^8.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-intl": "^5.7.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^5.2.0"
   },
   "stripes": {
