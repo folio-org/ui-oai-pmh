@@ -110,5 +110,10 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Specification field",
     "settings.sets.callout.validationError.empty.name": "Set name cannot be empty. Please, fill in set name.",
     "settings.sets.callout.validationError.empty.setSpec": "Listen med betingelser for filtersettings må ikke være tom. Tilføj mindst én filtreringsbetingelse for at gemme sættet.",
-    "settings.sets.edit.field.setSpecification": "Set specification"
+    "settings.sets.edit.field.setSpecification": "Set specification",
+    "settings.behavior.record.storage": "Source records storage",
+    "settings.behavior.record.inventory": "Inventory",
+    "settings.behavior.record.inventory-storage": "Source records storage and Inventory",
+    "settings.behavior.label.recordSource": "Record source",
+    "settings.behavior.tooltip.recordSource": "Record source"
 }

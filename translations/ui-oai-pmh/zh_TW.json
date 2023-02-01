@@ -110,5 +110,10 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "规格字段",
     "settings.sets.callout.validationError.empty.name": "设置名称不能为空。请填写名称。",
     "settings.sets.callout.validationError.empty.setSpec": "设置筛选条件清单不能为空。请添加至少一个筛选条件以保存设置。",
-    "settings.sets.edit.field.setSpecification": "设置规格"
+    "settings.sets.edit.field.setSpecification": "设置规格",
+    "settings.behavior.record.storage": "Source records storage",
+    "settings.behavior.record.inventory": "Inventory",
+    "settings.behavior.record.inventory-storage": "Source records storage and Inventory",
+    "settings.behavior.label.recordSource": "Record source",
+    "settings.behavior.tooltip.recordSource": "Record source"
 }

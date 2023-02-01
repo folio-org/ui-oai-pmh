@@ -55,7 +55,7 @@
     "settings.sets.edit.notFound.text": "You have an invalid URL address. Please, review the syntax or parameters of the URL path and try another one.",
     "settings.confirmDeleteSetsModal.heading": "Confirm deletion of set",
     "settings.confirmDeleteSetsModal.message": "Set {name} will be removed.",
-    "settings.confirmDeleteSetsModal.confirm": "Delete",
+    "settings.confirmDeleteSetsModal.confirm": "削除",
     "settings.confirmDeleteSetsModal.cancel": "キャンセル",
     "settings.sets.callout.deleted": "Set was successfully deleted",
     "settings.sets.callout.failedToDelete.delete": "Failed to delete a set",
@@ -63,7 +63,7 @@
     "settings.sets.view.notFound.title": "表示",
     "settings.sets.view.notFound.text": "You have an invalid URL address. Please, review the syntax or parameters of the URL path and try another one.",
     "settings.sets.action.edit": "編集",
-    "settings.sets.action.delete": "Delete",
+    "settings.sets.action.delete": "削除",
     "settings.sets.duplicate.notFound.title": "New set",
     "settings.sets.duplicate.notFound.text": "You have an invalid URL address. Please, review the syntax or parameters of the URL path and try another one.",
     "settings.sets.action.duplicate": "Duplicate",
@@ -110,5 +110,10 @@
     "settings.sets.view.filteringConditions.field.setSpec.ariaLabel": "Specification field",
     "settings.sets.callout.validationError.empty.name": "Set name cannot be empty. Please, fill in set name.",
     "settings.sets.callout.validationError.empty.setSpec": "Set filtering conditions list cannot be empty. Please, add at least one filtering condition to save set.",
-    "settings.sets.edit.field.setSpecification": "Set specification"
+    "settings.sets.edit.field.setSpecification": "Set specification",
+    "settings.behavior.record.storage": "Source records storage",
+    "settings.behavior.record.inventory": "Inventory",
+    "settings.behavior.record.inventory-storage": "Source records storage and Inventory",
+    "settings.behavior.label.recordSource": "Record source",
+    "settings.behavior.tooltip.recordSource": "Record source"
 }
