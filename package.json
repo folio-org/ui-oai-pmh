@@ -25,10 +25,10 @@
     "@bigtest/interactor": "^0.8.1",
     "@babel/eslint-parser": "^7.18.2",
     "@folio/eslint-config-stripes": "^5.2.0",
-    "@folio/stripes": "^7.0.0",
+    "@folio/stripes": "^8.0.0",
     "@folio/stripes-cli": "^2.0.0",
-    "@folio/stripes-components": "^10.0.0",
-    "@folio/stripes-core": "^8.0.0",
+    "@folio/stripes-components": "^11.0.0",
+    "@folio/stripes-core": "^9.0.0",
     "@formatjs/cli": "^4.8.2",
     "@testing-library/dom": "^7.26.3",
     "@testing-library/jest-dom": "^5.11.4",
@@ -64,7 +64,7 @@
     "react-router-prop-types": "^1.0.4"
   },
   "peerDependencies": {
-    "@folio/stripes": "^7.0.0",
+    "@folio/stripes": "^8.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-intl": "^5.7.0",
