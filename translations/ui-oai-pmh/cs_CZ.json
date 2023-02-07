@@ -113,7 +113,7 @@
     "settings.sets.edit.field.setSpecification": "Nastavit specifikaci",
     "settings.behavior.record.storage": "Úložiště zdrojových záznamů",
     "settings.behavior.record.inventory": "Katalog",
-    "settings.behavior.record.inventory-storage": "Uchovávání zdrojových záznamů a katalog",
+    "settings.behavior.record.inventory-storage": "Úložiště zdrojových záznamů a katalog",
     "settings.behavior.label.recordSource": "Zdroj záznamu",
     "settings.behavior.tooltip.recordSource": "Zdroj záznamu"
 }
