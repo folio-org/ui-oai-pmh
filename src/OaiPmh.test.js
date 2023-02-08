@@ -18,7 +18,6 @@ describe('OaiPhmSettings', () => {
       /settings.general.title/,
       /settings.technical.title/,
       /settings.behavior.title/,
-      /settings.sets.title/
     ];
 
     titles.forEach((el) => expect(screen.getByText(el)).toBeVisible());
@@ -31,7 +30,6 @@ describe('OaiPhmSettings', () => {
       'general',
       'technical',
       'behavior',
-      'sets'
     ];
 
     routes.forEach((el) => expect(screen.getByText(el)).toBeVisible());

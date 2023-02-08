@@ -4,6 +4,7 @@
 
 [UIOAIPMH-22](https://issues.folio.org/browse/UIOAIPMH-22) Expand OAI-PMH Behavior settings with Records Source parameter
 [UIOAIPMH-63](https://issues.folio.org/browse/UIOAIPMH-63) Upgrade `react-redux` to `v8`. Upgrade `stripes` to `v8`.
+[UIOAIPMH-62](https://issues.folio.org/browse/UIOAIPMH-62) Hide Sets configuration option in Settings->OAI-PMH
 
 ## [3.3.0] (https://github.com/folio-org/ui-oai-pmh/tree/v3.3.0) (2022-10-27)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.2.2...v3.3.0)
