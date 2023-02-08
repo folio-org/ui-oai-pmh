@@ -5,23 +5,23 @@ import { getSetsListUrl,
   getSetsDuplicateUrl } from './route';
 
 describe('route', () => {
-  it('shoud return ulr of setsList', () => {
+  it('should return ulr of setsList', () => {
     expect(getSetsListUrl()).toBe('/settings/oai-pmh/sets');
   });
 
-  it('shoud return ulr of setsView', () => {
+  it('should return ulr of setsView', () => {
     expect(getSetsViewUrl(123)).toBe('/settings/oai-pmh/sets/123/view');
   });
 
-  it('shoud return ulr of setsCreate', () => {
+  it('should return ulr of setsCreate', () => {
     expect(getSetsCreateUrl()).toBe('/settings/oai-pmh/sets/create');
   });
 
-  it('shoud return ulr of setsEdit', () => {
+  it('should return ulr of setsEdit', () => {
     expect(getSetsEditUrl(123)).toBe('/settings/oai-pmh/sets/123/edit');
   });
 
-  it('shoud return ulr of setsDuplicate', () => {
+  it('should return ulr of setsDuplicate', () => {
     expect(getSetsDuplicateUrl(123)).toBe('/settings/oai-pmh/sets/123/duplicate');
   });
 });

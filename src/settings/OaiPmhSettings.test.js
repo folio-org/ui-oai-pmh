@@ -10,7 +10,7 @@ const renderOaiPhmSettings = () => render(
 );
 
 describe('OaiPhmSettings', () => {
-  it('shoud show correct panel titles', () => {
+  it('should show correct panel titles', () => {
     renderOaiPhmSettings();
 
     const titles = [
@@ -23,7 +23,7 @@ describe('OaiPhmSettings', () => {
     titles.forEach((el) => expect(screen.getByText(el)).toBeVisible());
   });
 
-  it('shoud show correct routes', () => {
+  it('should show correct routes', () => {
     renderOaiPhmSettings();
 
     const routes = [

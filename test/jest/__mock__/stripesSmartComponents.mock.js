@@ -18,8 +18,6 @@ jest.mock('@folio/stripes/smart-components', () => ({
       <span>{pages[1].label}</span>
       <span>{pages[2].route}</span>
       <span>{pages[2].label}</span>
-      <span>{pages[3].route}</span>
-      <span>{pages[3].label}</span>
     </>
   )),
   // eslint-disable-next-line react/prop-types
