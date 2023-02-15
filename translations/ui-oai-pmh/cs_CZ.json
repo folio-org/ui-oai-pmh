@@ -27,7 +27,7 @@
     "settings.behavior.deletedRecordsSupport.transient": "Přechodný",
     "settings.behavior.deletedRecordsSupport.persistent": "Trvalé",
     "settings.behavior.suppressedRecordsProcessing.true": "Převod potlačených záznamů s hodnotou příznaku objevování",
-    "settings.behavior.suppressedRecordsProcessing.false": "Přeskočit záznamy potlačené z objevování",
+    "settings.behavior.suppressedRecordsProcessing.false": "Přeskočit záznamy potlačené z vyhledávání",
     "settings.behavior.errorsProcessing.200": "Spojení se stavem HTTP 200",
     "permission.view": "Nastavení (OAI-PMH): Lze zobrazit",
     "permission.edit": "Nastavení (OAI-PMH): Umožňuje zobrazit a upravit nastavení",
