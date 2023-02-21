@@ -1,6 +1,10 @@
 # Change history for ui-oai-pmh
 
-## (4.0.0) IN PROGRESS
+## IN PROGRESS
+
+
+## [4.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v4.0.0) (2023-02-21)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.3.0...v4.0.0)
 
 [UIOAIPMH-22](https://issues.folio.org/browse/UIOAIPMH-22) Expand OAI-PMH Behavior settings with Records Source parameter
 [UIOAIPMH-63](https://issues.folio.org/browse/UIOAIPMH-63) Upgrade `react-redux` to `v8`. Upgrade `stripes` to `v8`.
