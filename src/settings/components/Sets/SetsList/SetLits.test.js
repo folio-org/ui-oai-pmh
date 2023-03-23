@@ -3,7 +3,7 @@ import { screen } from '@testing-library/react';
 
 import '../../../../../test/jest/__mock__';
 
-import { StripesContext } from '@folio/stripes-core/src/StripesContext';
+import { StripesContext } from '@folio/stripes/core';
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import SetsList from './SetsList';
 
