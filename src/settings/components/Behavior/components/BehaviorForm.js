@@ -66,10 +66,6 @@ const recordsSource = ({formatMessage}) => [
     label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.record.storage' })
   },
   {
-    value: 'Inventory',
-    label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.record.inventory' })
-  },
-  {
     value: 'Source record storage and Inventory',
     label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.record.inventory-storage' })
   }
