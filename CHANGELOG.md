@@ -2,6 +2,9 @@
 
 ## IN PROGRESS
 
+## [4.0.1] (https://github.com/folio-org/ui-oai-pmh/tree/v4.0.1) (2023-02-31)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v4.0.0...v4.0.1)
+
 [UIOAIPMH-66](https://issues.folio.org/browse/UIOAIPMH-66) Disable "Inventory" records source
 
 ## [4.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v4.0.0) (2023-02-21)
