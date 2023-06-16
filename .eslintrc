@@ -3,5 +3,7 @@
   "env": {
     "jest": true
   },
-  "parser": "babel-eslint"
+  "rules": {
+    "import/prefer-default-export": 0
+  }
 }

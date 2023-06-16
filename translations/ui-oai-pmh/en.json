@@ -130,6 +130,14 @@
   "settings.behavior.errorsProcessing.200": "Associate with HTTP status 200",
   "settings.behavior.errorsProcessing.500": "Associate with HTTP error statuses",
 
+  "settings.logs.title": "Logs",
+  "settings.logs.head": "Logs are available for completed harvests and kept for 30 days. Time in UTC.",
+  "settings.logs.download": "Download",
+
+  "settings.logs.columns.started": "Started",
+  "settings.logs.columns.lastUpdate": "Last update",
+  "settings.logs.columns.harvestId": "Harvest Id",
+
   "settings.all.oaiServiceIsDisabled": "OAI service is disabled. To affect OAI-PMH features by settings please enable OAI service in the General section.",
   "settings.all.saveButton.lackPermissions": "You lack necessary permissions to edit OAI-PMH settings. Please, contact the system administrator.",
   "settings.all.validationMessage.isNotEmpty": "This field cannot be empty",
