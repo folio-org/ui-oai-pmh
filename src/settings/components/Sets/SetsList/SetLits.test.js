@@ -3,14 +3,8 @@ import { screen } from '@testing-library/react';
 
 import '../../../../../test/jest/__mock__';
 
-import { StripesContext } from '@folio/stripes/core';
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import SetsList from './SetsList';
-
-const STRIPES = {
-  connect: Component => Component,
-  hasPerm: jest.fn(() => true),
-};
 
 const sets = [
   { createdByUserId: 'f6155b79-03c5-5a3e-ab66-95e4ad417430',
@@ -32,21 +26,19 @@ const onRowClickMock = jest.fn();
 const onNeedMoreDataMock = jest.fn();
 
 jest.mock('./components', () => jest.fn(
-    ()=><div>LastMenu</div>
+  () => <div>LastMenu</div>
 ));
 
 const renderSetList = (totalCount) => {
   renderWithRouter(
-    <StripesContext.Provider value={STRIPES}>
-      <SetsList
-        sets={sets}
-        onRowClick={onRowClickMock}
-        onNeedMoreData={onNeedMoreDataMock}
-        totalCount={totalCount}
-      >
-        <div data-testid="setList-child">Child component</div>
-      </SetsList>
-    </StripesContext.Provider>
+    <SetsList
+      sets={sets}
+      onRowClick={onRowClickMock}
+      onNeedMoreData={onNeedMoreDataMock}
+      totalCount={totalCount}
+    >
+      <div data-testid="setList-child">Child component</div>
+    </SetsList>
   );
 };
 
