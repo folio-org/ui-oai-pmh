@@ -7,6 +7,7 @@ import {
   Behavior,
   General,
   Technical,
+  Logs,
 } from './components';
 import {
   SETTINGS_PANE_WIDTH,
@@ -16,6 +17,8 @@ import {
   BEHAVIOR_CONFIG_NAME,
   GENERAL_CONFIG_NAME,
   TECHNICAL_CONFIG_NAME,
+  LOGS_CONFIG_NAME,
+  LOGS_ROUTE
 } from './constants';
 
 export default class OaiPmhSettings extends React.Component {
@@ -29,6 +32,7 @@ export default class OaiPmhSettings extends React.Component {
     this.getPage(GENERAL_ROUTE, GENERAL_CONFIG_NAME, General),
     this.getPage(TECHNICAL_ROUTE, TECHNICAL_CONFIG_NAME, Technical),
     this.getPage(BEHAVIOR_ROUTE, BEHAVIOR_CONFIG_NAME, Behavior),
+    this.getPage(LOGS_ROUTE, LOGS_CONFIG_NAME, Logs),
   ];
 
   render() {

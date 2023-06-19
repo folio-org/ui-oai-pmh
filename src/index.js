@@ -1,19 +1,22 @@
 import React from 'react';
 
-import { stripesShape } from '@folio/stripes/core';
-
+import { QueryClient, QueryClientProvider } from 'react-query';
 import Settings from './settings';
 
-class OaiPmh extends React.Component {
-  static propTypes = {
-    stripes: stripesShape.isRequired,
-  };
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
-  render() {
-    return (
-      <Settings {...this.props} />
-    );
-  }
-}
+const OaiPmh = (props) => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Settings {...props} />
+    </QueryClientProvider>
+  );
+};
 
 export default OaiPmh;
