@@ -128,6 +128,15 @@
           "oai-pmh.sets.item.delete"
         ],
         "visible": true
+      },
+      {
+        "permissionName": "ui-oai-pmh.logs",
+        "displayName": "Settings (OAI-PMH): Can view logs",
+        "subPermissions": [
+          "ui-oai-pmh.view",
+          "oai-pmh.request-metadata.collection.get"
+        ],
+        "visible": true
       }
     ]
   }

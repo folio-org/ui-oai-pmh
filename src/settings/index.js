@@ -22,17 +22,18 @@ import {
 } from './constants';
 
 export default class OaiPmhSettings extends React.Component {
-  getPage = (route, configName, component) => ({
+  getPage = (route, configName, component, perm) => ({
     route,
     label: <FormattedMessage id={`ui-oai-pmh.settings.${configName}.title`} />,
     component,
+    perm
   });
 
   pages = [
     this.getPage(GENERAL_ROUTE, GENERAL_CONFIG_NAME, General),
     this.getPage(TECHNICAL_ROUTE, TECHNICAL_CONFIG_NAME, Technical),
     this.getPage(BEHAVIOR_ROUTE, BEHAVIOR_CONFIG_NAME, Behavior),
-    this.getPage(LOGS_ROUTE, LOGS_CONFIG_NAME, Logs),
+    this.getPage(LOGS_ROUTE, LOGS_CONFIG_NAME, Logs, 'ui-oai-pmh.logs'),
   ];
 
   render() {
