@@ -115,5 +115,12 @@
     "settings.behavior.record.inventory": "Inventario",
     "settings.behavior.record.inventory-storage": "Almacenamiento e inventario de registros de origen",
     "settings.behavior.label.recordSource": "Fuente de registro",
-    "settings.behavior.tooltip.recordSource": "Fuente de registro"
+    "settings.behavior.tooltip.recordSource": "Fuente de registro",
+    "settings.logs.title": "Registros",
+    "settings.logs.head": "Los registros están disponibles para las cosechas completadas y se conservan durante 30 días. Hora universal",
+    "settings.logs.download": "Descargar",
+    "settings.logs.columns.started": "Comenzó",
+    "settings.logs.columns.lastUpdate": "Última actualización",
+    "settings.logs.columns.harvestId": "Id de cosecha",
+    "permission.logs": "Configuración (OAI-PMH): Puede ver la bitácora"
 }

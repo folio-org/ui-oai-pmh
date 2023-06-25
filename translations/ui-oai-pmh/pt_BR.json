@@ -115,5 +115,12 @@
     "settings.behavior.record.inventory": "Inventário",
     "settings.behavior.record.inventory-storage": "Armazenamento de registros fonte e Inventário",
     "settings.behavior.label.recordSource": "Fonte do registro",
-    "settings.behavior.tooltip.recordSource": "Fonte do registro"
+    "settings.behavior.tooltip.recordSource": "Fonte do registro",
+    "settings.logs.title": "Logs",
+    "settings.logs.head": "Os logs estão disponíveis para colheitas concluídas e mantidos por 30 dias. Hora em UTC.",
+    "settings.logs.download": "Baixar",
+    "settings.logs.columns.started": "Iniciado",
+    "settings.logs.columns.lastUpdate": "Última atualização",
+    "settings.logs.columns.harvestId": "ID da colheita",
+    "permission.logs": "Settings (OAI-PMH): Can view logs"
 }
