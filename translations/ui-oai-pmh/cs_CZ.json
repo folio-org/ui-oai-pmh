@@ -115,5 +115,12 @@
     "settings.behavior.record.inventory": "Katalog",
     "settings.behavior.record.inventory-storage": "Úložiště zdrojových záznamů a katalog",
     "settings.behavior.label.recordSource": "Zdroj záznamu",
-    "settings.behavior.tooltip.recordSource": "Zdroj záznamu"
+    "settings.behavior.tooltip.recordSource": "Zdroj záznamu",
+    "settings.logs.title": "Logy",
+    "settings.logs.head": "Logy jsou k dispozici pro dokončené harvest a uchovávají se po dobu 30 dnů. Čas v UTC.",
+    "settings.logs.download": "Stáhnout",
+    "settings.logs.columns.started": "Zahájeno",
+    "settings.logs.columns.lastUpdate": "Poslední aktualizace",
+    "settings.logs.columns.harvestId": "ID harvestu",
+    "permission.logs": "Nastavení (OAI-PMH): Může zobrazit logy"
 }

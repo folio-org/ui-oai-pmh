@@ -115,5 +115,12 @@
     "settings.behavior.record.inventory": "Inventory",
     "settings.behavior.record.inventory-storage": "Source records storage and Inventory",
     "settings.behavior.label.recordSource": "Record source",
-    "settings.behavior.tooltip.recordSource": "Record source"
+    "settings.behavior.tooltip.recordSource": "Record source",
+    "settings.logs.title": "Logs",
+    "settings.logs.head": "Logs are available for completed harvests and kept for 30 days. Time in UTC.",
+    "settings.logs.download": "Download",
+    "settings.logs.columns.started": "Started",
+    "settings.logs.columns.lastUpdate": "Last update",
+    "settings.logs.columns.harvestId": "Harvest Id",
+    "permission.logs": "Settings (OAI-PMH): Can view logs"
 }
