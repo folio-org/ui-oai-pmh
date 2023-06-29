@@ -116,11 +116,11 @@
     "settings.behavior.record.inventory-storage": "源记录存储和典藏",
     "settings.behavior.label.recordSource": "记录来源",
     "settings.behavior.tooltip.recordSource": "记录来源",
-    "settings.logs.title": "Logs",
-    "settings.logs.head": "Logs are available for completed harvests and kept for 30 days. Time in UTC.",
-    "settings.logs.download": "Download",
-    "settings.logs.columns.started": "Started",
-    "settings.logs.columns.lastUpdate": "Last update",
-    "settings.logs.columns.harvestId": "Harvest Id",
-    "permission.logs": "Settings (OAI-PMH): Can view logs"
+    "settings.logs.title": "日志",
+    "settings.logs.head": "日志可用于已完成的收割，并保存30天。时间为UTC。",
+    "settings.logs.download": "下载",
+    "settings.logs.columns.started": "已开始",
+    "settings.logs.columns.lastUpdate": "上次更新",
+    "settings.logs.columns.harvestId": "收获ID",
+    "permission.logs": "设置（OAI-PMH）：可以查看日志"
 }
