@@ -122,5 +122,5 @@
     "settings.logs.columns.started": "Iniciado",
     "settings.logs.columns.lastUpdate": "Última atualização",
     "settings.logs.columns.harvestId": "ID da colheita",
-    "permission.logs": "Settings (OAI-PMH): Can view logs"
+    "permission.logs": "Configurações (OAI-PMH): pode visualizar logs"
 }
