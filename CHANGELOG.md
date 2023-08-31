@@ -5,6 +5,7 @@
 [UIOAIPMH-65](https://issues.folio.org/browse/UIOAIPMH-65) Avoid private paths in stripes-core imports.
 [UIOAIPMH-70](https://issues.folio.org/browse/UIOAIPMH-70) Update Node.js to v18 in GitHub Actions.
 [UIOAIPMH-69](https://issues.folio.org/browse/UIOAIPMH-69) *BREAKING* Update `react` to `v18`.
+[UIOAIPMH-71](https://issues.folio.org/browse/UIOAIPMH-71)OAI-PMH settings: Ensure your settings HTML page title follow this format - <<App name>> settings - <<selected page name>> - FOLIO
 
 ## [4.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v4.0.0) (2023-02-21)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.3.0...v4.0.0)
