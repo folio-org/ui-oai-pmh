@@ -5,8 +5,20 @@ import '../../test/jest/__mock__';
 
 import OaiPmhSettings from '.';
 
+const locationMock = {
+  pathname: 'pathname',
+  search: '',
+  hash: '',
+};
+
+const stripesMock = {
+  config:{
+    platformName: 'Data-export'
+  }
+};
+
 const renderOaiPhmSettings = () => render(
-  <OaiPmhSettings />
+  <OaiPmhSettings location={locationMock} stripes={stripesMock} />
 );
 
 describe('OaiPhmSettings', () => {

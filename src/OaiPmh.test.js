@@ -5,8 +5,20 @@ import '../test/jest/__mock__';
 
 import OaiPmh from '.';
 
+const locationMock = {
+  pathname: 'pathname',
+  search: '',
+  hash: '',
+};
+
 const renderOaiPhmSettings = () => render(
-  <OaiPmh stripes={{ hasPerm: jest.fn().mockReturnValue(true) }} />
+  <OaiPmh
+    stripes={{ hasPerm: jest.fn().mockReturnValue(true),
+      config:{
+        platformName: 'Data-export'
+      } }}
+    location={locationMock}
+  />
 );
 
 describe('OaiPhmSettings', () => {

@@ -73,7 +73,7 @@ class OaiPmhSettings extends React.Component {
     const recordLabel = findLabelByRoute(pathname);
 
     return (
-      <TitleManager page={recordLabel}>
+      <TitleManager page={recordLabel} stripes={this.props.stripes}>
         <Settings
           {...this.props}
           navPaneWidth={SETTINGS_PANE_WIDTH}
