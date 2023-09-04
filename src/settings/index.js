@@ -3,8 +3,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 
 import { Settings } from '@folio/stripes/smart-components';
 
-import { TitleManager } from '@folio/stripes-core';
-import { stripesShape } from '@folio/stripes/core';
+import { TitleManager, stripesShape } from '@folio/stripes/core';
 import PropTypes from 'prop-types';
 import {
   Behavior,
@@ -54,20 +53,8 @@ class OaiPmhSettings extends React.Component {
     const { intl, location : { pathname } } = this.props;
 
     const findLabelByRoute = (path) => {
-      switch (true) {
-        case path.includes('behavior'):
-          return intl.formatMessage({ id: 'ui-oai-pmh.settings.behavior.manager' });
-        case path.includes('general'):
-          return intl.formatMessage({ id: 'ui-oai-pmh.settings.general.manager' });
-        case path.includes('sets'):
-          return intl.formatMessage({ id: 'ui-oai-pmh.settings.sets.manager' });
-        case path.includes('technical'):
-          return intl.formatMessage({ id: 'ui-oai-pmh.settings.technical.manager' });
-        case path.includes('logs'):
-          return intl.formatMessage({ id: 'ui-oai-pmh.settings.logs.manager' });
-        default:
-          return intl.formatMessage({ id: 'ui-oai-pmh.settings.title.manager' });
-      }
+      const list = ['behavior', 'general', 'sets', 'technical', 'logs'];
+      return intl.formatMessage({ id:`ui-oai-pmh.settings.${list.find(i => path.includes(i)) ?? 'title'}.manager` });
     };
 
     const recordLabel = findLabelByRoute(pathname);

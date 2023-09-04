@@ -148,9 +148,9 @@
   "settings.all.validationMessage.isEmail": "Please enter valid comma-separated email address(es) to continue",
 
   "settings.title.manager": "OAI-PMH settings",
-  "settings.logs.manager": "OAI-PMH settings-Logs",
-  "settings.technical.manager": "OAI-PMH settings-Technical",
-  "settings.sets.manager": "OAI-PMH settings-Sets",
-  "settings.general.manager": "OAI-PMH settings-General",
-  "settings.behavior.manager": "OAI-PMH settings-Behavior"
+  "settings.logs.manager": "OAI-PMH settings - Logs",
+  "settings.technical.manager": "OAI-PMH settings - Technical",
+  "settings.sets.manager": "OAI-PMH settings - Sets",
+  "settings.general.manager": "OAI-PMH settings - General",
+  "settings.behavior.manager": "OAI-PMH settings - Behavior"
 }
