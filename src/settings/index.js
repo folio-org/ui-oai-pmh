@@ -1,8 +1,10 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 import { Settings } from '@folio/stripes/smart-components';
 
+import { TitleManager, stripesShape } from '@folio/stripes/core';
+import PropTypes from 'prop-types';
 import {
   Behavior,
   General,
@@ -21,12 +23,21 @@ import {
   LOGS_ROUTE
 } from './constants';
 
-export default class OaiPmhSettings extends React.Component {
+class OaiPmhSettings extends React.Component {
+  static propTypes = {
+    stripes: stripesShape.isRequired,
+    intl: PropTypes.object,
+    location: PropTypes.shape({
+      pathname: PropTypes.string
+    })
+  };
+
   getPage = (route, configName, component, perm) => ({
     route,
     label: <FormattedMessage id={`ui-oai-pmh.settings.${configName}.title`} />,
     component,
-    perm
+    perm,
+    pageLabel: `ui-oai-pmh.settings.${configName}.title`
   });
 
   pages = [
@@ -36,14 +47,29 @@ export default class OaiPmhSettings extends React.Component {
     this.getPage(LOGS_ROUTE, LOGS_CONFIG_NAME, Logs, 'ui-oai-pmh.logs'),
   ];
 
+
+
   render() {
+    const { intl, location : { pathname } } = this.props;
+
+    const findLabelByRoute = (path) => {
+      const list = ['behavior', 'general', 'sets', 'technical', 'logs'];
+      return intl.formatMessage({ id:`ui-oai-pmh.settings.${list.find(i => path.includes(i)) ?? 'title'}.manager` });
+    };
+
+    const recordLabel = findLabelByRoute(pathname);
+
     return (
-      <Settings
-        {...this.props}
-        navPaneWidth={SETTINGS_PANE_WIDTH}
-        pages={this.pages}
-        paneTitle={<FormattedMessage id="ui-oai-pmh.settings.title" />}
-      />
+      <TitleManager page={recordLabel} stripes={this.props.stripes}>
+        <Settings
+          {...this.props}
+          navPaneWidth={SETTINGS_PANE_WIDTH}
+          pages={this.pages}
+          paneTitle={<FormattedMessage id="ui-oai-pmh.settings.title" />}
+        />
+      </TitleManager>
     );
   }
 }
+
+export default injectIntl(OaiPmhSettings);

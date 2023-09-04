@@ -5,13 +5,24 @@ import '../../test/jest/__mock__';
 
 import OaiPmhSettings from '.';
 
-const renderOaiPhmSettings = () => render(
-  <OaiPmhSettings />
+const stripesMock = {
+  config:{
+    platformName: 'Data-export'
+  }
+};
+
+const renderOaiPhmSettings = (location) => render(
+  <OaiPmhSettings location={location} stripes={stripesMock} />
 );
 
 describe('OaiPhmSettings', () => {
   it('should show correct panel titles', () => {
-    renderOaiPhmSettings();
+    const locationMock = {
+      pathname: 'pathname',
+      search: '',
+      hash: '',
+    };
+    renderOaiPhmSettings(locationMock);
 
     const titles = [
       /settings.title/,
@@ -24,7 +35,102 @@ describe('OaiPhmSettings', () => {
   });
 
   it('should show correct routes', () => {
-    renderOaiPhmSettings();
+    const locationMock = {
+      pathname: 'pathname',
+      search: '',
+      hash: '',
+    };
+    renderOaiPhmSettings(locationMock);
+
+    const routes = [
+      'general',
+      'technical',
+      'behavior',
+    ];
+
+    routes.forEach((el) => expect(screen.getByText(el)).toBeVisible());
+  });
+
+  it('should show behavior title', () => {
+    const locationMock = {
+      pathname: 'pathname/behavior',
+      search: '',
+      hash: '',
+    };
+
+    renderOaiPhmSettings(locationMock);
+
+    const routes = [
+      'general',
+      'technical',
+      'behavior',
+    ];
+
+    routes.forEach((el) => expect(screen.getByText(el)).toBeVisible());
+  });
+
+  it('should show technical title', () => {
+    const locationMock = {
+      pathname: 'pathname/technical',
+      search: '',
+      hash: '',
+    };
+
+    renderOaiPhmSettings(locationMock);
+
+    const routes = [
+      'general',
+      'technical',
+      'behavior',
+    ];
+
+    routes.forEach((el) => expect(screen.getByText(el)).toBeVisible());
+  });
+
+  it('should show general title', () => {
+    const locationMock = {
+      pathname: 'pathname/general',
+      search: '',
+      hash: '',
+    };
+
+    renderOaiPhmSettings(locationMock);
+
+    const routes = [
+      'general',
+      'technical',
+      'behavior',
+    ];
+
+    routes.forEach((el) => expect(screen.getByText(el)).toBeVisible());
+  });
+
+  it('should show logs title', () => {
+    const locationMock = {
+      pathname: 'pathname/logs',
+      search: '',
+      hash: '',
+    };
+
+    renderOaiPhmSettings(locationMock);
+
+    const routes = [
+      'general',
+      'technical',
+      'behavior',
+    ];
+
+    routes.forEach((el) => expect(screen.getByText(el)).toBeVisible());
+  });
+
+  it('should show sets title', () => {
+    const locationMock = {
+      pathname: 'pathname/sets',
+      search: '',
+      hash: '',
+    };
+
+    renderOaiPhmSettings(locationMock);
 
     const routes = [
       'general',
