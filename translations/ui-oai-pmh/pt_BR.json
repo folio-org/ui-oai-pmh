@@ -122,5 +122,11 @@
     "settings.logs.columns.started": "Iniciado",
     "settings.logs.columns.lastUpdate": "Última atualização",
     "settings.logs.columns.harvestId": "ID da colheita",
-    "permission.logs": "Configurações (OAI-PMH): pode visualizar logs"
+    "permission.logs": "Configurações (OAI-PMH): pode visualizar logs",
+    "settings.title.manager": "Configurações do OAI-PMH",
+    "settings.logs.manager": "Configurações do OAI-PMH - Logs",
+    "settings.technical.manager": "Configurações do OAI-PMH - Técnico",
+    "settings.sets.manager": "Configurações do OAI-PMH - Conjuntos",
+    "settings.general.manager": "Configurações do OAI-PMH - Geral",
+    "settings.behavior.manager": "Configurações do OAI-PMH - Comportamento"
 }

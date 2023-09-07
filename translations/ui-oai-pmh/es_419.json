@@ -122,5 +122,11 @@
     "settings.logs.columns.started": "Comenzó",
     "settings.logs.columns.lastUpdate": "Última actualización",
     "settings.logs.columns.harvestId": "Id de cosecha",
-    "permission.logs": "Configuración (OAI-PMH): Puede ver la bitácora"
+    "permission.logs": "Configuración (OAI-PMH): Puede ver la bitácora",
+    "settings.title.manager": "OAI-PMH settings",
+    "settings.logs.manager": "OAI-PMH settings - Logs",
+    "settings.technical.manager": "OAI-PMH settings - Technical",
+    "settings.sets.manager": "OAI-PMH settings - Sets",
+    "settings.general.manager": "OAI-PMH settings - General",
+    "settings.behavior.manager": "OAI-PMH settings - Behavior"
 }

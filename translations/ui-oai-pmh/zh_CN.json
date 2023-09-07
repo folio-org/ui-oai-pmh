@@ -122,5 +122,11 @@
     "settings.logs.columns.started": "已开始",
     "settings.logs.columns.lastUpdate": "上次更新",
     "settings.logs.columns.harvestId": "收获ID",
-    "permission.logs": "设置（OAI-PMH）：可以查看日志"
+    "permission.logs": "设置（OAI-PMH）：可以查看日志",
+    "settings.title.manager": "OAI-PMH settings",
+    "settings.logs.manager": "OAI-PMH settings - Logs",
+    "settings.technical.manager": "OAI-PMH settings - Technical",
+    "settings.sets.manager": "OAI-PMH settings - Sets",
+    "settings.general.manager": "OAI-PMH settings - General",
+    "settings.behavior.manager": "OAI-PMH settings - Behavior"
 }
