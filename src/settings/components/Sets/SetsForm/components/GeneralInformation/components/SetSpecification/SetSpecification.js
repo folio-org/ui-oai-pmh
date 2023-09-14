@@ -51,7 +51,7 @@ SetSpecification.defaultProps = {
 SetSpecification.propTypes = {
   label: PropTypes.string.isRequired,
   input: PropTypes.shape({
-    value: PropTypes.array,
+    value: PropTypes.arrayOf(PropTypes.object),
   }),
 };
 
