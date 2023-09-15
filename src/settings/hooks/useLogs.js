@@ -1,4 +1,4 @@
-import { useOkapiKy } from '@folio/stripes-core';
+import { useOkapiKy } from '@folio/stripes/core';
 import { useQuery } from 'react-query';
 
 export const useLogs = () => {
