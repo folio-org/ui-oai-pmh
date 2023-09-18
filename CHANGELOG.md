@@ -8,6 +8,7 @@
 [UIOAIPMH-71](https://issues.folio.org/browse/UIOAIPMH-71) OAI-PMH settings: Ensure your settings HTML page title follow this format - <<App name>> settings - <<selected page name>> - FOLIO
 [UIOAIPMH-75](https://issues.folio.org/browse/UIOAIPMH-75) *BREAKING* bump `react-intl` to `v6.4.4`.
 [UIOAIPMH-72](https://issues.folio.org/browse/UIOAIPMH-72) prefer @folio/stripes exports to private paths when importing components.
+[UIOAIPMH-74](https://issues.folio.org/browse/UIOAIPMH-74) Fix eslint errors in UI-OAI-PMH.
 
 ## [4.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v4.0.0) (2023-02-21)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v3.3.0...v4.0.0)

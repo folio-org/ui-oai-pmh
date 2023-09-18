@@ -60,7 +60,7 @@ const errorsProcessingSelectValues = ({ formatMessage }) => [
   },
 ];
 
-const recordsSource = ({formatMessage}) => [
+const recordsSource = ({ formatMessage }) => [
   {
     value: 'Source record storage',
     label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.record.storage' })
@@ -73,7 +73,7 @@ const recordsSource = ({formatMessage}) => [
     value: 'Source record storage and Inventory',
     label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.record.inventory-storage' })
   }
-]
+];
 
 class BehaviorForm extends Component {
   static propTypes = {
@@ -154,12 +154,12 @@ class BehaviorForm extends Component {
                 component={Select}
               />
               <RowComponent
-                  data-test-errors-processing
-                  id="recordsSource"
-                  label="ui-oai-pmh.settings.behavior.label.recordSource"
-                  tooltip="ui-oai-pmh.settings.behavior.tooltip.recordSource"
-                  dataOptions={recordsSource(intl)}
-                  component={Select}
+                data-test-errors-processing
+                id="recordsSource"
+                label="ui-oai-pmh.settings.behavior.label.recordSource"
+                tooltip="ui-oai-pmh.settings.behavior.tooltip.recordSource"
+                dataOptions={recordsSource(intl)}
+                component={Select}
               />
             </Pane>
           </form>
