@@ -123,10 +123,10 @@
     "settings.logs.columns.lastUpdate": "Poslední aktualizace",
     "settings.logs.columns.harvestId": "ID harvestu",
     "permission.logs": "Nastavení (OAI-PMH): Může zobrazit logy",
-    "settings.title.manager": "OAI-PMH settings",
-    "settings.logs.manager": "OAI-PMH settings - Logs",
-    "settings.technical.manager": "OAI-PMH settings - Technical",
-    "settings.sets.manager": "OAI-PMH settings - Sets",
-    "settings.general.manager": "OAI-PMH settings - General",
-    "settings.behavior.manager": "OAI-PMH settings - Behavior"
+    "settings.title.manager": "Nastavení OAI-PMH",
+    "settings.logs.manager": "Nastavení OAI-PMH - Logy",
+    "settings.technical.manager": "Nastavení OAI-PMH - Technické",
+    "settings.sets.manager": "Nastavení OAI-PMH - Sady",
+    "settings.general.manager": "Nastavení OAI-PMH - Obecné",
+    "settings.behavior.manager": "Nastavení OAI-PMH - Chování"
 }
