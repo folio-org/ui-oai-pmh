@@ -12,8 +12,9 @@ import {
   Row,
   Tooltip,
 } from '@folio/stripes/components';
+import { withStripes } from '@folio/stripes/core';
 
-export default class RowComponent extends Component {
+class RowComponent extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
@@ -21,6 +22,9 @@ export default class RowComponent extends Component {
     // Additional options for select box
     dataOptions: PropTypes.arrayOf(PropTypes.object),
     component: PropTypes.node.isRequired,
+    stripes: PropTypes.shape({
+      hasPerm: PropTypes.func.isRequired,
+    }).isRequired,
   };
 
   static defaultProps = {
@@ -38,7 +42,9 @@ export default class RowComponent extends Component {
       id,
       label,
       tooltip,
+      stripes,
     } = this.props;
+    const hasEditPerm = stripes.hasPerm('ui-oai-pmh.edit');
     const fieldPropsAttributeNames = ['id', 'required', 'type', 'component', 'dataOptions'];
     const fieldProps = pick(this.props, fieldPropsAttributeNames);
     const dataTest = omit(this.props, [...fieldPropsAttributeNames, 'label', 'tooltip']);
@@ -57,6 +63,7 @@ export default class RowComponent extends Component {
               {...fieldProps}
               name={id}
               label={<FormattedMessage id={label} />}
+              disabled={!hasEditPerm}
             />
           </div>
           {tooltip &&
@@ -72,3 +79,5 @@ export default class RowComponent extends Component {
     );
   }
 }
+
+export default withStripes(RowComponent);
