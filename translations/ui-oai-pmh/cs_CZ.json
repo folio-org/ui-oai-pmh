@@ -32,7 +32,7 @@
     "permission.view": "Nastavení (OAI-PMH): Lze zobrazit",
     "permission.edit": "Nastavení (OAI-PMH): Umožňuje zobrazit a upravit nastavení",
     "settings.behavior.errorsProcessing.500": "Přiřadit k chybovým stavům HTTP",
-    "settings.all.oaiServiceIsDisabled": "Služba OAI je zakázána. Chcete-li ovlivnit funkce OAI-PMH pomocí nastavení, povolte službu OAI v části Obecné.",
+    "settings.all.oaiServiceIsDisabled": "Služba OAI je deaktivována. Chcete-li ovlivnit funkce OAI-PMH pomocí nastavení, aktivujte službu OAI v části Obecné.",
     "settings.all.saveButton.lackPermissions": "Chybí vám potřebná oprávnění k úpravě nastavení OAI-PMH. Kontaktujte prosím správce systému.",
     "settings.all.validationMessage.isNotEmpty": "Toto pole nesmí být prázdné",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Pro pokračování zadejte prosím celé číslo větší než nula.",
