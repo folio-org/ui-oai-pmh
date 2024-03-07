@@ -2,10 +2,10 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { runAxeTest } from '@folio/stripes-testing';
+
 import '../../../../../test/jest/__mock__';
-
 import { renderWithRouter } from '../../../../../test/jest/helpers';
-
 import GeneralForm from './GeneralForm';
 
 const stripes = {
@@ -93,5 +93,13 @@ describe('General form', () => {
     const alerts = screen.getAllByRole('alert');
 
     alerts.forEach((el) => expect(el).not.toHaveTextContent());
+  });
+
+  it('should render with no axe errors', async () => {
+    renderGeneralForm();
+
+    await runAxeTest({
+      rootNode: document.body,
+    });
   });
 });

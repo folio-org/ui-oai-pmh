@@ -1,9 +1,10 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
+
 import { ConfigManager } from '@folio/stripes/smart-components';
+import { runAxeTest } from '@folio/stripes-testing';
 
 import '../../../../test/jest/__mock__';
-
 import General from './General';
 
 jest.mock('@folio/stripes/core', () => ({
@@ -26,5 +27,13 @@ describe('General', () => {
     renderGeneral();
 
     expect(screen.getByText('ConfigManger')).toBeVisible();
+  });
+
+  it('should render with no axe errors', async () => {
+    renderGeneral();
+
+    await runAxeTest({
+      rootNode: document.body,
+    });
   });
 });

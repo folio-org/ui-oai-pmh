@@ -2,9 +2,9 @@ import React from 'react';
 import { noop } from 'lodash';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { runAxeTest } from '@folio/stripes-testing';
 
 import '../../../../../test/jest/__mock__';
-
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import SetView from './SetsView';
 
@@ -155,5 +155,13 @@ describe('Sets view', () => {
     const emptyContenFields = screen.getAllByText('noop');
 
     emptyContenFields.forEach((el) => expect(el).toBeVisible());
+  });
+
+  it('should render with no axe errors', async () => {
+    renderSetsView(true);
+
+    await runAxeTest({
+      rootNode: document.body,
+    });
   });
 });

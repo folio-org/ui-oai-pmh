@@ -2,6 +2,7 @@
 
 ## IN PROGRESS
 [UIOAIPMH-77](https://issues.folio.org/browse/UIOAIPMH-77) User with view only permissions can edit OAI-PMH settings
+[UIOAIPMH-80](https://folio-org.atlassian.net/browse/UIOAIPMH-80) OAI-PMH - Add accessibility testing to automated tests.
 
 ## [5.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v5.0.0) (2023-10-12)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v4.0.0...v5.0.0)
