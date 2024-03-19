@@ -1,10 +1,10 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 
+import { runAxeTest } from '@folio/stripes-testing';
+
 import '../../../../../test/jest/__mock__';
-
 import { renderWithRouter } from '../../../../../test/jest/helpers';
-
 import BehaviorForm from './BehaviorForm';
 
 const stripes = {
@@ -29,6 +29,14 @@ describe('Behavior form', () => {
     renderBehaviorForm();
 
     expect(screen.getByText(labelText)).toBeVisible();
+  });
+
+  it('should render with no axe errors', async () => {
+    renderBehaviorForm();
+
+    await runAxeTest({
+      rootNode: document.body,
+    });
   });
 
   it('should be presented deleted records support', () => {

@@ -2,8 +2,11 @@ import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import { BrowserRouter as Router } from 'react-router-dom';
-import '@folio/stripes-acq-components/test/jest/__mock__';
 import { QueryClientProvider } from 'react-query';
+
+import '@folio/stripes-acq-components/test/jest/__mock__';
+import { runAxeTest } from '@folio/stripes-testing';
+
 import Logs from './Logs';
 import { useLogs } from '../../hooks/useLogs';
 import { queryClient } from '../../../index';
@@ -90,6 +93,19 @@ describe('Logs', () => {
 
     await waitFor(() => {
       expect(queryByText('ui-oai-pmh.settings.logs.download')).toBeNull();
+    });
+  });
+
+  it('should render with no axe errors', async () => {
+    useLogs.mockReturnValue({
+      logs: { requestMetadataCollection: mockLogs.map(i => ({ ...i, linkToErrorFile: '' })) },
+      isLogsLoading: false,
+    });
+
+    renderLogs();
+
+    await runAxeTest({
+      rootNode: document.body,
     });
   });
 });

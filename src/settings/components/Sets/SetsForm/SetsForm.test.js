@@ -1,10 +1,10 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { runAxeTest } from '@folio/stripes-testing';
 
 import '../../../../../test/jest/__mock__';
 import { renderWithRouter, initialValues, filterOptions } from '../../../../../test/jest/helpers';
-
 import SetsForm from './SetsForm';
 
 const handleSubmitMock = jest.fn();
@@ -82,5 +82,13 @@ describe('Sets form', () => {
     userEvent.type(screen.getByRole('textbox', { name: /sets.edit.field.description/ }), 'new description');
 
     expect(screen.getByRole('textbox', { name: /sets.edit.field.description/ })).toHaveValue('new description');
+  });
+
+  it('should render with no axe errors', async () => {
+    renderSetForm();
+
+    await runAxeTest({
+      rootNode: document.body,
+    });
   });
 });
