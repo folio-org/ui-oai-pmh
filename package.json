@@ -1,6 +1,6 @@
 {
   "name": "@folio/oai-pmh",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "OAI-PMH manager",
   "main": "src/index.js",
   "repository": "folio-org/ui-oai-pmh",
@@ -61,7 +61,7 @@
     "sinon": "^7.3.2"
   },
   "dependencies": {
-    "@folio/stripes-acq-components": "^5.0.0",
+    "@folio/stripes-acq-components": "^5.1.0",
     "lodash": "^4.17.15",
     "moment": "^2.29.4",
     "prop-types": "^15.6.0",
