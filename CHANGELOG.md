@@ -1,6 +1,10 @@
 # Change history for ui-oai-pmh
 
 ## IN PROGRESS
+
+## [5.1.0] (https://github.com/folio-org/ui-oai-pmh/tree/v5.0.0) (2024-04-19)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v5.0.0...v5.1.0)
+
 [UIOAIPMH-77](https://issues.folio.org/browse/UIOAIPMH-77) User with view only permissions can edit OAI-PMH settings
 
 ## [5.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v5.0.0) (2023-10-12)
