@@ -3,6 +3,7 @@ import { screen } from '@testing-library/react';
 
 import '../../../../../test/jest/__mock__';
 
+import { runAxeTest } from '@folio/stripes-testing';
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import SetsList from './SetsList';
 
@@ -80,5 +81,13 @@ describe('Sets list', () => {
     ];
 
     setContent.forEach((el) => expect(screen.getByText(el)).toBeVisible());
+  });
+
+  it('should render with no axe errors', async () => {
+    renderSetList(1);
+
+    await runAxeTest({
+      rootNode: document.body,
+    });
   });
 });

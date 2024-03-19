@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 
 import '../../../../../test/jest/__mock__';
 
+import { runAxeTest } from '@folio/stripes-testing';
 import EntityNotFound from './EntityNotFound';
 import SetWrapper from './SetsWrapper';
 
@@ -41,5 +42,13 @@ describe('Sets empty', () => {
     userEvent.click(screen.getByRole('button', { name: 'stripes-components.closeItem' }));
 
     expect(onBackMock).toHaveBeenCalled();
+  });
+
+  it('should render with no axe errors', async () => {
+    renderSetCountainer();
+
+    await runAxeTest({
+      rootNode: document.body,
+    });
   });
 });

@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../../../../test/jest/__mock__';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { runAxeTest } from '@folio/stripes-testing';
 
 import { renderWithRouter } from '../../../../../test/jest/helpers';
-
+import '../../../../../test/jest/__mock__';
 import TechnicalForm from './TechnicalForm';
 
 const stripes = {
@@ -67,5 +67,13 @@ describe('Technical form', () => {
     userEvent.type(screen.getByRole('textbox', { name:/technical.label.maxRecordsPerResponse/ }), '50');
 
     expect(screen.getByRole('button', { name: 'stripes-core.button.save' })).toBeEnabled();
+  });
+
+  it('should render with no axe errors', async () => {
+    renderTechincalForm();
+
+    await runAxeTest({
+      rootNode: document.body,
+    });
   });
 });
