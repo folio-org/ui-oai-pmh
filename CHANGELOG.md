@@ -2,6 +2,8 @@
 
 ## IN PROGRESS
 
+[UIOAIPMH-79](https://issues.folio.org/browse/UIOAIPMH-79) Make downloading log files consistent with data export.
+
 ## [5.1.0] (https://github.com/folio-org/ui-oai-pmh/tree/v5.0.0) (2024-03-19)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v5.0.0...v5.1.0)
 
