@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 
-import { useOkapiKy } from '@folio/stripes/core';
-import { useNamespace } from '@folio/stripes-core';
+import { useOkapiKy, useNamespace } from '@folio/stripes/core';
+
 
 export const QUERY_KEY_DOWNLOAD_LOGS = 'QUERY_KEY_DOWNLOAD_LOGS';
 

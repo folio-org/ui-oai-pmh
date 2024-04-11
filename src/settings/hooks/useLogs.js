@@ -1,6 +1,5 @@
-import { useOkapiKy } from '@folio/stripes/core';
+import { useOkapiKy, useNamespace } from '@folio/stripes/core';
 import { useQuery } from 'react-query';
-import { useNamespace } from '@folio/stripes-core';
 
 export const OAI_LOGS = 'OAI_LOGS';
 
