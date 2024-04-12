@@ -39,6 +39,7 @@ const buildStripes = (otherProperties = {}) => ({
     },
   },
   withOkapi: true,
+  useNamespace: ({ key }) => [`@folio/oai-pmh:${key}`],
   ...otherProperties,
 });
 
