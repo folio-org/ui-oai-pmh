@@ -118,7 +118,7 @@
     "settings.behavior.tooltip.recordSource": "Record source",
     "settings.logs.title": "Logs",
     "settings.logs.head": "Logs are available for completed harvests and kept for 30 days. Time in UTC.",
-    "settings.logs.download": "Download",
+    "settings.logs.download": "ダウンロード",
     "settings.logs.columns.started": "Started",
     "settings.logs.columns.lastUpdate": "Last update",
     "settings.logs.columns.harvestId": "Harvest Id",
