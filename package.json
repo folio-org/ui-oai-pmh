@@ -136,7 +136,8 @@
         "displayName": "Settings (OAI-PMH): Can view logs",
         "subPermissions": [
           "ui-oai-pmh.view",
-          "oai-pmh.request-metadata.collection.get"
+          "oai-pmh.request-metadata.collection.get",
+          "oai-pmh.request-metadata.logs.item.get"
         ],
         "visible": true
       }
