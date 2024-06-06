@@ -44,9 +44,9 @@ const resultsFormatter = () => ({
 });
 
 const SetsList = ({
-  isLoading,
-  totalCount,
-  sets,
+  isLoading = false,
+  totalCount = 0,
+  sets = [],
   onRowClick,
   onNeedMoreData,
   children,
@@ -88,12 +88,6 @@ SetsList.propTypes = {
   onRowClick: PropTypes.func.isRequired,
   onNeedMoreData: PropTypes.func.isRequired,
   children: PropTypes.node,
-};
-
-SetsList.defaultProps = {
-  isLoading: false,
-  totalCount: 0,
-  sets: [],
 };
 
 export default SetsList;

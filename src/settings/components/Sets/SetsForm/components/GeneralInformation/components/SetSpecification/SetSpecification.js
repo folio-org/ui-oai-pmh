@@ -21,7 +21,7 @@ const generateSetSpecification = (value) => (
 const SetSpecification = ({
   label,
   input: {
-    value,
+    value = [],
   },
 }) => {
   return (
@@ -40,12 +40,6 @@ const SetSpecification = ({
       </div>
     </>
   );
-};
-
-SetSpecification.defaultProps = {
-  input: {
-    values: [],
-  },
 };
 
 SetSpecification.propTypes = {
