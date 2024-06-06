@@ -31,13 +31,13 @@ import {
 import css from './SetsForm.css';
 
 const SetsForm = ({
+  metadata = null,
   pristine,
   submitting,
   handleSubmit,
   stripes,
   form,
   formTitle,
-  metadata,
   onBack,
   filteringConditionsDataOptions,
 }) => {
@@ -112,10 +112,6 @@ SetsForm.propTypes = {
   metadata: PropTypes.object,
   filteringConditionsDataOptions: PropTypes.object.isRequired,
   onBack: PropTypes.func.isRequired,
-};
-
-SetsForm.defaultProps = {
-  metadata: null
 };
 
 export default stripesFinalForm({
