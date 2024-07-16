@@ -12,19 +12,16 @@ import {
   Technical,
   Logs,
 } from './components';
-import SetsRoute from './routes';
 import {
   SETTINGS_PANE_WIDTH,
   BEHAVIOR_ROUTE,
   GENERAL_ROUTE,
   TECHNICAL_ROUTE,
-  SETS_ROUTE,
   BEHAVIOR_CONFIG_NAME,
   GENERAL_CONFIG_NAME,
   TECHNICAL_CONFIG_NAME,
   LOGS_CONFIG_NAME,
   LOGS_ROUTE,
-  SETS_CONFIG_NAME,
 } from './constants';
 
 const OaiPmhSettings = (props) => {
@@ -45,7 +42,6 @@ const OaiPmhSettings = (props) => {
     getPage(TECHNICAL_ROUTE, TECHNICAL_CONFIG_NAME, Technical),
     getPage(BEHAVIOR_ROUTE, BEHAVIOR_CONFIG_NAME, Behavior),
     getPage(LOGS_ROUTE, LOGS_CONFIG_NAME, Logs, 'ui-oai-pmh.logs'),
-    getPage(SETS_ROUTE, SETS_CONFIG_NAME, SetsRoute),
   ], []);
 
   const findLabelByRoute = (path) => {
