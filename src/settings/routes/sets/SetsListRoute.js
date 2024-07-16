@@ -1,18 +1,9 @@
-import React, {
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ReactRouterPropTypes from 'react-router-prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import {
-  stripesConnect,
-} from '@folio/stripes/core';
-import {
-  LoadingPane,
-} from '@folio/stripes/components';
+import { LoadingPane } from '@folio/stripes/components';
 
 import {
   SetsList,
@@ -25,89 +16,45 @@ import {
 } from '../../constants';
 import {
   getSetsViewUrl,
-  getSetsListUrl,
 } from '../../util';
 import {
   useCallout,
-  useLocationReset,
 } from '../../hooks';
+import { useSets } from '../../hooks/useSets';
 
-const SetsListRoute = ({
-  history,
-  location,
-  mutator,
-  children,
-}) => {
-  const [sets, setSets] = useState([]);
-  const [setsCount, setSetsCount] = useState(0);
-  const [setsOffset, setSetsOffset] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
 
+const SetsListRoute = ({ children }) => {
   const showCallout = useCallout();
+  const history = useHistory();
+  const { search } = history.location;
 
-  const loadSets = (offset) => {
-    setIsLoading(true);
+  const [offset, setOffset] = useState(0);
 
-    return mutator.setsRecords.GET({
-      params: {
-        limit: PAGE_AMOUNT,
-        offset,
-      }
-    })
-      .then(setsResponse => {
-        if (!offset) {
-          setSetsCount(setsResponse.totalRecords);
-        }
+  const { sets, isSetsLoading, totalRecords, fetchNextPage, hasNextPage } = useSets({
+    offset,
+    onError: () => {
+      showCallout({
+        type: CALLOUT_ERROR_TYPE,
+        message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem.get" />,
+      });
+    }
+  });
 
-        setSets((prev) => [...prev, ...setsResponse.sets]);
-      })
-      .catch(() => {
-        showCallout({
-          type: CALLOUT_ERROR_TYPE,
-          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem.get" />,
-        });
-      })
-      .finally(() => setIsLoading(false));
+  const onNeedMoreData = () => {
+    setOffset((prevOffset) => prevOffset + PAGE_AMOUNT);
+
+    fetchNextPage();
   };
 
-  const onNeedMoreData = useCallback(
-    () => {
-      const newOffset = setsOffset + PAGE_AMOUNT;
-
-      loadSets(newOffset)
-        .then(() => {
-          setSetsOffset(newOffset);
-        });
-    },
-    [setsOffset],
-  );
-
-  const refreshList = () => {
-    setSets([]);
-    setSetsCount(0);
-    setSetsOffset(0);
-    loadSets(0);
-  };
-
-  useEffect(
-    () => {
-      refreshList();
-    },
-    [],
-  );
-
-  useLocationReset(history, location, getSetsListUrl(), refreshList);
-
-  const onRowClick = useCallback((e, meta) => {
+  const onRowClick = (e, meta) => {
     history.push({
       pathname:  getSetsViewUrl(meta[SET_FIELDS.ID]),
-      search: location.search,
+      search,
     });
-  }, [history, location.search]);
+  };
 
-  const isInitialLoading = isLoading && !sets.length;
 
-  if (isInitialLoading) {
+  if (isSetsLoading) {
     return (
       <LoadingPane defaultWidth={DEFAULT_PANE_WIDTH} />
     );
@@ -117,33 +64,18 @@ const SetsListRoute = ({
     <SetsList
       sets={sets}
       onRowClick={onRowClick}
-      totalCount={setsCount}
+      totalCount={totalRecords}
       onNeedMoreData={onNeedMoreData}
-      loading={isLoading}
+      loading={isSetsLoading}
+      hasNextPage={hasNextPage}
     >
       { children }
     </SetsList>
   );
 };
 
-SetsListRoute.manifest = Object.freeze({
-  setsRecords: {
-    type: 'okapi',
-    path: 'oai-pmh/sets',
-    fetch: false,
-    accumulate: true,
-  },
-});
-
 SetsListRoute.propTypes = {
-  history: ReactRouterPropTypes.history.isRequired,
-  location: ReactRouterPropTypes.location.isRequired,
-  mutator: PropTypes.shape({
-    setsRecords: PropTypes.shape({
-      GET: PropTypes.func.isRequired,
-    }),
-  }),
   children: PropTypes.node,
 };
 
-export default stripesConnect(SetsListRoute);
+export default SetsListRoute;

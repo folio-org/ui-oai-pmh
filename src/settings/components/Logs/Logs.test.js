@@ -1,7 +1,6 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
+import { waitFor } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from 'react-query';
 
 import '@folio/stripes-acq-components/test/jest/__mock__';
@@ -9,19 +8,18 @@ import { runAxeTest } from '@folio/stripes-testing';
 
 import Logs from './Logs';
 import { useLogs } from '../../hooks/useLogs';
+import { renderWithRouter } from '../../../../test/jest/helpers';
 
 jest.mock('../../hooks/useLogs');
 
 const queryClient = new QueryClient();
 
 const renderLogs = () => {
-  return render(
+  return renderWithRouter(
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <IntlProvider locale="en">
-          <Logs />
-        </IntlProvider>
-      </Router>
+      <IntlProvider locale="en">
+        <Logs />
+      </IntlProvider>
     </QueryClientProvider>
   );
 };

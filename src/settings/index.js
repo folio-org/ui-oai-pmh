@@ -1,38 +1,38 @@
-import React from 'react';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import React, { useMemo } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
+import { useLocation } from 'react-router-dom';
 
 import { Settings } from '@folio/stripes/smart-components';
+import { TitleManager, useStripes } from '@folio/stripes/core';
 
-import { TitleManager, stripesShape } from '@folio/stripes/core';
-import PropTypes from 'prop-types';
+
 import {
   Behavior,
   General,
   Technical,
   Logs,
 } from './components';
+import SetsRoute from './routes';
 import {
   SETTINGS_PANE_WIDTH,
   BEHAVIOR_ROUTE,
   GENERAL_ROUTE,
   TECHNICAL_ROUTE,
+  SETS_ROUTE,
   BEHAVIOR_CONFIG_NAME,
   GENERAL_CONFIG_NAME,
   TECHNICAL_CONFIG_NAME,
   LOGS_CONFIG_NAME,
-  LOGS_ROUTE
+  LOGS_ROUTE,
+  SETS_CONFIG_NAME,
 } from './constants';
 
-class OaiPmhSettings extends React.Component {
-  static propTypes = {
-    stripes: stripesShape.isRequired,
-    intl: PropTypes.object,
-    location: PropTypes.shape({
-      pathname: PropTypes.string
-    })
-  };
+const OaiPmhSettings = (props) => {
+  const stripes = useStripes();
+  const location = useLocation();
+  const intl = useIntl();
 
-  getPage = (route, configName, component, perm) => ({
+  const getPage = (route, configName, component, perm) => ({
     route,
     label: <FormattedMessage id={`ui-oai-pmh.settings.${configName}.title`} />,
     component,
@@ -40,36 +40,32 @@ class OaiPmhSettings extends React.Component {
     pageLabel: `ui-oai-pmh.settings.${configName}.title`
   });
 
-  pages = [
-    this.getPage(GENERAL_ROUTE, GENERAL_CONFIG_NAME, General),
-    this.getPage(TECHNICAL_ROUTE, TECHNICAL_CONFIG_NAME, Technical),
-    this.getPage(BEHAVIOR_ROUTE, BEHAVIOR_CONFIG_NAME, Behavior),
-    this.getPage(LOGS_ROUTE, LOGS_CONFIG_NAME, Logs, 'ui-oai-pmh.logs'),
-  ];
+  const pages = useMemo(() => [
+    getPage(GENERAL_ROUTE, GENERAL_CONFIG_NAME, General),
+    getPage(TECHNICAL_ROUTE, TECHNICAL_CONFIG_NAME, Technical),
+    getPage(BEHAVIOR_ROUTE, BEHAVIOR_CONFIG_NAME, Behavior),
+    getPage(LOGS_ROUTE, LOGS_CONFIG_NAME, Logs, 'ui-oai-pmh.logs'),
+    getPage(SETS_ROUTE, SETS_CONFIG_NAME, SetsRoute),
+  ], []);
 
+  const findLabelByRoute = (path) => {
+    const list = ['behavior', 'general', 'sets', 'technical', 'logs'];
+    return intl.formatMessage({ id: `ui-oai-pmh.settings.${list.find(i => path.includes(i)) ?? 'title'}.manager` });
+  };
 
+  const recordLabel = findLabelByRoute(location.pathname);
 
-  render() {
-    const { intl, location : { pathname } } = this.props;
+  return (
+    <TitleManager page={recordLabel} stripes={stripes}>
+      <Settings
+        {...props}
+        navPaneWidth={SETTINGS_PANE_WIDTH}
+        pages={pages}
+        paneTitle={<FormattedMessage id="ui-oai-pmh.settings.title" />}
+        intl={intl}
+      />
+    </TitleManager>
+  );
+};
 
-    const findLabelByRoute = (path) => {
-      const list = ['behavior', 'general', 'sets', 'technical', 'logs'];
-      return intl.formatMessage({ id:`ui-oai-pmh.settings.${list.find(i => path.includes(i)) ?? 'title'}.manager` });
-    };
-
-    const recordLabel = findLabelByRoute(pathname);
-
-    return (
-      <TitleManager page={recordLabel} stripes={this.props.stripes}>
-        <Settings
-          {...this.props}
-          navPaneWidth={SETTINGS_PANE_WIDTH}
-          pages={this.pages}
-          paneTitle={<FormattedMessage id="ui-oai-pmh.settings.title" />}
-        />
-      </TitleManager>
-    );
-  }
-}
-
-export default injectIntl(OaiPmhSettings);
+export default OaiPmhSettings;

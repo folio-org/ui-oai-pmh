@@ -1,27 +1,15 @@
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
-import PropTypes from 'prop-types';
-import ReactRouterPropTypes from 'react-router-prop-types';
+import React, { useContext } from 'react';
+import { useQueryClient } from 'react-query';
+import { useHistory, useParams } from 'react-router-dom';
 import {
   FormattedMessage,
   useIntl,
 } from 'react-intl';
 
-import {
-  stripesConnect,
-} from '@folio/stripes/core';
-import {
-  LoadingPane,
-} from '@folio/stripes/components';
+import { LoadingPane } from '@folio/stripes/components';
+import { useStripes } from '@folio/stripes/core';
 
-import {
-  SetsForm,
-} from '../../components';
+import { SetsForm } from '../../components';
 import {
   EntityNotFound,
   SetsWrapper,
@@ -45,91 +33,73 @@ import {
   SET_FIELDS,
 } from '../../constants';
 import SetsContext from './SetsContext';
+import { useSetDetails } from '../../hooks/useSetDetails';
+import { useSetCreate } from '../../hooks/useSetCreate';
+import { SETS } from '../../hooks/useSets';
 
-const SetsDuplicateRoute = ({
-  history,
-  location,
-  mutator,
-  stripes,
-  match: {
-    params: {
-      id,
-    },
-  },
-}) => {
+
+const SetsDuplicateRoute = () => {
+  const { setsFilteringConditions } = useContext(SetsContext);
   const intl = useIntl();
-  const {
-    setsFilteringConditions,
-  } = useContext(SetsContext);
+  const queryClient = useQueryClient();
+  const showCallout = useCallout();
+  const stripes = useStripes();
+  const { id } = useParams();
+  const history = useHistory();
+  const { search } = history.location;
 
-  const [sets, setSets] = useState({});
-  const [isLoaded, setIsLoaded] = useState(true);
-  const [isFailed, setIsFailed] = useState(true);
+  const { setDetails, isError, isSetLoading } = useSetDetails(id);
+  const { createSet } = useSetCreate({
+    onSuccess: (response) => {
+      showCallout({
+        message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
+      });
+      history.push({
+        pathname: getSetsViewUrl(response[SET_FIELDS.ID]),
+        search,
+      });
 
-  const getFilteringConditionsDataOptions = useMemo(() => (
-    filteringConditionsDataOptions(setsFilteringConditions, intl)
-  ), [setsFilteringConditions]);
-
-  useEffect(
-    () => {
-      setIsLoaded(false);
-      setIsFailed(false);
-      mutator.duplicateSets.GET()
-        .then(setResponse => setSets({
-          ...generalInformationToViewData(setResponse),
-          ...filteringConditionsToFormData(setResponse[SET_FIELDS.FILTERING_CONDITIONS], setsFilteringConditions),
-        }))
-        .then(() => setIsLoaded(true))
-        .catch(() => {
-          setIsLoaded(true);
-          setIsFailed(true);
-        });
+      queryClient.invalidateQueries(SETS);
     },
-    [setsFilteringConditions],
-  );
+    onError: (err) => handleErrorResponse(err, showCallout),
+  });
+
+  const getFilteringConditionsDataOptions = filteringConditionsDataOptions(setsFilteringConditions, intl);
+
+  const sets = setDetails ? {
+    ...generalInformationToViewData(setDetails),
+    ...filteringConditionsToFormData(setDetails[SET_FIELDS.FILTERING_CONDITIONS], setsFilteringConditions),
+  } : {};
 
   const getTitle = () => <FormattedMessage id="ui-oai-pmh.settings.sets.new.title" />;
 
-  const showCallout = useCallout();
-
-  const onSubmit = useCallback((values) => {
+  const onSubmit = (values) => {
     if (!isFilteringConditionsFilled(values.filteringConditions)) {
       showCallout({
         type: CALLOUT_ERROR_TYPE,
         message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.validationError.empty.setSpec" />,
       });
     } else {
-      mutator.duplicateSets.POST({
-        ...setInformationToViewData(values),
-      })
-        .then((response) => {
-          showCallout({
-            message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
-          });
-          history.push({
-            pathname: getSetsViewUrl(response[SET_FIELDS.ID]),
-            search: location.search,
-          });
-        })
-        .catch((errors) => handleErrorResponse(errors, showCallout));
+      createSet(setInformationToViewData(values));
     }
-  }, [showCallout, location.search, history, mutator.duplicateSets, sets[SET_FIELDS.ID]]);
+  };
 
-  const onBack = useCallback(() => {
+  const onBack = () => {
     history.push({
       pathname:  getSetsViewUrl(id),
-      search: location.search,
+      search,
     });
-  }, [history, location.search, id]);
+  };
 
-  const onBackEntityNotFoundForDuplicate = useCallback(() => {
+  const onBackEntityNotFoundForDuplicate = () => {
     history.push({
       pathname:  getSetsListUrl(),
-      search: location.search,
+      search,
     });
-  }, [history, location.search]);
+  };
 
-  if (!isLoaded) {
+
+  if (isSetLoading) {
     return (
       <SetsWrapper>
         <LoadingPane defaultWidth={FILL_PANE_WIDTH} />
@@ -137,7 +107,7 @@ const SetsDuplicateRoute = ({
     );
   }
 
-  if (isFailed) {
+  if (isError) {
     return (
       <SetsWrapper>
         <EntityNotFound
@@ -162,33 +132,4 @@ const SetsDuplicateRoute = ({
   );
 };
 
-SetsDuplicateRoute.manifest = Object.freeze({
-  duplicateSets: {
-    type: 'okapi',
-    path: 'oai-pmh/sets/:{id}',
-    clientGeneratePk: false,
-    throwErrors: false,
-    POST: {
-      path: 'oai-pmh/sets',
-    },
-    accumulate: 'true',
-    fetch: false,
-  },
-});
-
-SetsDuplicateRoute.propTypes = {
-  history: ReactRouterPropTypes.history.isRequired,
-  location: ReactRouterPropTypes.location.isRequired,
-  match: ReactRouterPropTypes.match.isRequired,
-  mutator: PropTypes.shape({
-    duplicateSets: PropTypes.shape({
-      GET: PropTypes.func.isRequired,
-      POST: PropTypes.func.isRequired,
-    }),
-  }),
-  stripes: PropTypes.shape({
-    hasPerm: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
-export default stripesConnect(SetsDuplicateRoute);
+export default SetsDuplicateRoute;

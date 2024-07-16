@@ -50,6 +50,7 @@ const SetsList = ({
   onRowClick,
   onNeedMoreData,
   children,
+  hasNextPage,
 }) => {
   return (
     <Paneset>
@@ -74,6 +75,7 @@ const SetsList = ({
           formatter={resultsFormatter()}
           onRowClick={onRowClick}
           onNeedMoreData={onNeedMoreData}
+          dataEndReached={!hasNextPage}
         />
       </Pane>
       { children }
@@ -86,6 +88,7 @@ SetsList.propTypes = {
   totalCount: PropTypes.number,
   sets: PropTypes.arrayOf(PropTypes.object),
   onRowClick: PropTypes.func.isRequired,
+  hasNextPage: PropTypes.bool.isRequired,
   onNeedMoreData: PropTypes.func.isRequired,
   children: PropTypes.node,
 };

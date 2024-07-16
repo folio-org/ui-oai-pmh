@@ -1,11 +1,8 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import {
-  stripesShape,
-  withStripes,
-} from '@folio/stripes/core';
 import { ConfigManager } from '@folio/stripes/smart-components';
+import { useStripes } from '@folio/stripes/core';
 
 import BehaviorForm from './components/BehaviorForm';
 import {
@@ -17,37 +14,29 @@ import {
   BEHAVIOR_CONFIG_NAME,
 } from '../../constants';
 
-class Behavior extends React.Component {
-  static propTypes = {
-    stripes: stripesShape.isRequired,
+const Behavior = () => {
+  const stripes = useStripes();
+  const Manager = stripes.connect(ConfigManager);
+
+  const getInitialValues = (data) => {
+    return getObjectFromResponseString(data);
   };
 
-  constructor(props) {
-    super(props);
-    this.configManager = props.stripes.connect(ConfigManager);
-  }
-
-  getInitialValues(data) {
-    return getObjectFromResponseString(data);
-  }
-
-  normalize = (data) => {
+  const normalize = (data) => {
     return dataObjectToString(data);
   };
 
-  render() {
-    return (
-      <this.configManager
-        label={<FormattedMessage id="ui-oai-pmh.settings.behavior.title" />}
-        moduleName={MODULE_NAME}
-        configName={BEHAVIOR_CONFIG_NAME}
-        getInitialValues={this.getInitialValues}
-        configFormComponent={BehaviorForm}
-        stripes={this.props.stripes}
-        onBeforeSave={this.normalize}
-      />
-    );
-  }
-}
+  return (
+    <Manager
+      label={<FormattedMessage id="ui-oai-pmh.settings.behavior.title" />}
+      moduleName={MODULE_NAME}
+      configName={BEHAVIOR_CONFIG_NAME}
+      getInitialValues={getInitialValues}
+      configFormComponent={BehaviorForm}
+      stripes={stripes}
+      onBeforeSave={normalize}
+    />
+  );
+};
 
-export default withStripes(Behavior);
+export default Behavior;

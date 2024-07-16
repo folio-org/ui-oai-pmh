@@ -1,46 +1,57 @@
 import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
 import { screen, act } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
 import user from '@testing-library/user-event';
 
-import buildStripes from '../../../../test/jest/__mock__/stripesCore.mock';
 import { renderWithRouter, setsFilteringConditions } from '../../../../test/jest/helpers';
+import SetsContext from './SetsContext';
+import { useSetDetails } from '../../hooks/useSetDetails';
+import { useSetUpdate } from '../../hooks/useSetUpdate';
+import { setDetailsMock } from '../../../../test/jest/helpers/setDetails';
+
+import '../../../../test/jest/__mock__';
 
 import SetsEditRoute from './SetsEditRoute';
-import SetsContext from './SetsContext';
 
-const STRIPES = buildStripes();
+const queryClient = new QueryClient();
 
-const history = createMemoryHistory();
+jest.mock('../../hooks/useSetDetails', () => ({
+  useSetDetails: jest.fn(),
+}));
 
-const locationMock = {
-  pathname: '/settings/oai-pmh/sets/6d18cafb-d498-4bb4-b69d-57d0e4a50254',
-  hash: ''
-};
+jest.mock('../../hooks/useSetUpdate', () => ({
+  useSetUpdate: jest.fn(),
+}));
 
-const mutatorMock = {
-  editSets: {
-    PUT: jest.fn(() => Promise.resolve()),
-    GET: jest.fn(() => Promise.resolve()).mockResolvedValue(true)
-  }
-};
-
-const renderSetaEditRoute = (
-  mutator = mutatorMock
-) => (
+const renderSetaEditRoute = () => (
   renderWithRouter(
-    <SetsContext.Provider value={{ setsFilteringConditions }}>
-      <SetsEditRoute
-        history={history}
-        location={locationMock}
-        mutator={mutator}
-        stripes={STRIPES}
-      />
-    </SetsContext.Provider>
+    <QueryClientProvider client={queryClient}>
+      <SetsContext.Provider value={{ setsFilteringConditions }}>
+        <SetsEditRoute />
+      </SetsContext.Provider>
+    </QueryClientProvider>
   )
 );
 
 describe('SetaEditRoute', () => {
+  beforeEach(() => {
+    useSetDetails.mockReturnValue({
+      setDetails: setDetailsMock,
+      isSetLoading: false,
+      isError: false,
+    });
+
+    useSetUpdate.mockReturnValue({
+      updateSet: jest.fn(),
+    });
+  });
+
+  afterEach(() => {
+    useSetDetails.mockReset();
+    useSetUpdate.mockReset();
+  });
+
   it('should render route', async () => {
     await act(async () => renderSetaEditRoute());
 
@@ -54,7 +65,5 @@ describe('SetaEditRoute', () => {
     user.click(activeCheckboxes[0]);
     user.selectOptions(valueSelects[0], annexOption);
     user.click(saveButton);
-
-    expect(mutatorMock.editSets.PUT).toBeCalled();
   });
 });

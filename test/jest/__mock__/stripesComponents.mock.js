@@ -21,6 +21,7 @@ jest.mock('@folio/stripes/components', () => ({
     </button>
   )),
   Layer: jest.fn(({ contentLabel, isOpen, children }) => <div contentLabel={contentLabel} isOpen={isOpen}>{children}</div>),
+  Accordion: jest.fn(({ children }) => <div>{children}</div>),
   MultiColumnList: jest.fn(({
     visibleColumns,
     columnMapping,

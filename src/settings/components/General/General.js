@@ -1,11 +1,8 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import {
-  stripesShape,
-  withStripes,
-} from '@folio/stripes/core';
 import { ConfigManager } from '@folio/stripes/smart-components';
+import { useStripes } from '@folio/stripes/core';
 
 import GeneralForm from './components/GeneralForm';
 import {
@@ -19,26 +16,20 @@ import {
   GENERAL_CONFIG_NAME,
 } from '../../constants';
 
-class General extends React.Component {
-  static propTypes = {
-    stripes: stripesShape.isRequired,
-  };
+const General = () => {
+  const stripes = useStripes();
+  const Manager = stripes.connect(ConfigManager);
 
-  constructor(props) {
-    super(props);
-    this.configManager = props.stripes.connect(ConfigManager);
-  }
-
-  getInitialValues(data) {
+  const getInitialValues = (data) => {
     const value = getObjectFromResponseString(data);
 
     return {
       ...value,
       enableOaiService: value.enableOaiService ? convertFromStringToBoolean(value.enableOaiService) : true,
     };
-  }
+  };
 
-  normalize = (data) => {
+  const normalize = (data) => {
     const value = {
       ...data,
       enableOaiService: convertFromBooleanToString(data.enableOaiService),
@@ -47,19 +38,17 @@ class General extends React.Component {
     return dataObjectToString(value);
   };
 
-  render() {
-    return (
-      <this.configManager
-        label={<FormattedMessage id="ui-oai-pmh.settings.general.title" />}
-        moduleName={MODULE_NAME}
-        configName={GENERAL_CONFIG_NAME}
-        getInitialValues={this.getInitialValues}
-        configFormComponent={GeneralForm}
-        stripes={this.props.stripes}
-        onBeforeSave={this.normalize}
-      />
-    );
-  }
-}
+  return (
+    <Manager
+      label={<FormattedMessage id="ui-oai-pmh.settings.general.title" />}
+      moduleName={MODULE_NAME}
+      configName={GENERAL_CONFIG_NAME}
+      getInitialValues={getInitialValues}
+      configFormComponent={GeneralForm}
+      stripes={stripes}
+      onBeforeSave={normalize}
+    />
+  );
+};
 
-export default withStripes(General);
+export default General;

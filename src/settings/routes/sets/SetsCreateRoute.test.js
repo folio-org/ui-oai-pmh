@@ -1,47 +1,53 @@
 import React from 'react';
-import { screen, act } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { screen } from '@testing-library/react';
 import user from '@testing-library/user-event';
 
-import buildStripes from '../../../../test/jest/__mock__/stripesCore.mock';
 import { renderWithRouter, setsFilteringConditions } from '../../../../test/jest/helpers';
-
 import SetsCreateRoute from './SetsCreateRoute';
 import SetsContext from './SetsContext';
+import { useSetDetails } from '../../hooks/useSetDetails';
+import { setDetailsMock } from '../../../../test/jest/helpers/setDetails';
+import { useSetCreate } from '../../hooks/useSetCreate';
 
-const STRIPES = buildStripes();
+jest.mock('../../hooks/useSetCreate');
+jest.mock('../../hooks/useSetDetails');
 
-const history = createMemoryHistory();
+const queryClient = new QueryClient();
 
-const locationMock = {
-  pathname: '/settings/oai-pmh/sets',
-  hash: ''
-};
-
-const mutatorMock = {
-  createSets: {
-    POST: jest.fn(() => Promise.resolve())
-  }
-};
-
-const renderSetCreateRoute = (
-  mutator = mutatorMock
-) => (
+const renderSetCreateRoute = () => (
   renderWithRouter(
-    <SetsContext.Provider value={{ setsFilteringConditions }}>
-      <SetsCreateRoute
-        history={history}
-        location={locationMock}
-        mutator={mutator}
-        stripes={STRIPES}
-      />
-    </SetsContext.Provider>
+    <QueryClientProvider client={queryClient}>
+      <SetsContext.Provider value={{ setsFilteringConditions }}>
+        <SetsCreateRoute />
+      </SetsContext.Provider>
+    </QueryClientProvider>
   )
 );
 
 describe('SetsCreateRoute', () => {
+  const createFn = jest.fn();
+
+  beforeEach(() => {
+    useSetDetails.mockReturnValue({
+      setDetails: setDetailsMock,
+      isSetLoading: false,
+      isError: false,
+    });
+
+    useSetCreate.mockReturnValue({
+      createSet: createFn,
+      isLoading: false,
+    });
+  });
+
+  afterEach(() => {
+    useSetCreate.mockClear();
+    useSetDetails.mockClear();
+  });
+
   it('should render route', async () => {
-    await act(async () => renderSetCreateRoute());
+    renderSetCreateRoute();
 
     const setMameInput = screen.getByRole('textbox', { name: /sets.edit.field.name/ });
     const activeCheckboxes = screen.getAllByRole('checkbox', { name: /field.name.ariaLabel/ });
@@ -54,6 +60,6 @@ describe('SetsCreateRoute', () => {
     user.selectOptions(valueSelects[0], annexOption);
     user.click(saveButton);
 
-    expect(mutatorMock.createSets.POST).toBeCalled();
+    expect(createFn).toBeCalled();
   });
 });

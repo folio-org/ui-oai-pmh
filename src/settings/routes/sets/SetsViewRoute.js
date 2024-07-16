@@ -1,20 +1,16 @@
 import React, {
-  useCallback,
   useContext,
   useState,
-  useEffect,
 } from 'react';
-import PropTypes from 'prop-types';
-import ReactRouterPropTypes from 'react-router-prop-types';
+import { useHistory, useParams } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
+import { useQueryClient } from 'react-query';
 
-import {
-  stripesConnect,
-} from '@folio/stripes/core';
 import {
   LoadingPane,
   ConfirmationModal,
 } from '@folio/stripes/components';
+import { useStripes } from '@folio/stripes/core';
 
 import SetsContext from './SetsContext';
 import {
@@ -23,7 +19,6 @@ import {
 import {
   EntityNotFound,
 } from '../../components/Sets/common';
-
 import {
   getSetsListUrl,
   getSetsEditUrl,
@@ -41,49 +36,56 @@ import {
   FILL_PANE_WIDTH,
   SET_FIELDS,
 } from '../../constants';
+import { useSetDetails } from '../../hooks/useSetDetails';
+import { useSetDelete } from '../../hooks/useSetDelete';
+import { SETS } from '../../hooks/useSets';
 
-const SetsViewRoute = ({
-  history,
-  location,
-  mutator,
-  match: {
-    params: {
-      id,
-    },
-  },
-  stripes,
-}) => {
-  const {
-    setsFilteringConditions,
-  } = useContext(SetsContext);
 
-  const [sets, setSets] = useState({});
-  const [isLoaded, setIsLoaded] = useState(true);
-  const [isFailed, setIsFailed] = useState(true);
-  const [isConfirmDeleteSetsModalOpen, setConfirmDeleteSetsModalOpen] = useState(false);
-
+const SetsViewRoute = () => {
+  const { setsFilteringConditions } = useContext(SetsContext);
+  const queryClient = useQueryClient();
+  const showCallout = useCallout();
+  const stripes = useStripes();
+  const { id } = useParams();
+  const history = useHistory();
+  const { search } = history.location;
   const showActionMenu = stripes.hasPerm('ui-oai-pmh.edit');
 
-  const showCallout = useCallout();
+  const [isConfirmDeleteSetsModalOpen, setConfirmDeleteSetsModalOpen] = useState(false);
 
-  useEffect(
-    () => {
-      setIsLoaded(false);
-      setIsFailed(false);
-      mutator.viewSets.GET()
-        .then(setResponse => setSets({
-          ...generalInformationToViewData(setResponse),
-          ...metaDataToViewData(setResponse),
-          [SET_FIELDS.FILTERING_CONDITIONS]: setResponse[SET_FIELDS.FILTERING_CONDITIONS],
-        }))
-        .then(() => setIsLoaded(true))
-        .catch(() => {
-          setIsLoaded(true);
-          setIsFailed(true);
-        });
+  const { setDetails, isError, isSetLoading } = useSetDetails(id);
+  const { deleteSet } = useSetDelete({
+    onSuccess: () => {
+      showCallout({
+        message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.deleted" />
+      });
+      history.replace({
+        pathname: getSetsListUrl(),
+        search,
+      });
+
+      queryClient.invalidateQueries(SETS);
     },
-    [setsFilteringConditions, id],
-  );
+    onError: ({ status }) => {
+      if (status === ENTITY_NOT_FOUND_STATUS_CODE) {
+        showCallout({
+          type: CALLOUT_ERROR_TYPE,
+          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.failedToDelete.delete" />,
+        });
+      } else {
+        showCallout({
+          type: CALLOUT_ERROR_TYPE,
+          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem.delete" />,
+        });
+      }
+    },
+  });
+
+  const sets = setDetails ? {
+    ...generalInformationToViewData(setDetails),
+    ...metaDataToViewData(setDetails),
+    [SET_FIELDS.FILTERING_CONDITIONS]: setDetails[SET_FIELDS.FILTERING_CONDITIONS],
+  } : {};
 
   const getTitle = () => (
     <FormattedMessage
@@ -94,55 +96,35 @@ const SetsViewRoute = ({
 
   const confirmationModal = () => setConfirmDeleteSetsModalOpen(!isConfirmDeleteSetsModalOpen);
 
-  const onEdit = useCallback(() => {
-    history.push(getSetsEditUrl(id, location.search));
-  }, [location.search, history, id]);
+  const onEdit = () => {
+    history.push(getSetsEditUrl(id, search));
+  };
 
-  const onDuplicate = useCallback(() => {
-    history.push(getSetsDuplicateUrl(id, location.search));
-  }, [location.search, history, id]);
+  const onDuplicate = () => {
+    history.push(getSetsDuplicateUrl(id, search));
+  };
 
   const onDelete = () => {
     setConfirmDeleteSetsModalOpen(false);
-    mutator.viewSets.DELETE({ id })
-      .then(() => {
-        showCallout({
-          message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.deleted" />
-        });
-        history.replace({
-          pathname: getSetsListUrl(),
-          search: location.search,
-        });
-      })
-      .catch(({ status }) => {
-        if (status === ENTITY_NOT_FOUND_STATUS_CODE) {
-          showCallout({
-            type: CALLOUT_ERROR_TYPE,
-            message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.failedToDelete.delete" />,
-          });
-        } else {
-          showCallout({
-            type: CALLOUT_ERROR_TYPE,
-            message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem.delete" />,
-          });
-        }
-      });
+
+    deleteSet(id);
   };
 
-  const onBackToList = useCallback(() => {
+  const onBackToList = () => {
     history.push({
       pathname:  getSetsListUrl(),
-      search: location.search,
+      search,
     });
-  }, [history, location.search]);
+  };
 
-  if (!isLoaded) {
+
+  if (isSetLoading) {
     return (
       <LoadingPane defaultWidth={DEFAULT_PANE_WIDTH} />
     );
   }
 
-  if (isFailed) {
+  if (isError) {
     return (
       <EntityNotFound
         pageTitleTranslationKey="ui-oai-pmh.settings.sets.view.notFound.title"
@@ -182,33 +164,4 @@ const SetsViewRoute = ({
   );
 };
 
-SetsViewRoute.manifest = Object.freeze({
-  viewSets: {
-    type: 'okapi',
-    path: 'oai-pmh/sets/:{id}',
-    clientGeneratePk: false,
-    throwErrors: false,
-    accumulate: 'true',
-    fetch: false,
-    DELETE: {
-      path: 'oai-pmh/sets/:{id}',
-    },
-  },
-});
-
-SetsViewRoute.propTypes = {
-  history: ReactRouterPropTypes.history.isRequired,
-  location: ReactRouterPropTypes.location.isRequired,
-  match: ReactRouterPropTypes.match.isRequired,
-  stripes: PropTypes.shape({
-    hasPerm: PropTypes.func.isRequired,
-  }).isRequired,
-  mutator: PropTypes.shape({
-    viewSets: PropTypes.shape({
-      DELETE: PropTypes.func.isRequired,
-      GET: PropTypes.func.isRequired,
-    })
-  }),
-};
-
-export default stripesConnect(SetsViewRoute);
+export default SetsViewRoute;

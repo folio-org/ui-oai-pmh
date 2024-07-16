@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 
-import {
-  IntlConsumer,
-} from '@folio/stripes/core';
 import {
   Pane,
   PaneFooter,
   Select,
 } from '@folio/stripes/components';
 import stripesFinalForm from '@folio/stripes/final-form';
+import { useStripes } from '@folio/stripes/core';
 
 import {
   OaiNotificationWrapper,
@@ -20,10 +19,9 @@ import {
   DEFAULT_PANE_WIDTH,
   BEHAVIOR_FORM_NAME,
 } from '../../../constants';
-
 import css from '../../common/Form.css';
 
-const deletedRecordsSupportSelectValues = ({ formatMessage }) => [
+const deletedRecordsSupportSelectValues = (formatMessage) => [
   {
     value: 'no',
     label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.deletedRecordsSupport.no' }),
@@ -38,7 +36,7 @@ const deletedRecordsSupportSelectValues = ({ formatMessage }) => [
   },
 ];
 
-const suppressedRecordsProcessingSelectValues = ({ formatMessage }) => [
+const suppressedRecordsProcessingSelectValues = (formatMessage) => [
   {
     value: 'true',
     label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.suppressedRecordsProcessing.true' }),
@@ -49,7 +47,7 @@ const suppressedRecordsProcessingSelectValues = ({ formatMessage }) => [
   },
 ];
 
-const errorsProcessingSelectValues = ({ formatMessage }) => [
+const errorsProcessingSelectValues = (formatMessage) => [
   {
     value: '200',
     label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.errorsProcessing.200' }),
@@ -60,7 +58,7 @@ const errorsProcessingSelectValues = ({ formatMessage }) => [
   },
 ];
 
-const recordsSource = ({ formatMessage }) => [
+const recordsSource = (formatMessage) => [
   {
     value: 'Source record storage',
     label: formatMessage({ id: 'ui-oai-pmh.settings.behavior.record.storage' })
@@ -75,25 +73,17 @@ const recordsSource = ({ formatMessage }) => [
   }
 ];
 
-class BehaviorForm extends Component {
-  static propTypes = {
-    label: PropTypes.node.isRequired,
-    pristine: PropTypes.bool,
-    submitting: PropTypes.bool,
-    handleSubmit: PropTypes.func.isRequired,
-    stripes: PropTypes.shape({
-      hasPerm: PropTypes.func.isRequired,
-    }).isRequired,
-  };
+const BehaviorForm = ({
+  label,
+  pristine,
+  submitting,
+  handleSubmit
+}) => {
+  const stripes = useStripes();
+  const { formatMessage } = useIntl();
 
-  renderFooter = () => {
-    const {
-      pristine,
-      submitting,
-      stripes,
-    } = this.props;
+  const renderFooter = () => {
     const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.edit');
-
     return (
       <PaneFooter
         renderEnd={(
@@ -107,67 +97,63 @@ class BehaviorForm extends Component {
     );
   };
 
-  render() {
-    const {
-      label,
-      handleSubmit,
-    } = this.props;
+  return (
+    <form
+      id={BEHAVIOR_FORM_NAME}
+      noValidate
+      className={css.form}
+      onSubmit={handleSubmit}
+    >
+      <Pane
+        defaultWidth={DEFAULT_PANE_WIDTH}
+        fluidContentWidth
+        paneTitle={label}
+        footer={renderFooter()}
+      >
+        <OaiNotificationWrapper />
+        <RowComponent
+          data-test-deleted-records-support
+          id="deletedRecordsSupport"
+          label="ui-oai-pmh.settings.behavior.label.deletedRecordsSupport"
+          tooltip="ui-oai-pmh.settings.behavior.tooltip.deletedRecordsSupport"
+          dataOptions={deletedRecordsSupportSelectValues(formatMessage)}
+          component={Select}
+        />
+        <RowComponent
+          data-test-suppressed-records-processing
+          id="suppressedRecordsProcessing"
+          label="ui-oai-pmh.settings.behavior.label.suppressedRecordsProcessing"
+          tooltip="ui-oai-pmh.settings.behavior.tooltip.suppressedRecordsProcessing"
+          dataOptions={suppressedRecordsProcessingSelectValues(formatMessage)}
+          component={Select}
+        />
+        <RowComponent
+          data-test-errors-processing
+          id="errorsProcessing"
+          label="ui-oai-pmh.settings.behavior.label.errorsProcessing"
+          tooltip="ui-oai-pmh.settings.behavior.tooltip.errorsProcessing"
+          dataOptions={errorsProcessingSelectValues(formatMessage)}
+          component={Select}
+        />
+        <RowComponent
+          data-test-errors-processing
+          id="recordsSource"
+          label="ui-oai-pmh.settings.behavior.label.recordSource"
+          tooltip="ui-oai-pmh.settings.behavior.tooltip.recordSource"
+          dataOptions={recordsSource(formatMessage)}
+          component={Select}
+        />
+      </Pane>
+    </form>
+  );
+};
 
-    return (
-      <IntlConsumer>
-        {intl => (
-          <form
-            id={BEHAVIOR_FORM_NAME}
-            noValidate
-            className={css.form}
-            onSubmit={handleSubmit}
-          >
-            <Pane
-              defaultWidth={DEFAULT_PANE_WIDTH}
-              fluidContentWidth
-              paneTitle={label}
-              footer={this.renderFooter()}
-            >
-              <OaiNotificationWrapper />
-              <RowComponent
-                data-test-deleted-records-support
-                id="deletedRecordsSupport"
-                label="ui-oai-pmh.settings.behavior.label.deletedRecordsSupport"
-                tooltip="ui-oai-pmh.settings.behavior.tooltip.deletedRecordsSupport"
-                dataOptions={deletedRecordsSupportSelectValues(intl)}
-                component={Select}
-              />
-              <RowComponent
-                data-test-suppressed-records-processing
-                id="suppressedRecordsProcessing"
-                label="ui-oai-pmh.settings.behavior.label.suppressedRecordsProcessing"
-                tooltip="ui-oai-pmh.settings.behavior.tooltip.suppressedRecordsProcessing"
-                dataOptions={suppressedRecordsProcessingSelectValues(intl)}
-                component={Select}
-              />
-              <RowComponent
-                data-test-errors-processing
-                id="errorsProcessing"
-                label="ui-oai-pmh.settings.behavior.label.errorsProcessing"
-                tooltip="ui-oai-pmh.settings.behavior.tooltip.errorsProcessing"
-                dataOptions={errorsProcessingSelectValues(intl)}
-                component={Select}
-              />
-              <RowComponent
-                data-test-errors-processing
-                id="recordsSource"
-                label="ui-oai-pmh.settings.behavior.label.recordSource"
-                tooltip="ui-oai-pmh.settings.behavior.tooltip.recordSource"
-                dataOptions={recordsSource(intl)}
-                component={Select}
-              />
-            </Pane>
-          </form>
-        )}
-      </IntlConsumer>
-    );
-  }
-}
+BehaviorForm.propTypes = {
+  label: PropTypes.node.isRequired,
+  pristine: PropTypes.bool,
+  submitting: PropTypes.bool,
+  handleSubmit: PropTypes.func.isRequired,
+};
 
 export default stripesFinalForm({
   navigationCheck: true,
