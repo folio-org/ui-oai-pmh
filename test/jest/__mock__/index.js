@@ -6,3 +6,4 @@ import './stripesComponents.mock';
 import './currencyData.mock';
 import './reactIntl.mock';
 import './resizeObserver.mock';
+import './stripesProfilePicture.mock';
