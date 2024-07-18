@@ -2,9 +2,8 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 
 import '../../test/jest/__mock__';
-
-import OaiPmhSettings from '.';
 import { renderWithRouter } from '../../test/jest/helpers';
+import OaiPmhSettings from '.';
 
 const stripesMock = {
   config:{

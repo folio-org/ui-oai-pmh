@@ -3,9 +3,8 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 
 import '../test/jest/__mock__';
-
-import OaiPmh from '.';
 import { renderWithRouter } from '../test/jest/helpers';
+import OaiPmh from '.';
 
 const locationMock = {
   pathname: 'pathname',
