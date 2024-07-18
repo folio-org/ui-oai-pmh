@@ -1,28 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import ReactRouterPropTypes from 'react-router-prop-types';
+import { useHistory } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
-import { stripesConnect } from '@folio/stripes/core';
 import {
   PaneMenu,
   Button,
 } from '@folio/stripes/components';
+import { useStripes } from '@folio/stripes/core';
 
-import {
-  getSetsCreateUrl,
-} from '../../../../util';
+import { getSetsCreateUrl } from '../../../../util';
 
-const LastMenu = ({
-  history,
-  location,
-  stripes,
-}) => {
+
+const LastMenu = () => {
+  const stripes = useStripes();
+  const history = useHistory();
+
   const navigateToCreate = () => history.push({
     pathname: getSetsCreateUrl(),
-    search: location.search
+    search: history.location.search
   });
+
   const showActionMenu = stripes.hasPerm('ui-oai-pmh.edit');
 
   return showActionMenu ? (
@@ -44,12 +41,4 @@ const LastMenu = ({
   ) : null;
 };
 
-LastMenu.propTypes = {
-  history: ReactRouterPropTypes.history.isRequired,
-  location: ReactRouterPropTypes.location.isRequired,
-  stripes: PropTypes.shape({
-    hasPerm: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
-export default withRouter(stripesConnect(LastMenu));
+export default LastMenu;

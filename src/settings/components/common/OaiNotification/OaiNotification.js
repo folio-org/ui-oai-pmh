@@ -1,28 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import css from './OaiNotification.css';
 
-export default class OaiNotification extends Component {
-  static propTypes = {
-    isOaiServiceEnabled: PropTypes.bool.isRequired,
-  };
+const OaiNotification = ({ isOaiServiceEnabled }) => {
+  return (
+    !isOaiServiceEnabled && (
+      <div
+        className={css.oaiNotification}
+        data-testid="oai-notification"
+      >
+        <FormattedMessage id="ui-oai-pmh.settings.all.oaiServiceIsDisabled" />
+      </div>
+    )
+  );
+};
 
-  render() {
-    const {
-      isOaiServiceEnabled,
-    } = this.props;
+OaiNotification.propTypes = {
+  isOaiServiceEnabled: PropTypes.bool.isRequired,
+};
 
-    return (
-      !isOaiServiceEnabled && (
-        <div
-          className={css.oaiNotification}
-          data-testid="oai-notification"
-        >
-          <FormattedMessage id="ui-oai-pmh.settings.all.oaiServiceIsDisabled" />
-        </div>
-      )
-    );
-  }
-}
+export default OaiNotification;

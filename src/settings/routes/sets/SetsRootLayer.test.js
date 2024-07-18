@@ -1,37 +1,39 @@
 import React from 'react';
-import { screen, act } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-import buildStripes from '../../../../test/jest/__mock__/stripesCore.mock';
-import { renderWithRouter, setsFilteringConditions } from '../../../../test/jest/helpers';
-
+import { renderWithRouter } from '../../../../test/jest/helpers';
 import SetsRootLayer from './SetsRootLayer';
+import { useFilteringConditions } from '../../hooks/useFilteringConditions';
 
-const STRIPES = buildStripes();
+jest.mock('../../hooks/useFilteringConditions');
 
-const mutatorMock = {
-  setsFilteringConditions: {
-    GET: jest.fn(() => Promise.resolve()).mockResolvedValue(setsFilteringConditions)
-  }
-};
+const queryClient = new QueryClient();
 
-const renderSetRootLayerRoute = (
-  children,
-  mutator = mutatorMock,
-) => (
+const renderSetRootLayerRoute = () => (
   renderWithRouter(
-    <SetsRootLayer
-      mutator={mutator}
-      stripes={STRIPES}
-    >
-      {children}
-    </SetsRootLayer>
+    <QueryClientProvider client={queryClient}>
+      <SetsRootLayer>
+        <div data-testid="children-component">Children Component</div>
+      </SetsRootLayer>
+    </QueryClientProvider>
   )
 );
 
-const childrenComponent = <div data-testid="children-component">Children Component</div>;
 describe('SetsRootLayer', () => {
+  beforeEach(() => {
+    useFilteringConditions.mockReturnValue({
+      conditions: [],
+      isFilteringConditionsLoading: false,
+    });
+  });
+
+  afterEach(() => {
+    useFilteringConditions.mockClear();
+  });
+
   it('should render route', async () => {
-    await act(async () => renderSetRootLayerRoute(childrenComponent));
+    renderSetRootLayerRoute();
 
     expect(screen.getByTestId('children-component')).toBeVisible();
   });

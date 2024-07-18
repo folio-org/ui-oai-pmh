@@ -1,42 +1,25 @@
-import React, { Component } from 'react';
-import { get } from 'lodash';
+import React from 'react';
 
-import { stripesConnect } from '@folio/stripes/core';
-
-import {
-  getObjectFromResponseString,
-  convertFromStringToBoolean,
-} from '../../util';
-import {
-  MODULE_NAME,
-  GENERAL_CONFIG_NAME,
-} from '../../constants';
-
+import { getObjectFromResponseString, convertFromStringToBoolean } from '../../util';
 import OaiNotification from './OaiNotification/OaiNotification';
+import { useConfigurations } from '../../hooks/useConfigurations';
+import { GENERAL_CONFIG_NAME, MODULE_NAME } from '../../constants';
 
-class OaiNotificationWrapper extends Component {
-  static manifest = Object.freeze({
-    oaiService: {
-      type: 'okapi',
-      records: 'configs',
-      accumulate: 'true',
-      path: `configurations/entries?query=(module=${MODULE_NAME} and configName=${GENERAL_CONFIG_NAME})`,
-    },
+
+const OaiNotificationWrapper = () => {
+  const { configs } = useConfigurations({
+    module: MODULE_NAME,
+    configName: GENERAL_CONFIG_NAME
   });
 
-  isOaiServiceEnabled = () => {
-    const value = getObjectFromResponseString(get(this.props, ['resources', 'oaiService', 'records']));
+  const value = getObjectFromResponseString(configs);
+  const isOaiServiceEnabled = convertFromStringToBoolean(value.enableOaiService);
 
-    return convertFromStringToBoolean(value.enableOaiService);
-  }
+  return (
+    <OaiNotification
+      isOaiServiceEnabled={isOaiServiceEnabled}
+    />
+  );
+};
 
-  render() {
-    return (
-      <OaiNotification
-        isOaiServiceEnabled={this.isOaiServiceEnabled()}
-      />
-    );
-  }
-}
-
-export default stripesConnect(OaiNotificationWrapper);
+export default OaiNotificationWrapper;

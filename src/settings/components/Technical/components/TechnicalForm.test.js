@@ -1,28 +1,38 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import { runAxeTest } from '@folio/stripes-testing';
 
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import '../../../../../test/jest/__mock__';
 import TechnicalForm from './TechnicalForm';
-
-const stripes = {
-  hasPerm: () => true
-};
+import { useConfigurations } from '../../../hooks/useConfigurations';
 
 const onSubmitMock = jest.fn();
 const labelText = 'ui-oai-pmh.settings.technical.title';
 
+jest.mock('../../../hooks/useConfigurations');
+
 const renderTechincalForm = () => renderWithRouter(
   <TechnicalForm
-    stripes={stripes}
     onSubmit={onSubmitMock}
     label={labelText}
   />
 );
 
 describe('Technical form', () => {
+  beforeEach(() => {
+    useConfigurations.mockReturnValue({
+      configs: [],
+      isConfigurationLoading: false,
+    });
+  });
+
+  afterEach(() => {
+    useConfigurations.mockClear();
+  });
+
   it('should be correct behavior title', () => {
     renderTechincalForm();
 

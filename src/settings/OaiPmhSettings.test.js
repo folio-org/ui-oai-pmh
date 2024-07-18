@@ -1,8 +1,8 @@
 import React from 'react';
-import { screen, render } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 
 import '../../test/jest/__mock__';
-
+import { renderWithRouter } from '../../test/jest/helpers';
 import OaiPmhSettings from '.';
 
 const stripesMock = {
@@ -11,7 +11,7 @@ const stripesMock = {
   }
 };
 
-const renderOaiPhmSettings = (location) => render(
+const renderOaiPhmSettings = (location) => renderWithRouter(
   <OaiPmhSettings location={location} stripes={stripesMock} />
 );
 

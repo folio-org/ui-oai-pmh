@@ -1,55 +1,53 @@
 import React from 'react';
-import { screen, act } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
-import user from '@testing-library/user-event';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import userEvent from '@testing-library/user-event';
+import { screen } from '@testing-library/react';
 
-import buildStripes from '../../../../test/jest/__mock__/stripesCore.mock';
 import { renderWithRouter, setsFilteringConditions } from '../../../../test/jest/helpers';
-
 import SetsDuplicateRoute from './SetsDuplicateRoute';
 import SetsContext from './SetsContext';
+import { useSetCreate } from '../../hooks/useSetCreate';
+import { useSetDetails } from '../../hooks/useSetDetails';
+import { setDetailsMock } from '../../../../test/jest/helpers/setDetails';
 
-const STRIPES = buildStripes();
+jest.mock('../../hooks/useSetCreate');
+jest.mock('../../hooks/useSetDetails');
 
-const history = createMemoryHistory();
+const queryClient = new QueryClient();
 
-const locationMock = {
-  pathname: '/settings/oai-pmh/sets/6d18cafb-d498-4bb4-b69d-57d0e4a50254',
-  hash: ''
-};
-
-const mutatorMock = {
-  duplicateSets: {
-    POST: jest.fn(() => Promise.resolve()),
-    GET: jest.fn(() => Promise.resolve()).mockResolvedValue(true)
-  }
-};
-
-const matchMock = {
-  params: {
-    id: '6d18cafb-d498-4bb4-b69d-57d0e4a50254'
-  },
-};
-
-const renderSetsDuplicateRoute = (
-  mutator = mutatorMock
-) => (
+const renderSetsDuplicateRoute = () => (
   renderWithRouter(
-    <SetsContext.Provider value={{ setsFilteringConditions }}>
-      <SetsDuplicateRoute
-        history={history}
-        location={locationMock}
-        mutator={mutator}
-        stripes={STRIPES}
-        match={matchMock}
-      />
-    </SetsContext.Provider>
+    <QueryClientProvider client={queryClient}>
+      <SetsContext.Provider value={{ setsFilteringConditions }}>
+        <SetsDuplicateRoute />
+      </SetsContext.Provider>
+    </QueryClientProvider>
   )
 );
 
 describe('SetsDuplicateRoute', () => {
+  const createFn = jest.fn();
+
+  beforeEach(() => {
+    useSetDetails.mockReturnValue({
+      setDetails: setDetailsMock,
+      isSetLoading: false,
+      isError: false,
+    });
+
+    useSetCreate.mockReturnValue({
+      createSet: createFn,
+      isLoading: false,
+    });
+  });
+
+  afterEach(() => {
+    useSetCreate.mockClear();
+    useSetDetails.mockClear();
+  });
+
   it('should render route', async () => {
-    await act(async () => renderSetsDuplicateRoute());
+    renderSetsDuplicateRoute();
 
     const setMameInput = screen.getByRole('textbox', { name: /sets.edit.field.name/ });
     const activeCheckboxes = screen.getAllByRole('checkbox', { name: /field.name.ariaLabel/ });
@@ -57,11 +55,11 @@ describe('SetsDuplicateRoute', () => {
     const annexOption = screen.getByRole('option', { name: 'Annex' });
     const saveButton = screen.getByRole('button', { name: /saveAndClose/ });
 
-    user.type(setMameInput, 'test name');
-    user.click(activeCheckboxes[0]);
-    user.selectOptions(valueSelects[0], annexOption);
-    user.click(saveButton);
+    userEvent.type(setMameInput, 'test');
+    userEvent.click(activeCheckboxes[0]);
+    userEvent.selectOptions(valueSelects[0], annexOption);
+    userEvent.click(saveButton);
 
-    expect(mutatorMock.duplicateSets.POST).toBeCalled();
+    expect(createFn).toBeCalled();
   });
 });

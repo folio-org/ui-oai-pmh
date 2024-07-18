@@ -1,6 +1,4 @@
-import React, {
-  useCallback,
-} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -41,9 +39,7 @@ const SetsView = ({
   onEdit,
   setsFilteringConditions,
 }) => {
-  const getFirstMenu = useCallback(() => (
-    <FirstMenu onClickHandler={onBack} />
-  ), [onBack]);
+  const getFirstMenu = () => <FirstMenu onClickHandler={onBack} />;
 
   // eslint-disable-next-line react/prop-types
   const getActionMenu = ({ onToggle }) => {

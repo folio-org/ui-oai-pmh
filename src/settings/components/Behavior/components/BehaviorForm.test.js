@@ -6,17 +6,16 @@ import { runAxeTest } from '@folio/stripes-testing';
 import '../../../../../test/jest/__mock__';
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import BehaviorForm from './BehaviorForm';
-
-const stripes = {
-  hasPerm: jest.fn(() => true)
-};
+import { useConfigurations } from '../../../hooks/useConfigurations';
 
 const onSubmitMock = jest.fn();
 const labelText = 'ui-oai-pmh.settings.behavior.title';
 
+
+jest.mock('../../../hooks/useConfigurations');
+
 const renderBehaviorForm = () => renderWithRouter(
   <BehaviorForm
-    stripes={stripes}
     onSubmit={onSubmitMock}
     label={labelText}
     submitting
@@ -25,6 +24,17 @@ const renderBehaviorForm = () => renderWithRouter(
 );
 
 describe('Behavior form', () => {
+  beforeEach(() => {
+    useConfigurations.mockReturnValue({
+      configs: [],
+      isConfigurationLoading: false,
+    });
+  });
+
+  afterEach(() => {
+    useConfigurations.mockClear();
+  });
+
   it('should be correct behavior title', () => {
     renderBehaviorForm();
 

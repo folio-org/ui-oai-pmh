@@ -1,18 +1,15 @@
 import React, {
-  useCallback,
   useContext,
   useMemo,
 } from 'react';
-import PropTypes from 'prop-types';
-import ReactRouterPropTypes from 'react-router-prop-types';
 import {
   FormattedMessage,
   useIntl,
 } from 'react-intl';
+import { useHistory } from 'react-router-dom';
+import { useQueryClient } from 'react-query';
 
-import {
-  stripesConnect,
-} from '@folio/stripes/core';
+import { useStripes } from '@folio/stripes/core';
 
 import {
   SetsForm,
@@ -36,55 +33,58 @@ import {
   SET_FIELDS_INITIAL_VALUES,
 } from '../../constants';
 import SetsContext from './SetsContext';
+import { useSetCreate } from '../../hooks/useSetCreate';
+import { SETS } from '../../hooks/useSets';
 
-const SetsCreateRoute = ({
-  history,
-  location,
-  mutator,
-  stripes,
-}) => {
+
+const SetsCreateRoute = () => {
+  const queryClient = useQueryClient();
   const intl = useIntl();
-  const {
-    setsFilteringConditions,
-  } = useContext(SetsContext);
+  const history = useHistory();
+  const showCallout = useCallout();
+  const stripes = useStripes();
+  const { setsFilteringConditions } = useContext(SetsContext);
+
+  const { search } = history.location;
+
+  const { createSet } = useSetCreate({
+    onSuccess: (response) => {
+      showCallout({
+        message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
+      });
+      history.push({
+        pathname: getSetsViewUrl(response[SET_FIELDS.ID]),
+        search,
+      });
+
+      queryClient.invalidateQueries(SETS);
+    },
+    onError: (errors) => handleErrorResponse(errors, showCallout),
+  });
 
   const getFilteringConditionsDataOptions = useMemo(() => (
     filteringConditionsDataOptions(setsFilteringConditions, intl)
   ), [setsFilteringConditions]);
 
-  const getTitle = () => <FormattedMessage id="ui-oai-pmh.settings.sets.new.title" />;
-
-  const showCallout = useCallout();
-
-  const onSubmit = useCallback((values) => {
+  const onSubmit = (values) => {
     if (!isFilteringConditionsFilled(values.filteringConditions)) {
       showCallout({
         type: CALLOUT_ERROR_TYPE,
         message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.validationError.empty.setSpec" />,
       });
     } else {
-      mutator.createSets.POST({
-        ...setInformationToViewData(values),
-      })
-        .then((response) => {
-          showCallout({
-            message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.created" />,
-          });
-          history.push({
-            pathname: getSetsViewUrl(response[SET_FIELDS.ID]),
-            search: location.search,
-          });
-        })
-        .catch((errors) => handleErrorResponse(errors, showCallout));
+      createSet(setInformationToViewData(values));
     }
-  }, [showCallout, location.search, history, mutator.createSets]);
+  };
 
-  const onBack = useCallback(() => {
+  const onBack = () => {
     history.push({
       pathname: getSetsListUrl(),
-      search: location.search,
+      search,
     });
-  }, [history, location.search]);
+  };
+
+  const getTitle = () => <FormattedMessage id="ui-oai-pmh.settings.sets.new.title" />;
 
   return (
     <SetsForm
@@ -101,27 +101,4 @@ const SetsCreateRoute = ({
   );
 };
 
-SetsCreateRoute.manifest = Object.freeze({
-  createSets: {
-    type: 'okapi',
-    path: 'oai-pmh/sets',
-    clientGeneratePk: false,
-    throwErrors: false,
-    fetch: false,
-  },
-});
-
-SetsCreateRoute.propTypes = {
-  history: ReactRouterPropTypes.history.isRequired,
-  location: ReactRouterPropTypes.location.isRequired,
-  mutator: PropTypes.shape({
-    createSets: PropTypes.shape({
-      POST: PropTypes.func.isRequired,
-    }),
-  }),
-  stripes: PropTypes.shape({
-    hasPerm: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
-export default stripesConnect(SetsCreateRoute);
+export default SetsCreateRoute;

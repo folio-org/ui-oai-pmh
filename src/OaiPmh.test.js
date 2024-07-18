@@ -1,8 +1,9 @@
 import React from 'react';
-import { screen, render } from '@testing-library/react';
+
+import { screen } from '@testing-library/react';
 
 import '../test/jest/__mock__';
-
+import { renderWithRouter } from '../test/jest/helpers';
 import OaiPmh from '.';
 
 const locationMock = {
@@ -11,7 +12,7 @@ const locationMock = {
   hash: '',
 };
 
-const renderOaiPhmSettings = () => render(
+const renderOaiPhmSettings = () => renderWithRouter(
   <OaiPmh
     stripes={{ hasPerm: jest.fn().mockReturnValue(true),
       config:{

@@ -1,64 +1,51 @@
-import React, { useState as useStateMock } from 'react';
-import { render, screen } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
+import React from 'react';
+import { screen } from '@testing-library/react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import '../../../../test/jest/__mock__';
 
 import SetsListRoute from './SetsListRoute';
-import SetList from '../../components/Sets/SetsList/SetsList';
+import { useSets } from '../../hooks/useSets';
+import { renderWithRouter } from '../../../../test/jest/helpers';
 
 jest.mock('../../components/Sets/SetsList/SetsList', () => {
   return jest.fn(() => <div>SetsList</div>);
 });
 
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useState: jest.fn(),
-}));
+jest.mock('../../hooks/useSets');
 
-const locationMock = {
-  pathname: '/settings/oai-pmh/sets',
-  hash: ''
-};
-
-const mutatorMock = {
-  setsRecords: {
-    GET: jest.fn(() => Promise.resolve({
-      limit: 100,
-      offset: 1,
-    }))
-  }
-};
 
 const childrenMock = () => <div>TextForm</div>;
 
-const renderSetListRoute = (
-  history,
-  mutator = mutatorMock,
-) => {
-  return render(
-    <SetsListRoute
-      history={history}
-      mutator={mutator}
-      location={locationMock}
-    >
-      {childrenMock}
-    </SetsListRoute>
+const queryClient = new QueryClient();
+
+const renderSetListRoute = () => {
+  return renderWithRouter(
+    <QueryClientProvider client={queryClient}>
+      <SetsListRoute>
+        {childrenMock}
+      </SetsListRoute>
+    </QueryClientProvider>
   );
 };
 
 describe('SetsListRoute component', () => {
-  let history;
-  const setState = jest.fn();
-
   beforeEach(() => {
-    SetList.mockClear();
-    history = createMemoryHistory();
-    useStateMock.mockImplementation(init => [init, setState]);
+    useSets.mockReturnValue({
+      sets: [],
+      totalRecords: 0,
+      isSetsLoading: false,
+      fetchNextPage: jest.fn(),
+      hasNextPage: false,
+    });
+  });
+
+  afterEach(() => {
+    useSets.mockClear();
   });
 
   it('should show SetsList', () => {
-    renderSetListRoute(history, mutatorMock, childrenMock);
+    renderSetListRoute();
 
     expect(screen.getByText('SetsList')).toBeVisible();
   });

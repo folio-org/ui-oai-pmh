@@ -5,10 +5,6 @@ import React, {
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import {
-  stripesConnect,
-} from '@folio/stripes/core';
-
 import SetsContext from './SetsContext';
 import {
   useCallout,
@@ -16,29 +12,27 @@ import {
 import {
   CALLOUT_ERROR_TYPE,
 } from '../../constants';
+import { useFilteringConditions } from '../../hooks/useFilteringConditions';
 
-const SetsRootLayer = ({
-  children,
-  mutator,
-}) => {
-  const [setsFilteringConditions, setSetsFilteringConditions] = useState([]);
-
+const SetsRootLayer = ({ children }) => {
   const showCallout = useCallout();
 
-  useEffect(
-    () => {
-      mutator.setsFilteringConditions.GET()
-        .then(response => {
-          setSetsFilteringConditions(response.setsFilteringConditions);
-        })
-        .catch(() => {
-          showCallout({
-            type: CALLOUT_ERROR_TYPE,
-            message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem.get" />,
-          });
-        });
-    }, [showCallout]
-  );
+  const { conditions } = useFilteringConditions({
+    onError: () => {
+      showCallout({
+        type: CALLOUT_ERROR_TYPE,
+        message: <FormattedMessage id="ui-oai-pmh.settings.sets.callout.connectionProblem.get" />,
+      });
+    },
+  });
+
+  const [setsFilteringConditions, setSetsFilteringConditions] = useState([]);
+
+  useEffect(() => {
+    if (conditions?.length > 0) {
+      setSetsFilteringConditions(conditions);
+    }
+  }, [conditions]);
 
   return (
     <SetsContext.Provider value={{ setsFilteringConditions }}>
@@ -47,22 +41,8 @@ const SetsRootLayer = ({
   );
 };
 
-SetsRootLayer.manifest = Object.freeze({
-  setsFilteringConditions: {
-    type: 'okapi',
-    path: 'oai-pmh/filtering-conditions',
-    accumulate: 'true',
-    fetch: false,
-  },
-});
-
 SetsRootLayer.propTypes = {
   children: PropTypes.node.isRequired,
-  mutator: PropTypes.shape({
-    setsFilteringConditions: PropTypes.shape({
-      GET: PropTypes.func.isRequired,
-    }),
-  }),
 };
 
-export default stripesConnect(SetsRootLayer);
+export default SetsRootLayer;
