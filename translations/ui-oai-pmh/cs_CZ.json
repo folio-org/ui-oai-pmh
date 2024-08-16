@@ -6,7 +6,7 @@
     "settings.behavior.label.suppressedRecordsProcessing": "Zpracování potlačených záznamů",
     "settings.behavior.tooltip.suppressedRecordsProcessing": "Definuje, zda mají být potlačené záznamy přeskočeny nebo přidány do odpovědi OAI s hodnotou příznaku vyhledávání.",
     "settings.behavior.label.errorsProcessing": "Zpracování chyb OAI-PMH",
-    "settings.behavior.tooltip.errorsProcessing": "Definuje, ke kterým stavům HTTP mají být přiřazeny chyby na úrovni OAI.",
+    "settings.behavior.tooltip.errorsProcessing": "Definuje, se kterými stavy HTTP by měly být spojeny chyby na úrovni OAI.",
     "settings.general.label.enableOaiService": "Povolení služby OAI",
     "settings.general.tooltip.enableOaiService": "Určuje, zda je modul OAI-PMH přístupný pro úložiště FOLIO.",
     "settings.general.label.repositoryName": "Název úložiště",

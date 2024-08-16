@@ -94,7 +94,7 @@
     "settings.sets.edit.filteringConditions.field.value.select.resourceType": "Select resource type",
     "settings.sets.edit.filteringConditions.field.value.select.format": "Select format",
     "settings.sets.edit.filteringConditions.field.value.select.illPolicy": "Fernleihregel auswählen",
-    "settings.sets.edit.filteringConditions.field.value.select.materialType": "Materialart auwählen",
+    "settings.sets.edit.filteringConditions.field.value.select.materialType": "Materialart auswählen",
     "settings.sets.list.field.name": "Name",
     "settings.sets.list.field.setSpec": "Specification",
     "settings.sets.list.field.description": "Description",
