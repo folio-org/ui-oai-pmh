@@ -108,7 +108,7 @@
         "visible": false
       },
       {
-        "permissionName": "ui-oai-pmh.view",
+        "permissionName": "ui-oai-pmh.settings.view",
         "displayName": "Settings (OAI-PMH): Can view",
         "subPermissions": [
           "settings.oai-pmh.enabled",
@@ -117,10 +117,11 @@
           "oai-pmh.filtering-conditions.get",
           "oai-pmh.sets.item.collection.get"
         ],
-        "visible": true
+        "visible": true,
+        "replaces": ["ui-oai-pmh.view"]
       },
       {
-        "permissionName": "ui-oai-pmh.edit",
+        "permissionName": "ui-oai-pmh.settings.edit",
         "displayName": "Settings (OAI-PMH): Can view and edit settings",
         "subPermissions": [
           "ui-oai-pmh.view",
@@ -129,17 +130,19 @@
           "oai-pmh.sets.item.post",
           "oai-pmh.sets.item.delete"
         ],
-        "visible": true
+        "visible": true,
+        "replaces": ["ui-oai-pmh.edit"]
       },
       {
-        "permissionName": "ui-oai-pmh.logs",
+        "permissionName": "ui-oai-pmh.settings.logs.view",
         "displayName": "Settings (OAI-PMH): Can view logs",
         "subPermissions": [
           "ui-oai-pmh.view",
           "oai-pmh.request-metadata.collection.get",
           "oai-pmh.request-metadata.logs.item.get"
         ],
-        "visible": true
+        "visible": true,
+        "replaces": ["ui-oai-pmh.logs"]
       }
     ]
   }
