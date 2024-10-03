@@ -124,7 +124,7 @@
         "permissionName": "ui-oai-pmh.settings.edit",
         "displayName": "Settings (OAI-PMH): Can view and edit settings",
         "subPermissions": [
-          "ui-oai-pmh.view",
+          "ui-oai-pmh.settings.view",
           "configuration.entries.item.put",
           "oai-pmh.sets.item.put",
           "oai-pmh.sets.item.post",
@@ -137,7 +137,7 @@
         "permissionName": "ui-oai-pmh.settings.logs.view",
         "displayName": "Settings (OAI-PMH): Can view logs",
         "subPermissions": [
-          "ui-oai-pmh.view",
+          "ui-oai-pmh.settings.view",
           "oai-pmh.request-metadata.collection.get",
           "oai-pmh.request-metadata.logs.item.get"
         ],
