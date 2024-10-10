@@ -20,7 +20,7 @@ const LastMenu = () => {
     search: history.location.search
   });
 
-  const showActionMenu = stripes.hasPerm('ui-oai-pmh.edit');
+  const showActionMenu = stripes.hasPerm('ui-oai-pmh.settings.edit');
 
   return showActionMenu ? (
     <PaneMenu>

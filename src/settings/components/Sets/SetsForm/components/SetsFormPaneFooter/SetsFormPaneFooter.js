@@ -35,7 +35,7 @@ const SetsFormPaneFooter = ({
       )}
       renderEnd={(
         <SaveButtonTooltipWrapper
-          showTooltip={!stripes.hasPerm('ui-oai-pmh.edit')}
+          showTooltip={!stripes.hasPerm('ui-oai-pmh.settings.edit')}
         >
           <Button
             data-test-save-button
