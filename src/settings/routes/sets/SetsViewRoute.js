@@ -49,7 +49,7 @@ const SetsViewRoute = () => {
   const { id } = useParams();
   const history = useHistory();
   const { search } = history.location;
-  const showActionMenu = stripes.hasPerm('ui-oai-pmh.edit');
+  const showActionMenu = stripes.hasPerm('ui-oai-pmh.settings.edit');
 
   const [isConfirmDeleteSetsModalOpen, setConfirmDeleteSetsModalOpen] = useState(false);
 

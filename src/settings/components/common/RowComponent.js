@@ -19,7 +19,7 @@ const RowComponent = ({
   const stripes = useStripes();
   const rowComponent = useRef(null);
 
-  const hasEditPerm = stripes.hasPerm('ui-oai-pmh.edit');
+  const hasEditPerm = stripes.hasPerm('ui-oai-pmh.settings.edit');
   const fieldPropsAttributeNames = ['id', 'required', 'type', 'component', 'dataOptions'];
   const fieldProps = pick({ id, required: props.required, type: props.type, component, dataOptions }, fieldPropsAttributeNames);
   const dataTest = omit(props, [...fieldPropsAttributeNames, 'label', 'tooltip']);

@@ -47,14 +47,14 @@ const GeneralForm = ({
   const stripes = useStripes();
 
   const renderFooter = () => {
-    const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.edit');
+    const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.settings.edit');
     return (
       <PaneFooter
         renderEnd={
           <SaveButton
             data-test-general-form-button-save
             disabled={disabled}
-            showTooltip={!stripes.hasPerm('ui-oai-pmh.edit')}
+            showTooltip={!stripes.hasPerm('ui-oai-pmh.settings.edit')}
           />
         }
       />

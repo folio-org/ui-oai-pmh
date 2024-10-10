@@ -41,7 +41,7 @@ const OaiPmhSettings = (props) => {
     getPage(GENERAL_ROUTE, GENERAL_CONFIG_NAME, General),
     getPage(TECHNICAL_ROUTE, TECHNICAL_CONFIG_NAME, Technical),
     getPage(BEHAVIOR_ROUTE, BEHAVIOR_CONFIG_NAME, Behavior),
-    getPage(LOGS_ROUTE, LOGS_CONFIG_NAME, Logs, 'ui-oai-pmh.logs'),
+    getPage(LOGS_ROUTE, LOGS_CONFIG_NAME, Logs, 'ui-oai-pmh.settings.logs.view'),
   ], []);
 
   const findLabelByRoute = (path) => {
