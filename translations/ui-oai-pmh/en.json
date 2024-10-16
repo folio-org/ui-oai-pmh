@@ -1,8 +1,8 @@
 {
   "meta.title": "OAI-PMH",
-  "permission.view": "Settings (OAI-PMH): Can view",
-  "permission.edit": "Settings (OAI-PMH): Can view and edit settings",
-  "permission.logs": "Settings (OAI-PMH): Can view logs",
+  "permission.settings.view": "Settings (OAI-PMH): Can view",
+  "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
+  "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs",
 
   "settings.title": "OAI-PMH",
 
