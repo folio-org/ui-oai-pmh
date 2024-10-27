@@ -29,8 +29,6 @@
     "settings.behavior.suppressedRecordsProcessing.true": "Übertragung von unterdrückten Datensätzen mit Discovery-Flag-Wert",
     "settings.behavior.suppressedRecordsProcessing.false": "Überspringe unterdrückte Datensätze mit Discovery-Flag-Wert",
     "settings.behavior.errorsProcessing.200": "Mit HTTP-Status 200 verknüpfen",
-    "permission.view": "Einstellungen (OAI-PMH): Kann anzeigen",
-    "permission.edit": "Settings (OAI-PMH): Can view and edit settings",
     "settings.behavior.errorsProcessing.500": "Mit HTTP-Fehlerstatus verknüpfen",
     "settings.all.oaiServiceIsDisabled": "Der OAI-Dienst ist deaktiviert. In den Einstellungen bitte den OAI-Dienst im Abschnitt Allgemein aktivieren, um die OAI-PMH-Funktionen zu beeinflussen.",
     "settings.all.saveButton.lackPermissions": "Sie haben nicht die erforderlichen Berechtigungen, um die OAI-PMH-Einstellungen zu bearbeiten. Bitte wenden Sie sich an die Systemadministration.",
@@ -122,11 +120,13 @@
     "settings.logs.columns.started": "Started",
     "settings.logs.columns.lastUpdate": "Last update",
     "settings.logs.columns.harvestId": "Harvest Id",
-    "permission.logs": "Settings (OAI-PMH): Can view logs",
     "settings.title.manager": "OAI-PMH settings",
     "settings.logs.manager": "OAI-PMH settings - Logs",
     "settings.technical.manager": "OAI-PMH settings - Technical",
     "settings.sets.manager": "OAI-PMH settings - Sets",
     "settings.general.manager": "OAI-PMH settings - General",
-    "settings.behavior.manager": "OAI-PMH settings - Behavior"
+    "settings.behavior.manager": "OAI-PMH settings - Behavior",
+    "permission.settings.view": "Settings (OAI-PMH): Can view",
+    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
+    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
 }

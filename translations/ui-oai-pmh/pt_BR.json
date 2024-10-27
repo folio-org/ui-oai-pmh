@@ -29,8 +29,6 @@
     "settings.behavior.suppressedRecordsProcessing.true": "Exibir registros ocultos na descoberta com o valor sinalizador",
     "settings.behavior.suppressedRecordsProcessing.false": "Ignorar oculto dos registros da descoberta",
     "settings.behavior.errorsProcessing.200": "Associar ao status HTTP 200",
-    "permission.view": "Configurações (OAI-PMH): Pode visualizar",
-    "permission.edit": "Configurações (OAI-PMH): Pode visualizar e editar configurações",
     "settings.behavior.errorsProcessing.500": "Associar com status de erro HTTP",
     "settings.all.oaiServiceIsDisabled": "O serviço OAI está desativado. Para terem efeito as alterações nas configurações do OAI-PMH, ative o serviço OAI na seção Geral.",
     "settings.all.saveButton.lackPermissions": "Você não possui as permissões necessárias para editar as configurações do OAI-PMH. Por favor entre em contato com o administrador do sistema.",
@@ -122,11 +120,13 @@
     "settings.logs.columns.started": "Iniciado",
     "settings.logs.columns.lastUpdate": "Última atualização",
     "settings.logs.columns.harvestId": "ID da colheita",
-    "permission.logs": "Configurações (OAI-PMH): pode visualizar logs",
     "settings.title.manager": "Configurações do OAI-PMH",
     "settings.logs.manager": "Configurações do OAI-PMH - Logs",
     "settings.technical.manager": "Configurações do OAI-PMH - Técnico",
     "settings.sets.manager": "Configurações do OAI-PMH - Conjuntos",
     "settings.general.manager": "Configurações do OAI-PMH - Geral",
-    "settings.behavior.manager": "Configurações do OAI-PMH - Comportamento"
+    "settings.behavior.manager": "Configurações do OAI-PMH - Comportamento",
+    "permission.settings.view": "Configurações (OAI-PMH): Pode visualizar",
+    "permission.settings.edit": "Configurações (OAI-PMH): Pode visualizar e editar configurações",
+    "permission.settings.logs.view": "Configurações (OAI-PMH): pode visualizar logs"
 }

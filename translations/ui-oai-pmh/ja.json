@@ -29,8 +29,6 @@
     "settings.behavior.suppressedRecordsProcessing.true": "検出フラグ値を持つ抑制されたレコードを転送する",
     "settings.behavior.suppressedRecordsProcessing.false": "検出レコードから抑制されたレコードをスキップ",
     "settings.behavior.errorsProcessing.200": "HTTPステータス200に関連付ける",
-    "permission.view": "設定（OAI-PMH）: 表示可能",
-    "permission.edit": "Settings (OAI-PMH): Can view and edit settings",
     "settings.behavior.errorsProcessing.500": "HTTP エラーステータスとの関連付け",
     "settings.all.oaiServiceIsDisabled": "OAI service is disabled. To affect OAI-PMH features by settings please enable OAI service in the General section.",
     "settings.all.saveButton.lackPermissions": "OAI-PMH 設定を編集するために必要な権限がありません。システム管理者に連絡してください。",
@@ -122,11 +120,13 @@
     "settings.logs.columns.started": "Started",
     "settings.logs.columns.lastUpdate": "最終更新",
     "settings.logs.columns.harvestId": "ハーベストID",
-    "permission.logs": "設定（OAI-PMH）: ログを表示できます",
     "settings.title.manager": "OAI-PMH設定",
     "settings.logs.manager": "OAI-PMH 設定 - ログ",
     "settings.technical.manager": "OAI-PMH 設定 - テクニカル",
     "settings.sets.manager": "OAI-PMH 設定 - セット",
     "settings.general.manager": "OAI-PMH 設定 - 全般",
-    "settings.behavior.manager": "OAI-PMH 設定 - 動作"
+    "settings.behavior.manager": "OAI-PMH 設定 - 動作",
+    "permission.settings.view": "Settings (OAI-PMH): Can view",
+    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
+    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
 }

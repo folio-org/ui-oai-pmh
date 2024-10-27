@@ -29,8 +29,6 @@
     "settings.behavior.suppressedRecordsProcessing.true": "Onderdrukte records met flag value voor discovery overschrijven",
     "settings.behavior.suppressedRecordsProcessing.false": "Skip verbergen in discovery records",
     "settings.behavior.errorsProcessing.200": "Associëren met HTTP-status 200",
-    "permission.view": "Instellingen (OAI-PMH): Kan bekijken",
-    "permission.edit": "Instellingen (OAI-PMH): Kan instellingen bekijken en bewerken",
     "settings.behavior.errorsProcessing.500": "Associëren met HTTP-foutstatussen",
     "settings.all.oaiServiceIsDisabled": "OAI-service is uitgeschakeld. Om de OAI-PMH functies via de instellingen te beïnvloeden, schakelt u de OAI service in onder 'Algemeen'.",
     "settings.all.saveButton.lackPermissions": "U hebt niet de vereiste rechten om OAI-PMH-instellingen te bewerken. Neem contact op met de systeembeheerder.",
@@ -122,11 +120,13 @@
     "settings.logs.columns.started": "Begonnen met",
     "settings.logs.columns.lastUpdate": "Laatst bijgewerkt",
     "settings.logs.columns.harvestId": "Harvest-ID",
-    "permission.logs": "Instellingen (OAI-PMH): Kan logs bekijken",
     "settings.title.manager": "OAI-PMH instellingen",
     "settings.logs.manager": "OAI-PMH instellingen - Logs",
     "settings.technical.manager": "OAI-PMH instellingen - Technisch",
     "settings.sets.manager": "OAI-PMH instellingen - Stelt in",
     "settings.general.manager": "OAI-PMH instellingen - Algemeen",
-    "settings.behavior.manager": "OAI-PMH instellingen - Gedrag"
+    "settings.behavior.manager": "OAI-PMH instellingen - Gedrag",
+    "permission.settings.view": "Settings (OAI-PMH): Can view",
+    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
+    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
 }

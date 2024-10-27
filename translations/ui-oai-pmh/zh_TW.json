@@ -29,8 +29,6 @@
     "settings.behavior.suppressedRecordsProcessing.true": "傳送帶有探索服務標示值的隱藏紀錄",
     "settings.behavior.suppressedRecordsProcessing.false": "在探索服務紀錄中略過",
     "settings.behavior.errorsProcessing.200": "HTTP狀態碼: 200",
-    "permission.view": "設定（OAI-PMH）：可檢視",
-    "permission.edit": "設定（OAI-PMH）：可以查看和編輯設定",
     "settings.behavior.errorsProcessing.500": "與HTTP錯誤狀態相關聯",
     "settings.all.oaiServiceIsDisabled": "OAI 服務未啟用。如欲透過設定更改 OAI-PMH 參數，請在「一般」啟用 OAI 服務。",
     "settings.all.saveButton.lackPermissions": "您沒有編輯 OAI-PMH 設定的權限，請聯繫系統管理員。",
@@ -122,11 +120,13 @@
     "settings.logs.columns.started": "已開始",
     "settings.logs.columns.lastUpdate": "最後更新",
     "settings.logs.columns.harvestId": "抓取Id",
-    "permission.logs": "設定（OAI-PMH）：可以檢視日誌紀錄",
     "settings.title.manager": "OAI-PMH 設定",
     "settings.logs.manager": "OAI-PMH 設定 - 日誌紀錄",
     "settings.technical.manager": "OAI-PMH 設定 - 技術",
     "settings.sets.manager": "OAI-PMH 設定 - 資料集",
     "settings.general.manager": "OAI-PMH 設定 - 一般",
-    "settings.behavior.manager": "OAI-PMH 設定 - 行為"
+    "settings.behavior.manager": "OAI-PMH 設定 - 行為",
+    "permission.settings.view": "Settings (OAI-PMH): Can view",
+    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
+    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
 }
