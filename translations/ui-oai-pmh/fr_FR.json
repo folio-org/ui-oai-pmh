@@ -29,8 +29,6 @@
     "settings.behavior.suppressedRecordsProcessing.true": "Transférer les notices masquées dans l'outil de découverte comportant une valeur d'indicateur de découverte.",
     "settings.behavior.suppressedRecordsProcessing.false": "Ignorer les notices masquées dans l'outil de découverte",
     "settings.behavior.errorsProcessing.200": "Associer au statut HTTP 200",
-    "permission.view": "Paramètres (OAI-PMH) : afficher la liste des pages de paramètres",
-    "permission.edit": "Paramètres (OAI-PMH): peut afficher et modifier les paramètres",
     "settings.behavior.errorsProcessing.500": "Associer aux statuts d'erreur HTTP",
     "settings.all.oaiServiceIsDisabled": "Le service OAI est désactivé. Pour affecter les fonctionnalités OAI-PMH par les paramètres, veuillez activer le service OAI dans la section Général.",
     "settings.all.saveButton.lackPermissions": "Vous ne disposez pas des autorisations nécessaires pour modifier les paramètres OAI-PMH. Veuillez contacter l'administrateur système.",
@@ -122,11 +120,13 @@
     "settings.logs.columns.started": "Started",
     "settings.logs.columns.lastUpdate": "Last update",
     "settings.logs.columns.harvestId": "Harvest Id",
-    "permission.logs": "Settings (OAI-PMH): Can view logs",
     "settings.title.manager": "OAI-PMH settings",
     "settings.logs.manager": "OAI-PMH settings - Logs",
     "settings.technical.manager": "OAI-PMH settings - Technical",
     "settings.sets.manager": "OAI-PMH settings - Sets",
     "settings.general.manager": "OAI-PMH settings - General",
-    "settings.behavior.manager": "OAI-PMH settings - Behavior"
+    "settings.behavior.manager": "OAI-PMH settings - Behavior",
+    "permission.settings.view": "Settings (OAI-PMH): Can view",
+    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
+    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
 }

@@ -29,8 +29,6 @@
     "settings.behavior.suppressedRecordsProcessing.true": "نقل التسجيلات المحجوبة بقيمة إشارة الاكتشاف",
     "settings.behavior.suppressedRecordsProcessing.false": "تخطي المحجوب من تسجيلات الاكتشاف",
     "settings.behavior.errorsProcessing.200": "إقران بحالة HTTP 200",
-    "permission.view": "الإعدادات (OAI-PMH): إمكانية عرض",
-    "permission.edit": "الإعدادات (OAI-PMH): إمكانية عرض وتحرير الإعدادات",
     "settings.behavior.errorsProcessing.500": "إقران بحالات خطأ HTTP",
     "settings.all.oaiServiceIsDisabled": "تم تعطيل خدمة OAI. للتأثير على خصائص OAI-PMH بواسطة الإعدادات، يرجى تفعيل خدمة OAI في القسم العام.",
     "settings.all.saveButton.lackPermissions": "تفتقر إلى الصلاحيات اللازمة لتحرير إعدادات OAI-PMH. يرجى الاتصال بمدير النظام.",
@@ -122,11 +120,13 @@
     "settings.logs.columns.started": "Started",
     "settings.logs.columns.lastUpdate": "Last update",
     "settings.logs.columns.harvestId": "Harvest Id",
-    "permission.logs": "Settings (OAI-PMH): Can view logs",
     "settings.title.manager": "OAI-PMH settings",
     "settings.logs.manager": "OAI-PMH settings - Logs",
     "settings.technical.manager": "OAI-PMH settings - Technical",
     "settings.sets.manager": "OAI-PMH settings - Sets",
     "settings.general.manager": "OAI-PMH settings - General",
-    "settings.behavior.manager": "OAI-PMH settings - Behavior"
+    "settings.behavior.manager": "OAI-PMH settings - Behavior",
+    "permission.settings.view": "Settings (OAI-PMH): Can view",
+    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
+    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
 }

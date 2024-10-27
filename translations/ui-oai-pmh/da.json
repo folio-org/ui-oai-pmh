@@ -29,8 +29,6 @@
     "settings.behavior.suppressedRecordsProcessing.true": "Transfer suppressed records with discovery flag value",
     "settings.behavior.suppressedRecordsProcessing.false": "Skip suppressed from discovery records",
     "settings.behavior.errorsProcessing.200": "Associate with HTTP status 200",
-    "permission.view": "Settings (OAI-PMH): Can view",
-    "permission.edit": "Indstillinger (OAI-PMH): Kan se og redigere indstillinger",
     "settings.behavior.errorsProcessing.500": "Associate with HTTP error statuses",
     "settings.all.oaiServiceIsDisabled": "OAI service is disabled. To affect OAI-PMH features by settings please enable OAI service in the General section.",
     "settings.all.saveButton.lackPermissions": "Du mangler de nødvendige brugerrettigheder til at redigere OAI-PMH-indstillinger. Kontakt systemadministratoren.",
@@ -122,11 +120,13 @@
     "settings.logs.columns.started": "Started",
     "settings.logs.columns.lastUpdate": "Last update",
     "settings.logs.columns.harvestId": "Harvest Id",
-    "permission.logs": "Settings (OAI-PMH): Can view logs",
     "settings.title.manager": "OAI-PMH settings",
     "settings.logs.manager": "OAI-PMH settings - Logs",
     "settings.technical.manager": "OAI-PMH settings - Technical",
     "settings.sets.manager": "OAI-PMH settings - Sets",
     "settings.general.manager": "OAI-PMH settings - General",
-    "settings.behavior.manager": "OAI-PMH settings - Behavior"
+    "settings.behavior.manager": "OAI-PMH settings - Behavior",
+    "permission.settings.view": "Settings (OAI-PMH): Can view",
+    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
+    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
 }

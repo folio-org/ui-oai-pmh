@@ -27,10 +27,8 @@
     "settings.behavior.deletedRecordsSupport.transient": "Přechodný",
     "settings.behavior.deletedRecordsSupport.persistent": "Trvalé",
     "settings.behavior.suppressedRecordsProcessing.true": "Převod potlačených záznamů s hodnotou příznaku vyhledávání",
-    "settings.behavior.suppressedRecordsProcessing.false": "Přeskočit záznamy potlačené z vyhledávání",
+    "settings.behavior.suppressedRecordsProcessing.false": "Přeskočit záznamy vyřazené z vyhledávání",
     "settings.behavior.errorsProcessing.200": "Spojení se stavem HTTP 200",
-    "permission.view": "Nastavení (OAI-PMH): Lze zobrazit",
-    "permission.edit": "Nastavení (OAI-PMH): Umožňuje zobrazit a upravit nastavení",
     "settings.behavior.errorsProcessing.500": "Přiřadit k chybovým stavům HTTP",
     "settings.all.oaiServiceIsDisabled": "Služba OAI je deaktivována. Chcete-li ovlivnit funkce OAI-PMH pomocí nastavení, aktivujte službu OAI v části Obecné.",
     "settings.all.saveButton.lackPermissions": "Chybí vám potřebná oprávnění k úpravě nastavení OAI-PMH. Kontaktujte prosím správce systému.",
@@ -122,11 +120,13 @@
     "settings.logs.columns.started": "Zahájeno",
     "settings.logs.columns.lastUpdate": "Poslední aktualizace",
     "settings.logs.columns.harvestId": "ID harvestu",
-    "permission.logs": "Nastavení (OAI-PMH): Může zobrazit logy",
     "settings.title.manager": "Nastavení OAI-PMH",
     "settings.logs.manager": "Nastavení OAI-PMH - Logy",
     "settings.technical.manager": "Nastavení OAI-PMH - Technické",
     "settings.sets.manager": "Nastavení OAI-PMH - Sady",
     "settings.general.manager": "Nastavení OAI-PMH - Obecné",
-    "settings.behavior.manager": "Nastavení OAI-PMH - Chování"
+    "settings.behavior.manager": "Nastavení OAI-PMH - Chování",
+    "permission.settings.view": "Settings (OAI-PMH): Can view",
+    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
+    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
 }

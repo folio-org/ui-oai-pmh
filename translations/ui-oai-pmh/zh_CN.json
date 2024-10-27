@@ -29,8 +29,6 @@
     "settings.behavior.suppressedRecordsProcessing.true": "传送带有发现标志值的隐藏记录",
     "settings.behavior.suppressedRecordsProcessing.false": "从发现记录中跳过隐藏",
     "settings.behavior.errorsProcessing.200": "与HTTP状态200关联",
-    "permission.view": "设置（OAI-PMH）：可以查看",
-    "permission.edit": "设置（OAI-PMH）：可以查看和编辑设置",
     "settings.behavior.errorsProcessing.500": "与HTTP错误状态相关联",
     "settings.all.oaiServiceIsDisabled": "OAI服务被禁用。要通过设置影响OAI-PMH功能，请在“常规”部分中启用OAI服务。",
     "settings.all.saveButton.lackPermissions": "缺少编辑OAI-PMH设置的必要权限。请联系系统管理员。",
@@ -122,11 +120,13 @@
     "settings.logs.columns.started": "已开始",
     "settings.logs.columns.lastUpdate": "上次更新",
     "settings.logs.columns.harvestId": "收获ID",
-    "permission.logs": "设置（OAI-PMH）：可以查看日志",
     "settings.title.manager": "OAI-PMH 设置",
     "settings.logs.manager": "OAI-PMH 设置 - 日志",
     "settings.technical.manager": "OAI-PMH 设置 - 技术",
     "settings.sets.manager": "OAI-PMH 设置 - 设置",
     "settings.general.manager": "OAI-PMH 设置 - 常规",
-    "settings.behavior.manager": "OAI-PMH 设置 - 行为"
+    "settings.behavior.manager": "OAI-PMH 设置 - 行为",
+    "permission.settings.view": "Settings (OAI-PMH): Can view",
+    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
+    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
 }
