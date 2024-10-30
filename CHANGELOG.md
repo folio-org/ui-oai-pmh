@@ -9,6 +9,7 @@
 [UIOAIPMH-82](https://issues.folio.org/browse/UIOAIPMH-82) Remove local QueryClientProvider from ui-oai-pmh.
 [UIOAIPMH-83](https://issues.folio.org/browse/UIOAIPMH-83) React v19: refactor away from default props for functional components.
 [UIOAIPMH-88](https://issues.folio.org/browse/UIOAIPMH-88) cleanup module descriptor for ui-oai-pmh
+* Bump "@folio/stripes-acq-components" version to v6.0.0
 
 ## [5.1.0] (https://github.com/folio-org/ui-oai-pmh/tree/v5.0.0) (2024-03-19)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v5.0.0...v5.1.0)

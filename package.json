@@ -61,7 +61,7 @@
     "sinon": "^7.3.2"
   },
   "dependencies": {
-    "@folio/stripes-acq-components": "^5.1.0",
+    "@folio/stripes-acq-components": "^6.0.0",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.15",
     "moment": "^2.29.4",
