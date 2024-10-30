@@ -2,6 +2,9 @@
 
 ## IN PROGRESS
 
+## [5.2.0] (https://github.com/folio-org/ui-oai-pmh/tree/v5.2.0) (2024-10-30)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v5.1.0...v5.2.0)
+
 [UIOAIPMH-79](https://issues.folio.org/browse/UIOAIPMH-79) Make downloading log files consistent with data export.
 [UIOAIPMH-82](https://issues.folio.org/browse/UIOAIPMH-82) Remove local QueryClientProvider from ui-oai-pmh.
 [UIOAIPMH-83](https://issues.folio.org/browse/UIOAIPMH-83) React v19: refactor away from default props for functional components.
