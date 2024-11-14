@@ -126,7 +126,7 @@
     "settings.sets.manager": "Nastavení OAI-PMH - Sady",
     "settings.general.manager": "Nastavení OAI-PMH - Obecné",
     "settings.behavior.manager": "Nastavení OAI-PMH - Chování",
-    "permission.settings.view": "Settings (OAI-PMH): Can view",
-    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
-    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
+    "permission.settings.view": "Nastavení (OAI-PMH): Lze zobrazit",
+    "permission.settings.edit": "Nastavení (OAI-PMH): Umožňuje zobrazit a upravit nastavení",
+    "permission.settings.logs.view": "Nastavení (OAI-PMH): Může zobrazit logy"
 }
