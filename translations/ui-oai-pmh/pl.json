@@ -128,5 +128,5 @@
     "settings.behavior.manager": "OAI-PMH settings - Behavior",
     "permission.settings.view": "Settings (OAI-PMH): Can view",
     "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
-    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
+    "permission.settings.logs.view": "Ustawienia (OAI-PMH): można wyświetlac dzienniki"
 }
