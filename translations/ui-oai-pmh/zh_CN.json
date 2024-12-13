@@ -126,7 +126,7 @@
     "settings.sets.manager": "OAI-PMH 设置 - 设置",
     "settings.general.manager": "OAI-PMH 设置 - 常规",
     "settings.behavior.manager": "OAI-PMH 设置 - 行为",
-    "permission.settings.view": "Settings (OAI-PMH): Can view",
-    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
-    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
+    "permission.settings.view": "设置（OAI-PMH）：可以查看",
+    "permission.settings.edit": "设置（OAI-PMH）：可以查看和编辑设置",
+    "permission.settings.logs.view": "设置（OAI-PMH）：可以查看日志"
 }
