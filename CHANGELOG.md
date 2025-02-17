@@ -2,6 +2,8 @@
 
 ## IN PROGRESS
 
+[UIOAIPMH-91](https://issues.folio.org/browse/UIOAIPMH-91) Migrate to shared GA workflows
+
 ## [5.2.0] (https://github.com/folio-org/ui-oai-pmh/tree/v5.2.0) (2024-10-30)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v5.1.0...v5.2.0)
 
