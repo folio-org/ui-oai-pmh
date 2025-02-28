@@ -1,6 +1,6 @@
 {
   "name": "@folio/oai-pmh",
-  "version": "5.2.0",
+  "version": "6.0.0",
   "description": "OAI-PMH manager",
   "main": "src/index.js",
   "repository": "folio-org/ui-oai-pmh",
@@ -14,7 +14,7 @@
   "scripts": {
     "start": "stripes serve",
     "build": "stripes build --output ./output",
-    "formatjs-compile": "formatjs compile-folder --ast --format simple ./translations/ui-oai-pmh ./translations/ui-oai-pmh/compiled",
+    "formatjs-compile": "stripes translate compile",
     "test:jest": "jest --ci --coverage",
     "test": "yarn run test:jest",
     "build-mod-descriptor": "stripes mod descriptor --full --strict | jq '.[]' > module-descriptor.json ",
@@ -26,13 +26,13 @@
     "@babel/plugin-proposal-private-methods": "^7.18.6",
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@bigtest/interactor": "^0.8.1",
-    "@folio/eslint-config-stripes": "^7.0.0",
-    "@folio/stripes": "^9.0.0",
-    "@folio/stripes-cli": "^3.0.0",
-    "@folio/stripes-components": "^12.0.0",
-    "@folio/stripes-core": "^10.0.0",
-    "@folio/stripes-testing": "^4.4.0",
-    "@formatjs/cli": "^6.1.3",
+    "@folio/eslint-config-stripes": "^8.0.0",
+    "@folio/stripes": "^10.0.0",
+    "@folio/stripes-cli": "^4.0.0",
+    "@folio/stripes-components": "^13.0.0",
+    "@folio/stripes-core": "^11.0.0",
+    "@folio/stripes-testing": "^5.0.0",
+    "@formatjs/cli": "^6.6.0",
     "@testing-library/dom": "^7.26.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.0.0",
@@ -53,7 +53,7 @@
     "mocha": "^6.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-intl": "^6.4.4",
+    "react-intl": "^7.1.5",
     "react-redux": "^8.0.5",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.0",
@@ -61,7 +61,7 @@
     "sinon": "^7.3.2"
   },
   "dependencies": {
-    "@folio/stripes-acq-components": "^6.0.0",
+    "@folio/stripes-acq-components": "^7.0.0",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.15",
     "moment": "^2.29.4",
@@ -72,10 +72,10 @@
     "react-router-prop-types": "^1.0.4"
   },
   "peerDependencies": {
-    "@folio/stripes": "^9.0.0",
+    "@folio/stripes": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-intl": "^6.4.4",
+    "react-intl": "^7.1.5",
     "react-redux": "^8.0.5",
     "react-router-dom": "^5.2.0"
   },
