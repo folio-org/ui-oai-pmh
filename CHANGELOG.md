@@ -2,6 +2,9 @@
 
 ## IN PROGRESS
 
+## [6.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v6.0.0) (2025-03-12)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v5.2.0...v6.0.0)
+
 [UIOAIPMH-91](https://issues.folio.org/browse/UIOAIPMH-91) Migrate to shared GA workflows
 [UIOAIPMH-93](https://issues.folio.org/browse/UIOAIPMH-93) *BREAKING* migrate react-intl to v7
 [UIOAIPMH-92](https://issues.folio.org/browse/UIOAIPMH-92) *BREAKING* migrate stripes-* dependencies
