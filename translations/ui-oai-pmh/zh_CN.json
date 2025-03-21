@@ -12,7 +12,7 @@
     "settings.general.label.repositoryName": "存储库名称",
     "settings.general.tooltip.repositoryName": "收割器的FOLIO存储库名称。",
     "settings.general.label.baseUrl": "基本URL",
-    "settings.general.tooltip.baseUrl": "FOLIO存储库URL（edge-oai-pmh）。",
+    "settings.general.tooltip.baseUrl": "FOLIO存储库URL : edge-oai-pmh ) 。",
     "settings.general.label.administratorEmail": "管理员电子邮件",
     "settings.general.tooltip.administratorEmail": "FOLIO存储库管理员的电子邮件地址。多个电子邮件应以逗号分隔。",
     "settings.general.label.timeGranularity": "时间粒度",
@@ -126,7 +126,7 @@
     "settings.sets.manager": "OAI-PMH 设置 - 设置",
     "settings.general.manager": "OAI-PMH 设置 - 常规",
     "settings.behavior.manager": "OAI-PMH 设置 - 行为",
-    "permission.settings.view": "设置（OAI-PMH）：可以查看",
-    "permission.settings.edit": "设置（OAI-PMH）：可以查看和编辑设置",
-    "permission.settings.logs.view": "设置（OAI-PMH）：可以查看日志"
+    "permission.settings.view": "设置 : OAI-PMH )  : 可以查看",
+    "permission.settings.edit": "设置 : OAI-PMH )  : 可以查看和编辑设置",
+    "permission.settings.logs.view": "设置 : OAI-PMH )  : 可以查看日志"
 }
