@@ -32,7 +32,7 @@
     "settings.behavior.errorsProcessing.500": "إقران بحالات خطأ HTTP",
     "settings.all.oaiServiceIsDisabled": "تم تعطيل خدمة OAI. للتأثير على خصائص OAI-PMH بواسطة الإعدادات، يرجى تفعيل خدمة OAI في القسم العام.",
     "settings.all.saveButton.lackPermissions": "تفتقر إلى الصلاحيات اللازمة لتحرير إعدادات OAI-PMH. يرجى الاتصال بمدير النظام.",
-    "settings.all.validationMessage.isNotEmpty": "لا يمكن أن يكون هذا الحقل فارغًا",
+    "settings.all.validationMessage.isNotEmpty": "لا يمكن أن يكون هذا الحقل فارغاً",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "يرجى إدخال رقمًا كاملًا أكبر من صفر للمتابعة",
     "settings.all.validationMessage.isUrl": "يرجى إدخال عنوان URL صالح للمتابعة",
     "settings.all.validationMessage.isEmail": "يرجى إدخال عناوين البريد الإلكتروني مفصولة بفاصلة للمتابعة",
@@ -115,7 +115,7 @@
     "settings.behavior.label.recordSource": "Record source",
     "settings.behavior.tooltip.recordSource": "Record source",
     "settings.logs.title": "Logs",
-    "settings.logs.head": "Logs are available for completed harvests and kept for 30 days. Time in UTC.",
+    "settings.logs.head": "السجلات متاحة لعمليات الحصاد المكتملة ويتم الاحتفاظ بها لمدة 30 يوماً. الوقت بتنسيق التوقيت العالمي.",
     "settings.logs.download": "Download",
     "settings.logs.columns.started": "Started",
     "settings.logs.columns.lastUpdate": "Last update",
@@ -126,7 +126,7 @@
     "settings.sets.manager": "OAI-PMH settings - Sets",
     "settings.general.manager": "OAI-PMH settings - General",
     "settings.behavior.manager": "OAI-PMH settings - Behavior",
-    "permission.settings.view": "Settings (OAI-PMH): Can view",
-    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
-    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
+    "permission.settings.view": "الإعدادات (OAI-PMH): إمكانية عرض",
+    "permission.settings.edit": "الإعدادات (OAI-PMH): إمكانية عرض وتحرير الإعدادات",
+    "permission.settings.logs.view": "الإعدادات (OAI-PMH): إمكانية عرض السجلات"
 }
