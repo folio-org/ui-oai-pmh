@@ -118,7 +118,7 @@
     "settings.logs.head": "Logs are available for completed harvests and kept for 30 days. Time in UTC.",
     "settings.logs.download": "Download",
     "settings.logs.columns.started": "Started",
-    "settings.logs.columns.lastUpdate": "Last update",
+    "settings.logs.columns.lastUpdate": "Останнє оновлення",
     "settings.logs.columns.harvestId": "Harvest Id",
     "settings.title.manager": "OAI-PMH settings",
     "settings.logs.manager": "OAI-PMH settings - Logs",
