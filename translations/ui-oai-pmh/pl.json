@@ -126,7 +126,7 @@
     "settings.sets.manager": "OAI-PMH settings - Sets",
     "settings.general.manager": "Ustawienia OAI-PMH - Ogólne",
     "settings.behavior.manager": "OAI-PMH settings - Behavior",
-    "permission.settings.view": "Settings (OAI-PMH): Can view",
-    "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
+    "permission.settings.view": "Ustawienia (OAI-PMH): możliwość przeglądania",
+    "permission.settings.edit": "Ustawienia (OAI-PMH): możliwość przeglądania i edytowania ustawień",
     "permission.settings.logs.view": "Ustawienia (OAI-PMH): można wyświetlac dzienniki"
 }
