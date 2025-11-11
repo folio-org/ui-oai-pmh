@@ -1,7 +1,6 @@
-import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { LoadingPane } from '@folio/stripes/components';
+import { Layout, LoadingPane } from '@folio/stripes/components';
 
 import TechnicalForm from './components/TechnicalForm';
 import { TECHNICAL_CONFIG_NAME, DEFAULT_PANE_WIDTH } from '../../constants';
@@ -17,12 +16,14 @@ const Technical = () => {
   }
 
   return (
-    <TechnicalForm
-      label={<FormattedMessage id="ui-oai-pmh.settings.technical.title" />}
-      onSubmit={handleSubmit}
-      initialValues={config?.configValue}
-      stripes={stripes}
-    />
+    <Layout className="full">
+      <TechnicalForm
+        label={<FormattedMessage id="ui-oai-pmh.settings.technical.title" />}
+        onSubmit={handleSubmit}
+        initialValues={config?.configValue}
+        stripes={stripes}
+      />
+    </Layout>
   );
 };
 

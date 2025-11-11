@@ -1,7 +1,6 @@
-import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { LoadingPane } from '@folio/stripes/components';
+import { Layout, LoadingPane } from '@folio/stripes/components';
 
 import GeneralForm from './components/GeneralForm';
 import { GENERAL_CONFIG_NAME, FILL_PANE_WIDTH } from '../../constants';
@@ -17,12 +16,14 @@ const General = () => {
   }
 
   return (
-    <GeneralForm
-      label={<FormattedMessage id="ui-oai-pmh.settings.general.title" />}
-      onSubmit={handleSubmit}
-      initialValues={config?.configValue}
-      stripes={stripes}
-    />
+    <Layout className="full">
+      <GeneralForm
+        label={<FormattedMessage id="ui-oai-pmh.settings.general.title" />}
+        onSubmit={handleSubmit}
+        initialValues={config?.configValue}
+        stripes={stripes}
+      />
+    </Layout>
   );
 };
 

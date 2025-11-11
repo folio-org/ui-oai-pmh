@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { LoadingPane } from '@folio/stripes/components';
+import { Layout, LoadingPane } from '@folio/stripes/components';
 
 import BehaviorForm from './components/BehaviorForm';
 import { BEHAVIOR_CONFIG_NAME, DEFAULT_PANE_WIDTH } from '../../constants';
@@ -17,12 +17,14 @@ const Behavior = () => {
   }
 
   return (
-    <BehaviorForm
-      label={<FormattedMessage id="ui-oai-pmh.settings.behavior.title" />}
-      onSubmit={handleSubmit}
-      initialValues={config?.configValue}
-      stripes={stripes}
-    />
+    <Layout className="full">
+      <BehaviorForm
+        label={<FormattedMessage id="ui-oai-pmh.settings.behavior.title" />}
+        onSubmit={handleSubmit}
+        initialValues={config?.configValue}
+        stripes={stripes}
+      />
+    </Layout>
   );
 };
 
