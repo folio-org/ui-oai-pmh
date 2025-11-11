@@ -14,10 +14,7 @@ import {
 } from '../constants';
 
 export const getObjectFromResponseString = (data) => JSON.parse(get(data, [0, 'value'], '{}'));
-export const dataObjectToString = (data) => JSON.stringify(data);
 export const convertFromStringToBoolean = (value) => value === 'true';
-export const convertFromBooleanToString = (value) => (value === true ? 'true' : 'false');
-
 export const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 export const generalInformationToViewData = (set) => ({

@@ -1,52 +1,27 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { ConfigManager } from '@folio/stripes/smart-components';
-import { useStripes } from '@folio/stripes/core';
+import { LoadingPane } from '@folio/stripes/components';
 
 import GeneralForm from './components/GeneralForm';
-import {
-  getObjectFromResponseString,
-  dataObjectToString,
-  convertFromStringToBoolean,
-  convertFromBooleanToString,
-} from '../../util';
-import {
-  MODULE_NAME,
-  GENERAL_CONFIG_NAME,
-} from '../../constants';
+import { GENERAL_CONFIG_NAME, FILL_PANE_WIDTH } from '../../constants';
+import { useConfigurationManager } from '../../hooks';
 
 const General = () => {
-  const stripes = useStripes();
-  const Manager = stripes.connect(ConfigManager);
+  const { config, isConfigsLoading, handleSubmit, stripes } = useConfigurationManager(GENERAL_CONFIG_NAME);
 
-  const getInitialValues = (data) => {
-    const value = getObjectFromResponseString(data);
-
-    return {
-      ...value,
-      enableOaiService: value.enableOaiService ? convertFromStringToBoolean(value.enableOaiService) : true,
-    };
-  };
-
-  const normalize = (data) => {
-    const value = {
-      ...data,
-      enableOaiService: convertFromBooleanToString(data.enableOaiService),
-    };
-
-    return dataObjectToString(value);
-  };
+  if (isConfigsLoading) {
+    return (
+      <LoadingPane defaultWidth={FILL_PANE_WIDTH} />
+    );
+  }
 
   return (
-    <Manager
+    <GeneralForm
       label={<FormattedMessage id="ui-oai-pmh.settings.general.title" />}
-      moduleName={MODULE_NAME}
-      configName={GENERAL_CONFIG_NAME}
-      getInitialValues={getInitialValues}
-      configFormComponent={GeneralForm}
+      onSubmit={handleSubmit}
+      initialValues={config?.configValue}
       stripes={stripes}
-      onBeforeSave={normalize}
     />
   );
 };

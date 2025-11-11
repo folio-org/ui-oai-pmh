@@ -1,42 +1,30 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { ConfigManager } from '@folio/stripes/smart-components';
-import { useStripes } from '@folio/stripes/core';
+import { LoadingPane } from '@folio/stripes/components';
 
 import BehaviorForm from './components/BehaviorForm';
-import {
-  getObjectFromResponseString,
-  dataObjectToString,
-} from '../../util';
-import {
-  MODULE_NAME,
-  BEHAVIOR_CONFIG_NAME,
-} from '../../constants';
+import { BEHAVIOR_CONFIG_NAME, DEFAULT_PANE_WIDTH } from '../../constants';
+import { useConfigurationManager } from '../../hooks';
 
 const Behavior = () => {
-  const stripes = useStripes();
-  const Manager = stripes.connect(ConfigManager);
+  const { config, isConfigsLoading, handleSubmit, stripes } = useConfigurationManager(BEHAVIOR_CONFIG_NAME);
 
-  const getInitialValues = (data) => {
-    return getObjectFromResponseString(data);
-  };
-
-  const normalize = (data) => {
-    return dataObjectToString(data);
-  };
+  if (isConfigsLoading) {
+    return (
+      <LoadingPane defaultWidth={DEFAULT_PANE_WIDTH} />
+    );
+  }
 
   return (
-    <Manager
+    <BehaviorForm
       label={<FormattedMessage id="ui-oai-pmh.settings.behavior.title" />}
-      moduleName={MODULE_NAME}
-      configName={BEHAVIOR_CONFIG_NAME}
-      getInitialValues={getInitialValues}
-      configFormComponent={BehaviorForm}
+      onSubmit={handleSubmit}
+      initialValues={config?.configValue}
       stripes={stripes}
-      onBeforeSave={normalize}
     />
   );
 };
 
 export default Behavior;
+

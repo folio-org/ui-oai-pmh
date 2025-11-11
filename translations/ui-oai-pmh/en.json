@@ -5,6 +5,7 @@
   "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs",
 
   "settings.title": "OAI-PMH",
+  "settings.configuration.update.success": "Setting was successfully updated.",
 
   "settings.behavior.title": "Behavior",
   "settings.behavior.label.deletedRecordsSupport": "Deleted records support",

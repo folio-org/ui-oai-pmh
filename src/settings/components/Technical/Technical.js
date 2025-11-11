@@ -1,56 +1,30 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { ConfigManager } from '@folio/stripes/smart-components';
-import { useStripes } from '@folio/stripes/core';
+import { LoadingPane } from '@folio/stripes/components';
 
 import TechnicalForm from './components/TechnicalForm';
-import {
-  getObjectFromResponseString,
-  dataObjectToString,
-  convertFromStringToBoolean,
-  convertFromBooleanToString,
-} from '../../util';
-import {
-  MODULE_NAME,
-  TECHNICAL_CONFIG_NAME,
-} from '../../constants';
+import { TECHNICAL_CONFIG_NAME, DEFAULT_PANE_WIDTH } from '../../constants';
+import { useConfigurationManager } from '../../hooks';
 
 const Technical = () => {
-  const stripes = useStripes();
-  const Manager = stripes.connect(ConfigManager);
+  const { config, isConfigsLoading, handleSubmit, stripes } = useConfigurationManager(TECHNICAL_CONFIG_NAME);
 
-  const getInitialValues = (data) => {
-    const value = getObjectFromResponseString(data);
-
-    return {
-      ...value,
-      enableValidation: convertFromStringToBoolean(value.enableValidation),
-      formattedOutput: convertFromStringToBoolean(value.formattedOutput),
-    };
-  };
-
-  const normalize = (data) => {
-    const value = {
-      ...data,
-      enableValidation: convertFromBooleanToString(data.enableValidation),
-      formattedOutput: convertFromBooleanToString(data.formattedOutput),
-    };
-
-    return dataObjectToString(value);
-  };
+  if (isConfigsLoading) {
+    return (
+      <LoadingPane defaultWidth={DEFAULT_PANE_WIDTH} />
+    );
+  }
 
   return (
-    <Manager
+    <TechnicalForm
       label={<FormattedMessage id="ui-oai-pmh.settings.technical.title" />}
-      moduleName={MODULE_NAME}
-      configName={TECHNICAL_CONFIG_NAME}
-      getInitialValues={getInitialValues}
-      configFormComponent={TechnicalForm}
+      onSubmit={handleSubmit}
+      initialValues={config?.configValue}
       stripes={stripes}
-      onBeforeSave={normalize}
     />
   );
 };
 
 export default Technical;
+

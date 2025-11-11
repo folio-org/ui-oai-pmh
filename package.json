@@ -95,7 +95,6 @@
       }
     ],
     "okapiInterfaces": {
-      "configuration": "2.0",
       "oai-pmh": "3.0"
     },
     "permissionSets": [
@@ -112,7 +111,8 @@
         "displayName": "Settings (OAI-PMH): Can view",
         "subPermissions": [
           "settings.oai-pmh.enabled",
-          "configuration.entries.collection.get",
+          "oai-pmh.configuration-settings.item.get",
+          "oai-pmh.configuration-settings.collection.get",
           "oai-pmh.sets.item.get",
           "oai-pmh.filtering-conditions.get",
           "oai-pmh.sets.item.collection.get"
@@ -125,7 +125,8 @@
         "displayName": "Settings (OAI-PMH): Can view and edit settings",
         "subPermissions": [
           "ui-oai-pmh.settings.view",
-          "configuration.entries.item.put",
+          "oai-pmh.configuration-settings.item.put",
+          "oai-pmh.configuration-settings.item.post",
           "oai-pmh.sets.item.put",
           "oai-pmh.sets.item.post",
           "oai-pmh.sets.item.delete"
