@@ -1,5 +1,7 @@
-import { useOkapiKy, useNamespace } from '@folio/stripes/core';
 import { useMutation, useQueryClient } from 'react-query';
+
+import { useOkapiKy, useNamespace } from '@folio/stripes/core';
+
 import { OAI_CONFIGURATIONS } from './constants';
 
 export const useCreateConfiguration = () => {

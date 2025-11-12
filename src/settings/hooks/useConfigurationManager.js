@@ -1,4 +1,5 @@
 import { useStripes } from '@folio/stripes/core';
+
 import { useConfiguration } from './useConfiguration';
 import { useCreateConfiguration } from './useCreateConfiguration';
 import { useUpdateConfiguration } from './useUpdateConfiguration';

@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from 'react-query';
 import { useIntl } from 'react-intl';
 
-import { useShowCallout } from '@folio/stripes-acq-components';
 import { useOkapiKy, useNamespace } from '@folio/stripes/core';
+import { useShowCallout } from '@folio/stripes-acq-components';
 
 import { OAI_CONFIGURATION } from './useConfiguration';
 

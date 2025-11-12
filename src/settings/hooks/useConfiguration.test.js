@@ -1,5 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { useQuery } from 'react-query';
+
 import { useOkapiKy, useNamespace } from '@folio/stripes/core';
 
 import '../../../test/jest/__mock__';

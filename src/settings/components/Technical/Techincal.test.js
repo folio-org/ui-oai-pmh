@@ -1,8 +1,9 @@
 import React from 'react';
 import { screen, render, waitFor } from '@testing-library/react';
 
-import '../../../../test/jest/__mock__';
 import { runAxeTest } from '@folio/stripes-testing';
+
+import '../../../../test/jest/__mock__';
 import { useConfigurationManager } from '../../hooks';
 import Technical from '.';
 

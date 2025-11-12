@@ -1,7 +1,8 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { useMutation, useQueryClient } from 'react-query';
-import { useOkapiKy, useNamespace } from '@folio/stripes/core';
 import { useIntl } from 'react-intl';
+
+import { useOkapiKy, useNamespace } from '@folio/stripes/core';
 import { useShowCallout } from '@folio/stripes-acq-components';
 
 import '../../../test/jest/__mock__';
