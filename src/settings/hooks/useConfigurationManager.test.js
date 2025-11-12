@@ -2,16 +2,11 @@ import { renderHook, act } from '@testing-library/react-hooks';
 
 import '../../../test/jest/__mock__';
 import { useConfiguration } from './useConfiguration';
-import { useCreateConfiguration } from './useCreateConfiguration';
 import { useUpdateConfiguration } from './useUpdateConfiguration';
 import { useConfigurationManager } from './useConfigurationManager';
 
 jest.mock('./useConfiguration', () => ({
   useConfiguration: jest.fn(),
-}));
-
-jest.mock('./useCreateConfiguration', () => ({
-  useCreateConfiguration: jest.fn(),
 }));
 
 jest.mock('./useUpdateConfiguration', () => ({
@@ -34,9 +29,6 @@ describe('useConfigurationManager Hook', () => {
       isConfigsLoading: false,
     });
 
-    useCreateConfiguration.mockReturnValue({
-      createConfiguration: jest.fn(),
-    });
 
     useUpdateConfiguration.mockReturnValue({
       updateConfiguration: jest.fn(),
@@ -56,9 +48,6 @@ describe('useConfigurationManager Hook', () => {
       isConfigsLoading: false,
     });
 
-    useCreateConfiguration.mockReturnValue({
-      createConfiguration: jest.fn(),
-    });
 
     useUpdateConfiguration.mockReturnValue({
       updateConfiguration: jest.fn(),
@@ -75,9 +64,6 @@ describe('useConfigurationManager Hook', () => {
       isConfigsLoading: true,
     });
 
-    useCreateConfiguration.mockReturnValue({
-      createConfiguration: jest.fn(),
-    });
 
     useUpdateConfiguration.mockReturnValue({
       updateConfiguration: jest.fn(),
@@ -96,9 +82,6 @@ describe('useConfigurationManager Hook', () => {
       isConfigsLoading: false,
     });
 
-    useCreateConfiguration.mockReturnValue({
-      createConfiguration: jest.fn(),
-    });
 
     useUpdateConfiguration.mockReturnValue({
       updateConfiguration: mockUpdateConfiguration,
@@ -117,44 +100,12 @@ describe('useConfigurationManager Hook', () => {
     });
   });
 
-  it('should call handleSubmit with create when config is null', () => {
-    const mockCreateConfiguration = jest.fn();
-
-    useConfiguration.mockReturnValue({
-      config: null,
-      isConfigsLoading: false,
-    });
-
-    useCreateConfiguration.mockReturnValue({
-      createConfiguration: mockCreateConfiguration,
-    });
-
-    useUpdateConfiguration.mockReturnValue({
-      updateConfiguration: jest.fn(),
-    });
-
-    const { result } = renderHook(() => useConfigurationManager('test-config'));
-
-    const testData = { field: 'value' };
-    act(() => {
-      result.current.handleSubmit(testData);
-    });
-
-    expect(mockCreateConfiguration).toHaveBeenCalledWith({
-      configName: 'test-config',
-      configValue: testData,
-    });
-  });
-
   it('should pass correct config name to useConfiguration', () => {
     useConfiguration.mockReturnValue({
       config: mockConfig,
       isConfigsLoading: false,
     });
 
-    useCreateConfiguration.mockReturnValue({
-      createConfiguration: jest.fn(),
-    });
 
     useUpdateConfiguration.mockReturnValue({
       updateConfiguration: jest.fn(),
@@ -171,9 +122,6 @@ describe('useConfigurationManager Hook', () => {
       isConfigsLoading: false,
     });
 
-    useCreateConfiguration.mockReturnValue({
-      createConfiguration: jest.fn(),
-    });
 
     useUpdateConfiguration.mockReturnValue({
       updateConfiguration: jest.fn(),
@@ -190,9 +138,6 @@ describe('useConfigurationManager Hook', () => {
       isConfigsLoading: false,
     });
 
-    useCreateConfiguration.mockReturnValue({
-      createConfiguration: jest.fn(),
-    });
 
     useUpdateConfiguration.mockReturnValue({
       updateConfiguration: jest.fn(),
@@ -210,9 +155,6 @@ describe('useConfigurationManager Hook', () => {
       isConfigsLoading: false,
     });
 
-    useCreateConfiguration.mockReturnValue({
-      createConfiguration: jest.fn(),
-    });
 
     useUpdateConfiguration.mockReturnValue({
       updateConfiguration: jest.fn(),
