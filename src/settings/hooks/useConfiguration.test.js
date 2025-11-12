@@ -54,7 +54,7 @@ describe('useConfiguration', () => {
   });
 
   it('should call useQuery with correct parameters', () => {
-    mockUseQueryWithData({ configurations: [] }, true);
+    mockUseQueryWithData({ configurationSettings: [] }, true);
 
     renderHook(() => useConfiguration(mockConfigName));
 
@@ -64,7 +64,7 @@ describe('useConfiguration', () => {
   });
 
   it('should disable query when configName is not provided', () => {
-    mockUseQueryWithData({ configurations: [] }, false);
+    mockUseQueryWithData({ configurationSettings: [] }, false);
 
     renderHook(() => useConfiguration(null));
 
@@ -80,7 +80,7 @@ describe('useConfiguration', () => {
     };
 
     mockUseQueryWithData({
-      configurations: [mockConfig],
+      configurationSettings: [mockConfig],
     }, false);
 
     const { result } = renderHook(() => useConfiguration(mockConfigName));
@@ -103,7 +103,7 @@ describe('useConfiguration', () => {
     };
 
     mockUseQueryWithData({
-      configurations: [mockGeneralConfig, mockTechnicalConfig],
+      configurationSettings: [mockGeneralConfig, mockTechnicalConfig],
     }, false);
 
     const { result } = renderHook(() => useConfiguration('technical'));
@@ -113,7 +113,7 @@ describe('useConfiguration', () => {
 
   it('should return undefined if configuration is not found', async () => {
     mockUseQueryWithData({
-      configurations: [
+      configurationSettings: [
         {
           id: '1',
           configName: 'general',
@@ -128,7 +128,7 @@ describe('useConfiguration', () => {
   });
 
   it('should call ky.get with correct parameters', () => {
-    mockUseQueryWithData({ configurations: [] }, true);
+    mockUseQueryWithData({ configurationSettings: [] }, true);
 
     renderHook(() => useConfiguration(mockConfigName));
 
@@ -137,7 +137,7 @@ describe('useConfiguration', () => {
   });
 
   it('should return loading state correctly', () => {
-    mockUseQueryWithData({ configurations: [] }, false);
+    mockUseQueryWithData({ configurationSettings: [] }, false);
 
     const { result } = renderHook(() => useConfiguration(mockConfigName));
 

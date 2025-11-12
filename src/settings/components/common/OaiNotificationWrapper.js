@@ -9,7 +9,7 @@ import { GENERAL_CONFIG_NAME, MODULE_NAME } from '../../constants';
 const OaiNotificationWrapper = () => {
   const { configs } = useConfiguration({
     module: MODULE_NAME,
-    configName: GENERAL_CONFIG_NAME
+    name: GENERAL_CONFIG_NAME
   });
 
   const value = getObjectFromResponseString(configs);
