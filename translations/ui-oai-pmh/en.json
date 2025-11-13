@@ -153,5 +153,7 @@
   "settings.technical.manager": "OAI-PMH settings - Technical",
   "settings.sets.manager": "OAI-PMH settings - Sets",
   "settings.general.manager": "OAI-PMH settings - General",
-  "settings.behavior.manager": "OAI-PMH settings - Behavior"
+  "settings.behavior.manager": "OAI-PMH settings - Behavior",
+
+  "error.sww": "Something went wrong."
 }

@@ -5,6 +5,7 @@ import { useOkapiKy, useNamespace } from '@folio/stripes/core';
 import { useShowCallout } from '@folio/stripes-acq-components';
 
 import { OAI_CONFIGURATION } from './useConfiguration';
+import { CALLOUT_ERROR_TYPE } from '../constants';
 
 export const useUpdateConfiguration = (id, configName) => {
   const ky = useOkapiKy();
@@ -21,7 +22,13 @@ export const useUpdateConfiguration = (id, configName) => {
         type: 'success',
       });
       queryClient.invalidateQueries({ queryKey: [namespaceKey, configName] });
-    }
+    },
+    onError: () => {
+      showCallout({
+        type: CALLOUT_ERROR_TYPE,
+        message: formatMessage({ id: 'ui-oai-pmh.error.sww' }),
+      });
+    },
   });
 
   return { updateConfiguration: mutate };

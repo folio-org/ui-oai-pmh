@@ -4,8 +4,12 @@ import { useQuery } from 'react-query';
 import { useOkapiKy, useNamespace } from '@folio/stripes/core';
 
 import '../../../test/jest/__mock__';
+
 import { useConfiguration, OAI_CONFIGURATION } from './useConfiguration';
 
+jest.mock('@folio/stripes-acq-components', () => ({
+  useShowCallout: jest.fn(),
+}));
 jest.mock('react-query');
 jest.mock('@folio/stripes/core', () => ({
   useOkapiKy: jest.fn(),
