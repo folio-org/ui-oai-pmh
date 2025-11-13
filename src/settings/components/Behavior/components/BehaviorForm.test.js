@@ -26,8 +26,8 @@ const renderBehaviorForm = () => renderWithRouter(
 describe('Behavior form', () => {
   beforeEach(() => {
     useConfiguration.mockReturnValue({
-      configs: [],
-      isConfigurationLoading: false,
+      config: undefined,
+      isConfigsLoading: false,
     });
   });
 
@@ -67,16 +67,16 @@ describe('Behavior form', () => {
     expect(screen.getByText(/behavior.tooltip.errorsProcessing/)).toBeVisible();
   });
 
-  it('should be absent oai notification', () => {
+  it('should render oai notification', () => {
     renderBehaviorForm();
 
-    expect(screen.getByTestId('oai-notification')).not.toHaveTextContent();
+    expect(screen.getByTestId('oai-notification')).toBeInTheDocument();
   });
 
   it('should be enable button save', () => {
     renderBehaviorForm();
 
-    expect(screen.getByRole('button')).toBeEnabled();
+    expect(screen.getByRole('button', { name: /save/ })).toBeEnabled();
   });
 
   it('should be presented records source', () => {

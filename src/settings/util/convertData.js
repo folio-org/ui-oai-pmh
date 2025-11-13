@@ -13,8 +13,6 @@ import {
   FILTERING_CONDITIONS_FIELDS_INITIAL_VALUES,
 } from '../constants';
 
-export const getObjectFromResponseString = (data) => JSON.parse(get(data, [0, 'value'], '{}'));
-export const convertFromStringToBoolean = (value) => value === 'true';
 export const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 export const generalInformationToViewData = (set) => ({

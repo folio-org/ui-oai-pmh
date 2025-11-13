@@ -24,8 +24,8 @@ const renderTechincalForm = () => renderWithRouter(
 describe('Technical form', () => {
   beforeEach(() => {
     useConfiguration.mockReturnValue({
-      configs: [],
-      isConfigurationLoading: false,
+      config: undefined,
+      isConfigsLoading: false,
     });
   });
 
