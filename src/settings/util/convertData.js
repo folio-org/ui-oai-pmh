@@ -1,8 +1,4 @@
 import {
-  get,
-} from 'lodash';
-
-import {
   setSpecFromFilteringConditions,
 } from './filteringConditionsDataOptions';
 
