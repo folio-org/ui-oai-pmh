@@ -23,7 +23,8 @@ export const useUpdateConfiguration = (id, configName) => {
       });
       queryClient.invalidateQueries({ queryKey: [namespaceKey, configName] });
     },
-    onError: () => {
+    onError: (err) => {
+      console.error('configuration update failed', err); // eslint-disable-line no-console
       showCallout({
         type: CALLOUT_ERROR_TYPE,
         message: formatMessage({ id: 'ui-oai-pmh.error.sww' }),
