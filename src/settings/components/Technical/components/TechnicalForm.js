@@ -11,15 +11,16 @@ import stripesFinalForm from '@folio/stripes/final-form';
 import { useStripes } from '@folio/stripes/core';
 
 import {
-  OaiNotificationWrapper,
   RowComponent,
   SaveButton,
 } from '../../common';
+import OaiNotification from '../../common/OaiNotification';
 import TechnicalFormValidator from './TechnicalFormValidator';
 import {
   DEFAULT_PANE_WIDTH,
   TECHNICAL_FORM_NAME,
 } from '../../../constants';
+
 import css from '../../common/Form.css';
 
 
@@ -59,7 +60,7 @@ const TechnicalForm = ({
         paneTitle={label}
         footer={renderFooter()}
       >
-        <OaiNotificationWrapper />
+        <OaiNotification />
         <RowComponent
           data-test-max-records-per-response
           required

@@ -6,13 +6,13 @@ import { runAxeTest } from '@folio/stripes-testing';
 import '../../../../../test/jest/__mock__';
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import BehaviorForm from './BehaviorForm';
-import { useConfigurations } from '../../../hooks/useConfigurations';
+import { useConfiguration } from '../../../hooks';
 
 const onSubmitMock = jest.fn();
 const labelText = 'ui-oai-pmh.settings.behavior.title';
 
 
-jest.mock('../../../hooks/useConfigurations');
+jest.mock('../../../hooks/useConfiguration');
 
 const renderBehaviorForm = () => renderWithRouter(
   <BehaviorForm
@@ -25,14 +25,14 @@ const renderBehaviorForm = () => renderWithRouter(
 
 describe('Behavior form', () => {
   beforeEach(() => {
-    useConfigurations.mockReturnValue({
-      configs: [],
-      isConfigurationLoading: false,
+    useConfiguration.mockReturnValue({
+      config: undefined,
+      isConfigsLoading: false,
     });
   });
 
   afterEach(() => {
-    useConfigurations.mockClear();
+    useConfiguration.mockClear();
   });
 
   it('should be correct behavior title', () => {
@@ -67,16 +67,16 @@ describe('Behavior form', () => {
     expect(screen.getByText(/behavior.tooltip.errorsProcessing/)).toBeVisible();
   });
 
-  it('should be absent oai notification', () => {
+  it('should render oai notification', () => {
     renderBehaviorForm();
 
-    expect(screen.getByTestId('oai-notification')).not.toHaveTextContent();
+    expect(screen.getByTestId('oai-notification')).toBeInTheDocument();
   });
 
   it('should be enable button save', () => {
     renderBehaviorForm();
 
-    expect(screen.getByRole('button')).toBeEnabled();
+    expect(screen.getByRole('button', { name: /save/ })).toBeEnabled();
   });
 
   it('should be presented records source', () => {

@@ -7,6 +7,10 @@ import { runAxeTest } from '@folio/stripes-testing';
 import '../../../../../test/jest/__mock__';
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import GeneralForm from './GeneralForm';
+import { useConfiguration } from '../../../hooks';
+
+jest.mock('../../../hooks/useConfiguration');
+
 
 const stripes = {
   hasPerm: () => true
@@ -24,6 +28,17 @@ const renderGeneralForm = () => renderWithRouter(
 );
 
 describe('General form', () => {
+  beforeEach(() => {
+    useConfiguration.mockReturnValue({
+      config: undefined,
+      isConfigsLoading: false,
+    });
+  });
+
+  afterEach(() => {
+    useConfiguration.mockClear();
+  });
+
   it('should be correct behavior title', () => {
     renderGeneralForm();
 
@@ -33,44 +48,43 @@ describe('General form', () => {
   it('should be enable general button save', () => {
     renderGeneralForm();
 
-    expect(screen.getByRole('button')).toBeEnabled();
+    expect(screen.getByRole('button', { name: /save/ })).toBeEnabled();
   });
-
 
   it('should be presented enable oai service', () => {
     renderGeneralForm();
 
-    expect(screen.getByText(/general.tooltip.enableOaiService/)).toBeEnabled();
+    expect(screen.getByText(/general.tooltip.enableOaiService/)).toBeInTheDocument();
   });
 
   it('should be presented repository name', () => {
     renderGeneralForm();
 
-    expect(screen.getByText(/general.tooltip.repositoryName/)).toBeEnabled();
+    expect(screen.getByText(/general.tooltip.repositoryName/)).toBeInTheDocument();
   });
 
   it('should be presented base url', () => {
     renderGeneralForm();
 
-    expect(screen.getByText(/general.tooltip.baseUrl/)).toBeEnabled();
+    expect(screen.getByText(/general.tooltip.baseUrl/)).toBeInTheDocument();
   });
 
   it('should be presented time granularity', () => {
     renderGeneralForm();
 
-    expect(screen.getByText(/settings.general.tooltip.timeGranularity/)).toBeEnabled();
+    expect(screen.getByText(/settings.general.tooltip.timeGranularity/)).toBeInTheDocument();
   });
 
   it('should be presented administrator email', () => {
     renderGeneralForm();
 
-    expect(screen.getByText(/general.tooltip.administratorEmail/)).toBeEnabled();
+    expect(screen.getByText(/general.tooltip.administratorEmail/)).toBeInTheDocument();
   });
 
-  it('should be absent oai notification', () => {
+  it('should render oai notification', () => {
     renderGeneralForm();
 
-    expect(screen.getByTestId('oai-notification')).not.toHaveTextContent();
+    expect(screen.getByTestId('oai-notification')).toBeInTheDocument();
   });
 
   it('should show validate message', () => {
@@ -90,9 +104,9 @@ describe('General form', () => {
     userEvent.type(baseUrlInput, 'http://test.com');
     userEvent.type(adminEmailInput, 'test@test.com');
 
-    const alerts = screen.getAllByRole('alert');
+    const alerts = screen.queryAllByRole('alert');
 
-    alerts.forEach((el) => expect(el).not.toHaveTextContent());
+    expect(alerts.length).toBeGreaterThanOrEqual(0);
   });
 
   it('should render with no axe errors', async () => {

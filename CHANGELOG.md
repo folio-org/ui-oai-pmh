@@ -2,6 +2,8 @@
 
 ## IN PROGRESS
 
+[UIOAIPMH-95](https://issues.folio.org/browse/UIOAIPMH-95) *BREAKING* UIOAIPMH-95 Replace dependency on mod-configuration with mod-oai-pmh
+
 ## [6.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v6.0.0) (2025-03-12)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v5.2.0...v6.0.0)
 

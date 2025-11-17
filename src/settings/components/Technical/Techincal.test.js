@@ -1,25 +1,92 @@
 import React from 'react';
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 
 import { runAxeTest } from '@folio/stripes-testing';
 
 import '../../../../test/jest/__mock__';
+import { useConfigurationManager } from '../../hooks';
 import Technical from '.';
 
+jest.mock('../../hooks', () => ({
+  ...jest.requireActual('../../hooks'),
+  useConfigurationManager: jest.fn(),
+}));
 
-const renderTechnical = () => {
-  render(<Technical />);
+jest.mock('./components/TechnicalForm', () => {
+  return function MockTechnicalForm({ label, onSubmit, _initialValues }) {
+    return (
+      <div data-testid="technical-form">
+        <h1>{label}</h1>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            onSubmit({ test: 'data' });
+          }}
+        >
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    );
+  };
+});
+
+const mockConfig = {
+  id: '2',
+  configValue: {
+    maxRecordsPerResponse: 100,
+    enableValidation: true,
+    formattedOutput: false,
+  },
 };
 
-describe('Technical', () => {
-  it('should render Technical', () => {
-    renderTechnical();
+const mockHandleSubmit = jest.fn();
 
-    expect(screen.getByText('ConfigManger')).toBeVisible();
+describe('Technical Component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should render Technical component', async () => {
+    useConfigurationManager.mockReturnValue({
+      config: mockConfig,
+      isConfigsLoading: false,
+      handleSubmit: mockHandleSubmit,
+      stripes: {},
+    });
+
+    render(<Technical />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId('technical-form')).toBeInTheDocument();
+    });
+  });
+
+  it('should render loading pane when loading', () => {
+    useConfigurationManager.mockReturnValue({
+      config: null,
+      isConfigsLoading: true,
+      handleSubmit: mockHandleSubmit,
+      stripes: {},
+    });
+
+    render(<Technical />);
+
+    expect(screen.getByRole('region')).toBeInTheDocument();
   });
 
   it('should render with no axe errors', async () => {
-    renderTechnical();
+    useConfigurationManager.mockReturnValue({
+      config: mockConfig,
+      isConfigsLoading: false,
+      handleSubmit: mockHandleSubmit,
+      stripes: {},
+    });
+
+    render(<Technical />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId('technical-form')).toBeInTheDocument();
+    });
 
     await runAxeTest({
       rootNode: document.body,

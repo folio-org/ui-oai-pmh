@@ -7,12 +7,12 @@ import { runAxeTest } from '@folio/stripes-testing';
 import { renderWithRouter } from '../../../../../test/jest/helpers';
 import '../../../../../test/jest/__mock__';
 import TechnicalForm from './TechnicalForm';
-import { useConfigurations } from '../../../hooks/useConfigurations';
+import { useConfiguration } from '../../../hooks';
 
 const onSubmitMock = jest.fn();
 const labelText = 'ui-oai-pmh.settings.technical.title';
 
-jest.mock('../../../hooks/useConfigurations');
+jest.mock('../../../hooks/useConfiguration');
 
 const renderTechincalForm = () => renderWithRouter(
   <TechnicalForm
@@ -23,14 +23,14 @@ const renderTechincalForm = () => renderWithRouter(
 
 describe('Technical form', () => {
   beforeEach(() => {
-    useConfigurations.mockReturnValue({
-      configs: [],
-      isConfigurationLoading: false,
+    useConfiguration.mockReturnValue({
+      config: undefined,
+      isConfigsLoading: false,
     });
   });
 
   afterEach(() => {
-    useConfigurations.mockClear();
+    useConfiguration.mockClear();
   });
 
   it('should be correct behavior title', () => {

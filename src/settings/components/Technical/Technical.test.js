@@ -4,17 +4,17 @@ import { screen, render, waitFor } from '@testing-library/react';
 import '../../../../test/jest/__mock__';
 import { runAxeTest } from '@folio/stripes-testing';
 import { useConfigurationManager } from '../../hooks';
-import Behavior from './Behavior';
+import Technical from './Technical';
 
 jest.mock('../../hooks', () => ({
   ...jest.requireActual('../../hooks'),
   useConfigurationManager: jest.fn(),
 }));
 
-jest.mock('./components/BehaviorForm', () => {
-  return function MockBehaviorForm({ label, onSubmit }) {
+jest.mock('./components/TechnicalForm', () => {
+  return function MockTechnicalForm({ label, onSubmit }) {
     return (
-      <div data-testid="behavior-form">
+      <div data-testid="technical-form">
         <h1>{label}</h1>
         <form
           onSubmit={(e) => {
@@ -30,23 +30,22 @@ jest.mock('./components/BehaviorForm', () => {
 });
 
 const mockConfig = {
-  id: '3',
+  id: '2',
   configValue: {
-    deletedRecordsSupport: 'persistent',
-    suppressedRecordsProcessing: 'true',
-    errorsProcessing: '200',
-    recordsSource: 'Inventory',
+    maxRecordsPerResponse: 100,
+    enableValidation: true,
+    formattedOutput: false,
   },
 };
 
 const mockHandleSubmit = jest.fn();
 
-describe('Behavior Component', () => {
+describe('Technical Component', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  it('should render Behavior component', async () => {
+  it('should render Technical component', async () => {
     useConfigurationManager.mockReturnValue({
       config: mockConfig,
       isConfigsLoading: false,
@@ -54,10 +53,10 @@ describe('Behavior Component', () => {
       stripes: { hasPerm: jest.fn(() => true) },
     });
 
-    render(<Behavior />);
+    render(<Technical />);
 
     await waitFor(() => {
-      expect(screen.getByTestId('behavior-form')).toBeInTheDocument();
+      expect(screen.getByTestId('technical-form')).toBeInTheDocument();
     });
   });
 
@@ -69,10 +68,10 @@ describe('Behavior Component', () => {
       stripes: { hasPerm: jest.fn(() => true) },
     });
 
-    render(<Behavior />);
+    render(<Technical />);
 
     await waitFor(() => {
-      expect(screen.queryByTestId('behavior-form')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('technical-form')).not.toBeInTheDocument();
     });
   });
 
@@ -84,10 +83,10 @@ describe('Behavior Component', () => {
       stripes: { hasPerm: jest.fn(() => true) },
     });
 
-    render(<Behavior />);
+    render(<Technical />);
 
     await waitFor(() => {
-      expect(useConfigurationManager).toHaveBeenCalledWith('behavior');
+      expect(useConfigurationManager).toHaveBeenCalledWith('technical');
     });
   });
 
@@ -99,10 +98,10 @@ describe('Behavior Component', () => {
       stripes: { hasPerm: jest.fn(() => true) },
     });
 
-    render(<Behavior />);
+    render(<Technical />);
 
     await waitFor(() => {
-      expect(screen.getByTestId('behavior-form')).toBeInTheDocument();
+      expect(screen.getByTestId('technical-form')).toBeInTheDocument();
     });
   });
 
@@ -114,7 +113,7 @@ describe('Behavior Component', () => {
       stripes: { hasPerm: jest.fn(() => true) },
     });
 
-    render(<Behavior />);
+    render(<Technical />);
 
     await runAxeTest({
       rootNode: document.body,

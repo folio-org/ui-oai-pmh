@@ -11,7 +11,6 @@ import stripesFinalForm from '@folio/stripes/final-form';
 import { useStripes } from '@folio/stripes/core';
 
 import {
-  OaiNotificationWrapper,
   RowComponent,
   SaveButton,
 } from '../../common';
@@ -20,6 +19,7 @@ import {
   BEHAVIOR_FORM_NAME,
 } from '../../../constants';
 import css from '../../common/Form.css';
+import OaiNotification from '../../common/OaiNotification';
 
 const deletedRecordsSupportSelectValues = (formatMessage) => [
   {
@@ -110,7 +110,7 @@ const BehaviorForm = ({
         paneTitle={label}
         footer={renderFooter()}
       >
-        <OaiNotificationWrapper />
+        <OaiNotification />
         <RowComponent
           data-test-deleted-records-support
           id="deletedRecordsSupport"
