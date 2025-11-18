@@ -60,3 +60,23 @@ export const setInformationToViewData = (set) => ({
   ...filteringConditionsToDtoFormat(set[SET_FIELDS.FILTERING_CONDITIONS]),
   ...setSpecFromFilteringConditions(filteringConditionsToDtoFormat(set[SET_FIELDS.FILTERING_CONDITIONS])),
 });
+
+export const actualBooleansToStringify = (obj) => {
+  const result = {};
+  for (const key in obj) {
+    if (obj[key] === true) result[key] = 'true';
+    else if (obj[key] === false) result[key] = 'false';
+    else result[key] = obj[key];
+  }
+  return result;
+};
+
+export const stringifyBooleansToActual = (obj) => {
+  const result = {};
+  for (const key in obj) {
+    if (obj[key] === 'true') result[key] = true;
+    else if (obj[key] === 'false') result[key] = false;
+    else result[key] = obj[key];
+  }
+  return result;
+};
