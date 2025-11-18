@@ -2,6 +2,7 @@ import { useStripes } from '@folio/stripes/core';
 
 import { useConfiguration } from './useConfiguration';
 import { useUpdateConfiguration } from './useUpdateConfiguration';
+import { actualBooleansToStringify, stringifyBooleansToActual } from '../util';
 
 /**
  * Custom hook that manages configuration operations
@@ -18,14 +19,19 @@ export const useConfigurationManager = (configName) => {
   const handleSubmit = (configValue) => {
     const payload = {
       configName,
-      configValue,
+      configValue: actualBooleansToStringify(configValue),
     };
 
     updateConfiguration(payload);
   };
 
+  const parsedConfigValue = {
+    ...config,
+    configValue: stringifyBooleansToActual(config?.configValue)
+  };
+
   return {
-    config,
+    config: parsedConfigValue,
     isConfigsLoading,
     handleSubmit,
     stripes,
