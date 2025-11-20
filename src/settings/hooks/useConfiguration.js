@@ -31,7 +31,7 @@ export const useConfiguration = (name) => {
   return {
     config: {
       ...config,
-      configValue: stringifyBooleansToActual(config.configValue)
+      configValue: stringifyBooleansToActual(config?.configValue)
     },
     isConfigsLoading
   };
