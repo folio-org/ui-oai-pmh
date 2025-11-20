@@ -10,7 +10,7 @@ import css from './OaiNotification.css';
 const OaiNotification = () => {
   const { config } = useConfiguration(GENERAL_CONFIG_NAME);
 
-  if (config.configValue?.enableOaiService) return null;
+  if (config?.configValue.enableOaiService) return null;
 
   return (
     <div
