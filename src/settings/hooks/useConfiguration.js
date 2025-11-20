@@ -5,6 +5,7 @@ import { useShowCallout } from '@folio/stripes-acq-components';
 
 import { useIntl } from 'react-intl';
 import { CALLOUT_ERROR_TYPE } from '../constants';
+import { stringifyBooleansToActual } from '../util';
 
 export const OAI_CONFIGURATION = 'OAI_CONFIGURATION';
 
@@ -28,7 +29,10 @@ export const useConfiguration = (name) => {
   });
 
   return {
-    config,
+    config: {
+      ...config,
+      configValue: stringifyBooleansToActual(config.configValue)
+    },
     isConfigsLoading
   };
 };
