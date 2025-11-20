@@ -45,7 +45,7 @@ describe('useConfiguration', () => {
 
     const { result } = renderHook(() => useConfiguration(mockConfigName));
 
-    expect(result.current.config).toBeUndefined();
+    expect(result.current.config).toStrictEqual({ configValue: {} });
     expect(result.current.isConfigsLoading).toBe(true);
   });
 
@@ -128,7 +128,7 @@ describe('useConfiguration', () => {
 
     const { result } = renderHook(() => useConfiguration('nonexistent'));
 
-    expect(result.current.config).toBeUndefined();
+    expect(result.current.config).toStrictEqual({ configValue: {} });
   });
 
   it('should call ky.get with correct parameters', () => {
