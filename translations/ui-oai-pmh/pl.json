@@ -115,8 +115,8 @@
     "settings.behavior.label.recordSource": "Record source",
     "settings.behavior.tooltip.recordSource": "Record source",
     "settings.logs.title": "Dzienniki",
-    "settings.logs.head": "Logs are available for completed harvests and kept for 30 days. Time in UTC.",
-    "settings.logs.download": "Download",
+    "settings.logs.head": "Dzienniki są dostępne dla zakończonych \"pobieraczy\" danych i są przechowywane przez 30 dni. Czas w UTC",
+    "settings.logs.download": "Pobierz",
     "settings.logs.columns.started": "Rozpoczęcie",
     "settings.logs.columns.lastUpdate": "Last update",
     "settings.logs.columns.harvestId": "Harvest Id",
@@ -128,5 +128,7 @@
     "settings.behavior.manager": "OAI-PMH settings - Behavior",
     "permission.settings.view": "Ustawienia (OAI-PMH): możliwość przeglądania",
     "permission.settings.edit": "Ustawienia (OAI-PMH): możliwość przeglądania i edytowania ustawień",
-    "permission.settings.logs.view": "Ustawienia (OAI-PMH): można wyświetlac dzienniki"
+    "permission.settings.logs.view": "Ustawienia (OAI-PMH): można wyświetlac dzienniki",
+    "settings.configuration.update.success": "Setting was successfully updated.",
+    "error.sww": "Something went wrong."
 }

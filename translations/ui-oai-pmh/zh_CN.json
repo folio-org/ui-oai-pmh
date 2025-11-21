@@ -128,5 +128,7 @@
     "settings.behavior.manager": "OAI-PMH 设置 - 行为",
     "permission.settings.view": "设置 : OAI-PMH )  : 可以查看",
     "permission.settings.edit": "设置 : OAI-PMH )  : 可以查看和编辑设置",
-    "permission.settings.logs.view": "设置 : OAI-PMH )  : 可以查看日志"
+    "permission.settings.logs.view": "设置 : OAI-PMH )  : 可以查看日志",
+    "settings.configuration.update.success": "Setting was successfully updated.",
+    "error.sww": "Something went wrong."
 }

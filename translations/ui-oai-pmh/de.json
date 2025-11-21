@@ -128,5 +128,7 @@
     "settings.behavior.manager": "OAI-PMH settings - Behavior",
     "permission.settings.view": "Settings (OAI-PMH): Can view",
     "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
-    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs"
+    "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs",
+    "settings.configuration.update.success": "Setting was successfully updated.",
+    "error.sww": "Something went wrong."
 }
