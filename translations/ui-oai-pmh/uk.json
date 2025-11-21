@@ -128,5 +128,7 @@
     "settings.behavior.manager": "Налаштування OAI-PMH – Поведінка",
     "permission.settings.view": "Налаштування (OAI-PMH): Перегляд",
     "permission.settings.edit": "Налаштування (OAI-PMH): Перегляд та редагування налаштувань",
-    "permission.settings.logs.view": "Налаштування (OAI-PMH): Перегляд логів"
+    "permission.settings.logs.view": "Налаштування (OAI-PMH): Перегляд логів",
+    "settings.configuration.update.success": "Setting was successfully updated.",
+    "error.sww": "Something went wrong."
 }

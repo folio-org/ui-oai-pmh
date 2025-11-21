@@ -128,5 +128,7 @@
     "settings.behavior.manager": "Nastavení OAI-PMH - Chování",
     "permission.settings.view": "Nastavení (OAI-PMH): Lze zobrazit",
     "permission.settings.edit": "Nastavení (OAI-PMH): Umožňuje zobrazit a upravit nastavení",
-    "permission.settings.logs.view": "Nastavení (OAI-PMH): Může zobrazit logy"
+    "permission.settings.logs.view": "Nastavení (OAI-PMH): Může zobrazit logy",
+    "settings.configuration.update.success": "Setting was successfully updated.",
+    "error.sww": "Something went wrong."
 }

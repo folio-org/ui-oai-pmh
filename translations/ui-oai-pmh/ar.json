@@ -128,5 +128,7 @@
     "settings.behavior.manager": "إعدادات OAI-PMH - السلوك",
     "permission.settings.view": "الإعدادات (OAI-PMH): إمكانية عرض",
     "permission.settings.edit": "الإعدادات (OAI-PMH): إمكانية عرض وتحرير الإعدادات",
-    "permission.settings.logs.view": "الإعدادات (OAI-PMH): إمكانية عرض السجلات"
+    "permission.settings.logs.view": "الإعدادات (OAI-PMH): إمكانية عرض السجلات",
+    "settings.configuration.update.success": "Setting was successfully updated.",
+    "error.sww": "Something went wrong."
 }
