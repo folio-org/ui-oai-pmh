@@ -129,6 +129,6 @@
     "permission.settings.view": "Instellingen (OAI-PMH): Kan bekijken",
     "permission.settings.edit": "Instellingen (OAI-PMH): Kan instellingen bekijken en bewerken",
     "permission.settings.logs.view": "Instellingen (OAI-PMH): Kan logs bekijken",
-    "settings.configuration.update.success": "Setting was successfully updated.",
-    "error.sww": "Something went wrong."
+    "settings.configuration.update.success": "De instelling is bijgewerkt.",
+    "error.sww": "Er ging iets mis."
 }
