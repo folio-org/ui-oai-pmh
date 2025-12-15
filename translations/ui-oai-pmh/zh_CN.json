@@ -129,6 +129,6 @@
     "permission.settings.view": "设置 : OAI-PMH )  : 可以查看",
     "permission.settings.edit": "设置 : OAI-PMH )  : 可以查看和编辑设置",
     "permission.settings.logs.view": "设置 : OAI-PMH )  : 可以查看日志",
-    "settings.configuration.update.success": "Setting was successfully updated.",
-    "error.sww": "Something went wrong."
+    "settings.configuration.update.success": "设置更新成功。",
+    "error.sww": "出了些问题。"
 }
