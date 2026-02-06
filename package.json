@@ -102,7 +102,8 @@
         "permissionName": "settings.oai-pmh.enabled",
         "displayName": "Settings (oai-pmh): display list of settings pages",
         "subPermissions": [
-          "settings.enabled"
+          "settings.enabled",
+          "stripes-core.settings.read"
         ],
         "visible": false
       },
