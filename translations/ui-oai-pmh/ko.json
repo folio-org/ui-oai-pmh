@@ -41,9 +41,9 @@
     "settings.general.title": "General",
     "settings.sets.title": "Sets",
     "settings.sets.new.title": "New set",
-    "settings.sets.edit.title": "Edit {name}",
+    "settings.sets.edit.title": "{name}편집",
     "settings.sets.list.title": "Sets list",
-    "settings.sets.view.title": "View {name}",
+    "settings.sets.view.title": "{name}보기",
     "settings.sets.form.button.cancel": "Cancel",
     "settings.technical.title": "Technical",
     "settings.sets.callout.created": "Set was successfully created",
@@ -74,7 +74,7 @@
     "settings.sets.view.field.name": "Set name",
     "settings.sets.view.field.description": "Set description",
     "settings.sets.view.field.setSpec": "Set specification",
-    "settings.sets.view.filteringConditions.field.name": "Field",
+    "settings.sets.view.filteringConditions.field.name": "필드",
     "settings.sets.view.filteringConditions.field.value": "Value",
     "settings.sets.view.filteringConditions.field.setSpec": "Specification",
     "settings.sets.view.filteringConditions.field.value.isMissing": "This value is no longer available for the field",
@@ -93,7 +93,7 @@
     "settings.sets.edit.filteringConditions.field.value.select.format": "Select format",
     "settings.sets.edit.filteringConditions.field.value.select.illPolicy": "Select ILL policy",
     "settings.sets.edit.filteringConditions.field.value.select.materialType": "Select material type",
-    "settings.sets.list.field.name": "Name",
+    "settings.sets.list.field.name": "이름",
     "settings.sets.list.field.setSpec": "Specification",
     "settings.sets.list.field.description": "Description",
     "settings.sets.list.field.updatedDate": "Last updated",
@@ -129,6 +129,6 @@
     "permission.settings.view": "Settings (OAI-PMH): Can view",
     "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
     "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs",
-    "settings.configuration.update.success": "Setting was successfully updated.",
-    "error.sww": "Something went wrong."
+    "settings.configuration.update.success": "설정이 정상적으로 변경되었습니다.",
+    "error.sww": "오류가 발생했습니다."
 }
