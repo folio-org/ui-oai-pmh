@@ -22,68 +22,123 @@ const renderTechincalForm = () => renderWithRouter(
 );
 
 describe('Technical form', () => {
-  beforeEach(() => {
-    useConfiguration.mockReturnValue({
-      config: undefined,
-      isConfigsLoading: false,
-    });
-  });
-
   afterEach(() => {
     useConfiguration.mockClear();
   });
 
-  it('should be correct behavior title', () => {
-    renderTechincalForm();
+  describe('when OAI service is disabled', () => {
+    beforeEach(() => {
+      useConfiguration.mockReturnValue({
+        config: undefined,
+        isConfigsLoading: false,
+      });
+    });
 
-    expect(screen.getByText(labelText)).toBeVisible();
+    it('should be correct behavior title', () => {
+      renderTechincalForm();
+
+      expect(screen.getByText(labelText)).toBeVisible();
+    });
+
+    it('should be presented right techincal labels', () => {
+      renderTechincalForm();
+
+      const labels = [
+        /settings.technical.label.maxRecordsPerResponse/,
+        /settings.technical.label.enableValidation/,
+        /settings.technical.label.formattedOutput/,
+      ];
+
+      labels.forEach((el) => expect(screen.getByText(el)).toBeVisible());
+    });
+
+    it('should show disabled tooltip instead of regular tooltips', () => {
+      renderTechincalForm();
+
+      expect(screen.getAllByText(/nonGeneral.tooltip.fieldDisabled/).length).toBeGreaterThan(0);
+    });
+
+    it('should render oai notification', () => {
+      renderTechincalForm();
+
+      expect(screen.getByTestId('oai-notification')).toBeInTheDocument();
+    });
+
+    it('should disable fields when service is disabled', () => {
+      renderTechincalForm();
+
+      expect(screen.getByRole('textbox', { name: /technical.label.maxRecordsPerResponse/ })).toBeDisabled();
+      expect(screen.getByRole('checkbox', { name: /technical.label.enableValidation/ })).toBeDisabled();
+      expect(screen.getByRole('checkbox', { name: /technical.label.formattedOutput/ })).toBeDisabled();
+    });
+
+    it('should render with no axe errors', async () => {
+      renderTechincalForm();
+
+      await runAxeTest({
+        rootNode: document.body,
+      });
+    });
   });
 
-  it('should be presented right techincal labels', () => {
-    renderTechincalForm();
+  describe('when OAI service is enabled', () => {
+    beforeEach(() => {
+      useConfiguration.mockReturnValue({
+        config: {
+          configValue: { enableOaiService: true },
+        },
+        isConfigsLoading: false,
+      });
+    });
 
-    const labels = [
-      /settings.technical.label.maxRecordsPerResponse/,
-      /settings.technical.label.enableValidation/,
-      /settings.technical.label.formattedOutput/,
-    ];
+    it('should be presented right techincal tooltips', () => {
+      renderTechincalForm();
 
-    labels.forEach((el) => expect(screen.getByText(el)).toBeVisible());
-  });
+      const tooltips = [
+        /technical.tooltip.maxRecordsPerResponse/,
+        /technical.tooltip.enableValidation/,
+        /technical.tooltip.formattedOutput/,
+      ];
 
-  it('should be presented right techincal tooltips', () => {
-    renderTechincalForm();
+      tooltips.forEach((el) => expect(screen.getByText(el)).toBeVisible());
+    });
 
-    const tooltips = [
-      /technical.tooltip.maxRecordsPerResponse/,
-      /technical.tooltip.enableValidation/,
-      /technical.tooltip.formattedOutput/,
-    ];
+    it('should not render oai notification', () => {
+      renderTechincalForm();
 
-    tooltips.forEach((el) => expect(screen.getByText(el)).toBeVisible());
-  });
+      expect(screen.queryByTestId('oai-notification')).not.toBeInTheDocument();
+    });
 
-  it('should be enabled button save after checking the formatted output', () => {
-    renderTechincalForm();
+    it('should enable fields when service is enabled', () => {
+      renderTechincalForm();
 
-    userEvent.click(screen.getByRole('checkbox', { name: /technical.label.formattedOutput/ }));
+      expect(screen.getByRole('textbox', { name: /technical.label.maxRecordsPerResponse/ })).toBeEnabled();
+      expect(screen.getByRole('checkbox', { name: /technical.label.enableValidation/ })).toBeEnabled();
+      expect(screen.getByRole('checkbox', { name: /technical.label.formattedOutput/ })).toBeEnabled();
+    });
 
-    expect(screen.getByRole('button', { name: 'stripes-core.button.save' })).toBeEnabled();
-  });
+    it('should be enabled button save after checking the formatted output', () => {
+      renderTechincalForm();
 
-  it('should be enabled button save after setting max record', () => {
-    renderTechincalForm();
+      userEvent.click(screen.getByRole('checkbox', { name: /technical.label.formattedOutput/ }));
 
-    userEvent.type(screen.getByRole('textbox', { name:/technical.label.maxRecordsPerResponse/ }), '50');
+      expect(screen.getByRole('button', { name: 'stripes-core.button.save' })).toBeEnabled();
+    });
 
-    expect(screen.getByRole('button', { name: 'stripes-core.button.save' })).toBeEnabled();
-  });
+    it('should be enabled button save after setting max record', () => {
+      renderTechincalForm();
 
-  it('should render with no axe errors', async () => {
-    renderTechincalForm();
+      userEvent.type(screen.getByRole('textbox', { name: /technical.label.maxRecordsPerResponse/ }), '50');
 
-    await runAxeTest({
-      rootNode: document.body,
+      expect(screen.getByRole('button', { name: 'stripes-core.button.save' })).toBeEnabled();
+    });
+
+    it('should render with no axe errors', async () => {
+      renderTechincalForm();
+
+      await runAxeTest({
+        rootNode: document.body,
+      });
     });
   });
 });

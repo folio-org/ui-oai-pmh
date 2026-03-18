@@ -14,15 +14,22 @@ const RowComponent = ({
   tooltip,
   dataOptions = [],
   component,
+  disabled: disabledProp,
+  disabledTooltip,
   ...props
 }) => {
   const stripes = useStripes();
   const rowComponent = useRef(null);
 
   const hasEditPerm = stripes.hasPerm('ui-oai-pmh.settings.edit');
+  const isDisabled = disabledProp !== undefined ? (disabledProp || !hasEditPerm) : !hasEditPerm;
   const fieldPropsAttributeNames = ['id', 'required', 'type', 'component', 'dataOptions'];
   const fieldProps = pick({ id, required: props.required, type: props.type, component, dataOptions }, fieldPropsAttributeNames);
   const dataTest = omit(props, [...fieldPropsAttributeNames, 'label', 'tooltip']);
+
+  const boldTag = (chunks) => <b>{chunks}</b>;
+  const showDisabledTooltip = isDisabled && disabledTooltip;
+  const activeTooltip = showDisabledTooltip ? disabledTooltip : tooltip;
 
   return (
     <Row>
@@ -37,15 +44,25 @@ const RowComponent = ({
           <Field
             {...fieldProps}
             name={id}
-            label={<FormattedMessage id={label} />}
-            disabled={!hasEditPerm}
+            label={
+              <FormattedMessage
+                id={label}
+                values={{ b: boldTag }}
+              />
+            }
+            disabled={isDisabled}
           />
         </div>
-        {tooltip && (
+        {activeTooltip && (
           <Tooltip
             id={`${id}-tooltip`}
             name={`${id}-tooltip`}
-            text={<FormattedMessage id={tooltip} />}
+            text={
+              <FormattedMessage
+                id={activeTooltip}
+                values={{ b: boldTag }}
+              />
+            }
             triggerRef={rowComponent}
           />
         )}
@@ -62,6 +79,8 @@ RowComponent.propTypes = {
   component: PropTypes.node.isRequired,
   required: PropTypes.bool,
   type: PropTypes.string,
+  disabled: PropTypes.bool,
+  disabledTooltip: PropTypes.string,
 };
 
 export default RowComponent;

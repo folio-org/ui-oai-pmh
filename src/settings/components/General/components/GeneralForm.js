@@ -46,6 +46,8 @@ const GeneralForm = ({
 }) => {
   const stripes = useStripes();
 
+  const isOaiServiceEnabled = form.getState().values.enableOaiService;
+
   const renderFooter = () => {
     const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.settings.edit');
     return (
@@ -61,10 +63,10 @@ const GeneralForm = ({
     );
   };
 
-  const isOaiServiceEnabled = () => {
-    const { enableOaiService } = form.getState().values;
-    return enableOaiService;
-  };
+  const fieldDisabled = !isOaiServiceEnabled;
+  const disabledTooltipId = fieldDisabled
+    ? 'ui-oai-pmh.settings.general.tooltip.fieldDisabled'
+    : undefined;
 
   return (
     <form
@@ -79,7 +81,7 @@ const GeneralForm = ({
         paneTitle={label}
         footer={renderFooter()}
       >
-        <OaiNotification isOaiServiceEnabled={isOaiServiceEnabled()} />
+        <OaiNotification isGeneral isOaiServiceEnabled={isOaiServiceEnabled} />
         <RowComponent
           data-test-enable-oai-service
           id="enableOaiService"
@@ -90,35 +92,46 @@ const GeneralForm = ({
         />
         <RowComponent
           data-test-repository-name
-          required
+          required={isOaiServiceEnabled}
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="repositoryName"
           label="ui-oai-pmh.settings.general.label.repositoryName"
-          tooltip="ui-oai-pmh.settings.general.tooltip.repositoryName"
+          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.general.tooltip.repositoryName' : undefined}
           component={TextField}
+          format={value => (isOaiServiceEnabled ? value : '')}
         />
         <RowComponent
           data-test-base-url
-          required
+          required={isOaiServiceEnabled}
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="baseUrl"
           label="ui-oai-pmh.settings.general.label.baseUrl"
-          tooltip="ui-oai-pmh.settings.general.tooltip.baseUrl"
+          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.general.tooltip.baseUrl' : undefined}
           component={TextField}
+          format={value => (isOaiServiceEnabled ? value : '')}
         />
         <RowComponent
           data-test-time-granularity
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="timeGranularity"
           label="ui-oai-pmh.settings.general.label.timeGranularity"
-          tooltip="ui-oai-pmh.settings.general.tooltip.timeGranularity"
+          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.general.tooltip.timeGranularity' : undefined}
           dataOptions={TIME_GRANULARITY_SELECT_VALUES}
           component={Select}
         />
         <RowComponent
           data-test-administrator-email
-          required
+          required={isOaiServiceEnabled}
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="administratorEmail"
           label="ui-oai-pmh.settings.general.label.administratorEmail"
-          tooltip="ui-oai-pmh.settings.general.tooltip.administratorEmail"
+          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.general.tooltip.administratorEmail' : undefined}
           component={TextArea}
+          format={value => (isOaiServiceEnabled ? value : '')}
         />
       </Pane>
     </form>

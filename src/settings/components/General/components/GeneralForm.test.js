@@ -19,101 +19,151 @@ const stripes = {
 const onSubmitMock = jest.fn();
 const labelText = 'ui-oai-pmh.settings.general.title';
 
-const renderGeneralForm = () => renderWithRouter(
+const renderGeneralForm = (props = {}) => renderWithRouter(
   <GeneralForm
     stripes={stripes}
     onSubmit={onSubmitMock}
     label={labelText}
+    {...props}
   />
 );
 
 describe('General form', () => {
-  beforeEach(() => {
-    useConfiguration.mockReturnValue({
-      config: undefined,
-      isConfigsLoading: false,
-    });
-  });
-
   afterEach(() => {
     useConfiguration.mockClear();
   });
 
-  it('should be correct behavior title', () => {
-    renderGeneralForm();
-
-    expect(screen.getByText(labelText)).toBeVisible();
-  });
-
-  it('should be enable general button save', () => {
-    renderGeneralForm();
-
-    expect(screen.getByRole('button', { name: /save/ })).toBeEnabled();
-  });
-
-  it('should be presented enable oai service', () => {
-    renderGeneralForm();
-
-    expect(screen.getByText(/general.tooltip.enableOaiService/)).toBeInTheDocument();
-  });
-
-  it('should be presented repository name', () => {
-    renderGeneralForm();
-
-    expect(screen.getByText(/general.tooltip.repositoryName/)).toBeInTheDocument();
-  });
-
-  it('should be presented base url', () => {
-    renderGeneralForm();
-
-    expect(screen.getByText(/general.tooltip.baseUrl/)).toBeInTheDocument();
-  });
-
-  it('should be presented time granularity', () => {
-    renderGeneralForm();
-
-    expect(screen.getByText(/settings.general.tooltip.timeGranularity/)).toBeInTheDocument();
-  });
-
-  it('should be presented administrator email', () => {
-    renderGeneralForm();
-
-    expect(screen.getByText(/general.tooltip.administratorEmail/)).toBeInTheDocument();
-  });
-
-  it('should render oai notification', () => {
-    renderGeneralForm();
-
-    expect(screen.getByTestId('oai-notification')).toBeInTheDocument();
-  });
-
-  it('should show validate message', () => {
-    Object.defineProperty(window, 'matchMedia', {
-      writable: true,
-      value: jest.fn().mockImplementation(query => ({
-        matches: false,
-        media: query,
-      }))
+  describe('when OAI service is disabled', () => {
+    beforeEach(() => {
+      useConfiguration.mockReturnValue({
+        config: undefined,
+        isConfigsLoading: false,
+      });
     });
 
-    renderGeneralForm();
+    it('should be correct behavior title', () => {
+      renderGeneralForm();
 
-    const baseUrlInput = screen.getByRole('textbox', { name: /general.label.baseUrl/ });
-    const adminEmailInput = screen.getByRole('textbox', { name: /general.label.administratorEmail/ });
+      expect(screen.getByText(labelText)).toBeVisible();
+    });
 
-    userEvent.type(baseUrlInput, 'http://test.com');
-    userEvent.type(adminEmailInput, 'test@test.com');
+    it('should be enable general button save', () => {
+      renderGeneralForm();
 
-    const alerts = screen.queryAllByRole('alert');
+      expect(screen.getByRole('button', { name: /save/ })).toBeEnabled();
+    });
 
-    expect(alerts.length).toBeGreaterThanOrEqual(0);
+    it('should be presented enable oai service', () => {
+      renderGeneralForm();
+
+      expect(screen.getByText(/general.tooltip.enableOaiService/)).toBeInTheDocument();
+    });
+
+    it('should show disabled tooltip for disabled fields', () => {
+      renderGeneralForm();
+
+      expect(screen.getAllByText(/general.tooltip.fieldDisabled/).length).toBeGreaterThan(0);
+    });
+
+    it('should render oai notification', () => {
+      renderGeneralForm();
+
+      expect(screen.getByTestId('oai-notification')).toBeInTheDocument();
+    });
+
+    it('should disable text fields when service is disabled', () => {
+      renderGeneralForm();
+
+      expect(screen.getByRole('textbox', { name: /general.label.repositoryName/ })).toBeDisabled();
+      expect(screen.getByRole('textbox', { name: /general.label.baseUrl/ })).toBeDisabled();
+      expect(screen.getByRole('textbox', { name: /general.label.administratorEmail/ })).toBeDisabled();
+    });
+
+    it('should render with no axe errors', async () => {
+      renderGeneralForm();
+
+      await runAxeTest({
+        rootNode: document.body,
+      });
+    });
   });
 
-  it('should render with no axe errors', async () => {
-    renderGeneralForm();
+  describe('when OAI service is enabled', () => {
+    beforeEach(() => {
+      useConfiguration.mockReturnValue({
+        config: {
+          configValue: { enableOaiService: true },
+        },
+        isConfigsLoading: false,
+      });
+    });
 
-    await runAxeTest({
-      rootNode: document.body,
+    it('should be presented repository name tooltip', () => {
+      renderGeneralForm({ initialValues: { enableOaiService: true } });
+
+      expect(screen.getByText(/general.tooltip.repositoryName/)).toBeInTheDocument();
+    });
+
+    it('should be presented base url tooltip', () => {
+      renderGeneralForm({ initialValues: { enableOaiService: true } });
+
+      expect(screen.getByText(/general.tooltip.baseUrl/)).toBeInTheDocument();
+    });
+
+    it('should be presented time granularity tooltip', () => {
+      renderGeneralForm({ initialValues: { enableOaiService: true } });
+
+      expect(screen.getByText(/settings.general.tooltip.timeGranularity/)).toBeInTheDocument();
+    });
+
+    it('should be presented administrator email tooltip', () => {
+      renderGeneralForm({ initialValues: { enableOaiService: true } });
+
+      expect(screen.getByText(/general.tooltip.administratorEmail/)).toBeInTheDocument();
+    });
+
+    it('should not render oai notification', () => {
+      renderGeneralForm({ initialValues: { enableOaiService: true } });
+
+      expect(screen.queryByTestId('oai-notification')).not.toBeInTheDocument();
+    });
+
+    it('should enable text fields when service is enabled', () => {
+      renderGeneralForm({ initialValues: { enableOaiService: true } });
+
+      expect(screen.getByRole('textbox', { name: /general.label.repositoryName/ })).toBeEnabled();
+      expect(screen.getByRole('textbox', { name: /general.label.baseUrl/ })).toBeEnabled();
+      expect(screen.getByRole('textbox', { name: /general.label.administratorEmail/ })).toBeEnabled();
+    });
+
+    it('should show validate message', () => {
+      Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation(query => ({
+          matches: false,
+          media: query,
+        }))
+      });
+
+      renderGeneralForm({ initialValues: { enableOaiService: true } });
+
+      const baseUrlInput = screen.getByRole('textbox', { name: /general.label.baseUrl/ });
+      const adminEmailInput = screen.getByRole('textbox', { name: /general.label.administratorEmail/ });
+
+      userEvent.type(baseUrlInput, 'http://test.com');
+      userEvent.type(adminEmailInput, 'test@test.com');
+
+      const alerts = screen.queryAllByRole('alert');
+
+      expect(alerts.length).toBeGreaterThanOrEqual(0);
+    });
+
+    it('should render with no axe errors', async () => {
+      renderGeneralForm({ initialValues: { enableOaiService: true } });
+
+      await runAxeTest({
+        rootNode: document.body,
+      });
     });
   });
 });

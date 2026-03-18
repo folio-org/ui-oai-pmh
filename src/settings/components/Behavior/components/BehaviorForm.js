@@ -17,7 +17,9 @@ import {
 import {
   DEFAULT_PANE_WIDTH,
   BEHAVIOR_FORM_NAME,
+  GENERAL_CONFIG_NAME,
 } from '../../../constants';
+import { useConfiguration } from '../../../hooks';
 import css from '../../common/Form.css';
 import OaiNotification from '../../common/OaiNotification';
 
@@ -81,6 +83,13 @@ const BehaviorForm = ({
 }) => {
   const stripes = useStripes();
   const { formatMessage } = useIntl();
+  const { config: generalConfig } = useConfiguration(GENERAL_CONFIG_NAME);
+  const isOaiServiceEnabled = !!generalConfig?.configValue?.enableOaiService;
+
+  const fieldDisabled = !isOaiServiceEnabled;
+  const disabledTooltipId = fieldDisabled
+    ? 'ui-oai-pmh.settings.nonGeneral.tooltip.fieldDisabled'
+    : undefined;
 
   const renderFooter = () => {
     const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.settings.edit');
@@ -113,33 +122,45 @@ const BehaviorForm = ({
         <OaiNotification />
         <RowComponent
           data-test-deleted-records-support
+          required={isOaiServiceEnabled}
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="deletedRecordsSupport"
           label="ui-oai-pmh.settings.behavior.label.deletedRecordsSupport"
-          tooltip="ui-oai-pmh.settings.behavior.tooltip.deletedRecordsSupport"
+          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.behavior.tooltip.deletedRecordsSupport' : undefined}
           dataOptions={deletedRecordsSupportSelectValues(formatMessage)}
           component={Select}
         />
         <RowComponent
           data-test-suppressed-records-processing
+          required={isOaiServiceEnabled}
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="suppressedRecordsProcessing"
           label="ui-oai-pmh.settings.behavior.label.suppressedRecordsProcessing"
-          tooltip="ui-oai-pmh.settings.behavior.tooltip.suppressedRecordsProcessing"
+          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.behavior.tooltip.suppressedRecordsProcessing' : undefined}
           dataOptions={suppressedRecordsProcessingSelectValues(formatMessage)}
           component={Select}
         />
         <RowComponent
           data-test-errors-processing
+          required={isOaiServiceEnabled}
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="errorsProcessing"
           label="ui-oai-pmh.settings.behavior.label.errorsProcessing"
-          tooltip="ui-oai-pmh.settings.behavior.tooltip.errorsProcessing"
+          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.behavior.tooltip.errorsProcessing' : undefined}
           dataOptions={errorsProcessingSelectValues(formatMessage)}
           component={Select}
         />
         <RowComponent
           data-test-errors-processing
+          required={isOaiServiceEnabled}
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="recordsSource"
           label="ui-oai-pmh.settings.behavior.label.recordSource"
-          tooltip="ui-oai-pmh.settings.behavior.tooltip.recordSource"
+          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.behavior.tooltip.recordSource' : undefined}
           dataOptions={recordsSource(formatMessage)}
           component={Select}
         />

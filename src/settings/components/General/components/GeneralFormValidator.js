@@ -3,6 +3,10 @@ import {
 } from '../../common';
 
 export default (formData) => {
+  if (!formData.enableOaiService) {
+    return {};
+  }
+
   const config = {
     'repositoryName': {
       rules: ['isNotEmpty'],
