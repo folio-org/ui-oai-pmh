@@ -42,12 +42,14 @@ const GeneralForm = ({
   pristine,
   submitting,
   handleSubmit,
+  form,
   initialValues,
 }) => {
   const stripes = useStripes();
 
-  const isOaiServiceSavedAsEnabled = !!initialValues.enableOaiService;
-  const formatter = value => (initialValues.enableOaiService ? value : '');
+  const isOaiServiceSavedAsEnabled = !!initialValues?.enableOaiService;
+  const isOaiServiceChecked = !!form.getState().values.enableOaiService;
+  const formatter = value => (isOaiServiceChecked ? value : '');
 
   const renderFooter = () => {
     const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.settings.edit');

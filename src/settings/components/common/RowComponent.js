@@ -22,7 +22,7 @@ const RowComponent = ({
   const rowComponent = useRef(null);
 
   const hasEditPerm = stripes.hasPerm('ui-oai-pmh.settings.edit');
-  const isDisabled = disabledProp !== undefined ? (disabledProp || !hasEditPerm) : !hasEditPerm;
+  const isDisabled = disabledProp === undefined ? !hasEditPerm : (disabledProp || !hasEditPerm);
   const fieldPropsAttributeNames = ['id', 'required', 'type', 'component', 'dataOptions', 'format'];
   const fieldProps = pick({ id, required: props.required, type: props.type, component, dataOptions, format: props.format }, fieldPropsAttributeNames);
   const dataTest = omit(props, [...fieldPropsAttributeNames, 'label', 'tooltip']);

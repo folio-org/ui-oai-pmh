@@ -14,9 +14,9 @@ const boldTag = (chunks) => <b>{chunks}</b>;
 const OaiNotification = ({ isGeneral = false, isOaiServiceEnabled: isOaiServiceEnabledProp }) => {
   const { config } = useConfiguration(GENERAL_CONFIG_NAME);
 
-  const isEnabled = isOaiServiceEnabledProp !== undefined
-    ? isOaiServiceEnabledProp
-    : config?.configValue?.enableOaiService;
+  const isEnabled = isOaiServiceEnabledProp === undefined
+    ? config?.configValue?.enableOaiService
+    : isOaiServiceEnabledProp;
 
   if (isEnabled) return null;
 
