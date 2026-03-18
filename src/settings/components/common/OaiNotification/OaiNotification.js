@@ -22,7 +22,7 @@ const OaiNotification = ({ isGeneral = false, isOaiServiceEnabled: isOaiServiceE
 
   const messageId = isGeneral
     ? 'ui-oai-pmh.settings.general.oaiServiceIsDisabled'
-    : 'ui-oai-pmh.settings.all.oaiServiceIsDisabled';
+    : 'ui-oai-pmh.settings.other.oaiServiceIsDisabled';
 
   return (
     <div

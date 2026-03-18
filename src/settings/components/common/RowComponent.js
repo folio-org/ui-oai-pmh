@@ -23,8 +23,8 @@ const RowComponent = ({
 
   const hasEditPerm = stripes.hasPerm('ui-oai-pmh.settings.edit');
   const isDisabled = disabledProp !== undefined ? (disabledProp || !hasEditPerm) : !hasEditPerm;
-  const fieldPropsAttributeNames = ['id', 'required', 'type', 'component', 'dataOptions'];
-  const fieldProps = pick({ id, required: props.required, type: props.type, component, dataOptions }, fieldPropsAttributeNames);
+  const fieldPropsAttributeNames = ['id', 'required', 'type', 'component', 'dataOptions', 'format'];
+  const fieldProps = pick({ id, required: props.required, type: props.type, component, dataOptions, format: props.format }, fieldPropsAttributeNames);
   const dataTest = omit(props, [...fieldPropsAttributeNames, 'label', 'tooltip']);
 
   const boldTag = (chunks) => <b>{chunks}</b>;

@@ -42,11 +42,12 @@ const GeneralForm = ({
   pristine,
   submitting,
   handleSubmit,
-  form,
+  initialValues,
 }) => {
   const stripes = useStripes();
 
-  const isOaiServiceEnabled = form.getState().values.enableOaiService;
+  const isOaiServiceSavedAsEnabled = !!initialValues.enableOaiService;
+  const formatter = value => (initialValues.enableOaiService ? value : '');
 
   const renderFooter = () => {
     const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.settings.edit');
@@ -63,7 +64,7 @@ const GeneralForm = ({
     );
   };
 
-  const fieldDisabled = !isOaiServiceEnabled;
+  const fieldDisabled = !isOaiServiceSavedAsEnabled;
   const disabledTooltipId = fieldDisabled
     ? 'ui-oai-pmh.settings.general.tooltip.fieldDisabled'
     : undefined;
@@ -81,7 +82,7 @@ const GeneralForm = ({
         paneTitle={label}
         footer={renderFooter()}
       >
-        <OaiNotification isGeneral isOaiServiceEnabled={isOaiServiceEnabled} />
+        <OaiNotification isGeneral isOaiServiceEnabled={isOaiServiceSavedAsEnabled} />
         <RowComponent
           data-test-enable-oai-service
           id="enableOaiService"
@@ -92,25 +93,25 @@ const GeneralForm = ({
         />
         <RowComponent
           data-test-repository-name
-          required={isOaiServiceEnabled}
+          required={isOaiServiceSavedAsEnabled}
           disabled={fieldDisabled}
           disabledTooltip={disabledTooltipId}
           id="repositoryName"
           label="ui-oai-pmh.settings.general.label.repositoryName"
-          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.general.tooltip.repositoryName' : undefined}
+          tooltip={isOaiServiceSavedAsEnabled ? 'ui-oai-pmh.settings.general.tooltip.repositoryName' : undefined}
           component={TextField}
-          format={value => (isOaiServiceEnabled ? value : '')}
+          format={formatter}
         />
         <RowComponent
           data-test-base-url
-          required={isOaiServiceEnabled}
+          required={isOaiServiceSavedAsEnabled}
           disabled={fieldDisabled}
           disabledTooltip={disabledTooltipId}
           id="baseUrl"
           label="ui-oai-pmh.settings.general.label.baseUrl"
-          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.general.tooltip.baseUrl' : undefined}
+          tooltip={isOaiServiceSavedAsEnabled ? 'ui-oai-pmh.settings.general.tooltip.baseUrl' : undefined}
           component={TextField}
-          format={value => (isOaiServiceEnabled ? value : '')}
+          format={formatter}
         />
         <RowComponent
           data-test-time-granularity
@@ -118,20 +119,20 @@ const GeneralForm = ({
           disabledTooltip={disabledTooltipId}
           id="timeGranularity"
           label="ui-oai-pmh.settings.general.label.timeGranularity"
-          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.general.tooltip.timeGranularity' : undefined}
+          tooltip={isOaiServiceSavedAsEnabled ? 'ui-oai-pmh.settings.general.tooltip.timeGranularity' : undefined}
           dataOptions={TIME_GRANULARITY_SELECT_VALUES}
           component={Select}
         />
         <RowComponent
           data-test-administrator-email
-          required={isOaiServiceEnabled}
+          required={isOaiServiceSavedAsEnabled}
           disabled={fieldDisabled}
           disabledTooltip={disabledTooltipId}
           id="administratorEmail"
           label="ui-oai-pmh.settings.general.label.administratorEmail"
-          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.general.tooltip.administratorEmail' : undefined}
+          tooltip={isOaiServiceSavedAsEnabled ? 'ui-oai-pmh.settings.general.tooltip.administratorEmail' : undefined}
           component={TextArea}
-          format={value => (isOaiServiceEnabled ? value : '')}
+          format={formatter}
         />
       </Pane>
     </form>
@@ -146,6 +147,7 @@ GeneralForm.propTypes = {
   form: PropTypes.shape({
     getState: PropTypes.func.isRequired,
   }).isRequired,
+  initialValues: PropTypes.object,
 };
 
 export default stripesFinalForm({
