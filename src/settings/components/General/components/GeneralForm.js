@@ -23,6 +23,7 @@ import {
   TIME_GRANULARITY_SHORT_FORMAT,
   TIME_GRANULARITY_FULL_FORMAT,
 } from '../../../constants';
+import { getTooltip } from '../../../util';
 import GeneralFormValidator from './GeneralFormValidator';
 import css from '../../common/Form.css';
 
@@ -67,9 +68,7 @@ const GeneralForm = ({
   };
 
   const fieldDisabled = !isOaiServiceSavedAsEnabled;
-  const disabledTooltipId = fieldDisabled
-    ? 'ui-oai-pmh.settings.general.tooltip.fieldDisabled'
-    : undefined;
+  const disabledTooltipId = getTooltip(fieldDisabled, 'ui-oai-pmh.settings.general.tooltip.fieldDisabled');
 
   return (
     <form
@@ -100,7 +99,7 @@ const GeneralForm = ({
           disabledTooltip={disabledTooltipId}
           id="repositoryName"
           label="ui-oai-pmh.settings.general.label.repositoryName"
-          tooltip={isOaiServiceSavedAsEnabled ? 'ui-oai-pmh.settings.general.tooltip.repositoryName' : undefined}
+          tooltip={getTooltip(isOaiServiceSavedAsEnabled, 'ui-oai-pmh.settings.general.tooltip.repositoryName')}
           component={TextField}
           format={formatter}
         />
@@ -111,7 +110,7 @@ const GeneralForm = ({
           disabledTooltip={disabledTooltipId}
           id="baseUrl"
           label="ui-oai-pmh.settings.general.label.baseUrl"
-          tooltip={isOaiServiceSavedAsEnabled ? 'ui-oai-pmh.settings.general.tooltip.baseUrl' : undefined}
+          tooltip={getTooltip(isOaiServiceSavedAsEnabled, 'ui-oai-pmh.settings.general.tooltip.baseUrl')}
           component={TextField}
           format={formatter}
         />
@@ -121,7 +120,7 @@ const GeneralForm = ({
           disabledTooltip={disabledTooltipId}
           id="timeGranularity"
           label="ui-oai-pmh.settings.general.label.timeGranularity"
-          tooltip={isOaiServiceSavedAsEnabled ? 'ui-oai-pmh.settings.general.tooltip.timeGranularity' : undefined}
+          tooltip={getTooltip(isOaiServiceSavedAsEnabled, 'ui-oai-pmh.settings.general.tooltip.timeGranularity')}
           dataOptions={TIME_GRANULARITY_SELECT_VALUES}
           component={Select}
         />
@@ -132,7 +131,7 @@ const GeneralForm = ({
           disabledTooltip={disabledTooltipId}
           id="administratorEmail"
           label="ui-oai-pmh.settings.general.label.administratorEmail"
-          tooltip={isOaiServiceSavedAsEnabled ? 'ui-oai-pmh.settings.general.tooltip.administratorEmail' : undefined}
+          tooltip={getTooltip(isOaiServiceSavedAsEnabled, 'ui-oai-pmh.settings.general.tooltip.administratorEmail')}
           component={TextArea}
           format={formatter}
         />

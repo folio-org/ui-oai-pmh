@@ -20,6 +20,7 @@ import { DEFAULT_PANE_WIDTH,
   TECHNICAL_FORM_NAME,
   GENERAL_CONFIG_NAME } from '../../../constants';
 import { useConfiguration } from '../../../hooks';
+import { getTooltip } from '../../../util';
 
 import css from '../../common/Form.css';
 
@@ -35,9 +36,7 @@ const TechnicalForm = ({
   const isOaiServiceEnabled = !!generalConfig?.configValue?.enableOaiService;
 
   const fieldDisabled = !isOaiServiceEnabled;
-  const disabledTooltipId = fieldDisabled
-    ? 'ui-oai-pmh.settings.nonGeneral.tooltip.fieldDisabled'
-    : undefined;
+  const disabledTooltipId = getTooltip(fieldDisabled, 'ui-oai-pmh.settings.nonGeneral.tooltip.fieldDisabled');
 
   const renderFooter = () => {
     const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.settings.edit');
@@ -75,7 +74,7 @@ const TechnicalForm = ({
           disabledTooltip={disabledTooltipId}
           id="maxRecordsPerResponse"
           label="ui-oai-pmh.settings.technical.label.maxRecordsPerResponse"
-          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.technical.tooltip.maxRecordsPerResponse' : undefined}
+          tooltip={getTooltip(isOaiServiceEnabled, 'ui-oai-pmh.settings.technical.tooltip.maxRecordsPerResponse')}
           component={TextField}
           format={value => (isOaiServiceEnabled ? value : '50')}
         />
@@ -85,7 +84,7 @@ const TechnicalForm = ({
           disabledTooltip={disabledTooltipId}
           id="enableValidation"
           label="ui-oai-pmh.settings.technical.label.enableValidation"
-          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.technical.tooltip.enableValidation' : undefined}
+          tooltip={getTooltip(isOaiServiceEnabled, 'ui-oai-pmh.settings.technical.tooltip.enableValidation')}
           type="checkbox"
           component={Checkbox}
         />
@@ -95,7 +94,7 @@ const TechnicalForm = ({
           disabledTooltip={disabledTooltipId}
           id="formattedOutput"
           label="ui-oai-pmh.settings.technical.label.formattedOutput"
-          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.technical.tooltip.formattedOutput' : undefined}
+          tooltip={getTooltip(isOaiServiceEnabled, 'ui-oai-pmh.settings.technical.tooltip.formattedOutput')}
           type="checkbox"
           component={Checkbox}
         />

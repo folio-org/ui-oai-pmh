@@ -20,6 +20,7 @@ import {
   GENERAL_CONFIG_NAME,
 } from '../../../constants';
 import { useConfiguration } from '../../../hooks';
+import { getTooltip } from '../../../util';
 import css from '../../common/Form.css';
 import OaiNotification from '../../common/OaiNotification';
 
@@ -87,9 +88,7 @@ const BehaviorForm = ({
   const isOaiServiceEnabled = !!generalConfig?.configValue?.enableOaiService;
 
   const fieldDisabled = !isOaiServiceEnabled;
-  const disabledTooltipId = fieldDisabled
-    ? 'ui-oai-pmh.settings.nonGeneral.tooltip.fieldDisabled'
-    : undefined;
+  const disabledTooltipId = getTooltip(fieldDisabled, 'ui-oai-pmh.settings.nonGeneral.tooltip.fieldDisabled');
 
   const renderFooter = () => {
     const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.settings.edit');
@@ -127,7 +126,7 @@ const BehaviorForm = ({
           disabledTooltip={disabledTooltipId}
           id="deletedRecordsSupport"
           label="ui-oai-pmh.settings.behavior.label.deletedRecordsSupport"
-          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.behavior.tooltip.deletedRecordsSupport' : undefined}
+          tooltip={getTooltip(isOaiServiceEnabled, 'ui-oai-pmh.settings.behavior.tooltip.deletedRecordsSupport')}
           dataOptions={deletedRecordsSupportSelectValues(formatMessage)}
           component={Select}
         />
@@ -138,7 +137,7 @@ const BehaviorForm = ({
           disabledTooltip={disabledTooltipId}
           id="suppressedRecordsProcessing"
           label="ui-oai-pmh.settings.behavior.label.suppressedRecordsProcessing"
-          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.behavior.tooltip.suppressedRecordsProcessing' : undefined}
+          tooltip={getTooltip(isOaiServiceEnabled, 'ui-oai-pmh.settings.behavior.tooltip.suppressedRecordsProcessing')}
           dataOptions={suppressedRecordsProcessingSelectValues(formatMessage)}
           component={Select}
         />
@@ -149,7 +148,7 @@ const BehaviorForm = ({
           disabledTooltip={disabledTooltipId}
           id="errorsProcessing"
           label="ui-oai-pmh.settings.behavior.label.errorsProcessing"
-          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.behavior.tooltip.errorsProcessing' : undefined}
+          tooltip={getTooltip(isOaiServiceEnabled, 'ui-oai-pmh.settings.behavior.tooltip.errorsProcessing')}
           dataOptions={errorsProcessingSelectValues(formatMessage)}
           component={Select}
         />
@@ -160,7 +159,7 @@ const BehaviorForm = ({
           disabledTooltip={disabledTooltipId}
           id="recordsSource"
           label="ui-oai-pmh.settings.behavior.label.recordSource"
-          tooltip={isOaiServiceEnabled ? 'ui-oai-pmh.settings.behavior.tooltip.recordSource' : undefined}
+          tooltip={getTooltip(isOaiServiceEnabled, 'ui-oai-pmh.settings.behavior.tooltip.recordSource')}
           dataOptions={recordsSource(formatMessage)}
           component={Select}
         />
