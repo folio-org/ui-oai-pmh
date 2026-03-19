@@ -43,14 +43,14 @@ const GeneralForm = ({
   pristine,
   submitting,
   handleSubmit,
-  form,
   initialValues,
 }) => {
   const stripes = useStripes();
 
   const isOaiServiceSavedAsEnabled = !!initialValues?.enableOaiService;
-  const isOaiServiceChecked = !!form.getState().values.enableOaiService;
-  const formatter = value => (isOaiServiceChecked ? value : '');
+  const fieldDisabled = !isOaiServiceSavedAsEnabled;
+  const disabledTooltipId = getTooltip(fieldDisabled, 'ui-oai-pmh.settings.general.tooltip.fieldDisabled');
+  const formatter = value => (isOaiServiceSavedAsEnabled ? value : '');
 
   const renderFooter = () => {
     const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.settings.edit');
@@ -66,9 +66,6 @@ const GeneralForm = ({
       />
     );
   };
-
-  const fieldDisabled = !isOaiServiceSavedAsEnabled;
-  const disabledTooltipId = getTooltip(fieldDisabled, 'ui-oai-pmh.settings.general.tooltip.fieldDisabled');
 
   return (
     <form
@@ -145,9 +142,6 @@ GeneralForm.propTypes = {
   pristine: PropTypes.bool,
   submitting: PropTypes.bool,
   handleSubmit: PropTypes.func.isRequired,
-  form: PropTypes.shape({
-    getState: PropTypes.func.isRequired,
-  }).isRequired,
   initialValues: PropTypes.object,
 };
 

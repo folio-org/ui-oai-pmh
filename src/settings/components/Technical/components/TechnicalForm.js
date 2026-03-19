@@ -76,7 +76,6 @@ const TechnicalForm = ({
           label="ui-oai-pmh.settings.technical.label.maxRecordsPerResponse"
           tooltip={getTooltip(isOaiServiceEnabled, 'ui-oai-pmh.settings.technical.tooltip.maxRecordsPerResponse')}
           component={TextField}
-          format={value => (isOaiServiceEnabled ? value : '50')}
         />
         <RowComponent
           data-test-enable-validation
