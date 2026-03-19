@@ -16,10 +16,11 @@ import {
 } from '../../common';
 import OaiNotification from '../../common/OaiNotification';
 import TechnicalFormValidator from './TechnicalFormValidator';
-import {
-  DEFAULT_PANE_WIDTH,
+import { DEFAULT_PANE_WIDTH,
   TECHNICAL_FORM_NAME,
-} from '../../../constants';
+  GENERAL_CONFIG_NAME } from '../../../constants';
+import { useConfiguration } from '../../../hooks';
+import { getTooltip } from '../../../util';
 
 import css from '../../common/Form.css';
 
@@ -31,6 +32,11 @@ const TechnicalForm = ({
   handleSubmit,
 }) => {
   const stripes = useStripes();
+  const { config: generalConfig } = useConfiguration(GENERAL_CONFIG_NAME);
+  const isOaiServiceEnabled = !!generalConfig?.configValue?.enableOaiService;
+
+  const fieldDisabled = !isOaiServiceEnabled;
+  const disabledTooltipId = getTooltip(fieldDisabled, 'ui-oai-pmh.settings.nonGeneral.tooltip.fieldDisabled');
 
   const renderFooter = () => {
     const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.settings.edit');
@@ -63,25 +69,31 @@ const TechnicalForm = ({
         <OaiNotification />
         <RowComponent
           data-test-max-records-per-response
-          required
+          required={isOaiServiceEnabled}
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="maxRecordsPerResponse"
           label="ui-oai-pmh.settings.technical.label.maxRecordsPerResponse"
-          tooltip="ui-oai-pmh.settings.technical.tooltip.maxRecordsPerResponse"
+          tooltip={getTooltip(isOaiServiceEnabled, 'ui-oai-pmh.settings.technical.tooltip.maxRecordsPerResponse')}
           component={TextField}
         />
         <RowComponent
           data-test-enable-validation
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="enableValidation"
           label="ui-oai-pmh.settings.technical.label.enableValidation"
-          tooltip="ui-oai-pmh.settings.technical.tooltip.enableValidation"
+          tooltip={getTooltip(isOaiServiceEnabled, 'ui-oai-pmh.settings.technical.tooltip.enableValidation')}
           type="checkbox"
           component={Checkbox}
         />
         <RowComponent
           data-test-formatted-output
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="formattedOutput"
           label="ui-oai-pmh.settings.technical.label.formattedOutput"
-          tooltip="ui-oai-pmh.settings.technical.tooltip.formattedOutput"
+          tooltip={getTooltip(isOaiServiceEnabled, 'ui-oai-pmh.settings.technical.tooltip.formattedOutput')}
           type="checkbox"
           component={Checkbox}
         />
@@ -95,9 +107,6 @@ TechnicalForm.propTypes = {
   pristine: PropTypes.bool,
   submitting: PropTypes.bool,
   handleSubmit: PropTypes.func.isRequired,
-  stripes: PropTypes.shape({
-    hasPerm: PropTypes.func.isRequired,
-  }).isRequired,
 };
 
 export default stripesFinalForm({

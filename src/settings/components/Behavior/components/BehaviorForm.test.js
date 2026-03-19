@@ -24,64 +24,97 @@ const renderBehaviorForm = () => renderWithRouter(
 );
 
 describe('Behavior form', () => {
-  beforeEach(() => {
-    useConfiguration.mockReturnValue({
-      config: undefined,
-      isConfigsLoading: false,
-    });
-  });
-
   afterEach(() => {
     useConfiguration.mockClear();
   });
 
-  it('should be correct behavior title', () => {
-    renderBehaviorForm();
+  describe('when OAI service is disabled', () => {
+    beforeEach(() => {
+      useConfiguration.mockReturnValue({
+        config: undefined,
+        isConfigsLoading: false,
+      });
+    });
 
-    expect(screen.getByText(labelText)).toBeVisible();
-  });
+    it('should be correct behavior title', () => {
+      renderBehaviorForm();
 
-  it('should render with no axe errors', async () => {
-    renderBehaviorForm();
+      expect(screen.getByText(labelText)).toBeVisible();
+    });
 
-    await runAxeTest({
-      rootNode: document.body,
+    it('should render with no axe errors', async () => {
+      renderBehaviorForm();
+
+      await runAxeTest({
+        rootNode: document.body,
+      });
+    });
+
+    it('should show disabled tooltip instead of regular tooltips', () => {
+      renderBehaviorForm();
+
+      expect(screen.getAllByText(/nonGeneral.tooltip.fieldDisabled/).length).toBeGreaterThan(0);
+    });
+
+    it('should render oai notification', () => {
+      renderBehaviorForm();
+
+      expect(screen.getByTestId('oai-notification')).toBeInTheDocument();
+    });
+
+    it('should be enable button save', () => {
+      renderBehaviorForm();
+
+      expect(screen.getByRole('button', { name: /save/ })).toBeEnabled();
     });
   });
 
-  it('should be presented deleted records support', () => {
-    renderBehaviorForm();
+  describe('when OAI service is enabled', () => {
+    beforeEach(() => {
+      useConfiguration.mockReturnValue({
+        config: {
+          configValue: { enableOaiService: true },
+        },
+        isConfigsLoading: false,
+      });
+    });
 
-    expect(screen.getByText(/behavior.tooltip.deletedRecordsSupport/)).toBeVisible();
-  });
+    it('should be presented deleted records support', () => {
+      renderBehaviorForm();
 
-  it('should be presented suppressed records processing', () => {
-    renderBehaviorForm();
+      expect(screen.getByText(/behavior.tooltip.deletedRecordsSupport/)).toBeVisible();
+    });
 
-    expect(screen.getByText(/behavior.tooltip.suppressedRecordsProcessing/)).toBeVisible();
-  });
+    it('should be presented suppressed records processing', () => {
+      renderBehaviorForm();
 
-  it('should be presented errors processing', () => {
-    renderBehaviorForm();
+      expect(screen.getByText(/behavior.tooltip.suppressedRecordsProcessing/)).toBeVisible();
+    });
 
-    expect(screen.getByText(/behavior.tooltip.errorsProcessing/)).toBeVisible();
-  });
+    it('should be presented errors processing', () => {
+      renderBehaviorForm();
 
-  it('should render oai notification', () => {
-    renderBehaviorForm();
+      expect(screen.getByText(/behavior.tooltip.errorsProcessing/)).toBeVisible();
+    });
 
-    expect(screen.getByTestId('oai-notification')).toBeInTheDocument();
-  });
+    it('should not render oai notification', () => {
+      renderBehaviorForm();
 
-  it('should be enable button save', () => {
-    renderBehaviorForm();
+      expect(screen.queryByTestId('oai-notification')).not.toBeInTheDocument();
+    });
 
-    expect(screen.getByRole('button', { name: /save/ })).toBeEnabled();
-  });
+    it('should be presented records source', () => {
+      renderBehaviorForm();
 
-  it('should be presented records source', () => {
-    renderBehaviorForm();
+      expect(screen.getByText(/behavior.tooltip.recordSource/)).toBeVisible();
+    });
 
-    expect(screen.getByText(/behavior.tooltip.recordSource/)).toBeVisible();
+    it('should render with no axe errors', async () => {
+      renderBehaviorForm();
+
+      await runAxeTest({
+        rootNode: document.body,
+      });
+    });
   });
 });

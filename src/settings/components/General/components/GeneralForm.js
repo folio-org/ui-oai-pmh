@@ -23,6 +23,7 @@ import {
   TIME_GRANULARITY_SHORT_FORMAT,
   TIME_GRANULARITY_FULL_FORMAT,
 } from '../../../constants';
+import { getTooltip } from '../../../util';
 import GeneralFormValidator from './GeneralFormValidator';
 import css from '../../common/Form.css';
 
@@ -42,9 +43,14 @@ const GeneralForm = ({
   pristine,
   submitting,
   handleSubmit,
-  form,
+  initialValues,
 }) => {
   const stripes = useStripes();
+
+  const isOaiServiceSavedAsEnabled = !!initialValues?.enableOaiService;
+  const fieldDisabled = !isOaiServiceSavedAsEnabled;
+  const disabledTooltipId = getTooltip(fieldDisabled, 'ui-oai-pmh.settings.general.tooltip.fieldDisabled');
+  const formatter = value => (isOaiServiceSavedAsEnabled ? value : '');
 
   const renderFooter = () => {
     const disabled = pristine || submitting || !stripes.hasPerm('ui-oai-pmh.settings.edit');
@@ -61,11 +67,6 @@ const GeneralForm = ({
     );
   };
 
-  const isOaiServiceEnabled = () => {
-    const { enableOaiService } = form.getState().values;
-    return enableOaiService;
-  };
-
   return (
     <form
       id={GENERAL_FORM_NAME}
@@ -79,7 +80,7 @@ const GeneralForm = ({
         paneTitle={label}
         footer={renderFooter()}
       >
-        <OaiNotification isOaiServiceEnabled={isOaiServiceEnabled()} />
+        <OaiNotification isGeneral isOaiServiceEnabled={isOaiServiceSavedAsEnabled} />
         <RowComponent
           data-test-enable-oai-service
           id="enableOaiService"
@@ -90,35 +91,46 @@ const GeneralForm = ({
         />
         <RowComponent
           data-test-repository-name
-          required
+          required={isOaiServiceSavedAsEnabled}
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="repositoryName"
           label="ui-oai-pmh.settings.general.label.repositoryName"
-          tooltip="ui-oai-pmh.settings.general.tooltip.repositoryName"
+          tooltip={getTooltip(isOaiServiceSavedAsEnabled, 'ui-oai-pmh.settings.general.tooltip.repositoryName')}
           component={TextField}
+          format={formatter}
         />
         <RowComponent
           data-test-base-url
-          required
+          required={isOaiServiceSavedAsEnabled}
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="baseUrl"
           label="ui-oai-pmh.settings.general.label.baseUrl"
-          tooltip="ui-oai-pmh.settings.general.tooltip.baseUrl"
+          tooltip={getTooltip(isOaiServiceSavedAsEnabled, 'ui-oai-pmh.settings.general.tooltip.baseUrl')}
           component={TextField}
+          format={formatter}
         />
         <RowComponent
           data-test-time-granularity
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="timeGranularity"
           label="ui-oai-pmh.settings.general.label.timeGranularity"
-          tooltip="ui-oai-pmh.settings.general.tooltip.timeGranularity"
+          tooltip={getTooltip(isOaiServiceSavedAsEnabled, 'ui-oai-pmh.settings.general.tooltip.timeGranularity')}
           dataOptions={TIME_GRANULARITY_SELECT_VALUES}
           component={Select}
         />
         <RowComponent
           data-test-administrator-email
-          required
+          required={isOaiServiceSavedAsEnabled}
+          disabled={fieldDisabled}
+          disabledTooltip={disabledTooltipId}
           id="administratorEmail"
           label="ui-oai-pmh.settings.general.label.administratorEmail"
-          tooltip="ui-oai-pmh.settings.general.tooltip.administratorEmail"
+          tooltip={getTooltip(isOaiServiceSavedAsEnabled, 'ui-oai-pmh.settings.general.tooltip.administratorEmail')}
           component={TextArea}
+          format={formatter}
         />
       </Pane>
     </form>
@@ -130,9 +142,7 @@ GeneralForm.propTypes = {
   pristine: PropTypes.bool,
   submitting: PropTypes.bool,
   handleSubmit: PropTypes.func.isRequired,
-  form: PropTypes.shape({
-    getState: PropTypes.func.isRequired,
-  }).isRequired,
+  initialValues: PropTypes.object,
 };
 
 export default stripesFinalForm({
