@@ -30,7 +30,6 @@
     "settings.behavior.suppressedRecordsProcessing.false": "Pomiń rekordy ukryte w narzędziach wyszukiwania",
     "settings.behavior.errorsProcessing.200": "Skojarz ze statusem HTTP 200",
     "settings.behavior.errorsProcessing.500": "Skojarz ze statusami błędów HTTP",
-    "settings.all.oaiServiceIsDisabled": "Usługa OAI jest wyłączona. Aby mieć wpływ na funkcje OAI-PMH poprzez ustawienia, należy włączyć usługę OAI w sekcji Ogólne.",
     "settings.all.saveButton.lackPermissions": "Brak niezbędnych uprawnień do edycji ustawień OAI-PMH. Skontaktuj się z administratorem systemu.",
     "settings.all.validationMessage.isNotEmpty": "To pole nie może być puste",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Aby kontynuować, wprowadź liczbę całkowitą większą niż zero",
@@ -130,5 +129,9 @@
     "permission.settings.edit": "Ustawienia (OAI-PMH): możliwość przeglądania i edytowania ustawień",
     "permission.settings.logs.view": "Ustawienia (OAI-PMH): można wyświetlac dzienniki",
     "settings.configuration.update.success": "Setting was successfully updated.",
-    "error.sww": "Something went wrong."
+    "error.sww": "Something went wrong.",
+    "settings.other.oaiServiceIsDisabled": "OAI service is <b>disabled</b>. To affect OAI-PMH features by settings please <b>Enable OAI service</b> in the <b>General</b> section.",
+    "settings.general.oaiServiceIsDisabled": "OAI service is <b>disabled</b>. To affect OAI-PMH features by settings please <b>Enable OAI service</b>.",
+    "settings.general.tooltip.fieldDisabled": "To enable this field, select <b>Enable OAI service</b>.",
+    "settings.nonGeneral.tooltip.fieldDisabled": "To enable this field, select <b>Enable OAI service</b> in the <b>General</b> section."
 }

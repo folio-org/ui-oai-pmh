@@ -30,7 +30,6 @@
     "settings.behavior.suppressedRecordsProcessing.false": "Arama sonuçlarından gizle kayıtlarından bastırılan atlama",
     "settings.behavior.errorsProcessing.200": "HTTP durumu 200 ile ilişkilendir",
     "settings.behavior.errorsProcessing.500": "HTTP hata durumları ile ilişkilendirme",
-    "settings.all.oaiServiceIsDisabled": "OAI hizmeti devre dışı bırakılmıştır. OAI-PMH özelliklerini Ayarlar bölümünde OAI hizmetini etkinleştirerek etkilemek için lütfen.",
     "settings.all.saveButton.lackPermissions": "OAI-PMH Ayarlarını düzenlemek için gerekli izinlere sahip değilsiniz. Lütfen sistem yöneticisi ile iletişime geçin.",
     "settings.all.validationMessage.isNotEmpty": "Bu alan boş bırakılamaz",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Devam etmek için lütfen sıfırdan büyük bir tam sayı girin",
@@ -130,5 +129,9 @@
     "permission.settings.edit": "Ayarlar (OAI-PMH): Ayarları görüntüleyebilir ve düzenleyebilir",
     "permission.settings.logs.view": "Ayarlar (OAI-PMH): Protokolü görüntüleyebilir",
     "settings.configuration.update.success": "Ayarlar başarıyla güncelle.",
-    "error.sww": "Bir şeyler ters gitti."
+    "error.sww": "Bir şeyler ters gitti.",
+    "settings.other.oaiServiceIsDisabled": "OAI service is <b>disabled</b>. To affect OAI-PMH features by settings please <b>Enable OAI service</b> in the <b>General</b> section.",
+    "settings.general.oaiServiceIsDisabled": "OAI service is <b>disabled</b>. To affect OAI-PMH features by settings please <b>Enable OAI service</b>.",
+    "settings.general.tooltip.fieldDisabled": "To enable this field, select <b>Enable OAI service</b>.",
+    "settings.nonGeneral.tooltip.fieldDisabled": "To enable this field, select <b>Enable OAI service</b> in the <b>General</b> section."
 }
