@@ -133,7 +133,7 @@
   "settings.behavior.errorsProcessing.500": "Associate with HTTP error statuses",
 
   "settings.logs.title": "Logs",
-  "settings.logs.head": "Logs are available for completed harvests and kept for 30 days. Time in UTC.",
+  "settings.logs.head": "Logs are available for completed harvests and kept for 30 days based on UTC time. The time displayed in the 'Last update' column is based on the time zone selected in tenant settings.",
   "settings.logs.download": "Download",
 
   "settings.logs.columns.started": "Started",
