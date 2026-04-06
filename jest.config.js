@@ -17,6 +17,8 @@ module.exports = {
   moduleNameMapper: {
     '^.+\\.(css)$': 'identity-obj-proxy',
     '^.+\\.(svg)$': 'identity-obj-proxy',
+    '@module-federation/error-codes/browser': '@module-federation/error-codes/dist/browser.cjs',
+    '@module-federation/error-codes/node': '@module-federation/error-codes/dist/node.cjs',
   },
   testMatch: ['**/(lib|src)/**/?(*.)test.{js,jsx}'],
   testPathIgnorePatterns: ['/node_modules/'],
