@@ -30,7 +30,6 @@
     "settings.behavior.suppressedRecordsProcessing.false": "Přeskočit záznamy vyřazené z vyhledávání",
     "settings.behavior.errorsProcessing.200": "Spojení se stavem HTTP 200",
     "settings.behavior.errorsProcessing.500": "Přiřadit k chybovým stavům HTTP",
-    "settings.all.oaiServiceIsDisabled": "Služba OAI je deaktivována. Chcete-li ovlivnit funkce OAI-PMH pomocí nastavení, aktivujte službu OAI v části Obecné.",
     "settings.all.saveButton.lackPermissions": "Chybí vám potřebná oprávnění k úpravě nastavení OAI-PMH. Kontaktujte prosím správce systému.",
     "settings.all.validationMessage.isNotEmpty": "Toto pole nesmí být prázdné",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Pro pokračování zadejte prosím celé číslo větší než nula.",
@@ -130,5 +129,9 @@
     "permission.settings.edit": "Nastavení (OAI-PMH): Umožňuje zobrazit a upravit nastavení",
     "permission.settings.logs.view": "Nastavení (OAI-PMH): Může zobrazit logy",
     "settings.configuration.update.success": "Nastavení bylo úspěšně aktualizováno.",
-    "error.sww": "Něco se pokazilo."
+    "error.sww": "Něco se pokazilo.",
+    "settings.other.oaiServiceIsDisabled": "Služba OAI je <b>vypnutá</b>. Chcete-li ovlivnit funkce OAI-PMH pomocí nastavení, <b>zapněte službu OAI</b> v části <b>Obecné</b>.",
+    "settings.general.oaiServiceIsDisabled": "Služba OAI je <b>vypnutá</b>. Chcete-li ovlivnit funkce OAI-PMH pomocí nastavení, <b>zapněte službu OAI</b>.",
+    "settings.general.tooltip.fieldDisabled": "Chcete-li toto pole povolit, vyberte možnost <b>Povolit službu OAI</b>.",
+    "settings.nonGeneral.tooltip.fieldDisabled": "Chcete-li toto pole povolit, vyberte v části <b>Obecné</b> možnost <b>Povolit službu OAI</b>."
 }
