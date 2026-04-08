@@ -30,7 +30,6 @@
     "settings.behavior.suppressedRecordsProcessing.false": "تخطي المحجوب من تسجيلات الاكتشاف",
     "settings.behavior.errorsProcessing.200": "إقران بحالة HTTP 200",
     "settings.behavior.errorsProcessing.500": "إقران بحالات خطأ HTTP",
-    "settings.all.oaiServiceIsDisabled": "تم تعطيل خدمة OAI. للتأثير على خصائص OAI-PMH بواسطة الإعدادات، يرجى تفعيل خدمة OAI في القسم العام.",
     "settings.all.saveButton.lackPermissions": "تفتقر إلى الصلاحيات اللازمة لتحرير إعدادات OAI-PMH. يرجى الاتصال بمدير النظام.",
     "settings.all.validationMessage.isNotEmpty": "لا يمكن أن يكون هذا الحقل فارغاً",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "يرجى إدخال رقمًا كاملًا أكبر من صفر للمتابعة",
@@ -130,5 +129,9 @@
     "permission.settings.edit": "الإعدادات (OAI-PMH): إمكانية عرض وتحرير الإعدادات",
     "permission.settings.logs.view": "الإعدادات (OAI-PMH): إمكانية عرض السجلات",
     "settings.configuration.update.success": "Setting was successfully updated.",
-    "error.sww": "Something went wrong."
+    "error.sww": "Something went wrong.",
+    "settings.other.oaiServiceIsDisabled": "OAI service is <b>disabled</b>. To affect OAI-PMH features by settings please <b>Enable OAI service</b> in the <b>General</b> section.",
+    "settings.general.oaiServiceIsDisabled": "OAI service is <b>disabled</b>. To affect OAI-PMH features by settings please <b>Enable OAI service</b>.",
+    "settings.general.tooltip.fieldDisabled": "To enable this field, select <b>Enable OAI service</b>.",
+    "settings.nonGeneral.tooltip.fieldDisabled": "To enable this field, select <b>Enable OAI service</b> in the <b>General</b> section."
 }

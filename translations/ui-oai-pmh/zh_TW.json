@@ -30,7 +30,6 @@
     "settings.behavior.suppressedRecordsProcessing.false": "在探索服務紀錄中略過",
     "settings.behavior.errorsProcessing.200": "HTTP狀態碼: 200",
     "settings.behavior.errorsProcessing.500": "與HTTP錯誤狀態相關聯",
-    "settings.all.oaiServiceIsDisabled": "OAI 服務未啟用。如欲透過設定更改 OAI-PMH 參數，請在「一般」啟用 OAI 服務。",
     "settings.all.saveButton.lackPermissions": "您沒有編輯 OAI-PMH 設定的權限，請聯繫系統管理員。",
     "settings.all.validationMessage.isNotEmpty": "該欄位不能為空",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "請輸入大於0的整數以繼續",
@@ -130,5 +129,9 @@
     "permission.settings.edit": "Settings (OAI-PMH): Can view and edit settings",
     "permission.settings.logs.view": "Settings (OAI-PMH): Can view logs",
     "settings.configuration.update.success": "Setting was successfully updated.",
-    "error.sww": "Something went wrong."
+    "error.sww": "Something went wrong.",
+    "settings.other.oaiServiceIsDisabled": "OAI service is <b>disabled</b>. To affect OAI-PMH features by settings please <b>Enable OAI service</b> in the <b>General</b> section.",
+    "settings.general.oaiServiceIsDisabled": "OAI service is <b>disabled</b>. To affect OAI-PMH features by settings please <b>Enable OAI service</b>.",
+    "settings.general.tooltip.fieldDisabled": "To enable this field, select <b>Enable OAI service</b>.",
+    "settings.nonGeneral.tooltip.fieldDisabled": "To enable this field, select <b>Enable OAI service</b> in the <b>General</b> section."
 }

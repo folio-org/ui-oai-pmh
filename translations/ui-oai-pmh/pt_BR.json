@@ -30,7 +30,6 @@
     "settings.behavior.suppressedRecordsProcessing.false": "Ignorar oculto dos registros da descoberta",
     "settings.behavior.errorsProcessing.200": "Associar ao status HTTP 200",
     "settings.behavior.errorsProcessing.500": "Associar com status de erro HTTP",
-    "settings.all.oaiServiceIsDisabled": "O serviço OAI está desativado. Para terem efeito as alterações nas configurações do OAI-PMH, ative o serviço OAI na seção Geral.",
     "settings.all.saveButton.lackPermissions": "Você não possui as permissões necessárias para editar as configurações do OAI-PMH. Por favor entre em contato com o administrador do sistema.",
     "settings.all.validationMessage.isNotEmpty": "Este campo não pode estar vazio",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Por favor, insira um número inteiro maior que zero para continuar",
@@ -115,7 +114,7 @@
     "settings.behavior.label.recordSource": "Fonte do registro",
     "settings.behavior.tooltip.recordSource": "Fonte do registro",
     "settings.logs.title": "Logs",
-    "settings.logs.head": "Os logs estão disponíveis para harvests concluídos e são mantidos por 30 dias. Hora em UTC.",
+    "settings.logs.head": "Os logs de colheitas concluídas ficam disponíveis e são mantidos por 30 dias, com base no horário UTC. O horário exibido na coluna \"Última atualização\" é baseado no fuso horário selecionado nas configurações do inquilino.",
     "settings.logs.download": "Baixar",
     "settings.logs.columns.started": "Iniciado",
     "settings.logs.columns.lastUpdate": "Última atualização",
@@ -130,5 +129,9 @@
     "permission.settings.edit": "Configurações (OAI-PMH): Pode visualizar e editar configurações",
     "permission.settings.logs.view": "Configurações (OAI-PMH): pode visualizar logs",
     "settings.configuration.update.success": "A configuração foi atualizada com sucesso.",
-    "error.sww": "Algo deu errado."
+    "error.sww": "Algo deu errado.",
+    "settings.other.oaiServiceIsDisabled": "O serviço OAI está <b>desabilitado</b>. Para afetar os recursos do OAI-PMH por configurações, <b>ative o serviço OAI</b> na seção <b>Geral</b>.",
+    "settings.general.oaiServiceIsDisabled": "O serviço OAI está <b>desabilitado</b>. Para afetar os recursos do OAI-PMH pelas configurações, <b>ative o serviço OAI</b>.",
+    "settings.general.tooltip.fieldDisabled": "Para ativar esse campo, selecione <b>Ativar serviço OAI</b>.",
+    "settings.nonGeneral.tooltip.fieldDisabled": "Para ativar este campo, selecione <b>Ativar serviço OAI</b> na seção <b>Geral</b>."
 }

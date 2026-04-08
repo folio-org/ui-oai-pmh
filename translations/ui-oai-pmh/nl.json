@@ -30,7 +30,6 @@
     "settings.behavior.suppressedRecordsProcessing.false": "Skip verbergen in discovery records",
     "settings.behavior.errorsProcessing.200": "Associëren met HTTP-status 200",
     "settings.behavior.errorsProcessing.500": "Associëren met HTTP-foutstatussen",
-    "settings.all.oaiServiceIsDisabled": "OAI-service is uitgeschakeld. Om de OAI-PMH functies via de instellingen te beïnvloeden, schakelt u de OAI service in onder 'Algemeen'.",
     "settings.all.saveButton.lackPermissions": "U hebt niet de vereiste rechten om OAI-PMH-instellingen te bewerken. Neem contact op met de systeembeheerder.",
     "settings.all.validationMessage.isNotEmpty": "Dit veld mag niet leeg zijn",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Voer een geheel getal groter dan nul in om verder te gaan",
@@ -130,5 +129,9 @@
     "permission.settings.edit": "Instellingen (OAI-PMH): Kan instellingen bekijken en bewerken",
     "permission.settings.logs.view": "Instellingen (OAI-PMH): Kan logs bekijken",
     "settings.configuration.update.success": "De instelling is bijgewerkt.",
-    "error.sww": "Er ging iets mis."
+    "error.sww": "Er ging iets mis.",
+    "settings.other.oaiServiceIsDisabled": "OAI-service is <b>uitgeschakeld</b>. Om de OAI-PMH functies te beïnvloeden via de instellingen, <b>OAI service inschakelen</b> in de <b>Algemeen</b> sectie.",
+    "settings.general.oaiServiceIsDisabled": "OAI-service is <b>uitgeschakeld</b>. Om OAI-PMH functies te beïnvloeden door instellingen, <b>OAI service inschakelen</b>.",
+    "settings.general.tooltip.fieldDisabled": "Om dit veld in te schakelen, selecteert u <b>OAI-service inschakelen</b>.",
+    "settings.nonGeneral.tooltip.fieldDisabled": "Om dit veld in te schakelen, selecteert u <b>OAI-service inschakelen</b> in de sectie <b>Algemeen</b>."
 }

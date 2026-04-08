@@ -7,7 +7,7 @@
     "settings.behavior.tooltip.suppressedRecordsProcessing": "Визначає чи приховані записи з позначкою \"для пошукової системи\" пропускаються або додаються до відповіді OAI",
     "settings.behavior.label.errorsProcessing": "Обробка помилок OAI-PMH",
     "settings.behavior.tooltip.errorsProcessing": "Визначає, з якими HTTP-статусами слід пов'язувати помилки рівня OAI.",
-    "settings.general.label.enableOaiService": "Увімкнути службу OAI",
+    "settings.general.label.enableOaiService": "Увімкнути сервіс OAI",
     "settings.general.tooltip.enableOaiService": "Визначає, чи модуль OAI-PMH доступний для репозиторію FOLIO.",
     "settings.general.label.repositoryName": "Назва репозиторію",
     "settings.general.tooltip.repositoryName": "Назва репозиторію FOLIO для збирачів даних.",
@@ -30,7 +30,6 @@
     "settings.behavior.suppressedRecordsProcessing.false": "Пропустити приховане у пошуковій системі",
     "settings.behavior.errorsProcessing.200": "Пов’язати зі статусом HTTP 200",
     "settings.behavior.errorsProcessing.500": "Пов'язати зі статусами помилок HTTP",
-    "settings.all.oaiServiceIsDisabled": "Сервіс OAI вимкнено. Щоб вплинути на функції OAI-PMH за допомогою налаштувань, увімкніть службу OAI у розділі \"Загальне\".",
     "settings.all.saveButton.lackPermissions": "Вам бракує дозволів, необхідних для редагування налаштувань OAI-PMH. Зверніться до системного адміністратора.",
     "settings.all.validationMessage.isNotEmpty": "Це поле не може бути порожнім",
     "settings.all.validationMessage.isIntegerGreaterThanZero": "Щоб продовжити, введіть ціле число, більше нуля",
@@ -129,6 +128,10 @@
     "permission.settings.view": "Налаштування (OAI-PMH): Перегляд",
     "permission.settings.edit": "Налаштування (OAI-PMH): Перегляд та редагування налаштувань",
     "permission.settings.logs.view": "Налаштування (OAI-PMH): Перегляд логів",
-    "settings.configuration.update.success": "Setting was successfully updated.",
-    "error.sww": "Something went wrong."
+    "settings.configuration.update.success": "Налаштування було успішно оновлено.",
+    "error.sww": "Щось пішло не так.",
+    "settings.other.oaiServiceIsDisabled": "Сервіс OAI <b>вимкнено</b>. Щоб вплинути на функції OAI-PMH за допомогою налаштувань, <b>увімкніть сервіс OAI</b> у розділі <b>\"Загальне\"</b>.",
+    "settings.general.oaiServiceIsDisabled": "Сервіс OAI <b>вимкнено</b>. Щоб вплинути на функції OAI-PMH за допомогою налаштувань, <b>увімкніть сервіс OAI</b>.",
+    "settings.general.tooltip.fieldDisabled": "Щоб увімкнути це поле, виберіть <b>Увімкнути сервіс OAI</b>.",
+    "settings.nonGeneral.tooltip.fieldDisabled": "Щоб увімкнути це поле, виберіть <b>Увімкнути сервіс OAI</b> у розділі <b>Загальне</b>."
 }
