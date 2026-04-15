@@ -114,7 +114,7 @@
     "settings.behavior.label.recordSource": "Zdroj záznamu",
     "settings.behavior.tooltip.recordSource": "Zdroj záznamu",
     "settings.logs.title": "Logy",
-    "settings.logs.head": "Logy jsou k dispozici pro dokončené harvest a uchovávají se po dobu 30 dnů. Čas v UTC.",
+    "settings.logs.head": "Logy jsou k dispozici pro dokončený harvest a uchovávají se po dobu 30 dnů podle času UTC. Čas zobrazený ve sloupci \"Poslední aktualizace\" vychází z časového pásma vybraného v nastavení nájemce.",
     "settings.logs.download": "Stáhnout",
     "settings.logs.columns.started": "Zahájeno",
     "settings.logs.columns.lastUpdate": "Poslední aktualizace",
