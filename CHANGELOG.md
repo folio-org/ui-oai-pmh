@@ -2,6 +2,9 @@
 
 ## IN PROGRESS
 
+## [7.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v6.0.0) (2026-04-16)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v6.0.0...v7.0.0)
+
 [UIOAIPMH-95](https://issues.folio.org/browse/UIOAIPMH-95) *BREAKING* UIOAIPMH-95 Replace dependency on mod-configuration with mod-oai-pmh
 [UIOAIPMH-96](https://issues.folio.org/browse/UIOAIPMH-96) Include universal read-only permissions
 [UIOAIPMH-99](https://folio-org.atlassian.net/browse/UIOAIPMH-99) OAI-PMH settings when service is disabled
