@@ -88,6 +88,23 @@ describe('General form', () => {
     });
   });
 
+  describe('when initialValues are not provided and config indicates service is enabled', () => {
+    beforeEach(() => {
+      useConfiguration.mockReturnValue({
+        config: {
+          configValue: { enableOaiService: true },
+        },
+        isConfigsLoading: false,
+      });
+    });
+
+    it('should not render oai notification', () => {
+      renderGeneralForm();
+
+      expect(screen.queryByTestId('oai-notification')).not.toBeInTheDocument();
+    });
+  });
+
   describe('when OAI service is enabled', () => {
     beforeEach(() => {
       useConfiguration.mockReturnValue({
