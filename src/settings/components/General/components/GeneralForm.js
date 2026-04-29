@@ -47,7 +47,7 @@ const GeneralForm = ({
 }) => {
   const stripes = useStripes();
 
-  const isOaiServiceSavedAsEnabled = !!initialValues?.enableOaiService;
+  const isOaiServiceSavedAsEnabled = initialValues?.enableOaiService;
   const fieldDisabled = !isOaiServiceSavedAsEnabled;
   const disabledTooltipId = getTooltip(fieldDisabled, 'ui-oai-pmh.settings.general.tooltip.fieldDisabled');
   const formatter = value => (isOaiServiceSavedAsEnabled ? value : '');
