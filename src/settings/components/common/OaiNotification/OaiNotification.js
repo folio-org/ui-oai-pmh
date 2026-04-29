@@ -12,11 +12,11 @@ import css from './OaiNotification.css';
 const boldTag = (chunks) => <b>{chunks}</b>;
 
 const OaiNotification = ({ isGeneral = false, isOaiServiceEnabled: isOaiServiceEnabledProp }) => {
-  const { config } = useConfiguration(GENERAL_CONFIG_NAME);
+  const { config, isConfigsLoading } = useConfiguration(GENERAL_CONFIG_NAME);
 
   const isEnabled = isOaiServiceEnabledProp ?? config?.configValue?.enableOaiService;
 
-  if (isEnabled) return null;
+  if (isConfigsLoading || isEnabled) return null;
 
   const messageId = isGeneral
     ? 'ui-oai-pmh.settings.general.oaiServiceIsDisabled'
