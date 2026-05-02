@@ -130,8 +130,8 @@
     "permission.settings.logs.view": "Ustawienia (OAI-PMH): można wyświetlac dzienniki",
     "settings.configuration.update.success": "Setting was successfully updated.",
     "error.sww": "Something went wrong.",
-    "settings.other.oaiServiceIsDisabled": "OAI service is <b>disabled</b>. To affect OAI-PMH features by settings please <b>Enable OAI service</b> in the <b>General</b> section.",
-    "settings.general.oaiServiceIsDisabled": "OAI service is <b>disabled</b>. To affect OAI-PMH features by settings please <b>Enable OAI service</b>.",
-    "settings.general.tooltip.fieldDisabled": "To enable this field, select <b>Enable OAI service</b>.",
-    "settings.nonGeneral.tooltip.fieldDisabled": "To enable this field, select <b>Enable OAI service</b> in the <b>General</b> section."
+    "settings.other.oaiServiceIsDisabled": "Usługa OAI jest <b>wyłączona</b>. Aby zmiany w ustawieniach OAI-PMH zaczęły działać <b>włącz usługę OAI</b> w sekcji <b>Ogólne</b>.",
+    "settings.general.oaiServiceIsDisabled": "Usługa OAI jest <b>wyłączona</b>. Aby zmiany w ustawieniach OAI-PMH zaczęły działać <b>włącz usługę OAI</b>.",
+    "settings.general.tooltip.fieldDisabled": "Aby włączyć to pole, wybierz <b>Włącz usługę OAI</b>.",
+    "settings.nonGeneral.tooltip.fieldDisabled": "Aby włączyć to pole, wybierz <b>Włącz usługę OAI</b> w sekcji <b>Ogólne</b>."
 }
