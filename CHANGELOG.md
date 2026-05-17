@@ -2,6 +2,8 @@
 
 ## IN PROGRESS
 
+[UIOAIPMH-98](https://folio-org.atlassian.net/browse/UIOAIPMH-98) Fix error when switch affiliation from OAI-PMH Settings page
+
 ## [7.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v6.0.0) (2026-04-16)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v6.0.0...v7.0.0)
 
