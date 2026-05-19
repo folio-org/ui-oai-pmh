@@ -2,6 +2,7 @@ import { renderHook } from '@testing-library/react-hooks';
 import { useQuery } from 'react-query';
 
 import { useOkapiKy, useNamespace } from '@folio/stripes/core';
+import { useShowCallout } from '@folio/stripes-acq-components';
 
 import '../../../test/jest/__mock__';
 
@@ -23,11 +24,13 @@ describe('useConfiguration', () => {
 
   const mockNamespaceKey = 'test-namespace';
   const mockConfigName = 'general';
+  const mockShowCallout = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
     useOkapiKy.mockReturnValue(mockKy);
     useNamespace.mockReturnValue([mockNamespaceKey]);
+    useShowCallout.mockReturnValue(mockShowCallout);
   });
 
   const mockUseQueryWithData = (rawData, isLoading = false) => {
@@ -146,6 +149,51 @@ describe('useConfiguration', () => {
     const { result } = renderHook(() => useConfiguration(mockConfigName));
 
     expect(result.current.isConfigsLoading).toBe(false);
+  });
+
+  it('should disable refetchOnWindowFocus to prevent spurious errors during affiliation switch', () => {
+    mockUseQueryWithData({ configurationSettings: [] }, false);
+
+    renderHook(() => useConfiguration(mockConfigName));
+
+    const callArgs = useQuery.mock.calls[0][0];
+    expect(callArgs.refetchOnWindowFocus).toBe(false);
+  });
+
+  describe('onError callback', () => {
+    beforeEach(() => {
+      mockUseQueryWithData({ configurationSettings: [] }, false);
+      renderHook(() => useConfiguration(mockConfigName));
+    });
+
+    it('should not show callout for AbortError', () => {
+      const { onError } = useQuery.mock.calls[0][0];
+      const abortError = Object.assign(new Error('The user aborted a request.'), { name: 'AbortError' });
+
+      onError(abortError);
+
+      expect(mockShowCallout).not.toHaveBeenCalled();
+    });
+
+    it('should show error callout for non-abort errors', () => {
+      const { onError } = useQuery.mock.calls[0][0];
+
+      onError(new Error('Network error'));
+
+      expect(mockShowCallout).toHaveBeenCalledWith(
+        expect.objectContaining({ type: 'error' })
+      );
+    });
+
+    it('should show error callout when error has no name property', () => {
+      const { onError } = useQuery.mock.calls[0][0];
+
+      onError(null);
+
+      expect(mockShowCallout).toHaveBeenCalledWith(
+        expect.objectContaining({ type: 'error' })
+      );
+    });
   });
 });
 

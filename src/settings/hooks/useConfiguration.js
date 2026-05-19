@@ -19,7 +19,11 @@ export const useConfiguration = (name) => {
     queryKey: [namespaceKey, name],
     queryFn: () => ky.get('oai-pmh/configuration-settings', { searchParams: { name } }).json(),
     enabled: !!name,
-    onError: () => {
+    refetchOnWindowFocus: false,
+    onError: (error) => {
+      // AbortError means the request was cancelled
+      if (error?.name === 'AbortError') return;
+
       showCallout({
         type: CALLOUT_ERROR_TYPE,
         message: formatMessage({ id: 'ui-oai-pmh.error.sww' }),
