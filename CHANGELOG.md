@@ -2,9 +2,13 @@
 
 ## IN PROGRESS
 
+## [7.0.1] (https://github.com/folio-org/ui-oai-pmh/tree/v7.0.0) (2026-05-21)
+[Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v7.0.0...v7.0.1)
+
+[UIOAIPMH-102](https://folio-org.atlassian.net/browse/UIOAIPMH-102) Prior to displaying actual OAI-PMH settings disabled settings are displayed for a moment
 [UIOAIPMH-98](https://folio-org.atlassian.net/browse/UIOAIPMH-98) Fix error when switch affiliation from OAI-PMH Settings page
 
-## [7.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v6.0.0) (2026-04-16)
+## [7.0.0] (https://github.com/folio-org/ui-oai-pmh/tree/v7.0.0) (2026-04-16)
 [Full Changelog](https://github.com/folio-org/ui-oai-pmh/compare/v6.0.0...v7.0.0)
 
 [UIOAIPMH-95](https://issues.folio.org/browse/UIOAIPMH-95) *BREAKING* UIOAIPMH-95 Replace dependency on mod-configuration with mod-oai-pmh
